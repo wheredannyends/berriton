@@ -1,0 +1,90 @@
+* {
+	transition: 0.3s;
+}
+
+body {
+	font-family: $quicksand;
+	overflow: hidden;
+	background: linear-gradient(to bottom right, #e4effc, #afd0f7) no-repeat center center;
+	background-size: cover;
+	height: 100vh;
+	transition: 0.3s;
+}
+
+main {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	height: 100vh;
+	width: 100vw;
+	max-width: 1000px;
+	max-height: 563px;
+	background-color: $white;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.full-browser-background {
+	position: absolute;
+	top: 20px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 50px;
+	//	transform: rotate(-30deg);
+	//	filter: opacity(0.4);
+	height: auto;
+}
+
+.darken {
+	filter: brightness(0.3);
+}
+
+.hidden {
+	display: none;
+}
+
+.flex {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-around;
+	align-content: center;
+	align-items: center;
+}
+
+button {
+	box-sizing: border-box;
+	padding: 10px;
+	background-color: $main-red;
+	color: $white;
+	font-family: $quicksand;
+	border: none;
+	box-shadow: $material-1;
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: $material-2;
+	}
+	&:focus {
+		outline: none;
+	}
+}
+
+
+/* FONTS */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}

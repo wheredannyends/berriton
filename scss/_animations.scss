@@ -1,0 +1,39 @@
+@keyframes slide-frombottom {
+	0% {
+		transform: translateY(50px);
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes slide-totop {
+	100% {
+		transform: translateY(-50px);
+		opacity: 0;
+	}
+}
+
+
+
+@keyframes char-sel-right-anim {
+	25% {
+		transform: translateX(50px);
+		opacity: 0;
+	}
+	75% {
+		transform: translateX(-50px);
+		opacity: 0;
+	}
+}
+
+@keyframes char-sel-left-anim {
+	25% {
+		transform: translateX(-50px);
+		opacity: 0;
+	}
+	75% {
+		transform: translateX(50px);
+		opacity: 0;
+	}
+}

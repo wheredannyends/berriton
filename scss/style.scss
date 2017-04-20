@@ -1,0 +1,135 @@
+@import "normalize";
+@import "variables";
+@import "settings";
+@import "animations";
+@import "environment-objects";
+@import "pathscene";
+
+/* Loading Screen */
+
+
+
+/* Splash */
+
+.splash-container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	&.flex {
+		height: 100%;
+		flex-direction: column;
+		justify-content: center;
+	}
+	img {
+		width: 25%;
+	}
+	button {
+		width: 20%;
+		margin-top: 5%;
+	}
+}
+
+
+/* Character Selection */
+
+.char-sel-container {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	width: 70%;
+	height: 80%;
+	background-color: rgba(30, 30, 30, 0.3);
+	color: $white;
+	opacity: 0;
+	animation: slide-frombottom 0.5s forwards;
+	.char-sel-preview-container {
+		height: 40%;
+		width: 45%;
+		img {
+			height: 100%;
+			filter: $filter-shadow-1;
+		}
+		i {
+			font-size: 5em;
+			text-shadow: $material-1;
+		}
+		i:hover {
+			transform: translateY(-2px);
+			text-shadow: $material-2;
+		}
+		&.flex {
+			justify-content: space-between;
+		}
+	}
+	.char-sel-inputs {
+		input {
+			border: none;
+			width: 100%;
+			height: 10%;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+			padding: 10px;
+			text-align: center;
+			font-family: $quicksand;
+			box-shadow: $material-1;
+			&:focus {
+				outline: none;
+				transform: translateY(-2px);
+				box-shadow: $material-2;
+			}
+		}
+		button {
+			width: 100%;
+			height: 10%;
+		}
+	}
+	&.flex {
+		height: 80%;
+		flex-direction: column;
+	}
+	.char-sel-inputs.flex {
+		width: 30%;
+		flex-direction: column;
+	}
+}
+
+
+/* HUD */
+
+.hud-container {
+	position: absolute;
+	bottom: 15px;
+	right: 20px;
+	width: 90px;
+	height: auto;
+	.hud-berry {
+		width: 100%;
+		height: auto;
+		filter: $filter-shadow-1;
+	}
+	.hud-berry-count {
+		color: $white;
+		font-size: 2em;
+		position: absolute;
+		top: 48px;
+		text-align: center;
+		width: 100%;
+	}
+}
+
+
+/* Scene */
+
+.scene-container {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
