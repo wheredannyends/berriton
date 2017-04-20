@@ -1,36 +1,19 @@
+/* Settings and Variable Stylesheets */
+
 @import "normalize";
 @import "variables";
 @import "settings";
+
+/* Global Stylesheets */
+
 @import "animations";
+@import "ui-elements";
 @import "environment-objects";
+
+/* Individual Scene Stylesheets */
+
 @import "pathscene";
-
-/* Loading Screen */
-
-
-
-/* Splash */
-
-.splash-container {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	&.flex {
-		height: 100%;
-		flex-direction: column;
-		justify-content: center;
-	}
-	img {
-		width: 25%;
-	}
-	button {
-		width: 20%;
-		margin-top: 5%;
-	}
-}
-
+@import "bridgescene";
 
 /* Character Selection */
 
@@ -96,40 +79,4 @@
 		width: 30%;
 		flex-direction: column;
 	}
-}
-
-
-/* HUD */
-
-.hud-container {
-	position: absolute;
-	bottom: 15px;
-	right: 20px;
-	width: 90px;
-	height: auto;
-	.hud-berry {
-		width: 100%;
-		height: auto;
-		filter: $filter-shadow-1;
-	}
-	.hud-berry-count {
-		color: $white;
-		font-size: 2em;
-		position: absolute;
-		top: 48px;
-		text-align: center;
-		width: 100%;
-	}
-}
-
-
-/* Scene */
-
-.scene-container {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	overflow: hidden;
 }

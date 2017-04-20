@@ -1,0 +1,27 @@
+/* 1.1: Background Mountains Rendered in CSS */
+
+.background-mountain-light,
+.background-mountain-dark {
+	width: 18%;
+	height: 80%;
+	border-radius: 120px;
+}
+
+.background-mountain-light {
+	background-color: $mountain-lightgrey;
+}
+
+.background-mountain-dark {
+	background-color: $mountain-mediumgrey;
+}
+
+
+/* 1.2: Background Treeline Trunks Rendered in CSS */
+
+.background-treeline-trunk {
+	top: 40%;
+	width: 2%;
+	height: 20%;
+	border-radius: 120px;
+	background-color: $forest-brown;
+}

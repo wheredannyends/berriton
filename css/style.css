@@ -1,3 +1,4 @@
+/* Settings and Variable Stylesheets */
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -434,6 +435,14 @@ main {
   background-color: #F0F0F0;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
 
+.scene-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden; }
+
 .full-browser-background {
   position: absolute;
   top: 20px;
@@ -484,6 +493,7 @@ h5 {
 p {
   margin: 0; }
 
+/* Global Stylesheets */
 @keyframes slide-frombottom {
   0% {
     transform: translateY(50px); }
@@ -507,6 +517,65 @@ p {
   75% {
     transform: translateX(50px);
     opacity: 0; } }
+/* Loading Screen */
+/* Splash */
+.splash-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0; }
+  .splash-container.flex {
+    height: 100%;
+    flex-direction: column;
+    justify-content: center; }
+  .splash-container img {
+    width: 25%; }
+  .splash-container button {
+    width: 20%;
+    margin-top: 5%; }
+
+/* HUD */
+.hud-container {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  width: 90px;
+  height: auto; }
+  .hud-container .hud-berry {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.34)); }
+  .hud-container .hud-berry-count {
+    color: #F0F0F0;
+    font-size: 2em;
+    position: absolute;
+    top: 48px;
+    text-align: center;
+    width: 100%; }
+
+/* 1.1: Background Mountains Rendered in CSS */
+.background-mountain-light,
+.background-mountain-dark {
+  width: 18%;
+  height: 80%;
+  border-radius: 120px; }
+
+.background-mountain-light {
+  background-color: #D4DDDC; }
+
+.background-mountain-dark {
+  background-color: #9AA5A5; }
+
+/* 1.2: Background Treeline Trunks Rendered in CSS */
+.background-treeline-trunk {
+  top: 40%;
+  width: 2%;
+  height: 20%;
+  border-radius: 120px;
+  background-color: #605A4C; }
+
+/* Individual Scene Stylesheets */
 .pathscene-mountain-container {
   position: absolute;
   overflow: hidden;
@@ -515,10 +584,7 @@ p {
   width: 100%;
   height: calc(100% - 5%); }
   .pathscene-mountain-container .pathscene-mountain {
-    position: absolute;
-    width: 18%;
-    height: 80%;
-    border-radius: 120px; }
+    position: absolute; }
     .pathscene-mountain-container .pathscene-mountain:nth-child(1) {
       left: -2%;
       top: 2%;
@@ -575,12 +641,7 @@ p {
       right: -3%;
       transform: scale(-1); }
   .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk {
-    position: absolute;
-    top: 40%;
-    width: 2%;
-    height: 20%;
-    border-radius: 120px;
-    background-color: #605A4C; }
+    position: absolute; }
     .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(3) {
       top: 40%;
       left: 30%; }
@@ -655,27 +716,6 @@ p {
       bottom: -11%;
       right: -13%; }
 
-@keyframes pathscene-mountain {
-  50% {
-    transform: translateY(5%); } }
-/* Loading Screen */
-/* Splash */
-.splash-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0; }
-  .splash-container.flex {
-    height: 100%;
-    flex-direction: column;
-    justify-content: center; }
-  .splash-container img {
-    width: 25%; }
-  .splash-container button {
-    width: 20%;
-    margin-top: 5%; }
-
 /* Character Selection */
 .char-sel-container {
   position: absolute;
@@ -727,33 +767,5 @@ p {
   .char-sel-container .char-sel-inputs.flex {
     width: 30%;
     flex-direction: column; }
-
-/* HUD */
-.hud-container {
-  position: absolute;
-  bottom: 15px;
-  right: 20px;
-  width: 90px;
-  height: auto; }
-  .hud-container .hud-berry {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.34)); }
-  .hud-container .hud-berry-count {
-    color: #F0F0F0;
-    font-size: 2em;
-    position: absolute;
-    top: 48px;
-    text-align: center;
-    width: 100%; }
-
-/* Scene */
-.scene-container {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden; }
 
 /*# sourceMappingURL=style.css.map */
