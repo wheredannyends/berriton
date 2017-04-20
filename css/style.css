@@ -612,10 +612,6 @@ p {
     .pathscene-mountain-container .pathscene-mountain:nth-child(7) {
       left: 84%;
       animation-delay: 14s; }
-  .pathscene-mountain-container .pathscene-mountain-light {
-    background-color: #D4DDDC; }
-  .pathscene-mountain-container .pathscene-mountain-dark {
-    background-color: #9AA5A5; }
 
 .pathscene-bg-treeline-container {
   position: absolute;
@@ -715,6 +711,117 @@ p {
       width: 28%;
       bottom: -11%;
       right: -13%; }
+
+.bridgescene {
+  background: linear-gradient(to bottom left, #7AB1F1, #F0F0F0) no-repeat center center;
+  background-size: cover; }
+
+.bridgescene-cloud-container {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+  .bridgescene-cloud-container img {
+    position: absolute; }
+    .bridgescene-cloud-container img:nth-child(1) {
+      width: 40%;
+      top: -10%;
+      left: 7%; }
+    .bridgescene-cloud-container img:nth-child(2) {
+      width: 27%;
+      top: 6%;
+      right: 13%; }
+
+.bridgescene-mountain-container {
+  position: absolute;
+  overflow: hidden;
+  top: 5%;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+  .bridgescene-mountain-container .bridge-mountain {
+    position: absolute; }
+    .bridgescene-mountain-container .bridge-mountain:nth-child(1) {
+      right: 38%;
+      top: 32%;
+      animation-delay: 8s; }
+    .bridgescene-mountain-container .bridge-mountain:nth-child(2) {
+      right: 12%;
+      top: 17%;
+      animation-delay: 8s; }
+    .bridgescene-mountain-container .bridge-mountain:nth-child(3) {
+      right: -2%;
+      top: 2%;
+      animation-delay: 10s; }
+    .bridgescene-mountain-container .bridge-mountain:nth-child(4) {
+      right: 26%;
+      top: 10%;
+      animation-delay: 6s; }
+
+.bridgescene-bg-treeline-container {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+  height: 100%; }
+  .bridgescene-bg-treeline-container img {
+    position: absolute;
+    width: 45%; }
+    .bridgescene-bg-treeline-container img:nth-child(1) {
+      top: 29%;
+      left: -21%;
+      transform: scale(-1); }
+    .bridgescene-bg-treeline-container img:nth-child(2) {
+      top: 40%;
+      right: -9%;
+      transform: scale(-1); }
+    .bridgescene-bg-treeline-container img:nth-child(8) {
+      top: 10%;
+      left: -24%;
+      transform: scale(-1); }
+    .bridgescene-bg-treeline-container img:nth-child(9) {
+      top: 23%;
+      right: -6%;
+      transform: scale(-1); }
+  .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk {
+    position: absolute; }
+    .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(3) {
+      top: 30%;
+      left: 4%; }
+    .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(4) {
+      top: 28%;
+      left: 15%; }
+    .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(5) {
+      top: 45%;
+      right: 29%; }
+    .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(6) {
+      top: 45%;
+      right: 20%; }
+    .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(7) {
+      top: 45%;
+      right: 9%; }
+
+.bridgescene-ground {
+  position: absolute;
+  bottom: -7%;
+  left: -12%;
+  width: 115%; }
+
+.bridgescene-tree-container {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+  height: 100%; }
+  .bridgescene-tree-container .bridgescene-tree {
+    position: absolute; }
+    .bridgescene-tree-container .bridgescene-tree:nth-child(1) {
+      width: 30%;
+      top: -1%;
+      right: -15%; }
+    .bridgescene-tree-container .bridgescene-tree:nth-child(2) {
+      width: 40%;
+      bottom: -65%;
+      right: -15%; }
 
 /* Character Selection */
 .char-sel-container {

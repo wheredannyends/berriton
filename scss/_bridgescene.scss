@@ -1,0 +1,140 @@
+.bridgescene {
+	background: linear-gradient(to bottom left, $main-blue, $white) no-repeat center center;
+	background-size: cover;
+}
+
+.bridgescene-cloud-container {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	img {
+		position: absolute;
+		&:nth-child(1) {
+			width: 40%;
+			top: -10%;
+			left: 7%;
+		}
+		&:nth-child(2) {
+			width: 27%;
+			top: 6%;
+			right: 13%;
+		}
+	}
+}
+
+.bridgescene-mountain-container {
+	position: absolute;
+	overflow: hidden;
+	top: 5%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	.bridge-mountain {
+		position: absolute;
+		&:nth-child(1) {
+			right: 38%;
+			top: 32%;
+			animation-delay: 8s;
+		}
+		&:nth-child(2) {
+			right: 12%;
+			top: 17%;
+			animation-delay: 8s;
+		}
+		&:nth-child(3) {
+			right: -2%;
+			top: 2%;
+			animation-delay: 10s;
+		}
+		
+		&:nth-child(4) {
+			right: 26%;
+			top: 10%;
+			animation-delay: 6s;
+		}
+		
+	}
+}
+
+.bridgescene-bg-treeline-container {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	img {
+		position: absolute;
+		width: 45%;
+		&:nth-child(1) {
+			top: 29%;
+			left: -21%;
+			transform: scale(-1)
+		}
+		&:nth-child(2) {
+			top: 40%;
+			right: -9%;
+			transform: scale(-1)
+		}
+		&:nth-child(8) {
+			top: 10%;
+			left: -24%;
+			transform: scale(-1)
+		}
+		&:nth-child(9) {
+			top: 23%;
+			right: -6%;
+			transform: scale(-1)
+		}
+	}
+	.bridgescene-bg-treeline-trunk {
+		position: absolute;
+		&:nth-child(3) {
+			top: 30%;
+			left: 4%;
+		}
+		&:nth-child(4) {
+			top: 28%;
+			left: 15%;
+		}
+		&:nth-child(5) {
+			top: 45%;
+			right: 29%;
+		}
+		&:nth-child(6) {
+			top: 45%;
+			right: 20%;
+		}
+		&:nth-child(7) {
+			top: 45%;
+			right: 9%;
+		}
+	}
+}
+
+.bridgescene-ground {
+	position: absolute;
+	bottom: -7%;
+	left: -12%;
+	width: 115%;
+}
+
+.bridgescene-tree-container {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	.bridgescene-tree {
+		position: absolute;
+		&:nth-child(1) {
+			width: 30%;
+			top: -1%;
+			right: -15%;
+		}
+		&:nth-child(2) {
+			width: 40%;
+			bottom: -65%;
+			right: -15%;
+		}
+	}
+}
