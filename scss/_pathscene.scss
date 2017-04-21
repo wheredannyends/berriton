@@ -1,55 +1,79 @@
+.pathscene {
+	background: linear-gradient(to bottom left, $main-blue, $white) no-repeat center center;
+	background-size: cover;
+//	opacity: 0;
+}
+
+
 .pathscene-mountain-container {
-	position: absolute;
-	overflow: hidden;
-	top: 5%;
-	left: 0;
-	width: 100%;
-	height: calc(100% - 5%);
 	.pathscene-mountain {
 		position: absolute;
 		&:nth-child(1) {
 			left: -2%;
-			top: 2%;
+			top: 7%;
 			animation-delay: 10s;
 		}
 		&:nth-child(2) {
 			left: 12%;
-			top: 7%;
+			top: 12%;
 			animation-delay: 8s;
 		}
 		&:nth-child(3) {
 			left: 26%;
-			top: 14%;
+			top: 19%;
 			animation-delay: 6s;
 		}
 		&:nth-child(4) {
 			left: 40%;
-			top: 25%;
+			top: 30%;
 			animation-delay: 3s;
 		}
 		&:nth-child(5) {
 			left: 54%;
-			top: 18%;
+			top: 23%;
 			animation-delay: 12s;
 		}
 		&:nth-child(6) {
 			left: 68%;
-			top: 10%;
+			top: 15%;
 			animation-delay: 5s;
 		}
 		&:nth-child(7) {
 			left: 84%;
+			top: 5%;
 			animation-delay: 14s;
 		}
 	}
 }
 
+.pathscene-peak-container {
+	img {
+		position: absolute;
+		width: 50%;
+		&:nth-child(1) {
+			top: 6%;
+			right: -5%;
+		}
+		&:nth-child(2) {
+			width: 70%;
+			top: 8%;
+			left: -15%;
+			transform: scaleX(-1);
+		}
+		&:nth-child(3) {
+			top: 5%;
+			left: -12%;
+			transform: scaleX(-1);
+		}
+		&:nth-child(4) {
+			width: 39%;
+			top: 6%;
+			right: 8%;
+		}
+	}
+}
+
 .pathscene-bg-treeline-container {
-	position: absolute;
-	overflow: hidden;
-	top: 0;
-	width: 100%;
-	height: 100%;
 	img {
 		position: absolute;
 		width: 45%;
@@ -101,11 +125,6 @@
 }
 
 .pathscene-tree-container {
-	position: absolute;
-	overflow: hidden;
-	top: 0;
-	width: 100%;
-	height: 100%;
 	.pathscene-tree {
 		position: absolute;
 		/* Trees Left Side */
@@ -165,4 +184,14 @@
 			right: -13%;
 		}
 	}
+}
+
+#pathscene-pathselect-button-1 {
+	top: 44%;
+	left: 47%;
+}
+
+#pathscene-pathselect-button-2 {
+	top: 70%;
+	left: 22%;
 }

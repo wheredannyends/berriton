@@ -1,0 +1,148 @@
+.houseexteriorscene {
+	background: linear-gradient(to right, $mountain-teal, $main-blue) no-repeat center center;
+	background-size: cover;
+}
+
+.houseexteriorscene-peak-container {
+	img {
+		position: absolute;
+		width: 50%;
+		&:nth-child(1) {
+			top: 5%;
+			left: 0;
+		}
+		&:nth-child(2) {
+			top: 15%;
+			left: -20%;
+		}
+	}
+}
+
+.houseexteriorscene-bg-treeline-container {
+	img {
+		position: absolute;
+		width: 45%;
+		&:nth-child(1) {
+			top: 35%;
+			right: 20%;
+		}
+		&:nth-child(2) {
+			top: 40%;
+			right: -6%;
+			transform: scale(-1)
+		}
+	}
+	.houseexteriorscene-bg-treeline-trunk {
+		position: absolute;
+		&:nth-child(3) {
+			top: 40%;
+			left: 30%;
+		}
+		&:nth-child(4) {
+			top: 40%;
+			left: 20%;
+		}
+		&:nth-child(5) {
+			top: 45%;
+			right: 33%;
+		}
+		&:nth-child(6) {
+			top: 45%;
+			right: 25%;
+		}
+	}
+}
+
+.houseexteriorscene-ground {
+	position: absolute;
+	bottom: -3%;
+	left: -3%;
+	width: 106%;
+}
+
+.houseexteriorscene-tree-back-container {
+	.houseexteriorscene-tree-back {
+		position: absolute;
+		&:nth-child(1) {
+			width: 10%;
+			top: 34%;
+			left: 28%;
+		}
+		&:nth-child(2) {
+			width: 10%;
+			top: 35%;
+			left: 37%;
+			transform: scaleX(-1);
+		}
+		&:nth-child(3) {
+			width: 10%;
+			top: 33%;
+			left: 43%;
+		}
+		&:nth-child(4) {
+			width: 10%;
+			top: 38%;
+			right: 18%;
+		}
+		&:nth-child(5) {
+			width: 12%;
+			top: 37%;
+			right: 4%;
+			transform: scaleX(-1);
+		}
+		&:nth-child(6) {
+			width: 12%;
+			top: 35%;
+			right: -6%;
+		}
+		&:nth-child(7) {
+			width: 14%;
+			top: 33%;
+			right: 10%;
+		}
+	}
+}
+
+.houseexteriorscene-house {
+	position: absolute;
+	width: 30%;
+	top: 17%;
+	right: 26%;
+}
+
+.houseexteriorscene-tree-mid-container {
+	.houseexteriorscene-tree-mid {
+		position: absolute;
+		&:nth-child(1) {
+			width: 14%;
+			top: 25%;
+			left: 34%;
+		}
+		&:nth-child(2) {
+			width: 14%;
+			top: 27%;
+			right: 19%;
+		}
+		&:nth-child(3) {
+			width: 18%;
+			top: 23%;
+			right: -3%;
+		}
+	}
+}
+
+.houseexteriorscene-tree-front-container {
+	.houseexteriorscene-tree-front {
+		position: absolute;
+		&:nth-child(1) {
+			width: 20%;
+			bottom: -11%;
+			right: -10%;
+		}
+		&:nth-child(2) {
+			width: 22%;
+			bottom: -37%;
+			right: 5%;
+		}
+	}
+}

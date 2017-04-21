@@ -48,3 +48,24 @@ charSelLeft.addEventListener("click", function () {
 		charSelPreview.style.animation = "none";
 	}, 500);
 });
+
+var charSelSub = document.getElementById("char-sel-submit"),
+	pathScene = document.getElementById("pathscene");
+
+charSelSub.addEventListener("click", function () {
+	charSelContainer.style.animation = "slide-totop .5s forwards";
+	setTimeout(function(){
+		pathScene.classList.remove("hidden");
+	}, 300);
+	setTimeout(function(){
+		pathScene.style.opacity = "1";
+	}, 500);
+	
+	
+})
+
+// LOADER
+
+$(document).ready(function () {
+	$("#loading-screen").delay(2000).fadeOut(500);
+});

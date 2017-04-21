@@ -435,7 +435,8 @@ main {
   background-color: #F0F0F0;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
 
-.scene-container {
+.scene-container,
+.character-container {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -494,30 +495,80 @@ p {
   margin: 0; }
 
 /* Global Stylesheets */
-@keyframes slide-frombottom {
-  0% {
-    transform: translateY(50px); }
-  100% {
-    opacity: 1; } }
-@keyframes slide-totop {
-  100% {
-    transform: translateY(-50px);
-    opacity: 0; } }
-@keyframes char-sel-right-anim {
-  25% {
-    transform: translateX(50px);
-    opacity: 0; }
-  75% {
-    transform: translateX(-50px);
-    opacity: 0; } }
-@keyframes char-sel-left-anim {
-  25% {
-    transform: translateX(-50px);
-    opacity: 0; }
-  75% {
-    transform: translateX(50px);
-    opacity: 0; } }
 /* Loading Screen */
+.loading-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #F0F0F0;
+  pointer-events: none; }
+  .loading-screen.flex {
+    height: 100%;
+    width: 100%; }
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%; }
+
+.loader {
+  color: #D46D64;
+  font-size: 11px;
+  text-indent: -99999em;
+  margin: 55px auto;
+  position: relative;
+  width: 10em;
+  height: 10em;
+  box-shadow: inset 0 0 0 1em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0); }
+
+.loader:before,
+.loader:after {
+  position: absolute;
+  content: ''; }
+
+.loader:before {
+  width: 5.2em;
+  height: 10.2em;
+  background: #F0F0F0;
+  border-radius: 10.2em 0 0 10.2em;
+  top: -0.1em;
+  left: -0.1em;
+  -webkit-transform-origin: 5.2em 5.1em;
+  transform-origin: 5.2em 5.1em;
+  -webkit-animation: load2 2s infinite ease 1.5s;
+  animation: load2 2s infinite ease 1.5s; }
+
+.loader:after {
+  width: 5.2em;
+  height: 10.2em;
+  background: #F0F0F0;
+  border-radius: 0 10.2em 10.2em 0;
+  top: -0.1em;
+  left: 5.1em;
+  -webkit-transform-origin: 0px 5.1em;
+  transform-origin: 0px 5.1em;
+  -webkit-animation: load2 2s infinite ease;
+  animation: load2 2s infinite ease; }
+
+@-webkit-keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+@keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
 /* Splash */
 .splash-container {
   position: absolute;
@@ -545,7 +596,7 @@ p {
   .hud-container .hud-berry {
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.34)); }
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.36)); }
   .hud-container .hud-berry-count {
     color: #F0F0F0;
     font-size: 2em;
@@ -554,6 +605,42 @@ p {
     text-align: center;
     width: 100%; }
 
+/* Path Select Buttons */
+.pathselect-button-container .pathselect-button {
+  position: absolute;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  .pathselect-button-container .pathselect-button i:nth-child(1) {
+    color: #1E1E1E;
+    opacity: 0.5; }
+  .pathselect-button-container .pathselect-button i:nth-child(2) {
+    color: #F0F0F0; }
+  .pathselect-button-container .pathselect-button:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+@keyframes slide-frombottom {
+  0% {
+    transform: translateY(50px); }
+  100% {
+    opacity: 1; } }
+@keyframes slide-totop {
+  100% {
+    transform: translateY(-50px);
+    opacity: 0; } }
+@keyframes char-sel-right-anim {
+  25% {
+    transform: translateX(50px);
+    opacity: 0; }
+  75% {
+    transform: translateX(-50px);
+    opacity: 0; } }
+@keyframes char-sel-left-anim {
+  25% {
+    transform: translateX(-50px);
+    opacity: 0; }
+  75% {
+    transform: translateX(50px);
+    opacity: 0; } }
 /* 1.1: Background Mountains Rendered in CSS */
 .background-mountain-light,
 .background-mountain-dark {
@@ -575,81 +662,100 @@ p {
   border-radius: 120px;
   background-color: #605A4C; }
 
-/* Individual Scene Stylesheets */
-.pathscene-mountain-container {
+/* NPC Stylesheet */
+.woat-the-goat {
   position: absolute;
-  overflow: hidden;
-  top: 5%;
-  left: 0;
-  width: 100%;
-  height: calc(100% - 5%); }
-  .pathscene-mountain-container .pathscene-mountain {
-    position: absolute; }
-    .pathscene-mountain-container .pathscene-mountain:nth-child(1) {
-      left: -2%;
-      top: 2%;
-      animation-delay: 10s; }
-    .pathscene-mountain-container .pathscene-mountain:nth-child(2) {
-      left: 12%;
-      top: 7%;
-      animation-delay: 8s; }
-    .pathscene-mountain-container .pathscene-mountain:nth-child(3) {
-      left: 26%;
-      top: 14%;
-      animation-delay: 6s; }
-    .pathscene-mountain-container .pathscene-mountain:nth-child(4) {
-      left: 40%;
-      top: 25%;
-      animation-delay: 3s; }
-    .pathscene-mountain-container .pathscene-mountain:nth-child(5) {
-      left: 54%;
-      top: 18%;
-      animation-delay: 12s; }
-    .pathscene-mountain-container .pathscene-mountain:nth-child(6) {
-      left: 68%;
-      top: 10%;
-      animation-delay: 5s; }
-    .pathscene-mountain-container .pathscene-mountain:nth-child(7) {
-      left: 84%;
-      animation-delay: 14s; }
+  top: 36%;
+  left: 23%;
+  width: 20%; }
 
-.pathscene-bg-treeline-container {
+/* Individual Scene Stylesheets */
+.pathscene {
+  background: linear-gradient(to bottom left, #7AB1F1, #F0F0F0) no-repeat center center;
+  background-size: cover; }
+
+.pathscene-mountain-container .pathscene-mountain {
+  position: absolute; }
+  .pathscene-mountain-container .pathscene-mountain:nth-child(1) {
+    left: -2%;
+    top: 7%;
+    animation-delay: 10s; }
+  .pathscene-mountain-container .pathscene-mountain:nth-child(2) {
+    left: 12%;
+    top: 12%;
+    animation-delay: 8s; }
+  .pathscene-mountain-container .pathscene-mountain:nth-child(3) {
+    left: 26%;
+    top: 19%;
+    animation-delay: 6s; }
+  .pathscene-mountain-container .pathscene-mountain:nth-child(4) {
+    left: 40%;
+    top: 30%;
+    animation-delay: 3s; }
+  .pathscene-mountain-container .pathscene-mountain:nth-child(5) {
+    left: 54%;
+    top: 23%;
+    animation-delay: 12s; }
+  .pathscene-mountain-container .pathscene-mountain:nth-child(6) {
+    left: 68%;
+    top: 15%;
+    animation-delay: 5s; }
+  .pathscene-mountain-container .pathscene-mountain:nth-child(7) {
+    left: 84%;
+    top: 5%;
+    animation-delay: 14s; }
+
+.pathscene-peak-container img {
   position: absolute;
-  overflow: hidden;
-  top: 0;
-  width: 100%;
-  height: 100%; }
-  .pathscene-bg-treeline-container img {
-    position: absolute;
-    width: 45%; }
-    .pathscene-bg-treeline-container img:nth-child(1) {
-      top: 35%;
-      left: -3%; }
-    .pathscene-bg-treeline-container img:nth-child(2) {
-      top: 40%;
-      right: -6%;
-      transform: scale(-1); }
-    .pathscene-bg-treeline-container img:nth-child(7) {
-      top: 20%;
-      left: -6%; }
-    .pathscene-bg-treeline-container img:nth-child(8) {
-      top: 23%;
-      right: -3%;
-      transform: scale(-1); }
-  .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk {
-    position: absolute; }
-    .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(3) {
-      top: 40%;
-      left: 30%; }
-    .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(4) {
-      top: 40%;
-      left: 20%; }
-    .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(5) {
-      top: 45%;
-      right: 33%; }
-    .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(6) {
-      top: 45%;
-      right: 25%; }
+  width: 50%; }
+  .pathscene-peak-container img:nth-child(1) {
+    top: 6%;
+    right: -5%; }
+  .pathscene-peak-container img:nth-child(2) {
+    width: 70%;
+    top: 8%;
+    left: -15%;
+    transform: scaleX(-1); }
+  .pathscene-peak-container img:nth-child(3) {
+    top: 5%;
+    left: -12%;
+    transform: scaleX(-1); }
+  .pathscene-peak-container img:nth-child(4) {
+    width: 39%;
+    top: 6%;
+    right: 8%; }
+
+.pathscene-bg-treeline-container img {
+  position: absolute;
+  width: 45%; }
+  .pathscene-bg-treeline-container img:nth-child(1) {
+    top: 35%;
+    left: -3%; }
+  .pathscene-bg-treeline-container img:nth-child(2) {
+    top: 40%;
+    right: -6%;
+    transform: scale(-1); }
+  .pathscene-bg-treeline-container img:nth-child(7) {
+    top: 20%;
+    left: -6%; }
+  .pathscene-bg-treeline-container img:nth-child(8) {
+    top: 23%;
+    right: -3%;
+    transform: scale(-1); }
+.pathscene-bg-treeline-container .pathscene-bg-treeline-trunk {
+  position: absolute; }
+  .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(3) {
+    top: 40%;
+    left: 30%; }
+  .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(4) {
+    top: 40%;
+    left: 20%; }
+  .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(5) {
+    top: 45%;
+    right: 33%; }
+  .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(6) {
+    top: 45%;
+    right: 25%; }
 
 .pathscene-ground {
   position: absolute;
@@ -657,148 +763,154 @@ p {
   left: -3%;
   width: 106%; }
 
-.pathscene-tree-container {
+.pathscene-tree-container .pathscene-tree {
   position: absolute;
-  overflow: hidden;
-  top: 0;
-  width: 100%;
-  height: 100%; }
-  .pathscene-tree-container .pathscene-tree {
-    position: absolute;
-    /* Trees Left Side */
-    /* Trees Right Side */ }
-    .pathscene-tree-container .pathscene-tree:nth-child(1) {
-      width: 12%;
-      top: 32%;
-      left: 20%; }
-    .pathscene-tree-container .pathscene-tree:nth-child(2) {
-      width: 15%;
-      top: 28%;
-      left: 8%; }
-    .pathscene-tree-container .pathscene-tree:nth-child(3) {
-      width: 20%;
-      top: 26%;
-      left: -6%; }
-    .pathscene-tree-container .pathscene-tree:nth-child(4) {
-      width: 30%;
-      bottom: -13%;
-      left: -5%; }
-    .pathscene-tree-container .pathscene-tree:nth-child(5) {
-      width: 12%;
-      top: 32%;
-      right: -2%;
-      transform: scaleX(-1); }
-    .pathscene-tree-container .pathscene-tree:nth-child(6) {
-      width: 13%;
-      top: 35%;
-      right: 24%;
-      transform: scaleX(-1); }
-    .pathscene-tree-container .pathscene-tree:nth-child(7) {
-      width: 14%;
-      top: 42%;
-      right: 11%;
-      transform: scaleX(-1); }
-    .pathscene-tree-container .pathscene-tree:nth-child(8) {
-      width: 20%;
-      top: 38%;
-      right: -3%; }
-    .pathscene-tree-container .pathscene-tree:nth-child(9) {
-      width: 16%;
-      top: 49%;
-      right: 11%;
-      transform: scaleX(-1); }
-    .pathscene-tree-container .pathscene-tree:nth-child(10) {
-      width: 28%;
-      bottom: -11%;
-      right: -13%; }
+  /* Trees Left Side */
+  /* Trees Right Side */ }
+  .pathscene-tree-container .pathscene-tree:nth-child(1) {
+    width: 12%;
+    top: 32%;
+    left: 20%; }
+  .pathscene-tree-container .pathscene-tree:nth-child(2) {
+    width: 15%;
+    top: 28%;
+    left: 8%; }
+  .pathscene-tree-container .pathscene-tree:nth-child(3) {
+    width: 20%;
+    top: 26%;
+    left: -6%; }
+  .pathscene-tree-container .pathscene-tree:nth-child(4) {
+    width: 30%;
+    bottom: -13%;
+    left: -5%; }
+  .pathscene-tree-container .pathscene-tree:nth-child(5) {
+    width: 12%;
+    top: 32%;
+    right: -2%;
+    transform: scaleX(-1); }
+  .pathscene-tree-container .pathscene-tree:nth-child(6) {
+    width: 13%;
+    top: 35%;
+    right: 24%;
+    transform: scaleX(-1); }
+  .pathscene-tree-container .pathscene-tree:nth-child(7) {
+    width: 14%;
+    top: 42%;
+    right: 11%;
+    transform: scaleX(-1); }
+  .pathscene-tree-container .pathscene-tree:nth-child(8) {
+    width: 20%;
+    top: 38%;
+    right: -3%; }
+  .pathscene-tree-container .pathscene-tree:nth-child(9) {
+    width: 16%;
+    top: 49%;
+    right: 11%;
+    transform: scaleX(-1); }
+  .pathscene-tree-container .pathscene-tree:nth-child(10) {
+    width: 28%;
+    bottom: -11%;
+    right: -13%; }
+
+#pathscene-pathselect-button-1 {
+  top: 44%;
+  left: 47%; }
+
+#pathscene-pathselect-button-2 {
+  top: 70%;
+  left: 22%; }
 
 .bridgescene {
   background: linear-gradient(to bottom left, #7AB1F1, #F0F0F0) no-repeat center center;
   background-size: cover; }
 
-.bridgescene-cloud-container {
-  position: absolute;
-  width: 100%;
-  height: 100%; }
-  .bridgescene-cloud-container img {
-    position: absolute; }
-    .bridgescene-cloud-container img:nth-child(1) {
-      width: 40%;
-      top: -10%;
-      left: 7%; }
-    .bridgescene-cloud-container img:nth-child(2) {
-      width: 27%;
-      top: 6%;
-      right: 13%; }
+.bridgescene-cloud-container img {
+  position: absolute; }
+  .bridgescene-cloud-container img:nth-child(1) {
+    width: 40%;
+    top: -10%;
+    left: 7%;
+    animation: cloud-movement 12s infinite; }
+  .bridgescene-cloud-container img:nth-child(2) {
+    width: 27%;
+    top: 6%;
+    right: 13%;
+    animation: cloud-movement 7s infinite; }
 
-.bridgescene-mountain-container {
-  position: absolute;
-  overflow: hidden;
-  top: 5%;
-  left: 0;
-  width: 100%;
-  height: 100%; }
-  .bridgescene-mountain-container .bridge-mountain {
-    position: absolute; }
-    .bridgescene-mountain-container .bridge-mountain:nth-child(1) {
-      right: 38%;
-      top: 32%;
-      animation-delay: 8s; }
-    .bridgescene-mountain-container .bridge-mountain:nth-child(2) {
-      right: 12%;
-      top: 17%;
-      animation-delay: 8s; }
-    .bridgescene-mountain-container .bridge-mountain:nth-child(3) {
-      right: -2%;
-      top: 2%;
-      animation-delay: 10s; }
-    .bridgescene-mountain-container .bridge-mountain:nth-child(4) {
-      right: 26%;
-      top: 10%;
-      animation-delay: 6s; }
+@keyframes cloud-movement {
+  50% {
+    transform: translateY(7%); } }
+.bridgescene-mountain-container .bridge-mountain {
+  position: absolute; }
+  .bridgescene-mountain-container .bridge-mountain:nth-child(1) {
+    right: 38%;
+    top: 37%;
+    animation-delay: 8s; }
+  .bridgescene-mountain-container .bridge-mountain:nth-child(2) {
+    right: 12%;
+    top: 22%;
+    animation-delay: 8s; }
+  .bridgescene-mountain-container .bridge-mountain:nth-child(3) {
+    right: -2%;
+    top: 7%;
+    animation-delay: 10s; }
+  .bridgescene-mountain-container .bridge-mountain:nth-child(4) {
+    right: 26%;
+    top: 15%;
+    animation-delay: 6s; }
 
-.bridgescene-bg-treeline-container {
+.bridgescene-peak-container img {
   position: absolute;
-  overflow: hidden;
-  top: 0;
-  width: 100%;
-  height: 100%; }
-  .bridgescene-bg-treeline-container img {
-    position: absolute;
-    width: 45%; }
-    .bridgescene-bg-treeline-container img:nth-child(1) {
-      top: 29%;
-      left: -21%;
-      transform: scale(-1); }
-    .bridgescene-bg-treeline-container img:nth-child(2) {
-      top: 40%;
-      right: -9%;
-      transform: scale(-1); }
-    .bridgescene-bg-treeline-container img:nth-child(8) {
-      top: 10%;
-      left: -24%;
-      transform: scale(-1); }
-    .bridgescene-bg-treeline-container img:nth-child(9) {
-      top: 23%;
-      right: -6%;
-      transform: scale(-1); }
-  .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk {
-    position: absolute; }
-    .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(3) {
-      top: 30%;
-      left: 4%; }
-    .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(4) {
-      top: 28%;
-      left: 15%; }
-    .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(5) {
-      top: 45%;
-      right: 29%; }
-    .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(6) {
-      top: 45%;
-      right: 20%; }
-    .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(7) {
-      top: 45%;
-      right: 9%; }
+  width: 50%; }
+  .bridgescene-peak-container img:nth-child(1) {
+    top: -3%;
+    right: -20%;
+    transform: scaleX(-1); }
+  .bridgescene-peak-container img:nth-child(2) {
+    width: 50%;
+    top: 25%;
+    right: 10%; }
+  .bridgescene-peak-container img:nth-child(3) {
+    width: 30%;
+    top: 10%;
+    right: 8%; }
+
+.bridgescene-bg-treeline-container img {
+  position: absolute;
+  width: 45%; }
+  .bridgescene-bg-treeline-container img:nth-child(1) {
+    top: 29%;
+    left: -21%;
+    transform: scale(-1); }
+  .bridgescene-bg-treeline-container img:nth-child(2) {
+    top: 40%;
+    right: -9%;
+    transform: scale(-1); }
+  .bridgescene-bg-treeline-container img:nth-child(8) {
+    top: 10%;
+    left: -24%;
+    transform: scale(-1); }
+  .bridgescene-bg-treeline-container img:nth-child(9) {
+    top: 23%;
+    right: -6%;
+    transform: scale(-1); }
+.bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk {
+  position: absolute; }
+  .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(3) {
+    top: 30%;
+    left: 4%; }
+  .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(4) {
+    top: 28%;
+    left: 15%; }
+  .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(5) {
+    top: 45%;
+    right: 29%; }
+  .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(6) {
+    top: 45%;
+    right: 20%; }
+  .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(7) {
+    top: 45%;
+    right: 9%; }
 
 .bridgescene-ground {
   position: absolute;
@@ -806,22 +918,290 @@ p {
   left: -12%;
   width: 115%; }
 
-.bridgescene-tree-container {
+.bridgescene-tree {
   position: absolute;
-  overflow: hidden;
-  top: 0;
-  width: 100%;
-  height: 100%; }
-  .bridgescene-tree-container .bridgescene-tree {
+  width: 30%;
+  top: -1%;
+  right: -15%; }
+
+.bridgescene-bigbush {
+  position: absolute;
+  width: 30%;
+  bottom: -12%;
+  right: -5%; }
+
+.wazow {
+  position: absolute;
+  top: 40%;
+  left: 38%;
+  width: 18%; }
+
+.houseexteriorscene {
+  background: linear-gradient(to right, #366877, #7AB1F1) no-repeat center center;
+  background-size: cover; }
+
+.houseexteriorscene-peak-container img {
+  position: absolute;
+  width: 50%; }
+  .houseexteriorscene-peak-container img:nth-child(1) {
+    top: 5%;
+    left: 0; }
+  .houseexteriorscene-peak-container img:nth-child(2) {
+    top: 15%;
+    left: -20%; }
+
+.houseexteriorscene-bg-treeline-container img {
+  position: absolute;
+  width: 45%; }
+  .houseexteriorscene-bg-treeline-container img:nth-child(1) {
+    top: 35%;
+    right: 20%; }
+  .houseexteriorscene-bg-treeline-container img:nth-child(2) {
+    top: 40%;
+    right: -6%;
+    transform: scale(-1); }
+.houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk {
+  position: absolute; }
+  .houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk:nth-child(3) {
+    top: 40%;
+    left: 30%; }
+  .houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk:nth-child(4) {
+    top: 40%;
+    left: 20%; }
+  .houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk:nth-child(5) {
+    top: 45%;
+    right: 33%; }
+  .houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk:nth-child(6) {
+    top: 45%;
+    right: 25%; }
+
+.houseexteriorscene-ground {
+  position: absolute;
+  bottom: -3%;
+  left: -3%;
+  width: 106%; }
+
+.houseexteriorscene-tree-back-container .houseexteriorscene-tree-back {
+  position: absolute; }
+  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(1) {
+    width: 10%;
+    top: 34%;
+    left: 28%; }
+  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(2) {
+    width: 10%;
+    top: 35%;
+    left: 37%;
+    transform: scaleX(-1); }
+  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(3) {
+    width: 10%;
+    top: 33%;
+    left: 43%; }
+  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(4) {
+    width: 10%;
+    top: 38%;
+    right: 18%; }
+  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(5) {
+    width: 12%;
+    top: 37%;
+    right: 4%;
+    transform: scaleX(-1); }
+  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(6) {
+    width: 12%;
+    top: 35%;
+    right: -6%; }
+  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(7) {
+    width: 14%;
+    top: 33%;
+    right: 10%; }
+
+.houseexteriorscene-house {
+  position: absolute;
+  width: 30%;
+  top: 17%;
+  right: 26%; }
+
+.houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid {
+  position: absolute; }
+  .houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid:nth-child(1) {
+    width: 14%;
+    top: 25%;
+    left: 34%; }
+  .houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid:nth-child(2) {
+    width: 14%;
+    top: 27%;
+    right: 19%; }
+  .houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid:nth-child(3) {
+    width: 18%;
+    top: 23%;
+    right: -3%; }
+
+.houseexteriorscene-tree-front-container .houseexteriorscene-tree-front {
+  position: absolute; }
+  .houseexteriorscene-tree-front-container .houseexteriorscene-tree-front:nth-child(1) {
+    width: 20%;
+    bottom: -11%;
+    right: -10%; }
+  .houseexteriorscene-tree-front-container .houseexteriorscene-tree-front:nth-child(2) {
+    width: 22%;
+    bottom: -37%;
+    right: 5%; }
+
+.highwayscene {
+  background: linear-gradient(to bottom left, #5F5F9E, #366877) no-repeat center center;
+  background-size: cover; }
+  .highwayscene .highwayscene-background-mountain {
+    position: absolute;
+    top: -20%;
+    left: -5%;
+    width: 50%; }
+  .highwayscene .highwayscene-forest-ground {
+    position: absolute;
+    bottom: -15%;
+    left: -15%;
+    width: 60%; }
+  .highwayscene .highwayscene-ground {
+    position: absolute;
+    bottom: -15%;
+    left: -5%;
+    width: 110%; }
+
+.highwayscene-peak-container img {
+  position: absolute;
+  width: 40%; }
+  .highwayscene-peak-container img:nth-child(1) {
+    top: 24%;
+    right: 25%;
+    transform: scaleX(-1); }
+  .highwayscene-peak-container img:nth-child(2) {
+    top: 17%;
+    right: 8%; }
+  .highwayscene-peak-container img:nth-child(3) {
+    top: 36%;
+    right: 38%;
+    width: 35%; }
+  .highwayscene-peak-container img:nth-child(4) {
+    top: 29%;
+    right: -3%;
+    width: 20%; }
+
+.highwayscene-fore-treeline-container img {
+  position: absolute;
+  width: 10%; }
+  .highwayscene-fore-treeline-container img:nth-child(1) {
+    bottom: -1%;
+    left: 10%; }
+  .highwayscene-fore-treeline-container img:nth-child(2) {
+    bottom: -3%;
+    left: -2%; }
+  .highwayscene-fore-treeline-container img:nth-child(3) {
+    bottom: -4%;
+    left: 5%; }
+  .highwayscene-fore-treeline-container img:nth-child(4) {
+    bottom: -6%;
+    left: 13%; }
+  .highwayscene-fore-treeline-container img:nth-child(5) {
+    bottom: -8%;
+    left: 2%; }
+  .highwayscene-fore-treeline-container img:nth-child(6) {
+    bottom: -11%;
+    left: 17%; }
+  .highwayscene-fore-treeline-container img:nth-child(7) {
+    width: 25%;
+    bottom: -25%;
+    right: -10%; }
+
+.highwayscene-bg-treeline-container img {
+  position: absolute; }
+  .highwayscene-bg-treeline-container img:nth-child(1) {
+    width: 10%;
+    top: 40%;
+    right: -5%; }
+  .highwayscene-bg-treeline-container img:nth-child(2) {
+    width: 12%;
+    top: 37%;
+    right: -1%;
+    transform: scaleX(-1); }
+
+.summitscene {
+  background: linear-gradient(to bottom left, #5F5F9E, #366877) no-repeat center center;
+  background-size: cover; }
+  .summitscene .summitscene-ground {
+    position: absolute;
+    bottom: -3%;
+    left: -3%;
+    width: 105%; }
+  .summitscene .summitscene-mountain-container img {
     position: absolute; }
-    .bridgescene-tree-container .bridgescene-tree:nth-child(1) {
-      width: 30%;
-      top: -1%;
-      right: -15%; }
-    .bridgescene-tree-container .bridgescene-tree:nth-child(2) {
-      width: 40%;
-      bottom: -65%;
-      right: -15%; }
+    .summitscene .summitscene-mountain-container img:nth-child(1) {
+      top: -13%;
+      right: 10%;
+      width: 80%; }
+    .summitscene .summitscene-mountain-container img:nth-child(2) {
+      top: -15%;
+      left: -17%;
+      width: 50%; }
+    .summitscene .summitscene-mountain-container img:nth-child(3) {
+      top: -11%;
+      right: -10%;
+      width: 50%; }
+  .summitscene .summitscene-bg-foliage-container img {
+    position: absolute; }
+    .summitscene .summitscene-bg-foliage-container img:nth-child(1) {
+      top: 27%;
+      left: 8%;
+      width: 14%; }
+    .summitscene .summitscene-bg-foliage-container img:nth-child(2) {
+      top: 9%;
+      right: 30%;
+      width: 14%; }
+  .summitscene .summitscene-smallrock-container img {
+    position: absolute; }
+    .summitscene .summitscene-smallrock-container img:nth-child(1) {
+      top: 44%;
+      left: 4%;
+      width: 4%; }
+    .summitscene .summitscene-smallrock-container img:nth-child(2) {
+      top: 45%;
+      left: -1%;
+      width: 6%; }
+    .summitscene .summitscene-smallrock-container img:nth-child(3) {
+      top: 47%;
+      left: 3%;
+      width: 6%; }
+    .summitscene .summitscene-smallrock-container img:nth-child(4) {
+      top: 52%;
+      left: 1%;
+      width: 4%; }
+    .summitscene .summitscene-smallrock-container img:nth-child(5) {
+      top: 56%;
+      left: 3%;
+      width: 2%; }
+    .summitscene .summitscene-smallrock-container img:nth-child(6) {
+      bottom: 35%;
+      right: 29%;
+      width: 2%; }
+    .summitscene .summitscene-smallrock-container img:nth-child(7) {
+      bottom: 30%;
+      right: 31%;
+      width: 6%; }
+    .summitscene .summitscene-smallrock-container img:nth-child(8) {
+      bottom: 29%;
+      right: 28%;
+      width: 4%; }
+  .summitscene .summitscene-fg-bush-container img {
+    position: absolute; }
+    .summitscene .summitscene-fg-bush-container img:nth-child(1) {
+      bottom: 22%;
+      right: 7%;
+      width: 16%; }
+    .summitscene .summitscene-fg-bush-container img:nth-child(2) {
+      bottom: -3%;
+      left: -5%;
+      width: 18%; }
+    .summitscene .summitscene-fg-bush-container img:nth-child(3) {
+      bottom: -13%;
+      left: 8%;
+      width: 18%; }
 
 /* Character Selection */
 .char-sel-container {
@@ -842,7 +1222,7 @@ p {
     width: 45%; }
     .char-sel-container .char-sel-preview-container img {
       height: 100%;
-      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.34)); }
+      filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.36)); }
     .char-sel-container .char-sel-preview-container i {
       font-size: 5em;
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }

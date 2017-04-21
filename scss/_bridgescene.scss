@@ -4,64 +4,79 @@
 }
 
 .bridgescene-cloud-container {
-	position: absolute;
-	width: 100%;
-	height: 100%;
 	img {
 		position: absolute;
 		&:nth-child(1) {
 			width: 40%;
 			top: -10%;
 			left: 7%;
+			animation: cloud-movement 12s infinite;
 		}
 		&:nth-child(2) {
 			width: 27%;
 			top: 6%;
 			right: 13%;
+			animation: cloud-movement 7s infinite;
 		}
+	}
+}
+
+@keyframes cloud-movement {
+	50% {
+		transform: translateY(7%);
 	}
 }
 
 .bridgescene-mountain-container {
-	position: absolute;
-	overflow: hidden;
-	top: 5%;
-	left: 0;
-	width: 100%;
-	height: 100%;
 	.bridge-mountain {
 		position: absolute;
 		&:nth-child(1) {
 			right: 38%;
-			top: 32%;
+			top: 37%;
 			animation-delay: 8s;
 		}
 		&:nth-child(2) {
 			right: 12%;
-			top: 17%;
+			top: 22%;
 			animation-delay: 8s;
 		}
 		&:nth-child(3) {
 			right: -2%;
-			top: 2%;
+			top: 7%;
 			animation-delay: 10s;
 		}
-		
 		&:nth-child(4) {
 			right: 26%;
-			top: 10%;
+			top: 15%;
 			animation-delay: 6s;
 		}
-		
 	}
 }
 
+.bridgescene-peak-container {
+	img {
+		position: absolute;
+		width: 50%;
+		&:nth-child(1) {
+			top: -3%;
+			right: -20%;
+			transform: scaleX(-1);
+		}
+		&:nth-child(2) {
+			width: 50%;
+			top: 25%;
+			right: 10%;
+		}
+		&:nth-child(3) {
+			width: 30%;
+			top: 10%;
+			right: 8%;
+		}
+	}
+}
+
+
 .bridgescene-bg-treeline-container {
-	position: absolute;
-	overflow: hidden;
-	top: 0;
-	width: 100%;
-	height: 100%;
 	img {
 		position: absolute;
 		width: 45%;
@@ -118,23 +133,23 @@
 	width: 115%;
 }
 
-.bridgescene-tree-container {
+.bridgescene-tree {
 	position: absolute;
-	overflow: hidden;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	.bridgescene-tree {
-		position: absolute;
-		&:nth-child(1) {
-			width: 30%;
-			top: -1%;
-			right: -15%;
-		}
-		&:nth-child(2) {
-			width: 40%;
-			bottom: -65%;
-			right: -15%;
-		}
-	}
+	width: 30%;
+	top: -1%;
+	right: -15%;
+}
+
+.bridgescene-bigbush {
+	position: absolute;
+	width: 30%;
+	bottom: -12%;
+	right: -5%;
+}
+
+.wazow {
+	position: absolute;
+	top: 40%;
+	left: 38%;
+	width: 18%;
 }

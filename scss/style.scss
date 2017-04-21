@@ -6,14 +6,21 @@
 
 /* Global Stylesheets */
 
-@import "animations";
 @import "ui-elements";
+@import "animations";
 @import "environment-objects";
+
+/* NPC Stylesheet */
+
+@import "npc";
 
 /* Individual Scene Stylesheets */
 
 @import "pathscene";
 @import "bridgescene";
+@import "houseexteriorscene";
+@import "highwayscene";
+@import "summitscene";
 
 /* Character Selection */
 
