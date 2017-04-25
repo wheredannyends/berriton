@@ -1,6 +1,7 @@
 .bridgescene {
 	background: linear-gradient(to bottom left, $main-blue, $white) no-repeat center center;
 	background-size: cover;
+	opacity: 0;
 }
 
 .bridgescene-cloud-container {
@@ -147,7 +148,7 @@
 	right: -5%;
 }
 
-.wazow {
+.brent {
 	position: absolute;
 	top: 40%;
 	left: 38%;

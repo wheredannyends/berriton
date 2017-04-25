@@ -1,6 +1,7 @@
 .highwayscene {
 	background: linear-gradient(to bottom left, $mountain-blue, $mountain-teal) no-repeat center center;
 	background-size: cover;
+	opacity: 0;
 	.highwayscene-background-mountain {
 		position: absolute;
 		top: -20%;

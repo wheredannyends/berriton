@@ -1,6 +1,7 @@
 .summitscene {
 	background: linear-gradient(to bottom left, $mountain-blue, $mountain-teal) no-repeat center center;
 	background-size: cover;
+	opacity: 0;
 	.summitscene-ground {
 		position: absolute;
 		bottom: -3%;

@@ -1,0 +1,191 @@
+        #splash_sky {
+            position: absolute;
+            width: 110%;
+            top: -1%;
+            left: 0%;
+        }
+        
+//        #splash_display {
+//            position: absolute;
+//            width: 1600px;
+//            height: 900px;
+//            background-color: cornsilk;
+//            z-index: -1;
+//            overflow: hidden;
+//        }
+        #splash_cloud1 {
+            position: absolute;
+            top: 20%;
+            left: 5%;
+            width: 20%;
+            animation: splashcloud1 5s forwards;
+        }
+        #splash_cloud2 {
+            position: absolute;
+            top: -5%;
+            left: 20%;
+            width: 30%;
+            animation: splashcloud2 5s forwards;
+        }
+        #splash_cloud3 {
+            position: absolute;
+            top: 5%;
+            left: 60%;
+            width: 50%;
+            animation: splashcloud3 5s forwards;
+        }
+        #splash_mountains {
+            position: absolute;
+            top: 35%;
+            left: -10%;
+            width: 100%;
+            animation: splashmountains 2s forwards;
+        }
+        #splash_stone {
+            position: absolute;
+            top: 45%;
+            left: -10%;
+            width: 110%;
+            animation: splashstone 3s forwards;
+        }
+        #splash_forest {
+            position: absolute;
+            top: 35%;
+            left: -10%;
+            width: 110%;
+            animation: splashforest 4s forwards;
+        }
+        #splash_logo {
+            position: absolute;
+            top: 100%;
+            left: 38%;
+            width: 10%;
+            animation: splashlogo 4s forwards;
+        }
+        #splashbut {
+            position: absolute;
+            opacity: 0;
+            top: 62%;
+            left: 48%;
+            width: 3%;
+            height: 2%;
+            font-size: 70%;
+            animation: splashbutton 5s forwards;
+            border-color: rgb(212, 109, 100);
+            background-color: rgba(212, 109, 100, 0.1);
+            color: black;
+            font-weight: normal;
+            border-style: solid;
+            border-width: 5px;
+            transition: 0.2s;
+        }
+        #splashbut:hover {
+            background-color: rgba(212, 109, 100, 1);
+            color: white;
+        }
+        
+        
+        @keyframes splashcloud1 {
+            0% {
+                top: 20%;
+                left: 5%;
+                width: 20%;
+            }
+            100% {
+                top: 45%;
+                left: -30%;
+                width: 30%;
+            }
+        }
+        
+        @keyframes splashcloud2 {
+            0% {
+                top: -5%;
+                left: 20%;
+                width: 30%;
+            }
+            100% {
+                top: 5%;
+                left: -10%;
+                width: 40%;
+            }
+        }
+        @keyframes splashcloud3 {
+            0% {
+                top: 5%;
+                left: 60%;
+                width: 50%;
+            }
+            100% {
+                top: 15%;
+                left: 80%;
+                width: 70%;
+            }
+        }
+         @keyframes splashmountains {
+            0% {
+                top: 35%;
+                left: -10%;
+                width: 100%;
+            }
+            100% {
+                top: 63%;
+                left: -135%;
+                width: 200%;
+            }
+        }
+        @keyframes splashstone {
+            0% {
+                top: 45%;
+                left: -10%;
+                width: 110%;
+            }
+            100% {
+                top: 57%;
+                left: -20%;
+                width: 200%;
+            }
+        }
+        @keyframes splashforest {
+            0% {
+                top: 35%;
+                left: -10%;
+                width: 110%;
+            }
+            100% {
+                top: 63%;
+                left: -20%;
+                width: 140%;
+            }
+        }
+        @keyframes splashlogo {
+            66% {
+                top: 100%;
+                left: 44%;
+                width: 10%;
+            }
+            100% {
+                top: 6%;
+                left: 37%;
+                width: 25%;
+            }
+        }
+        @keyframes splashbutton {
+            75% {
+                opacity: 0;
+                top: 62%;
+                left: 48%;
+                width: 3%;
+                height: 2%;
+                font-size: 70%;
+            }
+            100% {
+                opacity: 1;
+                top: 62%;
+                left: 42%;
+                width: 15%;
+                height: 6%;
+                font-size: 150%;
+            }
+        }
+        

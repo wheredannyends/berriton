@@ -13,6 +13,22 @@
 
 <body>
 
+	<!--
+	
+	TABLE OF CONTENTS
+	
+	0.1 - Splash Container
+	0.2 - Character Selection
+	
+	
+	1.1 - Path Scene
+	1.2 - Bridge Scene
+	1.3 - House Exterior Scene
+	1.4 - Highway Scene
+	1.5 - Summit Scene
+	 
+	-->
+
 	<img src="images/berriton_logo.svg" alt="Berriton Logo" class="full-browser-background" id="berriton-button" />
 
 	<main>
@@ -39,25 +55,28 @@
 
 		</section>
 
-		<section class="hud-container hidden" id="hud-container">
-			<img src="images/hud-berry.svg" alt="Berry Count" class="hud-berry" id="hud-berry">
-			<p class="hud-berry-count" id="hud-berry-count">10</p>
-		</section>
-
-
+		<!-- 1.1 - Path Scene -->
 
 		<section class="pathscene scene-container hidden" id="pathscene">
 
-			<div class="pathscene-mountain-container">
+			<div class="pathscene-mountain-container hidden">
 				<article class="pathscene-mountain background-mountain-light"></article>
-				<article class="pathscene-mountain background-mountain-dark" ></article>
+				<article class="pathscene-mountain background-mountain-dark"></article>
 				<article class="pathscene-mountain background-mountain-light"></article>
-				<article class="pathscene-mountain background-mountain-dark" ></article>
+				<article class="pathscene-mountain background-mountain-dark"></article>
 				<article class="pathscene-mountain background-mountain-light"></article>
-				<article class="pathscene-mountain background-mountain-dark" ></article>
+				<article class="pathscene-mountain background-mountain-dark"></article>
 				<article class="pathscene-mountain background-mountain-light"></article>
 			</div>
-			
+
+			<div class="pathscene-peak-container">
+
+				<img src="images/environment-objects/background-peak3.svg" alt="Path Scene Peak 2" class="pathscene-peak2">
+				<img src="images/environment-objects/background-peak1.svg" alt="Path Scene Peak 3" class="pathscene-peak3">
+				<img src="images/environment-objects/background-peak2.svg" alt="Path Scene Peak 1" class="pathscene-peak1">
+				<img src="images/environment-objects/background-peak4.svg" alt="Path Scene Peak 4" class="pathscene-peak4">
+			</div>
+
 			<div class="pathscene-bg-treeline-container">
 				<img src="images/environment-objects/bg-treeline-dark.svg" alt="Pathscene Background Treeline">
 				<img src="images/environment-objects/bg-treeline-dark.svg" alt="Pathscene Background Treeline">
@@ -86,10 +105,208 @@
 				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="pathscene-tree">
 			</div>
 
+			<section class="pathscene-berry-container" id="pathscene-berry-container">
+				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-1">
+				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-2">
+				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-3">
+				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-4">
+				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-5">
+				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-6">
+				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-7">
+				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-8">
+			</section>
+
 		</section>
-		
+
+		<!-- 1.2 - Bridge Scene -->
+
+		<section class="bridgescene scene-container hidden" id="bridgescene">
+
+			<div class="bridgescene-cloud-container"><img src="images/environment-objects/cloud.svg" alt="Bridge Scene Cloud"><img src="images/environment-objects/cloud.svg" alt="Bridge Scene Cloud"></div>
+
+			<div class="bridgescene-mountain-container hidden">
+				<article class="bridge-mountain background-mountain-dark"></article>
+				<article class="bridge-mountain background-mountain-dark"></article>
+				<article class="bridge-mountain background-mountain-light"></article>
+				<article class="bridge-mountain background-mountain-light"></article>
+			</div>
+
+			<div class="bridgescene-peak-container">
+				<img src="images/environment-objects/background-peak3.svg" alt="Bridge Scene Peak 2" class="pathscene-peak2">
+				<img src="images/environment-objects/background-peak1.svg" alt="Bridge Scene Peak 3" class="pathscene-peak3">
+				<img src="images/environment-objects/background-peak4.svg" alt="Bridge Scene Peak 4" class="pathscene-peak4">
+			</div>
+
+			<div class="bridgescene-bg-treeline-container">
+				<img src="images/environment-objects/bg-treeline-dark.svg" alt="Pathscene Background Treeline">
+				<img src="images/environment-objects/bg-treeline-dark.svg" alt="Pathscene Background Treeline">
+				<article class="bridgescene-bg-treeline-trunk background-treeline-trunk"></article>
+				<article class="bridgescene-bg-treeline-trunk background-treeline-trunk"></article>
+				<article class="bridgescene-bg-treeline-trunk background-treeline-trunk"></article>
+				<article class="bridgescene-bg-treeline-trunk background-treeline-trunk"></article>
+				<article class="bridgescene-bg-treeline-trunk background-treeline-trunk"></article>
+				<img src="images/environment-objects/bg-treeline-light.svg" alt="Pathscene Background Treeline">
+				<img src="images/environment-objects/bg-treeline-light.svg" alt="Pathscene Background Treeline">
+			</div>
+
+			<img src="images/scenes/bridgescene/bridgescene-ground.svg" alt="Bridge Scene Ground" class="bridgescene-ground">
+
+			<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="bridgescene-tree">
+
+			<img src="images/environment-objects/big-bush.svg" alt="Path Scene Tree" class="bridgescene-bigbush">
+
+			<div class="brent-container" id="brent-container">
+				<img src="images/npc/brent.svg" alt="Brent" class="brent" id="brent">
+				<div class="brent-speech-container speech-container flex" id="brent-speech-container">
+<!--					<h5 id="brent-speech-label">Brent</h5>-->
+					<p class="speech-text hidden" id="brent-speech-text">
+					</p>
+					<div class="speech-circle-container flex" id="brent-speech-circle-container">
+						<article></article>
+						<article></article>
+						<article></article>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+		<!-- 1.3 - House Exterior Scene -->
+
+		<section class="houseexteriorscene scene-container hidden" id="houseexteriorscene">
+
+			<div class="houseexteriorscene-peak-container">
+				<img src="images/environment-objects/background-peak3.svg" alt="Bridge Scene Peak 2" class="pathscene-peak2">
+				<img src="images/environment-objects/background-peak2.svg" alt="Bridge Scene Peak 3" class="pathscene-peak4">
+			</div>
+
+			<div class="houseexteriorscene-bg-treeline-container">
+				<img src="images/environment-objects/bg-treeline-dark.svg" alt="House Exterior Scene Background Treeline">
+				<img src="images/environment-objects/bg-treeline-dark.svg" alt="House Exterior Scene Background Treeline">
+			</div>
+
+
+
+			<div class="houseexteriorscene-tree-back-container">
+				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-back">
+				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-back">
+				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-back">
+				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-back">
+				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-back">
+				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-back">
+				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-back">
+			</div>
+
+			<img src="images/scenes/houseexteriorscene/houseexteriorscene-house.svg" alt="Exterior View of House" class="houseexteriorscene-house">
+
+			<div class="houseexteriorscene-tree-mid-container">
+				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-mid">
+				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-mid">
+				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-mid">
+			</div>
+
+			<img src="images/scenes/houseexteriorscene/houseexteriorscene-ground.svg" alt="Path Scene Ground" class="houseexteriorscene-ground">
+
+			<div class="houseexteriorscene-tree-front-container">
+				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-front">
+				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-front">
+			</div>
+
+		</section>
+
+		<!-- 1.4 - Highway Scene -->
+
+		<section class="highwayscene scene-container hidden" id="highwayscene">
+
+			<img src="images/scenes/highwayscene/highwayscene-background-mountain.svg" alt="Highway Scene Background Mountain" class="highwayscene-background-mountain">
+
+			<div class="highwayscene-peak-container">
+				<img src="images/environment-objects/background-peak2.svg" alt="Background Peak 1" class="highwayscene-peak">
+				<img src="images/environment-objects/background-peak3.svg" alt="Background Peak 2" class="highwayscene-peak">
+				<img src="images/environment-objects/background-peak1.svg" alt="Background Peak 3" class="highwayscene-peak">
+				<img src="images/environment-objects/background-peak4.svg" alt="Background Peak 4" class="highwayscene-peak">
+			</div>
+
+			<div class="highwayscene-bg-treeline-container">
+				<img src="images/environment-objects/tree2.svg" alt="Highway Scene Foreground Treeline">
+				<img src="images/environment-objects/tree1.svg" alt="Highway Scene Foreground Treeline">
+			</div>
+
+			<img src="images/environment-objects/bg-treeline-dark.svg" alt="Highway Scene Forest Ground" class="highwayscene-forest-ground">
+
+			<img src="images/scenes/highwayscene/highwayscene-ground.svg" alt="Highway Scene Ground" class="highwayscene-ground">
+
+			<div class="highwayscene-fore-treeline-container">
+				<img src="images/environment-objects/tree2.svg" alt="Highway Scene Foreground Treeline">
+				<img src="images/environment-objects/tree2.svg" alt="Highway Scene Foreground Treeline">
+				<img src="images/environment-objects/tree2.svg" alt="Highway Scene Foreground Treeline">
+				<img src="images/environment-objects/tree2.svg" alt="Highway Scene Foreground Treeline">
+				<img src="images/environment-objects/tree2.svg" alt="Highway Scene Foreground Treeline">
+				<img src="images/environment-objects/tree2.svg" alt="Highway Scene Foreground Treeline">
+				<img src="images/environment-objects/tree2.svg" alt="Highway Scene Foreground Treeline">
+			</div>
+
+		</section>
+
+		<!-- 1.5 - Summit Scene -->
+
+		<section class="summitscene scene-container hidden" id="summitscene">
+
+			<div class="summitscene-mountain-container">
+				<img src="images/scenes/summitscene/summitscene-bg-mt-center.svg" alt="Background Peak 1">
+				<img src="images/scenes/summitscene/summitscene-bg-mt-left.svg" alt="Background Peak 2">
+				<img src="images/scenes/summitscene/summitscene-bg-mt-right.svg" alt="Background Peak 3">
+			</div>
+
+			<div class="summitscene-bg-foliage-container">
+				<img src="images/environment-objects/big-bush.svg" alt="Summit Scene Foreground Treeline">
+				<img src="images/environment-objects/tree1-noleaves.svg" alt="Summit Scene Foreground Treeline">
+			</div>
+
+			<img src="images/scenes/summitscene/summitscene-ground.svg" alt="Summit Scene Scene Ground" class="summitscene-ground">
+
+			<div class="summitscene-smallrock-container">
+				<img src="images/environment-objects/small-rock.svg" alt="Summit Scene Small Rock">
+				<img src="images/environment-objects/small-rock.svg" alt="Summit Scene Small Rock">
+				<img src="images/environment-objects/small-rock.svg" alt="Summit Scene Small Rock">
+				<img src="images/environment-objects/small-rock.svg" alt="Summit Scene Small Rock">
+				<img src="images/environment-objects/small-rock.svg" alt="Summit Scene Small Rock">
+				<img src="images/environment-objects/small-rock.svg" alt="Summit Scene Small Rock">
+				<img src="images/environment-objects/small-rock.svg" alt="Summit Scene Small Rock">
+				<img src="images/environment-objects/small-rock.svg" alt="Summit Scene Small Rock">
+			</div>
+
+			<div class="summitscene-fg-bush-container">
+				<img src="images/environment-objects/big-bush.svg" alt="Summit Scene Bush">
+				<img src="images/environment-objects/big-bush.svg" alt="Summit Scene Bush">
+				<img src="images/environment-objects/big-bush.svg" alt="Summit Scene Bush">
+			</div>
+
+			<img src="images/npc/woat.svg" alt="Woat the Goat" class="woat-the-goat" id="woat-the-goat">
+
+		</section>
+
+
+
+
+		<section class="forward-but-container hidden" id="forward-but-container">
+			<div class="forward-but fa-stack fa-2x" id="forward-but-1">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-angle-up fa-stack-1x"></i>
+			</div>
+			<div class="forward-but fa-stack fa-2x" id="forward-but-2">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-angle-left fa-stack-1x"></i>
+			</div>
+		</section>
+
 		<section class="loading-screen flex" id="loading-screen">
 			<div class="loader"><img src="images/berriton_logo.svg" alt="Loader Logo"></div>
+		</section>
+
+		<section class="hud-container hidden" id="hud-container">
+			<img src="images/hud-berry.svg" alt="Berry Count" class="hud-berry" id="hud-berry">
+			<p class="hud-berry-count" id="hud-berry-count">0</p>
 		</section>
 
 	</main>

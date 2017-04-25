@@ -4,7 +4,6 @@
 //	opacity: 0;
 }
 
-
 .pathscene-mountain-container {
 	.pathscene-mountain {
 		position: absolute;
@@ -186,12 +185,56 @@
 	}
 }
 
-#pathscene-pathselect-button-1 {
-	top: 44%;
-	left: 47%;
-}
-
-#pathscene-pathselect-button-2 {
-	top: 70%;
-	left: 22%;
+.pathscene-berry-container {
+	img {
+		position: absolute;
+		&:nth-child(1) {
+			width: 4%;
+			bottom: 40%;
+			left: 2%;
+			transform: rotate(18deg);
+		}
+		&:nth-child(2) {
+			width: 4%;
+			bottom: 34%;
+			left: 17%;
+			transform: rotate(-22deg);
+		}
+		&:nth-child(3) {
+			width: 3%;
+			top: 34%;
+			left: 10%;
+			transform: rotate(-22deg);
+		}
+		&:nth-child(4) {
+			width: 2%;
+			top: 37%;
+			left: 27%;
+			transform: rotate(-20deg);
+		}
+		&:nth-child(5) {
+			width: 2%;
+			top: 40%;
+			right: 31%;
+			transform: rotate(18deg);
+		}
+		&:nth-child(6) {
+			width: 3%;
+			bottom: 39%;
+			right: 20%;
+			transform: rotate(-8deg);
+		}
+		&:nth-child(7) {
+			width: 3%;
+			bottom: 48%;
+			right: 10%;
+			transform: rotate(15deg);
+		}
+		&:nth-child(8) {
+			width: 4%;
+			bottom: 36%;
+			right: 3%;
+			transform: rotate(18deg);
+		}
+	}
 }

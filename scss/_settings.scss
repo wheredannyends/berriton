@@ -1,5 +1,5 @@
 * {
-	transition: 0.3s;
+	transition: 0.3s ease-in-out;
 }
 
 body {
@@ -97,4 +97,8 @@ h5 {
 
 p {
 	margin: 0;
+}
+
+.red-text {
+	color: $main-red;
 }
