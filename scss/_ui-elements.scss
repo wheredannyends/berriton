@@ -131,6 +131,36 @@
 		text-align: center;
 		width: 100%;
 	}
+	.hud-goodies-container {
+		opacity: 0;
+		position: absolute;
+		top: 70%;
+		width: 40%;
+		margin-left: 30%;
+		padding-top: 40%;
+		padding-bottom: 10%;
+		background-color: $white;
+		box-shadow: 0 0 0 5px $main-yellow;
+		border-radius: 0 0 60px 60px;
+		.hud-goodies {
+//			display: none;
+			&.flex {
+				flex-direction: column;
+				flex-wrap: wrap;
+			}
+			img {
+				width: 0;
+//				margin-bottom: 10%;
+				//				display: none;
+				//				opacity: 0;
+			}
+		}
+		i {
+			width: 100%;
+			text-align: center;
+			font-size: 1.5em;
+		}
+	}
 }
 
 @media only screen and (max-width: 800px) {
@@ -168,15 +198,6 @@
 		&:nth-child(2) {
 			top: 70%;
 			left: 22%;
-		}
-		&:nth-child(3) {
-			opacity: 0;
-			top: 0;
-			left: 0;
-		}
-		&:nth-child(4) {
-			top: 85%;
-			left: 92%;
 		}
 	}
 }
@@ -233,9 +254,14 @@
 	}
 }
 
-#brent-speech-container {
+.brent-speech-container {
 	bottom: 56%;
 	left: 57%;
+}
+
+.woat-speech-container {
+	bottom: 61%;
+	left: 44%;
 }
 
 @keyframes speech-container-anim {

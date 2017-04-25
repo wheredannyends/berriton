@@ -2,6 +2,13 @@
 
 var username = "Barry";
 
+var user = {
+	name: "Barry",
+	charModel: "images/characters/racoon.svg",
+	berryCount: 0,
+	pieCount: 0
+}
+
 // SCENE VARIABLES
 
 var pathScene = document.getElementById("pathscene"),
@@ -30,11 +37,86 @@ splashStart.addEventListener("click", function () {
 // HUD
 
 var hud = document.getElementById("hud-container"),
-	berryCountDisp = document.getElementById("hud-berry-count");
+	berryCountDisp = document.getElementById("hud-berry-count"),
+	pieCountDisp = document.getElementById("hud-pie-count"),
+	goodieContainer = document.getElementById("hud-goodies-container"),
+	goodieDisp = document.getElementById("hud-goodies"),
+	goodieArrow = document.getElementById("hud-goodies-arrow"),
+	goodieDispVisible = false,
+	goodieDispOpen = false;
 
-// BERRIES
+hud.addEventListener("click", function () {
+	if (goodieDispVisible == true) {
+		if (goodieDispOpen == false) {
+			for (var i = 0; i < goodieDisp.children.length; i++) {
+				goodieDisp.children[i].style.width = "80%";
+				goodieDisp.children[i].style.marginBottom = "10%";
+			}
+			goodieArrow.style.transform = "rotate(180deg)";
+			goodieDispOpen = true;
+		} else {
+			for (var i = 0; i < goodieDisp.children.length; i++) {
+				goodieDisp.children[i].style.width = "0";
+				goodieDisp.children[i].style.marginBottom = "0";
+			}
+			goodieArrow.style.transform = "none";
+			goodieDispOpen = false;
+		}
+	}
+});
 
-var berryCount = 0;
+
+// BERRIES, PIES, & OTHER GOODIES
+
+var berryCount = user.berryCount;
+
+
+
+function berryInc() {
+	user.berryCount++;
+	berryCountDisp.style.opacity = "0";
+	setTimeout(function () {
+		berryCountDisp.innerText = user.berryCount;
+		berryCountDisp.style.opacity = "1";
+	}, 300);
+}
+
+function berryDec5() {
+	user.berryCount -= 5;
+	berryCountDisp.style.opacity = "0";
+	setTimeout(function () {
+		berryCountDisp.innerText = user.berryCount;
+		berryCountDisp.style.opacity = "1";
+	}, 300);
+}
+
+function pieInc() {
+	user.pieCount++;
+	var newPie = document.createElement("img");
+	newPie.src = "images/pie.svg";
+	newPie.alt = "Pie";
+	goodieDisp.appendChild(newPie);
+	if (goodieDispVisible == false) {
+		goodieContainer.classList.remove("hidden");
+		setTimeout(function () {
+			goodieContainer.style.opacity = "1";
+		}, 300);
+		goodieDispVisible = true;
+	}
+}
+
+function pieDec() {
+	user.pieCount--;
+	if (user.pieCount == 0) {
+		goodieContainer.style.opacity = "0";
+		setTimeout(function () {
+			goodieContainer.classList.add("hidden");
+		}, 300);
+		goodieDispVisible = false;
+	}
+}
+
+// BERRY COLLECTION
 
 var pathBerry1 = document.getElementById("pathscene-berry-1"),
 	pathBerry2 = document.getElementById("pathscene-berry-2"),
@@ -44,24 +126,6 @@ var pathBerry1 = document.getElementById("pathscene-berry-1"),
 	pathBerry6 = document.getElementById("pathscene-berry-6"),
 	pathBerry7 = document.getElementById("pathscene-berry-7"),
 	pathBerry8 = document.getElementById("pathscene-berry-8");
-
-function berryInc() {
-	berryCount++;
-	berryCountDisp.style.opacity = "0";
-	setTimeout(function () {
-		berryCountDisp.innerText = berryCount;
-		berryCountDisp.style.opacity = "1";
-	}, 300);
-}
-
-function berryDec5() {
-	berryCount -= 5;
-	berryCountDisp.style.opacity = "0";
-	setTimeout(function () {
-		berryCountDisp.innerText = berryCount;
-		berryCountDisp.style.opacity = "1";
-	}, 300);
-}
 
 pathBerry1.addEventListener("click", function () {
 	berryInc();
@@ -170,7 +234,8 @@ var charSelSub = document.getElementById("char-sel-submit"),
 	forwardButContainer = document.getElementById("forward-but-container");
 
 charSelSub.addEventListener("click", function () {
-	username = charSelName.value;
+	user.name = charSelName.value;
+	user.charModel = charSelCurrent;
 	console.log(username);
 	charSelContainer.style.animation = "slide-totop 0.5s forwards";
 	setTimeout(function () {
@@ -193,7 +258,8 @@ charSelSub.addEventListener("click", function () {
 var forwardBut1 = document.getElementById("forward-but-1"),
 	forwardBut2 = document.getElementById("forward-but-2");
 
-var bridgeSceneComplete = false;
+var bridgeSceneComplete = false,
+	summitSceneComplete = false;
 
 function moveForwardButs() {
 	forwardBut1.classList.remove("hidden");
@@ -462,12 +528,8 @@ function brentSpeechContainerClose() {
 }
 
 brent.addEventListener("click", function () {
-
-});
-
-brent.addEventListener("click", function () {
 	if (bridgeSceneComplete == false) {
-		if (berryCount < 5) {
+		if (user.berryCount < 5) {
 			if (brentSpeechOpen == false) {
 				brentSpeechContainerOpen();
 			} else if (brentSpeechProg < brentSpeechArr.length - 5) {
@@ -523,6 +585,125 @@ brent.addEventListener("click", function () {
 		}
 	}
 });
+
+
+// HOUSE EXTERIOR INTERACTIONS
+
+var houseExterior = document.getElementById("houseexteriorscene-house");
+
+houseExterior.addEventListener("click", function () {
+	if (user.berryCount >= 3) {
+		user.berryCount -= 3;
+	berryCountDisp.style.opacity = "0";
+	setTimeout(function () {
+		pieInc();
+		berryCountDisp.innerText = user.berryCount;
+		berryCountDisp.style.opacity = "1";
+	}, 300);
+	}
+});
+
+
+// WOAT INTERACTIONS
+
+var woat = document.getElementById("woat-container"),
+	woatSpeech = document.getElementById("woat-speech-container"),
+	woatSpeechOpen = false,
+	woatSpeechCircles = document.getElementById("woat-speech-circle-container"),
+	woatSpeechLabel = document.getElementById("woat-speech-label"),
+	woatSpeechText = document.getElementById("woat-speech-text"),
+	woatSpeechProg = 0,
+	woatSpeechArr = ["Hello <span class=\"red-text\">" + username + "</span> How goes it?", "The name’s Woat the Goat.", "I’m somewhat of the elder here in Berriton", "So check it out...", "Tabetha, the lovely lady in that house down there,", "Told me she would have a pie ready for me this afternoon.", "It's now getting close to the afternoon...", "Do you think you could go see where my pie is?", "Haaaay yes!", "That’s what I was looking for!", "Thank you for the pie <span class=\"red-text\">" + username + "</span>", "See ya around!"];
+
+function woatSpeechContainerOpen() {
+	woatSpeech.style.width = "25%";
+	woatSpeech.style.height = "20%";
+	woatSpeechCircles.style.opacity = "0";
+	//		woatSpeechLabel.style.opacity = "0";
+	setTimeout(function () {
+		woatSpeechCircles.classList.remove("flex");
+		woatSpeechCircles.classList.add("hidden");
+		//			woatSpeechLabel.classList.add("hidden");
+		woatSpeechText.classList.remove("hidden");
+		woatSpeechText.innerHTML = woatSpeechArr[woatSpeechProg];
+	}, 300);
+	setTimeout(function () {
+		woatSpeechText.style.opacity = "1";
+	}, 500);
+	woatSpeechOpen = true;
+}
+
+function woatSpeechContainerClose() {
+	woatSpeechText.style.opacity = "0";
+	setTimeout(function () {
+		woatSpeech.style.width = "8%";
+		woatSpeech.style.height = "6%";
+		woatSpeechText.classList.add("hidden");
+		woatSpeechCircles.classList.remove("hidden");
+		woatSpeechCircles.classList.add("flex");
+		//			woatSpeechLabel.classList.remove("hidden");
+	}, 300);
+	setTimeout(function () {
+		woatSpeechCircles.style.opacity = "1";
+		//			woatSpeechLabel.style.opacity = "1";
+	}, 500);
+	woatSpeechOpen = false;
+}
+
+woat.addEventListener("click", function () {
+	if (summitSceneComplete == false) {
+		if (user.pieCount < 1) {
+			if (woatSpeechOpen == false) {
+				woatSpeechContainerOpen();
+			} else if (woatSpeechProg < woatSpeechArr.length - 5) {
+				woatSpeechProg++;
+				woatSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					woatSpeechText.innerHTML = woatSpeechArr[woatSpeechProg];
+					woatSpeechText.style.opacity = "1";
+				}, 300);
+
+			} else {
+				woatSpeechProg = 0;
+				woatSpeechContainerClose();
+			}
+		} else {
+			if (woatSpeechOpen == false) {
+				woatSpeechProg = 8;
+				woatSpeechContainerOpen();
+			} else if (woatSpeechProg < woatSpeechArr.length - 1) {
+				woatSpeechProg++;
+				woatSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					woatSpeechText.innerHTML = woatSpeechArr[woatSpeechProg];
+					woatSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				woatSpeechContainerClose();
+				setTimeout(function () {
+					summitSceneComplete = true;
+					pieDec();
+				}, 300);
+			}
+		}
+	} else {
+
+		if (woatSpeechOpen == false) {
+			woatSpeechProg = 8;
+			woatSpeechContainerOpen();
+		} else if (woatSpeechProg < woatSpeechArr.length - 1) {
+			woatSpeechProg++;
+			woatSpeechText.style.opacity = "0";
+			setTimeout(function () {
+				woatSpeechText.innerHTML = woatSpeechArr[woatSpeechProg];
+				woatSpeechText.style.opacity = "1";
+			}, 300);
+		} else {
+			woatSpeechContainerClose();
+		}
+	}
+});
+
 
 // LOADER
 

@@ -605,6 +605,26 @@ p {
     top: 45%;
     text-align: center;
     width: 100%; }
+  .hud-container .hud-goodies-container {
+    opacity: 0;
+    position: absolute;
+    top: 70%;
+    width: 40%;
+    margin-left: 30%;
+    padding-top: 40%;
+    padding-bottom: 10%;
+    background-color: #F0F0F0;
+    box-shadow: 0 0 0 5px #F7C69B;
+    border-radius: 0 0 60px 60px; }
+    .hud-container .hud-goodies-container .hud-goodies.flex {
+      flex-direction: column;
+      flex-wrap: wrap; }
+    .hud-container .hud-goodies-container .hud-goodies img {
+      width: 0; }
+    .hud-container .hud-goodies-container i {
+      width: 100%;
+      text-align: center;
+      font-size: 1.5em; }
 
 @media only screen and (max-width: 800px) {
   .hud-container .hud-berry-count {
@@ -628,13 +648,6 @@ p {
     .forward-but-container .forward-but:nth-child(2) {
       top: 70%;
       left: 22%; }
-    .forward-but-container .forward-but:nth-child(3) {
-      opacity: 0;
-      top: 0;
-      left: 0; }
-    .forward-but-container .forward-but:nth-child(4) {
-      top: 85%;
-      left: 92%; }
 
 /* Speech Bubble */
 .speech-container {
@@ -678,9 +691,13 @@ p {
       .speech-container div article:nth-child(3) {
         animation-delay: 0.8s; }
 
-#brent-speech-container {
+.brent-speech-container {
   bottom: 56%;
   left: 57%; }
+
+.woat-speech-container {
+  bottom: 61%;
+  left: 44%; }
 
 @keyframes speech-container-anim {
   50% {
