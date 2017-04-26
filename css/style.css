@@ -590,7 +590,7 @@ p {
   opacity: 0;
   animation: slide-frombottom 0.5s forwards; }
   .char-sel-container .char-sel-preview-container {
-    height: 40%;
+    height: 30%;
     width: 50%; }
     .char-sel-container .char-sel-preview-container img {
       height: 100%;
@@ -601,7 +601,7 @@ p {
       justify-content: space-between; }
   .char-sel-container .char-sel-inputs input {
     border: none;
-    width: 100%;
+    width: 70%;
     height: 10%;
     margin-bottom: 20px;
     box-sizing: border-box;
@@ -614,7 +614,7 @@ p {
       transform: translateY(-2px);
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
   .char-sel-container .char-sel-inputs button {
-    width: 80%;
+    width: 70%;
     height: 10%; }
   .char-sel-container.flex {
     height: 80%;

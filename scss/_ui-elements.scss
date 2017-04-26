@@ -105,7 +105,7 @@
 	opacity: 0;
 	animation: slide-frombottom 0.5s forwards;
 	.char-sel-preview-container {
-		height: 40%;
+		height: 30%;
 		width: 50%;
 		img {
 			height: 100%;
@@ -121,7 +121,7 @@
 	.char-sel-inputs {
 		input {
 			border: none;
-			width: 100%;
+			width: 70%;
 			height: 10%;
 			margin-bottom: 20px;
 			box-sizing: border-box;
@@ -136,7 +136,7 @@
 			}
 		}
 		button {
-			width: 80%;
+			width: 70%;
 			height: 10%;
 		}
 	}
