@@ -55,7 +55,7 @@ function berryDec5() {
 	}, 300);
 }
 
-function berryDec5() {
+function berryDec10() {
 	user.berryCount -= 10;
 	berryCountDisp.style.opacity = "0";
 	setTimeout(function () {
@@ -887,7 +887,7 @@ tabetha.addEventListener("click", function () {
 				tabethaSpeechContainerClose();
 				tabethaInit = true;
 			}
-		} else if (user.berryCount < 5 || recipeFoundInit == false) {
+		} else if (user.berryCount < 10 || recipeFoundInit == false) {
 			if (tabethaSpeechOpen == false) {
 				tabethaSpeechProg = 16;
 				tabethaSpeechContainerOpen();
@@ -920,7 +920,7 @@ tabetha.addEventListener("click", function () {
 				setTimeout(function () {
 					houseInteriorSceneComplete = true;
 					houseInteriorOven.style.animation = "oven-pulse 2s 2";
-					berryDec5();
+					berryDec10();
 					pieRecipeDec();
 				}, 300);
 			}
