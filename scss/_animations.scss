@@ -14,7 +14,11 @@
 	}
 }
 
-
+@keyframes cloud-movement {
+	50% {
+		transform: translateY(7%);
+	}
+}
 
 @keyframes char-sel-right-anim {
 	25% {
@@ -35,5 +39,24 @@
 	75% {
 		transform: translateX(50px);
 		opacity: 0;
+	}
+}
+
+@keyframes oven-pulse {
+	25% {
+		filter: brightness(1.5);
+	}
+	50% {
+		filter: brightness(1);
+	}
+	75% {
+		filter: brightness(1.5);
+	}
+}
+
+@keyframes arrow-pulse {
+	50% {
+		width: 7%;
+		transform: translate(-5%, -5%);
 	}
 }

@@ -20,44 +20,50 @@
 	0.01 - Splash Container
 	0.02 - Character Selection
 	
-	
 	1.01 - Path Scene
 	1.02 - Bridge Scene
 	1.03 - House Exterior Scene
-	1.04 - Highway Scene
-	1.05 - Summit Scene
+	1.05 - Highway Scene
+	1.06 - Summit Scene
 	
-	2.01 - Forward Buttons
-	2.02 - HUD
-	2.03 - Loading Screen
+	2.01 - Player Character
+	2.02 - Forward Buttons
+	2.03 - HUD
+	2.04 - Loading Screen
 	 
 	-->
 
 	<img src="images/berriton_logo.svg" alt="Berriton Logo" class="full-browser-background" id="berriton-button" />
 
 	<main>
-	
+
 		<!-- 0.01 - Splash Container -->
-		
-		<section class="splash-container flex" id="splash-container">
-			<img src="images/berriton_logo.svg" alt="Berriton Logo" />
-			<button id="splash-start">Start</button>
+
+		<section class="splash-container scene-container" id="splash-container">
+			<img src="images/splash/splashcloud.svg" alt="splashcloud">
+			<img src="images/splash/splashcloud.svg" alt="splashcloud" id="splash-cloud-1">
+			<img src="images/splash/splashcloud.svg" alt="splashcloud" id="splash-cloud-2">
+			<img src="images/splash/splashforest.svg" alt="splashforest">
+			<img src="images/berriton_logo.svg" alt="splashlogo" id="splash-logo" class="splash-logo">
+			<button id="splash-start" class="splash-start">Start</button>
+			<img src="images/splash/splashstone.svg" alt="splashstone">
+			<img src="images/splash/splashmountains.svg" alt="splashmountains">
 		</section>
-		
+
 		<!-- 0.02 - Character Selection -->
 
-		<section class="char-sel-container hidden" id="char-sel-container">
+		<div class="char-sel-container hidden" id="char-sel-container">
 			<h3>Choose Your Character</h3>
 			<article class="char-sel-preview-container flex" id="char-sel-preview-container">
-				<i class="fa fa-angle-left" id="char-sel-left" aria-hidden="true"></i>
-				<img src="images/characters/racoon.svg" alt="Character Preview" id="char-sel-preview">
-				<i class="fa fa-angle-right" id="char-sel-right" aria-hidden="true"></i>
+				<img src="images/ui-elements/forward-button-left.svg" class="char-sel-arrows" alt="Character Select Left Button" id="char-sel-left">
+				<img src="images/characters/bear-front.svg" alt="Character Preview" id="char-sel-preview">
+				<img src="images/ui-elements/forward-button-right.svg" class="char-sel-arrows" alt="CHaracter Select Right Button" id="char-sel-right">
 			</article>
 			<article class="char-sel-inputs flex" id="char-sel-inputs">
-				<input type="text" id="char-sel-name" placeholder="Character Name" required/>
+				<input type="text" id="char-sel-name" placeholder="Character Name" autofocus/>
 				<button id="char-sel-submit">Begin</button>
 			</article>
-		</section>
+		</div>
 
 		<!-- 1.01 - Path Scene -->
 
@@ -109,16 +115,18 @@
 				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="pathscene-tree">
 			</div>
 
-			<section class="pathscene-berry-container" id="pathscene-berry-container">
-				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-1">
-				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-2">
-				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-3">
-				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-4">
-				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-5">
-				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-6">
-				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-7">
-				<img src="images/hud-berry.svg" alt="Berry" id="pathscene-berry-8">
-			</section>
+			<div class="pathscene-berry-container" id="pathscene-berry-container">
+				<img src="images/goodies/berry.svg" alt="Berry" id="pathscene-berry-1">
+				<img src="images/goodies/berry.svg" alt="Berry" id="pathscene-berry-2">
+				<img src="images/goodies/berry.svg" alt="Berry" id="pathscene-berry-3">
+				<img src="images/goodies/berry.svg" alt="Berry" id="pathscene-berry-4">
+				<img src="images/goodies/berry.svg" alt="Berry" id="pathscene-berry-5">
+				<img src="images/goodies/berry.svg" alt="Berry" id="pathscene-berry-6">
+				<img src="images/goodies/berry.svg" alt="Berry" id="pathscene-berry-7">
+				<img src="images/goodies/berry.svg" alt="Berry" id="pathscene-berry-8">
+			</div>
+
+			<img src="images/characters/raccoon-front.svg" alt="Player Character" class="player-character pathscene-player-character" id="pathscene-player-character">
 
 		</section>
 
@@ -155,9 +163,17 @@
 
 			<img src="images/scenes/bridgescene/bridgescene-ground.svg" alt="Bridge Scene Ground" class="bridgescene-ground">
 
+			<img src="images/characters/raccoon-front.svg" alt="Player Character" class="player-character bridgescene-player-character" id="bridgescene-player-character">
+
 			<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="bridgescene-tree">
 
 			<img src="images/environment-objects/big-bush.svg" alt="Path Scene Tree" class="bridgescene-bigbush">
+			
+			<div class="bridgescene-berry-container" id="bridgescene-berry-container">
+				<img src="images/goodies/berry.svg" alt="Berry" id="bridgescene-berry-1">
+				<img src="images/goodies/berry.svg" alt="Berry" id="bridgescene-berry-2">
+				<img src="images/goodies/berry.svg" alt="Berry" id="bridgescene-berry-3">
+			</div>
 
 			<div class="brent-container" id="brent-container">
 				<img src="images/npc/brent.svg" alt="Brent" class="brent" id="brent">
@@ -211,14 +227,81 @@
 
 			<img src="images/scenes/houseexteriorscene/houseexteriorscene-ground.svg" alt="Path Scene Ground" class="houseexteriorscene-ground">
 
+			<div class="houseexteriorscene-pond-container">
+				<img src="images/environment-objects/pond.svg" alt="Pond" class="houseexteriorscene-pond" id="houseexteriorscene-pond">
+
+				<div class="james-container" id="james-container">
+					<img src="images/npc/james.svg" alt="James" class="james" id="james">
+					<div class="james-speech-container speech-container flex" id="james-speech-container">
+						<p class="speech-text hidden" id="james-speech-text">
+						</p>
+						<div class="speech-circle-container flex" id="james-speech-circle-container">
+							<article></article>
+							<article></article>
+							<article></article>
+						</div>
+<!--
+						<div class="james-quiz-container flex" id="james-quiz-container">
+							<p id="james-quiz-question"></p>
+							<div id="james-quiz-answer1"></div>
+							<div id="james-quiz-answer2"></div>
+							<div id="james-quiz-answer3"></div>
+							<div id="james-quiz-answer4"></div>
+						</div>
+-->
+					</div>
+				</div>
+			</div>
+			
+			
+
+			<img src="images/characters/raccoon-front.svg" alt="Player Character" class="player-character houseexteriorscene-player-character" id="houseexteriorscene-player-character">
+
 			<div class="houseexteriorscene-tree-front-container">
 				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-front">
 				<img src="images/environment-objects/tree2.svg" alt="Path Scene Tree" class="houseexteriorscene-tree-front">
 			</div>
+			
+			<div class="houseexteriorscene-berry-container" id="houseexteriorscene-berry-container">
+				<img src="images/goodies/berry.svg" alt="Berry" id="houseexteriorscene-berry-1">
+				<img src="images/goodies/berry.svg" alt="Berry" id="houseexteriorscene-berry-2">
+				<img src="images/goodies/berry.svg" alt="Berry" id="houseexteriorscene-berry-3">
+				<img src="images/goodies/berry.svg" alt="Berry" id="houseexteriorscene-berry-4">
+			</div>
 
 		</section>
 
-		<!-- 1.04 - Highway Scene -->
+		<!-- 1.04 - House Interior Scene -->
+
+		<section class="houseinteriorscene-container scene-container hidden" id="houseinteriorscene">
+
+			<img src="images/scenes/houseinteriorscene/houseinteriorscene-wallpaper.svg" alt="House Interior Wall Highlight" class="houseinteriorscene-wallpaper">
+
+			<img src="images/scenes/houseinteriorscene/houseinteriorscene-counter-window.svg" alt="Counter and Window" class="houseinteriorscene-counter-window">
+
+			<img src="images/scenes/houseinteriorscene/houseinteriorscene-oven.svg" alt="Oven" id="houseinteriorscene-oven" class="houseinteriorscene-oven">
+
+			<img src="images/scenes/houseinteriorscene/houseinteriorscene-ground.svg" alt="House Interior Scene Ground" class="houseinteriorscene-ground">
+
+			<section class="tabetha-container" id="tabetha-container">
+
+				<img src="images/npc/tabetha.svg" alt="Woat the Goat" class="tabetha" id="tabetha">
+				<div class="tabetha-speech-container speech-container flex" id="tabetha-speech-container">
+					<!--					<h5 id="tabetha-speech-label">Tabetha</h5>-->
+					<p class="speech-text hidden" id="tabetha-speech-text">
+					</p>
+					<div class="speech-circle-container flex" id="tabetha-speech-circle-container">
+						<article></article>
+						<article></article>
+						<article></article>
+					</div>
+				</div>
+
+			</section>
+
+		</section>
+
+		<!-- 1.05 - Highway Scene -->
 
 		<section class="highwayscene scene-container hidden" id="highwayscene">
 
@@ -240,6 +323,8 @@
 
 			<img src="images/scenes/highwayscene/highwayscene-ground.svg" alt="Highway Scene Ground" class="highwayscene-ground">
 
+			<img src="images/characters/raccoon-front.svg" alt="Player Character" class="player-character highwayscene-player-character" id="highwayscene-player-character">
+
 			<div class="highwayscene-fore-treeline-container">
 				<img src="images/environment-objects/tree2.svg" alt="Highway Scene Foreground Treeline">
 				<img src="images/environment-objects/tree2.svg" alt="Highway Scene Foreground Treeline">
@@ -252,7 +337,7 @@
 
 		</section>
 
-		<!-- 1.05 - Summit Scene -->
+		<!-- 1.06 - Summit Scene -->
 
 		<section class="summitscene scene-container hidden" id="summitscene">
 
@@ -286,6 +371,8 @@
 				<img src="images/environment-objects/big-bush.svg" alt="Summit Scene Bush">
 			</div>
 
+			<img src="images/characters/raccoon-front.svg" alt="Player Character" class="player-character summitscene-player-character" id="summitscene-player-character">
+
 			<div class="woat-container" id="woat-container">
 				<img src="images/npc/woat.svg" alt="Woat the Goat" class="woat-the-goat" id="woat-the-goat">
 				<div class="woat-speech-container speech-container flex" id="woat-speech-container">
@@ -302,20 +389,14 @@
 
 		</section>
 
-		<!-- 2.01 - Forward Buttons -->
+		<!-- 2.02 - Forward Buttons -->
 
 		<section class="forward-but-container hidden" id="forward-but-container">
-			<div class="forward-but fa-stack fa-2x" id="forward-but-1">
-				<i class="fa fa-circle fa-stack-2x"></i>
-				<i class="fa fa-angle-up fa-stack-1x"></i>
-			</div>
-			<div class="forward-but fa-stack fa-2x" id="forward-but-2">
-				<i class="fa fa-circle fa-stack-2x"></i>
-				<i class="fa fa-angle-left fa-stack-1x"></i>
-			</div>
+			<img src="images/ui-elements/forward-button-up.svg" alt="Forward Button 1" class="forward-but" id="forward-but-1">
+			<img src="images/ui-elements/forward-button-left.svg" alt="Forward Button 2" class="forward-but hidden" id="forward-but-2">
 		</section>
-		
-		<!-- 2.02 - HUD -->
+
+		<!-- 2.03 - HUD -->
 
 		<section class="hud-container hidden" id="hud-container">
 			<div class="hud-goodies-container hidden" id="hud-goodies-container">
@@ -323,12 +404,12 @@
 				</div>
 				<i class="fa fa-angle-down" aria-hidden="true" id="hud-goodies-arrow"></i>
 			</div>
-			<img src="images/hud-berry.svg" alt="Berry Count" class="hud-berry" id="hud-berry">
+			<img src="images/goodies/berry.svg" alt="Berry Count" class="hud-berry" id="hud-berry">
 			<p class="hud-berry-count" id="hud-berry-count">0</p>
 		</section>
-		
-		<!-- 2.03 - Loading Screen -->
-		
+
+		<!-- 2.04 - Loading Screen -->
+
 		<section class="loading-screen flex" id="loading-screen">
 			<div class="loader"><img src="images/berriton_logo.svg" alt="Loader Logo"></div>
 		</section>

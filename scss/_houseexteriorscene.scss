@@ -54,13 +54,6 @@
 	}
 }
 
-.houseexteriorscene-ground {
-	position: absolute;
-	bottom: -3%;
-	left: -3%;
-	width: 106%;
-}
-
 .houseexteriorscene-tree-back-container {
 	.houseexteriorscene-tree-back {
 		position: absolute;
@@ -111,6 +104,36 @@
 	right: 26%;
 }
 
+.houseexteriorscene-ground {
+	position: absolute;
+	bottom: -3%;
+	left: -3%;
+	width: 106%;
+}
+
+.houseexteriorscene-pond-container {
+	img {
+		position: absolute;
+		&.houseexteriorscene-pond {
+			width: 37%;
+			bottom: 6%;
+			left: 30%;
+		}
+	}
+	.james-container {
+		.james {
+			width: 10%;
+			bottom: 7%;
+			right: 29%;
+		}
+		.james-speech-container {
+			right: 39%;
+			bottom: 26%;
+			border-radius: 60px 60px 10px 60px;
+		}
+	}
+}
+
 .houseexteriorscene-tree-mid-container {
 	.houseexteriorscene-tree-mid {
 		position: absolute;
@@ -144,6 +167,36 @@
 			width: 22%;
 			bottom: -37%;
 			right: 5%;
+		}
+	}
+}
+
+.houseexteriorscene-berry-container {
+	img {
+		position: absolute;
+		&:nth-child(1) {
+			width: 3%;
+			top: 38%;
+			left: 31%;
+			transform: rotate(8deg);
+		}
+		&:nth-child(2) {
+			width: 4%;
+			top: 33%;
+			right: 24%;
+			transform: rotate(-13deg);
+		}
+		&:nth-child(3) {
+			width: 4%;
+			top: 32%;
+			right: 5%;
+			transform: rotate(6deg);
+		}
+		&:nth-child(4) {
+			width: 5%;
+			bottom: 17%;
+			right: 3%;
+			transform: rotate(6deg);
 		}
 	}
 }

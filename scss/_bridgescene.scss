@@ -22,12 +22,6 @@
 	}
 }
 
-@keyframes cloud-movement {
-	50% {
-		transform: translateY(7%);
-	}
-}
-
 .bridgescene-mountain-container {
 	.bridge-mountain {
 		position: absolute;
@@ -148,6 +142,35 @@
 	right: -5%;
 }
 
+.bridgescene-berry-container {
+	img {
+		position: absolute;
+		&:nth-child(1) {
+			width: 3%;
+			top: 34%;
+			right: 18%;
+			transform: rotate(-21deg);
+		}
+		&:nth-child(2) {
+			width: 4%;
+			top: 30%;
+			right: 8%;
+			transform: rotate(8deg);
+		}
+		&:nth-child(3) {
+			width: 6%;
+			bottom: 5%;
+			right: 11%;
+			transform: rotate(6deg);
+		}
+	}
+}
+
+
+.brent-speech-container {
+	bottom: 56%;
+	left: 57%;
+}
 .brent {
 	position: absolute;
 	top: 40%;

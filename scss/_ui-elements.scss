@@ -89,25 +89,64 @@
 }
 
 
-/* Splash */
+/* Character Selection */
 
-.splash-container {
+.char-sel-container {
 	position: absolute;
-	width: 100%;
-	height: 100%;
 	top: 0;
+	right: 0;
+	bottom: 0;
 	left: 0;
+	margin: auto;
+	width: 70%;
+	height: 80%;
+	background-color: rgba(30, 30, 30, 0.3);
+	color: $white;
+	opacity: 0;
+	animation: slide-frombottom 0.5s forwards;
+	.char-sel-preview-container {
+		height: 40%;
+		width: 50%;
+		img {
+			height: 100%;
+			filter: $filter-shadow-1;
+			&.char-sel-arrows {
+				width: 15%;
+			}
+		}
+		&.flex {
+			justify-content: space-between;
+		}
+	}
+	.char-sel-inputs {
+		input {
+			border: none;
+			width: 100%;
+			height: 10%;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+			padding: 10px;
+			text-align: center;
+			font-family: $quicksand;
+			box-shadow: $material-1;
+			&:focus {
+				outline: none;
+				transform: translateY(-2px);
+				box-shadow: $material-2;
+			}
+		}
+		button {
+			width: 80%;
+			height: 10%;
+		}
+	}
 	&.flex {
-		height: 100%;
+		height: 80%;
 		flex-direction: column;
-		justify-content: center;
 	}
-	img {
-		width: 25%;
-	}
-	button {
-		width: 20%;
-		margin-top: 5%;
+	.char-sel-inputs.flex {
+		width: 50%;
+		flex-direction: column;
 	}
 }
 
@@ -143,14 +182,14 @@
 		box-shadow: 0 0 0 5px $main-yellow;
 		border-radius: 0 0 60px 60px;
 		.hud-goodies {
-//			display: none;
+			//			display: none;
 			&.flex {
 				flex-direction: column;
 				flex-wrap: wrap;
 			}
 			img {
 				width: 0;
-//				margin-bottom: 10%;
+				//				margin-bottom: 10%;
 				//				display: none;
 				//				opacity: 0;
 			}
@@ -178,19 +217,8 @@
 	opacity: 0;
 	.forward-but {
 		position: absolute;
-		text-shadow: $material-1;
-		i {
-			&:nth-child(1) {
-				color: $black;
-				opacity: 0.5;
-			}
-			&:nth-child(2) {
-				color: $white;
-			}
-			&:hover {
-				color: $main-red;
-			}
-		}
+		width: 6%;
+		filter: $filter-shadow-1;
 		&:nth-child(1) {
 			top: 44%;
 			left: 47%;
@@ -198,6 +226,9 @@
 		&:nth-child(2) {
 			top: 70%;
 			left: 22%;
+		}
+		&:hover {
+			animation: arrow-pulse 1s infinite;
 		}
 	}
 }
@@ -252,16 +283,6 @@
 			}
 		}
 	}
-}
-
-.brent-speech-container {
-	bottom: 56%;
-	left: 57%;
-}
-
-.woat-speech-container {
-	bottom: 61%;
-	left: 44%;
 }
 
 @keyframes speech-container-anim {
