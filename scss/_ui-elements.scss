@@ -245,12 +245,19 @@
 	&.flex {
 		flex-wrap: wrap;
 	}
-	/* 	h5 {
-		width: 100%;
-		margin-top: -55%;
-		text-align: center;
-		color: $white;
-	} */
+	.speech-label {
+		opacity: 0;
+		position: absolute;
+		top: -20%;
+		left: 15%;
+		color: $black;
+		font-size: 1.25em;
+		padding: 3%;
+		background-color: $white;
+		border-radius: 50px;
+		box-shadow: 0 0 0 3px $main-blue;
+		filter: $filter-shadow-1;
+	}
 	p {
 		opacity: 0;
 		color: $black;
@@ -292,5 +299,30 @@
 @keyframes speech-circle-anim {
 	50% {
 		filter: brightness(1);
+	}
+}
+
+/* Dialogue Button */
+
+.speech-button {
+	opacity: 0;
+	width: 14%;
+	height: auto;
+	padding-bottom: 14%;
+	border-radius: 200px;
+	position: absolute;
+	bottom: -14%;
+	right: 43%;
+	background-color: $main-blue;
+	filter: $filter-shadow-1;
+	img {
+		position: absolute;
+		width: 80%;
+		height: 80%;
+		top: 12%;
+		left: 12%;
+	}
+	&:hover {
+		filter: $filter-shadow-2;
 	}
 }

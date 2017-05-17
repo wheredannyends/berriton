@@ -1,0 +1,159 @@
+.caveexteriorscene {
+	background: linear-gradient($main-blue, $white) no-repeat center center;
+	background-size: cover;
+	//	opacity: 0;
+	.caveexteriorscene-cloud-container {
+		img {
+			position: absolute;
+			opacity: 0.5;
+			&:nth-child(1) {
+				width: 25%;
+				top: 8%;
+				left: 41%;
+				animation: cloud-movement 12s infinite;
+			}
+			&:nth-child(2) {
+				width: 23%;
+				top: -4%;
+				right: -2%;
+				animation: cloud-movement 7s infinite;
+			}
+		}
+	}
+	.caveexteriorscene-bg-treeline-container {
+		img {
+			position: absolute;
+			width: 55%;
+			&:nth-child(1) {
+				width: 50%;
+				top: 39%;
+				right: -2%;
+				transform: scale(-1)
+			}
+			&:nth-child(6) {
+				top: 22%;
+				right: 0;
+				transform: scale(-1)
+			}
+		}
+		.caveexteriorscene-bg-treeline-trunk {
+			position: absolute;
+			top: 47%;
+			&:nth-child(2) {
+				right: 36%;
+			}
+			&:nth-child(3) {
+				right: 25%;
+			}
+			&:nth-child(4) {
+				right: 12%;
+			}
+			&:nth-child(5) {
+				right: 5%;
+			}
+		}
+	}
+	.caveexteriorscene-tree-back-container {
+		img {
+			position: absolute;
+			&:nth-child(1) {
+				width: 16%;
+				top: 30%;
+				right: 34%;
+			}
+			&:nth-child(2) {
+				width: 15%;
+				top: 33%;
+				right: 9%;
+			}
+			&:nth-child(3) {
+				width: 19%;
+				top: 24%;
+				right: 21%;
+				transform: scaleX(-1);
+			}
+			&:nth-child(4) {
+				width: 19%;
+				top: 22%;
+				right: -4%;
+			}
+		}
+	}
+	.caveexteriorscene-cave {
+		position: absolute;
+		width: 56%;
+		top: -2%;
+		left: -2%;
+	}
+	.caveexteriorscene-ground {
+		position: absolute;
+		bottom: -1%;
+		left: -1%;
+		width: 102%;
+	}
+	.caveexteriorscene-bush-container {
+		img {
+			position: absolute;
+			&:nth-child(1) {
+				width: 14%;
+				top: 49%;
+				left: -2%;
+			}
+			&:nth-child(2) {
+				width: 12%;
+				top: 76%;
+				left: 19%;
+			}
+			&:nth-child(3) {
+				width: 14%;
+				top: 52%;
+				right: 16%;
+			}
+		}
+	}
+	.caveexteriorscene-tree-front-container {
+		img {
+			position: absolute;
+			&:nth-child(1) {
+				width: 26%;
+				bottom: -20%;
+				left: -6%;
+			}
+			&:nth-child(2) {
+				width: 28%;
+				bottom: -16%;
+				right: -13%;
+			}
+		}
+	}
+}
+
+.caveexteriorscene-berry-container {
+	img {
+		position: absolute;
+		&:nth-child(1) {
+			width: 3%;
+			top: 38%;
+			left: 31%;
+			transform: rotate(8deg);
+		}
+		&:nth-child(2) {
+			width: 4%;
+			top: 33%;
+			right: 24%;
+			transform: rotate(-13deg);
+		}
+		&:nth-child(3) {
+			width: 4%;
+			top: 32%;
+			right: 5%;
+			transform: rotate(6deg);
+		}
+		&:nth-child(4) {
+			width: 5%;
+			bottom: 17%;
+			right: 3%;
+			transform: rotate(6deg);
+		}
+	}
+}

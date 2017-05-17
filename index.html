@@ -32,6 +32,7 @@
 
 	<!--
 	
+	BERRITON - HTML
 	TABLE OF CONTENTS
 	
 	0.01 - Splash Container
@@ -46,7 +47,8 @@
 	2.01 - Player Character
 	2.02 - Forward Buttons
 	2.03 - HUD
-	2.04 - Loading Screen
+	
+	3.01 - Loading Screen
 	 
 	-->
 
@@ -195,7 +197,10 @@
 			<div class="brent-container" id="brent-container">
 				<img src="images/npc/brent.svg" alt="Brent" class="brent" id="brent">
 				<div class="brent-speech-container speech-container flex" id="brent-speech-container">
-					<!--					<h5 id="brent-speech-label">Brent</h5>-->
+					<h5 class="speech-label hidden" id="brent-speech-label">Brent</h5>
+					<article class="speech-button hidden" id="brent-speech-button">
+						<img src="images/ui-elements/forward-button-right.svg" alt="Forward Button">
+					</article>
 					<p class="speech-text hidden" id="brent-speech-text">
 					</p>
 					<div class="speech-circle-container flex" id="brent-speech-circle-container">
@@ -250,6 +255,10 @@
 				<div class="james-container" id="james-container">
 					<img src="images/npc/james.svg" alt="James" class="james" id="james">
 					<div class="james-speech-container speech-container flex" id="james-speech-container">
+						<h5 class="speech-label hidden" id="james-speech-label">James</h5>
+						<article class="speech-button hidden" id="james-speech-button">
+							<img src="images/ui-elements/forward-button-right.svg" alt="Forward Button">
+						</article>
 						<p class="speech-text hidden" id="james-speech-text">
 						</p>
 						<div class="speech-circle-container flex" id="james-speech-circle-container">
@@ -304,7 +313,10 @@
 
 				<img src="images/npc/tabetha.svg" alt="Woat the Goat" class="tabetha" id="tabetha">
 				<div class="tabetha-speech-container speech-container flex" id="tabetha-speech-container">
-					<!--					<h5 id="tabetha-speech-label">Tabetha</h5>-->
+					<h5 class="speech-label hidden" id="tabetha-speech-label">Tabetha</h5>
+					<article class="speech-button hidden" id="tabetha-speech-button">
+						<img src="images/ui-elements/forward-button-right.svg" alt="Forward Button">
+					</article>
 					<p class="speech-text hidden" id="tabetha-speech-text">
 					</p>
 					<div class="speech-circle-container flex" id="tabetha-speech-circle-container">
@@ -393,7 +405,10 @@
 			<div class="woat-container" id="woat-container">
 				<img src="images/npc/woat.svg" alt="Woat the Goat" class="woat-the-goat" id="woat-the-goat">
 				<div class="woat-speech-container speech-container flex" id="woat-speech-container">
-					<!--					<h5 id="brent-speech-label">Brent</h5>-->
+					<h5 class="speech-label hidden" id="woat-speech-label">Woat</h5>
+					<article class="speech-button hidden" id="woat-speech-button">
+						<img src="images/ui-elements/forward-button-right.svg" alt="Forward Button">
+					</article>
 					<p class="speech-text hidden" id="woat-speech-text">
 					</p>
 					<div class="speech-circle-container flex" id="woat-speech-circle-container">
@@ -425,7 +440,7 @@
 			<p class="hud-berry-count" id="hud-berry-count">0</p>
 		</section>
 
-		<!-- 2.04 - Loading Screen -->
+		<!-- 3.01 - Loading Screen -->
 
 		<section class="loading-screen flex" id="loading-screen">
 			<div class="loader"><img src="images/berriton_logo.svg" alt="Loader Logo"></div>

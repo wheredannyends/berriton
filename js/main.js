@@ -1,4 +1,39 @@
-// USER SETTINGS
+/*
+
+BERRITON - JAVASCRIPT
+TABLE OF CONTENTS
+
+0.01 - User Settings
+0.02 - Scene Variables
+0.03 - Dialogue Array Declarations
+0.04 - HUD
+0.05 - Berry Math Functions
+0.06 - Pie Math Functions
+
+1.01 - Splash Screen
+1.02 - Character Selection Screen
+1.03 - Submit User Information
+
+2.01 - Scene Change Buttons
+2.02 - Scene Change Functions
+
+3.01 - Brent Interactions
+3.02 - James Interactions
+3.03 - Tabetha Interactions
+3.04 - Woat Interactions
+
+4.01 - Path Scene Berries
+4.02 - Bridge Scene Berries
+4.03 - House Exterior Scene Berries
+
+*/
+
+$(document).ready(function () {
+	$("#loading-screen").delay(500).fadeOut("slow");
+});
+
+
+// 0.01 - User Settings
 
 var user = {
 	name: "Barry",
@@ -16,26 +51,54 @@ var pathScenePlayer = document.getElementById("pathscene-player-character"),
 	highwayScenePlayer = document.getElementById("highwayscene-player-character"),
 	summitScenePlayer = document.getElementById("summitscene-player-character");
 
-// SCENE VARIABLES
+// 0.02 - Scene Variables
 
 var pathScene = document.getElementById("pathscene"),
 	bridgeScene = document.getElementById("bridgescene"),
 	houseExteriorScene = document.getElementById("houseexteriorscene"),
-	houseInteriorScene = document.getElementById("houseinteriorscene")
-highwayScene = document.getElementById("highwayscene"),
+	houseInteriorScene = document.getElementById("houseinteriorscene"),
+	highwayScene = document.getElementById("highwayscene"),
 	summitScene = document.getElementById("summitscene");
 
-// ARRAY VARIABLES
+// 0.03 - Dialogue Array Declarations
 
 var brentSpeechArr = [],
 	jamesSpeechArr = [],
 	tabethaSpeechArr = [],
-	woatSpeechArr;
+	woatSpeechArr = [];
 
+// 0.04 - HUD
 
+var hud = document.getElementById("hud-container"),
+	berryCountDisp = document.getElementById("hud-berry-count"),
+	pieCountDisp = document.getElementById("hud-pie-count"),
+	goodieContainer = document.getElementById("hud-goodies-container"),
+	goodieDisp = document.getElementById("hud-goodies"),
+	goodieArrow = document.getElementById("hud-goodies-arrow"),
+	goodieDispVisible = false,
+	goodieDispOpen = false;
 
+hud.addEventListener("click", function () {
+	if (goodieDispVisible == true) {
+		if (goodieDispOpen == false) {
+			for (var i = 0; i < goodieDisp.children.length; i++) {
+				goodieDisp.children[i].style.width = "80%";
+				goodieDisp.children[i].style.marginBottom = "10%";
+			}
+			goodieArrow.style.transform = "rotate(180deg)";
+			goodieDispOpen = true;
+		} else {
+			for (var i = 0; i < goodieDisp.children.length; i++) {
+				goodieDisp.children[i].style.width = "0";
+				goodieDisp.children[i].style.marginBottom = "0";
+			}
+			goodieArrow.style.transform = "none";
+			goodieDispOpen = false;
+		}
+	}
+});
 
-// BERRIES, PIES, & OTHER GOODIES
+// 0.05 - Berry Math Functions
 
 function berryInc() {
 	user.berryCount++;
@@ -63,6 +126,8 @@ function berryDec10() {
 		berryCountDisp.style.opacity = "1";
 	}, 300);
 }
+
+// 0.06 - Pie Math Functions
 
 function pieRecipeInc() {
 	user.pieRecipe++;
@@ -122,7 +187,7 @@ function pieRecipeDec() {
 	}
 }
 
-// SPLASH SCREEN
+// 1.01 - Splash Screen
 
 var splashContainer = document.getElementById("splash-container"),
 	splashLogo = document.getElementById("splash-logo"),
@@ -145,38 +210,7 @@ splashStart.addEventListener("click", function () {
 	}, 300);
 });
 
-// HUD
-
-var hud = document.getElementById("hud-container"),
-	berryCountDisp = document.getElementById("hud-berry-count"),
-	pieCountDisp = document.getElementById("hud-pie-count"),
-	goodieContainer = document.getElementById("hud-goodies-container"),
-	goodieDisp = document.getElementById("hud-goodies"),
-	goodieArrow = document.getElementById("hud-goodies-arrow"),
-	goodieDispVisible = false,
-	goodieDispOpen = false;
-
-hud.addEventListener("click", function () {
-	if (goodieDispVisible == true) {
-		if (goodieDispOpen == false) {
-			for (var i = 0; i < goodieDisp.children.length; i++) {
-				goodieDisp.children[i].style.width = "80%";
-				goodieDisp.children[i].style.marginBottom = "10%";
-			}
-			goodieArrow.style.transform = "rotate(180deg)";
-			goodieDispOpen = true;
-		} else {
-			for (var i = 0; i < goodieDisp.children.length; i++) {
-				goodieDisp.children[i].style.width = "0";
-				goodieDisp.children[i].style.marginBottom = "0";
-			}
-			goodieArrow.style.transform = "none";
-			goodieDispOpen = false;
-		}
-	}
-});
-
-// CHARACTER SELECTION SCREEN
+// 1.02 - Character Selection Screen
 
 var charSelPreview = document.getElementById("char-sel-preview"),
 	charSelLeft = document.getElementById("char-sel-left"),
@@ -217,18 +251,24 @@ var charSelSub = document.getElementById("char-sel-submit"),
 	charSelName = document.getElementById("char-sel-name"),
 	forwardButContainer = document.getElementById("forward-but-container");
 
-// SUBMIT USER INFO & BEGIN GAME
+var userData = localStorage.getItem("userData");
+if (userData) {
 
-function setPlayerCharacter() {
-	pathScenePlayer.src = user.charModelFront;
-	bridgeScenePlayer.src = user.charModelSide;
-	houseexteriorScenePlayer.src = user.charModelFront;
-	highwayScenePlayer.src = user.charModelSide;
-	summitScenePlayer.src = user.charModelSide;
+	user = JSON.parse(userData);
+
+	for (var i = 0; i < charSelArr.length; i++) {
+		if (user.charModelFront == charSelArr[i]) {
+			charSelCurrent = i;
+		}
+	}
+
+	charSelName.value = user.name;
+	charSelPreview.src = user.charModelFront;
 }
 
-charSelSub.addEventListener("click", function () {
+// 1.03 - Submit User Information
 
+function charSelSubFunc() {
 	if (charSelName.value == "") {
 		charSelName.placeholder = "You Don't Have A Name?"
 	} else {
@@ -246,7 +286,7 @@ charSelSub.addEventListener("click", function () {
 		tabethaSpeechArr = ["Oh hello <span class=\"red-text\">" + user.name + "</span>!", "My name is Tabetha.", "I’m the chef around here!", "I love to bake", "And like I've always said...", "The most important ingredient to any pie...", "...is <span class=\"blue-text\">love!</span>", "Sadly, my berry pie recipe has gone missing...", "I have searched everywhere!", "I’ve searched under the table...", "Behind the cabinet...", "In the chimney...", "I've even poked my head into the garburator and taken a peek!", "But, no luck...", "It's such a shame...", "I was about to bake a pie for my friend <span class=\"blue-text\">on the mountain.</span>", "Oooh ho ho!", "Thank you <span class=\"red-text\">" + user.name + "!", "Now, let me see what I need...", "Oh! I need some berries!", "Could you please grab me some berries?", "<span class=\"blue-text\">10</span> oughta do it!", "Alright! We're all set!", "Just head over to the oven and grab yourself a pie!"]
 
 		woatSpeechArr = ["Hello <span class=\"red-text\">" + user.name + "</span> How goes it?", "The name’s Woat the Goat.", "I’m somewhat of the elder here in Berriton", "So check it out...", "Tabetha, the lovely lady in <span class=\"blue-text\">that house down there</span>,", "Told me she would have a pie ready for me this afternoon.", "It's now getting close to the afternoon...", "Do you think you could go see where my pie is?", "Haaaay yes!", "That’s what I was looking for!", "Thank you for the pie <span class=\"red-text\">" + user.name + "</span>", "See ya around!"];
-// bear raccoon lion penguin pig panda
+
 		// SET CHARACTER MODEL
 
 		if (charSelCurrent == 0) {
@@ -282,7 +322,14 @@ charSelSub.addEventListener("click", function () {
 		} else {
 
 		}
-		console.log(user);
+
+		// SAVE TO LOCAL STORAGE
+
+		var localUserInfo = JSON.stringify(user);
+		localStorage.setItem("userData", localUserInfo);
+
+		// BEGIN GAME
+
 		splashContainer.style.opacity = "0";
 		charSelContainer.style.animation = "none";
 		setTimeout(function () {
@@ -305,12 +352,31 @@ charSelSub.addEventListener("click", function () {
 
 
 	}
+}
 
+function setPlayerCharacter() {
+	pathScenePlayer.src = user.charModelFront;
+	bridgeScenePlayer.src = user.charModelSide;
+	houseexteriorScenePlayer.src = user.charModelFront;
+	highwayScenePlayer.src = user.charModelSide;
+	summitScenePlayer.src = user.charModelSide;
+}
 
+charSelSub.addEventListener("click", function () {
+
+	charSelSubFunc();
 
 });
 
-// FORWARD BUTTONS
+charSelName.addEventListener("keyup", function (ev) {
+
+	if (ev.keyCode == 13) {
+		charSelSubFunc();
+	}
+
+});
+
+// 2.01 - Scene Change Buttons
 
 var forwardBut1 = document.getElementById("forward-but-1"),
 	forwardBut2 = document.getElementById("forward-but-2");
@@ -391,8 +457,9 @@ function moveForwardButs() {
 	} else {
 		forwardBut1.style.opacity = "1";
 	}
-
 }
+
+// 2.02 - Scene Change Functions
 
 forwardBut1.addEventListener("click", function () {
 
@@ -410,7 +477,6 @@ forwardBut1.addEventListener("click", function () {
 		setTimeout(function () {
 			bridgeScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
-
 		}, 500);
 	}
 
@@ -428,7 +494,10 @@ forwardBut1.addEventListener("click", function () {
 			houseExteriorScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
 		}, 500);
-
+		if (brentSpeechOpen == true) {
+			brentSpeechContainerClose();
+			brentSpeechOpen = false;
+		}
 	}
 
 	// HOUSE EXTERIOR to HIGHWAY
@@ -445,7 +514,10 @@ forwardBut1.addEventListener("click", function () {
 			highwayScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
 		}, 500);
-
+		if (jamesSpeechOpen == true) {
+			jamesSpeechContainerClose();
+			jamesSpeechOpen = false;
+		}
 	}
 
 	// HIGHWAY to SUMMIT
@@ -462,17 +534,12 @@ forwardBut1.addEventListener("click", function () {
 			summitScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
 		}, 500);
-
 	}
-
-
-
 });
-
 
 forwardBut2.addEventListener("click", function () {
 
-	// PATH to BRIDGE
+	// SUMMIT to HIGHWAY
 
 	if (curScene == "summitScene") {
 		curScene = "highwayScene";
@@ -487,10 +554,13 @@ forwardBut2.addEventListener("click", function () {
 			highwayScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
 		}, 500);
-
+		if (woatSpeechOpen == true) {
+			woatSpeechContainerClose();
+			woatSpeechOpen = false;
+		}
 	}
 
-	// BRIDGE to HOUSE EXTERIOR
+	// HIGHWAY to HOUSE EXTERIOR
 	else if (curScene == "highwayScene") {
 		curScene = "houseExteriorScene";
 		highwayScene.style.opacity = "0";
@@ -521,10 +591,13 @@ forwardBut2.addEventListener("click", function () {
 			houseExteriorScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
 		}, 500);
-
+		if (tabethaSpeechOpen == true) {
+			tabethaSpeechContainerClose();
+			tabethaSpeechOpen = false;
+		}
 	}
 
-	// HOUSE EXTERIOR to HIGHWAY
+	// HOUSE EXTERIOR to BRIDGE
 	else if (curScene == "houseExteriorScene") {
 		curScene = "bridgeScene";
 		houseExteriorScene.style.opacity = "0";
@@ -538,12 +611,13 @@ forwardBut2.addEventListener("click", function () {
 			bridgeScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
 		}, 500);
-
+		if (jamesSpeechOpen == true) {
+			jamesSpeechContainerClose();
+			jamesSpeechOpen = false;
+		}
 	}
 
-
-
-	// HIGHWAY to SUMMIT
+	// BRIDGE to PATH
 	else if (curScene == "bridgeScene") {
 		curScene = "pathScene";
 		bridgeScene.style.opacity = "0";
@@ -557,13 +631,34 @@ forwardBut2.addEventListener("click", function () {
 			pathScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
 		}, 500);
-
+		if (brentSpeechOpen == true) {
+			brentSpeechContainerClose();
+			brentSpeechOpen = false;
+		}
 	}
 
 });
 
+// HOUSE EXTERIOR to HOUSE INTERIOR
 
-// BRENT INTERACTIONS
+var houseExteriorHouse = document.getElementById("houseexteriorscene-house");
+
+houseExteriorHouse.addEventListener("click", function () {
+	curScene = "houseInteriorScene";
+	houseExteriorScene.style.opacity = "0";
+	forwardButContainer.style.opacity = "0";
+	setTimeout(function () {
+		houseExteriorScene.classList.add("hidden");
+		houseInteriorScene.classList.remove("hidden");
+		moveForwardButs();
+	}, 300);
+	setTimeout(function () {
+		houseInteriorScene.style.opacity = "1";
+		forwardButContainer.style.opacity = "1";
+	}, 500);
+});
+
+// 3.01 - Brent Interactions
 
 var brent = document.getElementById("brent-container"),
 	brentInit = false,
@@ -572,19 +667,20 @@ var brent = document.getElementById("brent-container"),
 	brentSpeechCircles = document.getElementById("brent-speech-circle-container"),
 	brentSpeechLabel = document.getElementById("brent-speech-label"),
 	brentSpeechText = document.getElementById("brent-speech-text"),
-	brentSpeechProg = 0;
+	brentSpeechProg = 0,
+	brentSpeechButton = document.getElementById("brent-speech-button");
 
 function brentSpeechContainerOpen() {
 	brentSpeech.style.width = "25%";
 	brentSpeech.style.height = "20%";
 	brentSpeechCircles.style.opacity = "0";
-	//		brentSpeechLabel.style.opacity = "0";
+	brentSpeechLabel.classList.remove("hidden");
 	setTimeout(function () {
 		brentSpeechCircles.classList.remove("flex");
 		brentSpeechCircles.classList.add("hidden");
-		//			brentSpeechLabel.classList.add("hidden");
 		brentSpeechText.classList.remove("hidden");
 		brentSpeechText.innerHTML = brentSpeechArr[brentSpeechProg];
+		brentSpeechLabel.style.opacity = "1";
 	}, 300);
 	setTimeout(function () {
 		brentSpeechText.style.opacity = "1";
@@ -594,19 +690,38 @@ function brentSpeechContainerOpen() {
 
 function brentSpeechContainerClose() {
 	brentSpeechText.style.opacity = "0";
+	brentSpeechLabel.style.opacity = "0";
+	brentSpeechButton.classList.add("hidden");
 	setTimeout(function () {
 		brentSpeech.style.width = "8%";
 		brentSpeech.style.height = "6%";
 		brentSpeechText.classList.add("hidden");
 		brentSpeechCircles.classList.remove("hidden");
 		brentSpeechCircles.classList.add("flex");
-		//			brentSpeechLabel.classList.remove("hidden");
+		brentSpeechLabel.classList.add("hidden");
 	}, 300);
 	setTimeout(function () {
 		brentSpeechCircles.style.opacity = "1";
-		//			brentSpeechLabel.style.opacity = "1";
 	}, 500);
 	brentSpeechOpen = false;
+}
+
+function brentDialogueFreeze() {
+	brent.style.pointerEvents = "none";
+	setTimeout(function () {
+		brent.style.pointerEvents = "auto";
+	}, 700);
+
+	if (brentSpeechOpen == true) {
+		brentSpeechButton.classList.add("hidden");
+		brentSpeechButton.style.opacity = "0";
+		setTimeout(function () {
+			brentSpeechButton.classList.remove("hidden");
+		}, 400);
+		setTimeout(function () {
+			brentSpeechButton.style.opacity = "1";
+		}, 700);
+	}
 }
 
 brent.addEventListener("click", function () {
@@ -668,26 +783,10 @@ brent.addEventListener("click", function () {
 			brentSpeechContainerClose();
 		}
 	}
+	brentDialogueFreeze();
 });
 
-// HOUSE INTERACTION
-
-var houseExteriorHouse = document.getElementById("houseexteriorscene-house");
-
-houseExteriorHouse.addEventListener("click", function () {
-	curScene = "houseInteriorScene";
-	houseExteriorScene.style.opacity = "0";
-	forwardButContainer.style.opacity = "0";
-	setTimeout(function () {
-		houseExteriorScene.classList.add("hidden");
-		houseInteriorScene.classList.remove("hidden");
-		moveForwardButs();
-	}, 300);
-	setTimeout(function () {
-		houseInteriorScene.style.opacity = "1";
-		forwardButContainer.style.opacity = "1";
-	}, 500);
-});
+// 3.02 - James Interactions
 
 var james = document.getElementById("james-container"),
 	jamesInit = false,
@@ -695,6 +794,7 @@ var james = document.getElementById("james-container"),
 	jamesSpeechOpen = false,
 	jamesSpeechCircles = document.getElementById("james-speech-circle-container"),
 	jamesSpeechLabel = document.getElementById("james-speech-label"),
+	jamesSpeechButton = document.getElementById("james-speech-button"),
 	jamesSpeechText = document.getElementById("james-speech-text"),
 	jamesSpeechProg = 0;
 
@@ -702,11 +802,11 @@ function jamesSpeechContainerOpen() {
 	jamesSpeech.style.width = "25%";
 	jamesSpeech.style.height = "20%";
 	jamesSpeechCircles.style.opacity = "0";
-	//		jamesSpeechLabel.style.opacity = "0";
+	jamesSpeechLabel.classList.remove("hidden");
 	setTimeout(function () {
 		jamesSpeechCircles.classList.remove("flex");
 		jamesSpeechCircles.classList.add("hidden");
-		//			jamesSpeechLabel.classList.add("hidden");
+		jamesSpeechLabel.style.opacity = "1";
 		jamesSpeechText.classList.remove("hidden");
 		jamesSpeechText.innerHTML = jamesSpeechArr[jamesSpeechProg];
 	}, 300);
@@ -718,19 +818,38 @@ function jamesSpeechContainerOpen() {
 
 function jamesSpeechContainerClose() {
 	jamesSpeechText.style.opacity = "0";
+	jamesSpeechLabel.style.opacity = "0";
+	jamesSpeechButton.classList.add("hidden");
 	setTimeout(function () {
 		jamesSpeech.style.width = "8%";
 		jamesSpeech.style.height = "6%";
 		jamesSpeechText.classList.add("hidden");
 		jamesSpeechCircles.classList.remove("hidden");
 		jamesSpeechCircles.classList.add("flex");
-		//			jamesSpeechLabel.classList.remove("hidden");
+		jamesSpeechLabel.classList.add("hidden");
 	}, 300);
 	setTimeout(function () {
 		jamesSpeechCircles.style.opacity = "1";
-		//			jamesSpeechLabel.style.opacity = "1";
 	}, 500);
 	jamesSpeechOpen = false;
+}
+
+function jamesDialogueFreeze() {
+	james.style.pointerEvents = "none";
+	setTimeout(function () {
+		james.style.pointerEvents = "auto";
+	}, 700);
+
+	if (jamesSpeechOpen == true) {
+		jamesSpeechButton.classList.add("hidden");
+		jamesSpeechButton.style.opacity = "0";
+		setTimeout(function () {
+			jamesSpeechButton.classList.remove("hidden");
+		}, 400);
+		setTimeout(function () {
+			jamesSpeechButton.style.opacity = "1";
+		}, 700);
+	}
 }
 
 james.addEventListener("click", function () {
@@ -815,12 +934,13 @@ james.addEventListener("click", function () {
 			jamesSpeechContainerClose();
 		}
 	}
+	jamesDialogueFreeze();
 });
 
 
 
 
-// TABETHA INTERACTIONS
+// 3.03 - Tabetha Interactions
 
 var tabetha = document.getElementById("tabetha-container"),
 	tabethaInit = false,
@@ -830,19 +950,21 @@ var tabetha = document.getElementById("tabetha-container"),
 	tabethaSpeechOpen = false,
 	tabethaSpeechCircles = document.getElementById("tabetha-speech-circle-container"),
 	tabethaSpeechLabel = document.getElementById("tabetha-speech-label"),
+	tabethaSpeechButton = document.getElementById("tabetha-speech-button"),
 	tabethaSpeechText = document.getElementById("tabetha-speech-text"),
 	tabethaSpeechProg = 0,
-	houseInteriorOven = document.getElementById("houseinteriorscene-oven");
+	houseInteriorOven = document.getElementById("houseinteriorscene-oven"),
+	ovenAnimPlayed = false;
 
 function tabethaSpeechContainerOpen() {
 	tabethaSpeech.style.width = "25%";
 	tabethaSpeech.style.height = "20%";
 	tabethaSpeechCircles.style.opacity = "0";
-	//		tabethaSpeechLabel.style.opacity = "0";
+	tabethaSpeechLabel.classList.remove("hidden");
 	setTimeout(function () {
 		tabethaSpeechCircles.classList.remove("flex");
 		tabethaSpeechCircles.classList.add("hidden");
-		//			tabethaSpeechLabel.classList.add("hidden");
+		tabethaSpeechLabel.style.opacity = "1";
 		tabethaSpeechText.classList.remove("hidden");
 		tabethaSpeechText.innerHTML = tabethaSpeechArr[tabethaSpeechProg];
 	}, 300);
@@ -854,19 +976,38 @@ function tabethaSpeechContainerOpen() {
 
 function tabethaSpeechContainerClose() {
 	tabethaSpeechText.style.opacity = "0";
+	tabethaSpeechLabel.style.opacity = "0";
+	tabethaSpeechButton.classList.add("hidden");
 	setTimeout(function () {
 		tabethaSpeech.style.width = "8%";
 		tabethaSpeech.style.height = "6%";
 		tabethaSpeechText.classList.add("hidden");
 		tabethaSpeechCircles.classList.remove("hidden");
 		tabethaSpeechCircles.classList.add("flex");
-		//			tabethaSpeechLabel.classList.remove("hidden");
+		tabethaSpeechLabel.classList.add("hidden");
 	}, 300);
 	setTimeout(function () {
 		tabethaSpeechCircles.style.opacity = "1";
-		//			tabethaSpeechLabel.style.opacity = "1";
 	}, 500);
 	tabethaSpeechOpen = false;
+}
+
+function tabethaDialogueFreeze() {
+	tabetha.style.pointerEvents = "none";
+	setTimeout(function () {
+		tabetha.style.pointerEvents = "auto";
+	}, 700);
+
+	if (tabethaSpeechOpen == true) {
+		tabethaSpeechButton.classList.add("hidden");
+		tabethaSpeechButton.style.opacity = "0";
+		setTimeout(function () {
+			tabethaSpeechButton.classList.remove("hidden");
+		}, 400);
+		setTimeout(function () {
+			tabethaSpeechButton.style.opacity = "1";
+		}, 700);
+	}
 }
 
 tabetha.addEventListener("click", function () {
@@ -920,6 +1061,9 @@ tabetha.addEventListener("click", function () {
 				setTimeout(function () {
 					houseInteriorSceneComplete = true;
 					houseInteriorOven.style.animation = "oven-pulse 2s 2";
+					setTimeout(function () {
+						houseInteriorOven.style.animation = "none";
+					}, 250);
 					berryDec10();
 					pieRecipeDec();
 				}, 300);
@@ -941,6 +1085,7 @@ tabetha.addEventListener("click", function () {
 			tabethaSpeechContainerClose();
 		}
 	}
+	tabethaDialogueFreeze();
 });
 
 houseInteriorOven.addEventListener("click", function () {
@@ -950,7 +1095,7 @@ houseInteriorOven.addEventListener("click", function () {
 	}
 });
 
-// WOAT INTERACTIONS
+// 3.02 - Woat Interactions
 
 var woat = document.getElementById("woat-container"),
 	woatInit = false,
@@ -958,6 +1103,7 @@ var woat = document.getElementById("woat-container"),
 	woatSpeechOpen = false,
 	woatSpeechCircles = document.getElementById("woat-speech-circle-container"),
 	woatSpeechLabel = document.getElementById("woat-speech-label"),
+	woatSpeechButton = document.getElementById("woat-speech-button"),
 	woatSpeechText = document.getElementById("woat-speech-text"),
 	woatSpeechProg = 0;
 
@@ -965,11 +1111,11 @@ function woatSpeechContainerOpen() {
 	woatSpeech.style.width = "25%";
 	woatSpeech.style.height = "20%";
 	woatSpeechCircles.style.opacity = "0";
-	//		woatSpeechLabel.style.opacity = "0";
+	woatSpeechLabel.classList.remove("hidden");
 	setTimeout(function () {
 		woatSpeechCircles.classList.remove("flex");
 		woatSpeechCircles.classList.add("hidden");
-		//			woatSpeechLabel.classList.add("hidden");
+		woatSpeechLabel.style.opacity = "1";
 		woatSpeechText.classList.remove("hidden");
 		woatSpeechText.innerHTML = woatSpeechArr[woatSpeechProg];
 	}, 300);
@@ -981,19 +1127,38 @@ function woatSpeechContainerOpen() {
 
 function woatSpeechContainerClose() {
 	woatSpeechText.style.opacity = "0";
+	woatSpeechLabel.style.opacity = "0";
+	woatSpeechButton.classList.add("hidden");
 	setTimeout(function () {
 		woatSpeech.style.width = "8%";
 		woatSpeech.style.height = "6%";
 		woatSpeechText.classList.add("hidden");
 		woatSpeechCircles.classList.remove("hidden");
 		woatSpeechCircles.classList.add("flex");
-		//			woatSpeechLabel.classList.remove("hidden");
+		woatSpeechLabel.classList.add("hidden");
 	}, 300);
 	setTimeout(function () {
 		woatSpeechCircles.style.opacity = "1";
-		//			woatSpeechLabel.style.opacity = "1";
 	}, 500);
 	woatSpeechOpen = false;
+}
+
+function woatDialogueFreeze() {
+	woat.style.pointerEvents = "none";
+	setTimeout(function () {
+		woat.style.pointerEvents = "auto";
+	}, 700);
+
+	if (woatSpeechOpen == true) {
+		woatSpeechButton.classList.add("hidden");
+		woatSpeechButton.style.opacity = "0";
+		setTimeout(function () {
+			woatSpeechButton.classList.remove("hidden");
+		}, 400);
+		setTimeout(function () {
+			woatSpeechButton.style.opacity = "1";
+		}, 700);
+	}
 }
 
 woat.addEventListener("click", function () {
@@ -1049,12 +1214,10 @@ woat.addEventListener("click", function () {
 			woatSpeechContainerClose();
 		}
 	}
+	woatDialogueFreeze();
 });
 
-
-// BERRY COLLECTION
-
-// PATH SCENE BERRIES
+// 4.01 - Path Scene Berries
 
 var pathBerry1 = document.getElementById("pathscene-berry-1"),
 	pathBerry2 = document.getElementById("pathscene-berry-2"),
@@ -1129,7 +1292,7 @@ pathBerry8.addEventListener("click", function () {
 	}, 300);
 });
 
-// BRIDGE SCENE BERRIES
+// 4.02 - Bridge Scene Berries
 
 var bridgeBerry1 = document.getElementById("bridgescene-berry-1"),
 	bridgeBerry2 = document.getElementById("bridgescene-berry-2"),
@@ -1159,12 +1322,12 @@ bridgeBerry3.addEventListener("click", function () {
 	}, 300);
 });
 
-// HOUSE EXTERIOR BERRIES
+// 4.03 - House Exterior Scene Berries
 
 var houseExtBerry1 = document.getElementById("houseexteriorscene-berry-1"),
 	houseExtBerry2 = document.getElementById("houseexteriorscene-berry-2"),
 	houseExtBerry3 = document.getElementById("houseexteriorscene-berry-3"),
-houseExtBerry4 = document.getElementById("houseexteriorscene-berry-4");
+	houseExtBerry4 = document.getElementById("houseexteriorscene-berry-4");
 
 houseExtBerry1.addEventListener("click", function () {
 	berryInc();
@@ -1196,11 +1359,4 @@ houseExtBerry4.addEventListener("click", function () {
 	setTimeout(function () {
 		houseExtBerry4.classList.add("hidden");
 	}, 300);
-});
-
-
-// LOADER
-
-$(document).ready(function () {
-	$("#loading-screen").delay(500).fadeOut("slow");
 });

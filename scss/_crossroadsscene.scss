@@ -1,0 +1,223 @@
+.crossroadsscene {
+	background: linear-gradient($main-blue, $white) no-repeat center center;
+	background-size: cover;
+	//	opacity: 0;
+}
+
+.crossroadsscene-cloud-container {
+	img {
+		position: absolute;
+		opacity: 0.5;
+		&:nth-child(1) {
+			width: 25%;
+			top: 3%;
+			left: 27%;
+			animation: cloud-movement 12s infinite;
+		}
+		&:nth-child(2) {
+			width: 13%;
+			top: 45%;
+			left: 29%;
+			animation: cloud-movement 7s infinite;
+		}
+		&:nth-child(3) {
+			width: 20%;
+			top: 40%;
+			left: 37%;
+			animation: cloud-movement 7s infinite;
+		}
+		&:nth-child(4) {
+			width: 27%;
+			top: 15%;
+			right: -2%;
+			animation: cloud-movement 7s infinite;
+		}
+	}
+}
+
+.crossroadsscene-cave {
+	position: absolute;
+	width: 45%;
+	top: -8%;
+	left: -7%;
+}
+
+.crossroadsscene-bg-treeline-container {
+	img {
+		position: absolute;
+		width: 45%;
+		&:nth-child(1) {
+			top: 42%;
+			left: -27%;
+			transform: scale(-1)
+		}
+		&:nth-child(2) {
+			width: 50%;
+			top: 44%;
+			right: -5%;
+			transform: scale(-1)
+		}
+		&:nth-child(8) {
+			top: 29%;
+			left: -26%;
+			transform: scale(-1)
+		}
+		&:nth-child(9) {
+			top: 32%;
+			right: 0;
+			transform: scale(-1)
+		}
+	}
+	.crossroadsscene-bg-treeline-trunk {
+		position: absolute;
+		&:nth-child(3) {
+			top: 48%;
+			left: 2%;
+		}
+		&:nth-child(4) {
+			top: 46%;
+			left: 12%;
+		}
+		&:nth-child(5) {
+			top: 45%;
+			right: 29%;
+		}
+		&:nth-child(6) {
+			top: 45%;
+			right: 20%;
+		}
+		&:nth-child(7) {
+			top: 45%;
+			right: 9%;
+		}
+	}
+}
+
+.crossroadsscene-tree-back-container {
+	img {
+		position: absolute;
+		&:nth-child(1) {
+			width: 13%;
+			top: 40%;
+			left: 0;
+		}
+		&:nth-child(2) {
+			width: 15%;
+			top: 36%;
+			left: 5%;
+			transform: scaleX(-1);
+		}
+		&:nth-child(3) {
+			width: 16%;
+			top: 32%;
+			left: -8%;
+			transform: scaleX(-1);
+		}
+		&:nth-child(4) {
+			width: 12%;
+			top: 42%;
+			right: 18%;
+		}
+		&:nth-child(5) {
+			width: 13%;
+			top: 42%;
+			right: 36%;
+		}
+		&:nth-child(6) {
+			width: 12%;
+			top: 45%;
+			right: 8%;
+		}
+		&:nth-child(7) {
+			width: 16%;
+			top: 33%;
+			right: 25%;
+		}
+		&:nth-child(8) {
+			width: 16%;
+			top: 34%;
+			right: -4%;
+		}
+	}
+}
+
+.crossroadsscene-back-bush-container {
+	img {
+		width: 7%;
+		position: absolute;
+		&:nth-child(1) {
+			top: 62%;
+			left: 2%;
+		}
+		&:nth-child(2) {
+			top: 61%;
+			left: 15%;
+		}
+		&:nth-child(3) {
+			top: 63%;
+			right: 36%;
+		}
+		&:nth-child(4) {
+			top: 65%;
+			right: 16%;
+		}
+	}
+}
+
+.crossroadsscene-ground {
+	position: absolute;
+	bottom: -8%;
+	left: -5%;
+	width: 108%;
+}
+
+.crossroadsscene-tree-front-container {
+	img {
+		position: absolute;
+		&:nth-child(1) {
+			width: 30%;
+			bottom: -50%;
+			left: -13%;
+		}
+		&:nth-child(2) {
+			width: 20%;
+			bottom: -20%;
+			left: 15%;
+		}
+		&:nth-child(3) {
+			width: 28%;
+			bottom: -49%;
+			right: -13%;
+		}
+	}
+}
+
+.crossroadsscene-berry-container {
+	img {
+		position: absolute;
+		&:nth-child(1) {
+			width: 3%;
+			top: 38%;
+			left: 31%;
+			transform: rotate(8deg);
+		}
+		&:nth-child(2) {
+			width: 4%;
+			top: 33%;
+			right: 24%;
+			transform: rotate(-13deg);
+		}
+		&:nth-child(3) {
+			width: 4%;
+			top: 32%;
+			right: 5%;
+			transform: rotate(6deg);
+		}
+		&:nth-child(4) {
+			width: 5%;
+			bottom: 17%;
+			right: 3%;
+			transform: rotate(6deg);
+		}
+	}
+}
