@@ -279,7 +279,7 @@ function charSelSubFunc() {
 
 		// SET DIALOGUE BASED ON NAME VALUE
 
-		brentSpeechArr = ["Hey <span class=\"red-text\">" + user.name + "</span> this is MY bridge.", "Look here...", "If you want to use my things,", "You have to give me something in return.", "I’m pretty hungry right now...", "About <span class=\"blue-text\">5 berries</span> hungry I'd say...", "But if I go anywhere...", " someone might touch my bridge!", "Get me some food. *hmph*", "Wow!", "I had you pegged as some kind of dork...", "but you’re actually pretty cool!", "You can use my bridge, I guess..."];
+		brentSpeechArr = ["Hey <span class=\"red-text\">" + user.name + "</span> this is MY bridge.", "Look here...", "If you want to use my things,", "You have to give me something in return.", "I’m pretty hungry right now...", "About <span class=\"blue-text\">5 berries</span> hungry I'd say...", "There are usually a bunch <span class=\"blue-text\">in the trees</span>", "Anyone could just reach up and <span class=\"blue-text\">grab some</span>", "I'd get them myself,", "But if I go anywhere...", " someone might touch my bridge!", "Get me some food. *hmph*", "Wow!", "I had you pegged as some kind of dork...", "but you’re actually pretty cool!", "You can use my bridge, I guess..."];
 
 		jamesSpeechArr = ["Psssst… over here <span class=\"red-text\">" + user.name + ".", "I hear that old koot in that there house...", "Serves up some pretty mean berry pie!", "Check it out...", "I ganked her recipe for berry pie,", "So I can have it all to myself!", "...", "What’s that?", "You think I should give it back?", "No. its mine!", "Tell you what...", "I'll come up with a quiz and you can earn it.", "If you can guess all the questions right...", "I’ll give you the recipe!", "But it will take some time...", "Maybe take a hike up the mountain over there.", "I'll whip it up in no time!", "Jeepers...", "You're back so soon!", "I'm still working on the quiz.", "Maybe Tabetha has a copy?", "Go check in with her at her place!", "Tabetha can't remember her own recipies!?", "I can't believe it!", "I'm still coming up with some questions", "If you wanna take a hike up the mountain...", "I'm sure it will be ready by the time you're back!", "I've been working on this quiz for hours!", "I just can't seem to crack the code...", "I'm sure I'll get later on!", "But there's no time right now...", "Anyway! I'll let you borrow the recipe for now...", "But I'll get it back once usability testing is over!", "I can guarantee it!"];
 
@@ -744,7 +744,7 @@ brent.addEventListener("click", function () {
 			}
 		} else {
 			if (brentSpeechOpen == false) {
-				brentSpeechProg = 9;
+				brentSpeechProg = 12;
 				brentSpeechContainerOpen();
 			} else if (brentSpeechProg < brentSpeechArr.length - 1) {
 				brentSpeechProg++;
