@@ -171,11 +171,22 @@
 	}
 }
 
+.houseexteriorscene-arrow {
+	position: absolute;
+	width: 5%;
+	filter: $filter-shadow-1;
+	top: 13%;
+	left: 56%;
+	&:hover {
+		animation: arrow-pulse 1s infinite;
+	}
+}
+
 .houseexteriorscene-berry-container {
 	img {
 		position: absolute;
 		&:nth-child(1) {
-			width: 3%;
+			width: 4%;
 			top: 38%;
 			left: 31%;
 			transform: rotate(8deg);

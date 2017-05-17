@@ -48,6 +48,7 @@ var user = {
 var pathScenePlayer = document.getElementById("pathscene-player-character"),
 	bridgeScenePlayer = document.getElementById("bridgescene-player-character"),
 	houseexteriorScenePlayer = document.getElementById("houseexteriorscene-player-character"),
+	houseinteriorScenePlayer = document.getElementById("houseinteriorscene-player-character"),
 	highwayScenePlayer = document.getElementById("highwayscene-player-character"),
 	summitScenePlayer = document.getElementById("summitscene-player-character");
 
@@ -358,6 +359,7 @@ function setPlayerCharacter() {
 	pathScenePlayer.src = user.charModelFront;
 	bridgeScenePlayer.src = user.charModelSide;
 	houseexteriorScenePlayer.src = user.charModelFront;
+	houseinteriorScenePlayer.src = user.charModelSide;
 	highwayScenePlayer.src = user.charModelSide;
 	summitScenePlayer.src = user.charModelSide;
 }
@@ -641,9 +643,9 @@ forwardBut2.addEventListener("click", function () {
 
 // HOUSE EXTERIOR to HOUSE INTERIOR
 
-var houseExteriorHouse = document.getElementById("houseexteriorscene-house");
+var houseExteriorArrow = document.getElementById("houseexteriorscene-arrow");
 
-houseExteriorHouse.addEventListener("click", function () {
+houseExteriorArrow.addEventListener("click", function () {
 	curScene = "houseInteriorScene";
 	houseExteriorScene.style.opacity = "0";
 	forwardButContainer.style.opacity = "0";

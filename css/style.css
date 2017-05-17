@@ -621,6 +621,36 @@ p {
     width: 50%;
     flex-direction: column; }
 
+/* Player Character */
+.player-character {
+  position: absolute;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24)); }
+  .player-character.pathscene-player-character {
+    top: 68%;
+    left: 35%;
+    height: 30%; }
+  .player-character.bridgescene-player-character {
+    top: 60%;
+    left: 70%;
+    height: 37%; }
+  .player-character.houseexteriorscene-player-character {
+    top: 62%;
+    left: 75%;
+    height: 22%; }
+  .player-character.houseinteriorscene-player-character {
+    top: 50%;
+    left: 8%;
+    height: 35%;
+    transform: scaleX(-1); }
+  .player-character.highwayscene-player-character {
+    top: 64%;
+    left: 80%;
+    height: 15%; }
+  .player-character.summitscene-player-character {
+    top: 61%;
+    left: 55%;
+    height: 32%; }
+
 /* HUD */
 .hud-container {
   position: absolute;
@@ -751,6 +781,10 @@ p {
     left: 12%; }
   .speech-button:hover {
     filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.28)); }
+
+/* Berries */
+.berry-container img {
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24)); }
 
 @keyframes slide-frombottom {
   0% {
@@ -1059,27 +1093,27 @@ p {
     left: 17%;
     transform: rotate(-22deg); }
   .pathscene-berry-container img:nth-child(3) {
-    width: 3%;
-    top: 34%;
+    width: 4%;
+    top: 33%;
     left: 10%;
     transform: rotate(-22deg); }
   .pathscene-berry-container img:nth-child(4) {
-    width: 2%;
+    width: 4%;
     top: 37%;
-    left: 27%;
+    left: 25%;
     transform: rotate(-20deg); }
   .pathscene-berry-container img:nth-child(5) {
-    width: 2%;
+    width: 4%;
     top: 40%;
-    right: 31%;
+    right: 30%;
     transform: rotate(18deg); }
   .pathscene-berry-container img:nth-child(6) {
-    width: 3%;
+    width: 4%;
     bottom: 39%;
-    right: 20%;
+    right: 18%;
     transform: rotate(-8deg); }
   .pathscene-berry-container img:nth-child(7) {
-    width: 3%;
+    width: 4%;
     bottom: 48%;
     right: 10%;
     transform: rotate(15deg); }
@@ -1201,7 +1235,7 @@ p {
 .bridgescene-berry-container img {
   position: absolute; }
   .bridgescene-berry-container img:nth-child(1) {
-    width: 3%;
+    width: 4%;
     top: 34%;
     right: 18%;
     transform: rotate(-21deg); }
@@ -1352,10 +1386,19 @@ p {
     bottom: -37%;
     right: 5%; }
 
+.houseexteriorscene-arrow {
+  position: absolute;
+  width: 5%;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24));
+  top: 13%;
+  left: 56%; }
+  .houseexteriorscene-arrow:hover {
+    animation: arrow-pulse 1s infinite; }
+
 .houseexteriorscene-berry-container img {
   position: absolute; }
   .houseexteriorscene-berry-container img:nth-child(1) {
-    width: 3%;
+    width: 4%;
     top: 38%;
     left: 31%;
     transform: rotate(8deg); }
@@ -2165,30 +2208,5 @@ p {
       bottom: -12%;
       right: 6%;
       transform: scaleY(-1); }
-
-/* Player Character */
-.player-character {
-  position: absolute;
-  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24)); }
-  .player-character.pathscene-player-character {
-    top: 68%;
-    left: 35%;
-    height: 30%; }
-  .player-character.bridgescene-player-character {
-    top: 60%;
-    left: 70%;
-    height: 37%; }
-  .player-character.houseexteriorscene-player-character {
-    top: 62%;
-    left: 75%;
-    height: 22%; }
-  .player-character.highwayscene-player-character {
-    top: 64%;
-    left: 80%;
-    height: 15%; }
-  .player-character.summitscene-player-character {
-    top: 61%;
-    left: 55%;
-    height: 32%; }
 
 /*# sourceMappingURL=style.css.map */
