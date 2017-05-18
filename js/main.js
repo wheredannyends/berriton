@@ -247,7 +247,7 @@ function woatMedalGet() {
 	setTimeout(function () {
 		woatMedalIcon.style.opacity = "0";
 		setTimeout(function () {
-			woatMedalIcon.src = "images/goodies/woatMedal.svg"
+			woatMedalIcon.src = "images/goodies/woat-medal.svg"
 			setTimeout(function () {
 				woatMedalIcon.style.opacity = "1";
 				setTimeout(function () {
@@ -267,7 +267,7 @@ function brobotMedalGet() {
 	setTimeout(function () {
 		brobotMedalIcon.style.opacity = "0";
 		setTimeout(function () {
-			brobotMedalIcon.src = "images/goodies/brobotMedal.svg"
+			brobotMedalIcon.src = "images/goodies/brobot-medal.svg"
 			setTimeout(function () {
 				brobotMedalIcon.style.opacity = "1";
 				setTimeout(function () {
