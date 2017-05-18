@@ -511,11 +511,9 @@ function moveForwardButs() {
 		forwardBut1.style.top = "23%";
 		forwardBut1.style.left = "5%";
 
-		//		if (bridgeSceneComplete == false) {
-		//			forwardBut1.classList.add("hidden");
-		//		} else {
-		//			forwardBut1.classList.remove("hidden");
-		//		}
+		if (bridgeSceneComplete == false) {
+			forwardBut1.classList.add("hidden");
+		}
 
 		forwardBut2.src = "images/ui-elements/forward-button-right.svg"
 		forwardBut2.style.top = "60%";
