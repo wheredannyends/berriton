@@ -8,7 +8,7 @@ TABLE OF CONTENTS
 0.03 - Dialogue Array Declarations
 0.04 - HUD
 0.05 - Berry Math Functions
-0.06 - Pie Math Functions
+0.06 - Goodie Functions
 
 1.01 - Splash Screen
 1.02 - Character Selection Screen
@@ -21,8 +21,8 @@ TABLE OF CONTENTS
 3.02 - James Interactions
 3.03 - Tabetha Interactions
 3.04 - Woat Interactions
-3.05 - Brobot Interactions
-3.06 - Deero Interactions
+3.05 - Kenneth Interactions
+3.06 - Brobot Interactions
 
 4.01 - Path Scene Berries
 4.02 - Bridge Scene Berries
@@ -42,9 +42,7 @@ var user = {
 	charModelFront: "images/characters/raccoon-front.svg",
 	charModelSide: "images/characters/raccoon-side.svg",
 	berryCount: 0,
-	goodieCount: 0,
-	pieCount: 0,
-	pieRecipe: 0
+	goodieCount: 0
 }
 
 var pathScenePlayer = document.getElementById("pathscene-player-character"),
@@ -79,7 +77,7 @@ var brentSpeechArr = [],
 	tabethaSpeechArr = [],
 	woatSpeechArr = [],
 	brobotSpeechArr = [],
-	deeroSpeechArr = [];
+	kennethSpeechArr = [];
 
 // 0.04 - HUD
 
@@ -89,26 +87,33 @@ var hud = document.getElementById("hud-container"),
 	goodieContainer = document.getElementById("hud-goodies-container"),
 	goodieDisp = document.getElementById("hud-goodies"),
 	goodieArrow = document.getElementById("hud-goodies-arrow"),
-	goodieDispVisible = false,
-	goodieDispOpen = false;
+	goodieDispIsOpen = false;
 
-hud.addEventListener("click", function () {
-	if (goodieDispVisible == true) {
-		if (goodieDispOpen == false) {
-			for (var i = 0; i < goodieDisp.children.length; i++) {
-				goodieDisp.children[i].style.width = "80%";
-				goodieDisp.children[i].style.marginBottom = "10%";
-			}
-			goodieArrow.style.transform = "rotate(180deg)";
-			goodieDispOpen = true;
-		} else {
-			for (var i = 0; i < goodieDisp.children.length; i++) {
-				goodieDisp.children[i].style.width = "0";
-				goodieDisp.children[i].style.marginBottom = "0";
-			}
-			goodieArrow.style.transform = "none";
-			goodieDispOpen = false;
-		}
+function goodieDispOpen() {
+	for (var i = 1; i < goodieDisp.children.length; i++) {
+		goodieDisp.children[i].style.height = "60%";
+	}
+	goodieArrow.style.transform = "rotate(180deg)";
+	goodieArrow.style.paddingRight = "0";
+	goodieArrow.style.paddingLeft = "5%";
+	goodieDispIsOpen = true;
+}
+
+function goodieDispClose() {
+	for (var i = 1; i < goodieDisp.children.length; i++) {
+		goodieDisp.children[i].style.height = "0";
+	}
+	goodieArrow.style.transform = "none";
+	goodieArrow.style.paddingRight = "5%";
+	goodieArrow.style.paddingLeft = "0";
+	goodieDispIsOpen = false;
+}
+
+goodieArrow.addEventListener("click", function () {
+	if (goodieDispIsOpen == false) {
+		goodieDispOpen();
+	} else {
+		goodieDispClose();
 	}
 });
 
@@ -141,64 +146,138 @@ function berryDec10() {
 	}, 300);
 }
 
-// 0.06 - Pie Math Functions
+// 0.06 - Goodie Functions
 
-function pieRecipeInc() {
-	user.pieRecipe++;
-	user.goodieCount++;
-	var newPieRecipe = document.createElement("img");
-	newPieRecipe.src = "images/goodies/recipe.svg";
-	newPieRecipe.alt = "Recipe";
-	goodieDisp.appendChild(newPieRecipe);
-	if (goodieDispVisible == false) {
-		goodieContainer.classList.remove("hidden");
-		setTimeout(function () {
-			goodieContainer.style.opacity = "1";
-		}, 300);
-		goodieDispVisible = true;
+var recipeIcon = document.getElementById("goodie-1"),
+	pieIcon = document.getElementById("goodie-2"),
+	chargerIcon = document.getElementById("goodie-3"),
+	woatMedalIcon = document.getElementById("goodie-4"),
+	brobotMedalIcon = document.getElementById("goodie-5");
+
+var haveRecipe = false,
+	havePie = false,
+	haveCharger = false,
+	haveWoatMedal = false,
+	haveBrobotMedal = false;
+
+function recipeGet() {
+	if (goodieDispIsOpen == false) {
+		goodieDispOpen();
 	}
+	setTimeout(function () {
+		recipeIcon.style.opacity = "0";
+		setTimeout(function () {
+			recipeIcon.src = "images/goodies/recipe.svg"
+			setTimeout(function () {
+				recipeIcon.style.opacity = "1";
+				setTimeout(function () {
+					haveRecipe = true;
+					user.goodieCount++;
+					goodieDispClose();
+				}, 1000);
+			}, 300);
+		}, 300);
+	}, 400);
 }
 
-function pieInc() {
-	user.pieCount++;
-	user.goodieCount++;
-	var newPie = document.createElement("img");
-	newPie.src = "images/goodies/pie.svg";
-	newPie.alt = "Pie";
-	goodieDisp.appendChild(newPie);
-	if (goodieDispVisible == false) {
-		goodieContainer.classList.remove("hidden");
-		setTimeout(function () {
-			goodieContainer.style.opacity = "1";
-		}, 300);
-		goodieDispVisible = true;
+function pieGet() {
+	if (goodieDispIsOpen == false) {
+		goodieDispOpen();
 	}
+	setTimeout(function () {
+		pieIcon.style.opacity = "0";
+		setTimeout(function () {
+			pieIcon.src = "images/goodies/pie.svg"
+			setTimeout(function () {
+				pieIcon.style.opacity = "1";
+				setTimeout(function () {
+					havePie = true;
+					user.goodieCount++;
+					goodieDispClose();
+				}, 1000);
+			}, 300);
+		}, 300);
+	}, 400);
 }
 
-function pieDec() {
-	user.pieCount--;
-	user.goodieCount--;
-	goodieDisp.removeChild(goodieDisp.childNodes[0]);
-	if (user.goodieCount == 0) {
-		goodieContainer.style.opacity = "0";
-		setTimeout(function () {
-			goodieContainer.classList.add("hidden");
-		}, 300);
-		goodieDispVisible = false;
+function chargerEmpty() {
+	if (goodieDispIsOpen == false) {
+		goodieDispOpen();
 	}
+	setTimeout(function () {
+		chargerIcon.style.opacity = "0";
+		setTimeout(function () {
+			chargerIcon.src = "images/goodies/charger-empty.svg"
+			setTimeout(function () {
+				chargerIcon.style.opacity = "1";
+				setTimeout(function () {
+					haveCharger = true;
+					user.goodieCount++;
+					goodieDispClose();
+				}, 1000);
+			}, 300);
+		}, 300);
+	}, 400);
 }
 
-function pieRecipeDec() {
-	user.pieRecipe--;
-	user.goodieCount--;
-	goodieDisp.removeChild(goodieDisp.childNodes[0]);
-	if (user.goodieCount == 0) {
-		goodieContainer.style.opacity = "0";
-		setTimeout(function () {
-			goodieContainer.classList.add("hidden");
-		}, 300);
-		goodieDispVisible = false;
+function chargerFull() {
+	if (goodieDispIsOpen == false) {
+		goodieDispOpen();
 	}
+	setTimeout(function () {
+		chargerIcon.style.opacity = "0";
+		setTimeout(function () {
+			chargerIcon.src = "images/goodies/charger-full.svg"
+			setTimeout(function () {
+				chargerIcon.style.opacity = "1";
+				setTimeout(function () {
+					haveCharger = true;
+					user.goodieCount++;
+					goodieDispClose();
+				}, 1000);
+			}, 300);
+		}, 300);
+	}, 400);
+}
+
+function woatMedalGet() {
+	if (goodieDispIsOpen == false) {
+		goodieDispOpen();
+	}
+	setTimeout(function () {
+		woatMedalIcon.style.opacity = "0";
+		setTimeout(function () {
+			woatMedalIcon.src = "images/goodies/woatMedal.svg"
+			setTimeout(function () {
+				woatMedalIcon.style.opacity = "1";
+				setTimeout(function () {
+					haveWoatMedal = true;
+					user.goodieCount++;
+					goodieDispClose();
+				}, 1000);
+			}, 300);
+		}, 300);
+	}, 400);
+}
+
+function brobotMedalGet() {
+	if (goodieDispIsOpen == false) {
+		goodieDispOpen();
+	}
+	setTimeout(function () {
+		brobotMedalIcon.style.opacity = "0";
+		setTimeout(function () {
+			brobotMedalIcon.src = "images/goodies/brobotMedal.svg"
+			setTimeout(function () {
+				brobotMedalIcon.style.opacity = "1";
+				setTimeout(function () {
+					haveBrobotMedal = true;
+					user.goodieCount++;
+					goodieDispClose();
+				}, 1000);
+			}, 300);
+		}, 300);
+	}, 400);
 }
 
 // 1.01 - Splash Screen
@@ -295,15 +374,15 @@ function charSelSubFunc() {
 
 		brentSpeechArr = ["Hey <span class=\"red-text\">" + user.name + "</span> this is MY bridge.", "Look here...", "If you want to use my things,", "You have to give me something in return.", "I’m pretty hungry right now...", "About <span class=\"blue-text\">5 berries</span> hungry I'd say...", "There are usually a bunch <span class=\"blue-text\">in the trees</span>", "Anyone could just reach up and <span class=\"blue-text\">grab some</span>", "I'd get them myself,", "But if I go anywhere...", " someone might touch my bridge!", "Get me some food. *hmph*", "Wow!", "I had you pegged as some kind of dork...", "but you’re actually pretty cool!", "You can use my bridge, I guess..."];
 
-		jamesSpeechArr = ["Psssst… over here <span class=\"red-text\">" + user.name + ".", "I hear that old koot in that there house...", "Serves up some pretty mean berry pie!", "Check it out...", "I ganked her recipe for berry pie,", "So I can have it all to myself!", "...", "What’s that?", "You think I should give it back?", "No. its mine!", "Tell you what...", "I'll come up with a quiz and you can earn it.", "If you can guess all the questions right...", "I’ll give you the recipe!", "But it will take some time...", "Maybe take a hike up the mountain over there.", "I'll whip it up in no time!", "Jeepers...", "You're back so soon!", "I'm still working on the quiz.", "Maybe Tabetha has a copy?", "Go check in with her at her place!", "Tabetha can't remember her own recipies!?", "I can't believe it!", "I'm still coming up with some questions", "If you wanna take a hike up the mountain...", "I'm sure it will be ready by the time you're back!", "I've been working on this quiz for hours!", "I just can't seem to crack the code...", "I'm sure I'll get later on!", "But there's no time right now...", "Anyway! I'll let you borrow the recipe for now...", "But I'll get it back once usability testing is over!", "I can guarantee it!"];
+		jamesSpeechArr = ["Psssst… over here <span class=\"red-text\">" + user.name + ".", "I hear that old koot in that there house...", "Serves up some pretty mean berry pie!", "Check it out...", "I ganked her recipe for berry pie,", "So I can have it all to myself!", "...", "What’s that?", "You think I should give it back?", "No. its mine!", "Tell you what...", "I'll come up with a quiz and you can earn it.", "If you can guess all the questions right...", "I’ll give you the recipe!", "But it will take some time...", "Maybe take a hike up the mountain over there.", "I'll whip it up in no time!", "Jeepers...", "You're back so soon!", "I'm still working on the quiz.", "Maybe Tabetha has a copy?", "Go check in with her at her place!", "Tabetha can't remember her own recipies!?", "I can't believe it!", "I'm still coming up with some questions", "If you wanna take a hike up the mountain...", "I'm sure it will be ready by the time you're back!", "Alright!", "Are you ready for the quiz!?", "Sure is a tough one...", "But I'm sure you know Berriton well enough by now!", "Hah! I guess its MY recipe after all!", "...", "I guess I could give you another shot", "Maybe some of the folk around here could help you...", "But there's no way I'm gonna give it to you...", "Unless you pass the quiz!", "Darn!", "You sure know a lot about Berriton...", "Here's the recipe...", "You've earned it..."];
 
-		tabethaSpeechArr = ["Oh hello <span class=\"red-text\">" + user.name + "</span>!", "My name is Tabetha.", "I’m the chef around here!", "I love to bake", "And like I've always said...", "The most important ingredient to any pie...", "...is <span class=\"blue-text\">love!</span>", "Sadly, my berry pie recipe has gone missing...", "I have searched everywhere!", "I’ve searched under the table...", "Behind the cabinet...", "In the chimney...", "I've even poked my head into the garburator and taken a peek!", "But, no luck...", "It's such a shame...", "I was about to bake a pie for my friend <span class=\"blue-text\">on the mountain.</span>", "Oooh ho ho!", "Thank you <span class=\"red-text\">" + user.name + "!", "Now, let me see what I need...", "Oh! I need some berries!", "Could you please grab me some berries?", "<span class=\"blue-text\">10</span> oughta do it!", "Alright! We're all set!", "Just head over to the oven and grab yourself a pie!"]
+		tabethaSpeechArr = ["Oh hello <span class=\"red-text\">" + user.name + "</span>!", "My name is Tabetha.", "I’m the chef around here!", "I love to bake", "And like I've always said...", "The most important ingredient to any pie...", "...is <span class=\"blue-text\">love!</span>", "Sadly, my berry pie recipe has gone missing...", "I have searched everywhere!", "I’ve searched under the table...", "Behind the cabinet...", "In the chimney...", "I've even poked my head into the garburator and taken a peek!", "But, no luck...", "It's such a shame...", "I was about to bake a pie for my friend <span class=\"blue-text\">on the mountain.</span>", "Oooh ho ho!", "Thank you <span class=\"red-text\">" + user.name + "!", "Now, let me see what I need...", "Oh! I need some berries!", "Could you please grab me some berries?", "<span class=\"blue-text\">10</span> oughta do it!", "Alright! We're all set!", "Head on over and <span class=\"blue-text\">take it out of the over</span>!"];
 
 		woatSpeechArr = ["Hello <span class=\"red-text\">" + user.name + "</span> How goes it?", "The name’s Woat the Goat.", "I’m somewhat of the elder here in Berriton", "So check it out...", "Tabetha, the lovely lady in <span class=\"blue-text\">that house down there</span>,", "Told me she would have a pie ready for me this afternoon.", "It's now getting close to the afternoon...", "Do you think you could go see where my pie is?", "Haaaay yes!", "That’s what I was looking for!", "Thank you for the pie <span class=\"red-text\">" + user.name + "</span>", "See ya around!"];
 
-		brobotSpeechArr = ["Psssst… over here <span class=\"red-text\">" + user.name + ".", "I hear that old koot in that there house...", "Serves up some pretty mean berry pie!", "Check it out...", "I ganked her recipe for berry pie,", "So I can have it all to myself!", "...", "What’s that?", "You think I should give it back?", "No. its mine!", "Tell you what...", "I'll come up with a quiz and you can earn it.", "If you can guess all the questions right...", "I’ll give you the recipe!", "But it will take some time...", "Maybe take a hike up the mountain over there.", "I'll whip it up in no time!", "Jeepers...", "You're back so soon!", "I'm still working on the quiz.", "Maybe Tabetha has a copy?", "Go check in with her at her place!", "Tabetha can't remember her own recipies!?", "I can't believe it!", "I'm still coming up with some questions", "If you wanna take a hike up the mountain...", "I'm sure it will be ready by the time you're back!", "I've been working on this quiz for hours!", "I just can't seem to crack the code...", "I'm sure I'll get later on!", "But there's no time right now...", "Anyway! I'll let you borrow the recipe for now...", "But I'll get it back once usability testing is over!", "I can guarantee it!"];
+		brobotSpeechArr = ["Bzzzzzzt...", "Need...", "<span class=\"blue-text\">Energy</span>...", "Bzzt...", "Low...", "Charge...", "Bzzzzt...", "<span class=\"blue-text\">More</span>...", "Energy...", "Please...", "Bzzt...", "Oh wow...", "I am starting to feel better...", "Bzzzzzzt...", "Just <span class=\"blue-text\">a little more</span>...", "Bzzzt...", "Bzzzzzzt!", "Thanks <span class=\"red-text\">" + user.name + "</span>!", "That energy hit the spot.", "I feel great!", "Here...", "Take this for all your trouble...", "Bzzzzt!"];
 
-		deeroSpeechArr = ["Psssst… over here <span class=\"red-text\">" + user.name + ".", "I hear that old koot in that there house...", "Serves up some pretty mean berry pie!", "Check it out...", "I ganked her recipe for berry pie,", "So I can have it all to myself!", "...", "What’s that?", "You think I should give it back?", "No. its mine!", "Tell you what...", "I'll come up with a quiz and you can earn it.", "If you can guess all the questions right...", "I’ll give you the recipe!", "But it will take some time...", "Maybe take a hike up the mountain over there.", "I'll whip it up in no time!", "Jeepers...", "You're back so soon!", "I'm still working on the quiz.", "Maybe Tabetha has a copy?", "Go check in with her at her place!", "Tabetha can't remember her own recipies!?", "I can't believe it!", "I'm still coming up with some questions", "If you wanna take a hike up the mountain...", "I'm sure it will be ready by the time you're back!", "I've been working on this quiz for hours!", "I just can't seem to crack the code...", "I'm sure I'll get later on!", "But there's no time right now...", "Anyway! I'll let you borrow the recipe for now...", "But I'll get it back once usability testing is over!", "I can guarantee it!"];
+		kennethSpeechArr = ["Just a little bit of this...", "And voila!", "...", "Oh hey <span class=\"red-text\">" + user.name + "</span>!", "Sorry, I was busy with this machine...", "It's a generator!", "It takes the acidic properties of berries...", "And transforms it into pure <span class=\"blue-text\">energy</span>!", "I've been working on a prototype battery charger", "So that people can <span class=\"blue-text\">take this energy anywhere</span>!", "Here...", "I have an extra", "Try using it with the generator", "As long as you have <span class=\"blue-text\">5 berries</span>...", "You will be able to take energy all over Berriton!", "Hmm...", "Looks like the charger's full...", "Come back if you use up all that energy!", "Use the generator!", "It should take <span class=\"blue-text\">5 berries</span> to fill it up!"];
 
 		// SET CHARACTER MODEL
 
@@ -407,7 +486,9 @@ var forwardBut1 = document.getElementById("forward-but-1"),
 var bridgeSceneComplete = false,
 	houseExteriorSceneComplete = false,
 	houseInteriorSceneComplete = false,
-	summitSceneComplete = false;
+	summitSceneComplete = false,
+	forestSceneComplete = false,
+	caveInteriorSceneComplete = false;
 
 function moveForwardButs() {
 	forwardBut1.classList.remove("hidden");
@@ -430,11 +511,11 @@ function moveForwardButs() {
 		forwardBut1.style.top = "23%";
 		forwardBut1.style.left = "5%";
 
-		if (bridgeSceneComplete == false) {
-			forwardBut1.classList.add("hidden");
-		} else {
-			forwardBut1.classList.remove("hidden");
-		}
+		//		if (bridgeSceneComplete == false) {
+		//			forwardBut1.classList.add("hidden");
+		//		} else {
+		//			forwardBut1.classList.remove("hidden");
+		//		}
 
 		forwardBut2.src = "images/ui-elements/forward-button-right.svg"
 		forwardBut2.style.top = "60%";
@@ -510,6 +591,12 @@ function moveForwardButs() {
 		forwardBut2.src = "images/ui-elements/forward-button-right.svg"
 		forwardBut2.style.top = "55%";
 		forwardBut2.style.left = "91%";
+	}
+
+	// Close Goodie Display
+
+	if (goodieDispIsOpen == true) {
+		goodieDispClose();
 	}
 }
 
@@ -992,7 +1079,8 @@ var quiz = document.getElementById("quiz-container"),
 	quizAnswer3 = document.getElementById("quiz-answer-3"),
 	quizAnswer4 = document.getElementById("quiz-answer-4"),
 	quizCurrent = 1,
-	quizScore = 0;
+	quizScore = 0,
+	quizAttempted = false;
 
 function jamesSpeechContainerOpen() {
 	jamesSpeech.style.width = "25%";
@@ -1050,11 +1138,25 @@ function jamesDialogueFreeze() {
 
 function quizClick() {
 	if (quizCurrent == 4) {
+		quizAttempted = true;
 		if (quizScore == 4) {
-			console.log("Pass");
+			jamesSpeechProg = 37;
 		} else {
-			console.log("Fail");
+			jamesSpeechProg = 31;
+			quizScore = 0;
 		}
+		quiz.style.opacity = "0";
+		jamesSpeechContainerOpen();
+		jamesDialogueFreeze();
+		setTimeout(function () {
+			quiz.classList.add("hidden");
+			quizQuestion.innerHTML = "What can you find <span class=\"blue-text\">in the trees</span> in Berriton?";
+			quizAnswer1.innerText = "Bananas";
+			quizAnswer2.innerText = "Berries";
+			quizAnswer3.innerText = "Bears";
+			quizAnswer4.innerText = "Bros";
+			quizCurrent = 1;
+		}, 300);
 	} else {
 		quizContent.style.opacity = "0";
 		setTimeout(function () {
@@ -1064,22 +1166,23 @@ function quizClick() {
 				quizAnswer2.innerText = "Tabetha the Goose";
 				quizAnswer3.innerText = "Brobot the Robot";
 				quizAnswer4.innerText = "Brent the Troll";
+				quizCurrent++;
 			} else if (quizCurrent == 2) {
 				quizQuestion.innerHTML = "What is the <span class=\"blue-text\">most important ingredient</span> in pie?";
 				quizAnswer1.innerText = "Love";
 				quizAnswer2.innerText = "Berries";
 				quizAnswer3.innerText = "Pie Crust";
 				quizAnswer4.innerText = "Gluten-Free Gluten";
+				quizCurrent++;
 			} else if (quizCurrent == 3) {
 				quizQuestion.innerHTML = "Who is <span class=\"blue-text\">the elder</span> here in Berriton?";
 				quizAnswer1.innerText = "James the Dolphin";
 				quizAnswer2.innerText = user.name + " the Human";
 				quizAnswer3.innerText = "Woat the Goat";
-				quizAnswer4.innerText = "Deero the Deer";
+				quizAnswer4.innerText = "kenneth the Deer";
+				quizCurrent++;
 			}
 			quizContent.style.opacity = "1";
-			quizCurrent++;
-			console.log(quizCurrent);
 		}, 500);
 	}
 }
@@ -1089,7 +1192,7 @@ james.addEventListener("click", function () {
 		if (jamesInit == false || (woatInit == false && tabethaInit == false)) {
 			if (jamesSpeechOpen == false) {
 				jamesSpeechContainerOpen();
-			} else if (jamesSpeechProg < jamesSpeechArr.length - 18) {
+			} else if (jamesSpeechProg < jamesSpeechArr.length - 25) {
 				jamesSpeechProg++;
 				jamesSpeechText.style.opacity = "0";
 				setTimeout(function () {
@@ -1105,7 +1208,7 @@ james.addEventListener("click", function () {
 			if (jamesSpeechOpen == false) {
 				jamesSpeechProg = 17;
 				jamesSpeechContainerOpen();
-			} else if (jamesSpeechProg < jamesSpeechArr.length - 13) {
+			} else if (jamesSpeechProg < jamesSpeechArr.length - 20) {
 				jamesSpeechProg++;
 				jamesSpeechText.style.opacity = "0";
 				setTimeout(function () {
@@ -1120,7 +1223,7 @@ james.addEventListener("click", function () {
 			if (jamesSpeechOpen == false) {
 				jamesSpeechProg = 22;
 				jamesSpeechContainerOpen();
-			} else if (jamesSpeechProg < jamesSpeechArr.length - 8) {
+			} else if (jamesSpeechProg < jamesSpeechArr.length - 15) {
 				jamesSpeechProg++;
 				jamesSpeechText.style.opacity = "0";
 				setTimeout(function () {
@@ -1131,11 +1234,11 @@ james.addEventListener("click", function () {
 				jamesSpeechProg = 0;
 				jamesSpeechContainerClose();
 			}
-		} else {
+		} else if (woatInit == true && tabethaInit == true && quizAttempted == false) {
 			if (jamesSpeechOpen == false) {
 				jamesSpeechProg = 27;
 				jamesSpeechContainerOpen();
-			} else if (jamesSpeechProg < jamesSpeechArr.length - 1) {
+			} else if (jamesSpeechProg < jamesSpeechArr.length - 11) {
 				jamesSpeechProg++;
 				jamesSpeechText.style.opacity = "0";
 				setTimeout(function () {
@@ -1143,19 +1246,52 @@ james.addEventListener("click", function () {
 					jamesSpeechText.style.opacity = "1";
 				}, 300);
 			} else {
+				jamesSpeechProg = 0;
 				jamesSpeechContainerClose();
 				setTimeout(function () {
+					quiz.classList.remove("hidden");
+					setTimeout(function () {
+						quiz.style.opacity = "1";
+						quizContent.style.opacity = "1";
+					}, 150);
+				}, 150);
+			}
+		} else if (quizAttempted == true) {
+			if (quizScore == 4) {
+				if (jamesSpeechProg < jamesSpeechArr.length - 1) {
+					jamesSpeechProg++;
+					jamesSpeechText.style.opacity = "0";
+					setTimeout(function () {
+						jamesSpeechText.innerHTML = jamesSpeechArr[jamesSpeechProg];
+						jamesSpeechText.style.opacity = "1";
+					}, 300);
+				} else {
+					jamesSpeechProg = 0;
 					houseExteriorSceneComplete = true;
-					pieRecipeInc();
-				}, 300);
+					recipeGet();
+					jamesSpeechContainerClose();
+				}
+			} else {
+				if (jamesSpeechProg < jamesSpeechArr.length - 5) {
+					jamesSpeechProg++;
+					jamesSpeechText.style.opacity = "0";
+					setTimeout(function () {
+						jamesSpeechText.innerHTML = jamesSpeechArr[jamesSpeechProg];
+						jamesSpeechText.style.opacity = "1";
+					}, 300);
+				} else {
+					jamesSpeechProg = 0;
+					jamesSpeechContainerClose();
+					quizAttempted = false;
+				}
 			}
 		}
 	} else {
 
 		if (jamesSpeechOpen == false) {
-			jamesSpeechProg = 27;
+			jamesSpeechProg = 38;
 			jamesSpeechContainerOpen();
-		} else if (jamesSpeechProg < jamesSpeechArr.length - 1) {
+		} else if (jamesSpeechProg < jamesSpeechArr.length - 3) {
 			jamesSpeechProg++;
 			jamesSpeechText.style.opacity = "0";
 			setTimeout(function () {
@@ -1269,7 +1405,7 @@ function tabethaDialogueFreeze() {
 
 tabetha.addEventListener("click", function () {
 	if (houseInteriorSceneComplete == false) {
-		if (tabethaInit == false || user.pieRecipe < 1) {
+		if (tabethaInit == false || haveRecipe == false) {
 			if (tabethaSpeechOpen == false) {
 				tabethaSpeechContainerOpen();
 			} else if (tabethaSpeechProg < tabethaSpeechArr.length - 9) {
@@ -1320,9 +1456,8 @@ tabetha.addEventListener("click", function () {
 					houseInteriorOven.style.animation = "oven-pulse 2s 2";
 					setTimeout(function () {
 						houseInteriorOven.style.animation = "none";
-					}, 250);
+					}, 3000);
 					berryDec10();
-					pieRecipeDec();
 				}, 300);
 			}
 		}
@@ -1347,7 +1482,7 @@ tabetha.addEventListener("click", function () {
 
 houseInteriorOven.addEventListener("click", function () {
 	if (houseInteriorSceneComplete == true && pieCooked == false) {
-		pieInc();
+		pieGet();
 		pieCooked = true;
 	}
 });
@@ -1420,7 +1555,7 @@ function woatDialogueFreeze() {
 
 woat.addEventListener("click", function () {
 	if (summitSceneComplete == false) {
-		if (woatInit == false || user.pieCount < 1) {
+		if (woatInit == false || havePie == false) {
 			if (woatSpeechOpen == false) {
 				woatSpeechContainerOpen();
 			} else if (woatSpeechProg < woatSpeechArr.length - 5) {
@@ -1451,7 +1586,7 @@ woat.addEventListener("click", function () {
 				woatSpeechContainerClose();
 				setTimeout(function () {
 					summitSceneComplete = true;
-					pieDec();
+					woatMedalGet();
 				}, 300);
 			}
 		}
@@ -1474,10 +1609,164 @@ woat.addEventListener("click", function () {
 	woatDialogueFreeze();
 });
 
-// 3.05 - Brobot Interactions
+// 3.05 - Kenneth Interactions
+
+var kenneth = document.getElementById("kenneth-container"),
+	kennethInit = false,
+	haveCharger = false,
+	chargerIsFull = false,
+	kennethSpeech = document.getElementById("kenneth-speech-container"),
+	kennethSpeechOpen = false,
+	kennethSpeechCircles = document.getElementById("kenneth-speech-circle-container"),
+	kennethSpeechLabel = document.getElementById("kenneth-speech-label"),
+	kennethSpeechButton = document.getElementById("kenneth-speech-button"),
+	kennethSpeechText = document.getElementById("kenneth-speech-text"),
+	kennethSpeechProg = 0;
+
+function kennethSpeechContainerOpen() {
+	kennethSpeech.style.width = "25%";
+	kennethSpeech.style.height = "20%";
+	kennethSpeechCircles.style.opacity = "0";
+	kennethSpeechLabel.classList.remove("hidden");
+	setTimeout(function () {
+		kennethSpeechCircles.classList.remove("flex");
+		kennethSpeechCircles.classList.add("hidden");
+		kennethSpeechLabel.style.opacity = "1";
+		kennethSpeechText.classList.remove("hidden");
+		kennethSpeechText.innerHTML = kennethSpeechArr[kennethSpeechProg];
+	}, 300);
+	setTimeout(function () {
+		kennethSpeechText.style.opacity = "1";
+	}, 500);
+	kennethSpeechOpen = true;
+}
+
+function kennethSpeechContainerClose() {
+	kennethSpeechText.style.opacity = "0";
+	kennethSpeechLabel.style.opacity = "0";
+	kennethSpeechButton.classList.add("hidden");
+	setTimeout(function () {
+		kennethSpeech.style.width = "8%";
+		kennethSpeech.style.height = "6%";
+		kennethSpeechText.classList.add("hidden");
+		kennethSpeechCircles.classList.remove("hidden");
+		kennethSpeechCircles.classList.add("flex");
+		kennethSpeechLabel.classList.add("hidden");
+	}, 300);
+	setTimeout(function () {
+		kennethSpeechCircles.style.opacity = "1";
+	}, 500);
+	kennethSpeechOpen = false;
+}
+
+function kennethDialogueFreeze() {
+	kenneth.style.pointerEvents = "none";
+	setTimeout(function () {
+		kenneth.style.pointerEvents = "auto";
+	}, 700);
+
+	if (kennethSpeechOpen == true) {
+		kennethSpeechButton.classList.add("hidden");
+		kennethSpeechButton.style.opacity = "0";
+		setTimeout(function () {
+			kennethSpeechButton.classList.remove("hidden");
+		}, 400);
+		setTimeout(function () {
+			kennethSpeechButton.style.opacity = "1";
+		}, 700);
+	}
+}
+
+kenneth.addEventListener("click", function () {
+	if (houseExteriorSceneComplete == false) {
+		if (kennethInit == false || (woatInit == false && tabethaInit == false)) {
+			if (kennethSpeechOpen == false) {
+				kennethSpeechContainerOpen();
+			} else if (kennethSpeechProg < kennethSpeechArr.length - 18) {
+				kennethSpeechProg++;
+				kennethSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					kennethSpeechText.innerHTML = kennethSpeechArr[kennethSpeechProg];
+					kennethSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				kennethSpeechProg = 0;
+				kennethSpeechContainerClose();
+				kennethInit = true;
+			}
+		} else if (woatInit == true && tabethaInit == false) {
+			if (kennethSpeechOpen == false) {
+				kennethSpeechProg = 17;
+				kennethSpeechContainerOpen();
+			} else if (kennethSpeechProg < kennethSpeechArr.length - 13) {
+				kennethSpeechProg++;
+				kennethSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					kennethSpeechText.innerHTML = kennethSpeechArr[kennethSpeechProg];
+					kennethSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				kennethSpeechProg = 0;
+				kennethSpeechContainerClose();
+			}
+		} else if (woatInit == false && tabethaInit == true) {
+			if (kennethSpeechOpen == false) {
+				kennethSpeechProg = 22;
+				kennethSpeechContainerOpen();
+			} else if (kennethSpeechProg < kennethSpeechArr.length - 8) {
+				kennethSpeechProg++;
+				kennethSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					kennethSpeechText.innerHTML = kennethSpeechArr[kennethSpeechProg];
+					kennethSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				kennethSpeechProg = 0;
+				kennethSpeechContainerClose();
+			}
+		} else {
+			if (kennethSpeechOpen == false) {
+				kennethSpeechProg = 27;
+				kennethSpeechContainerOpen();
+			} else if (kennethSpeechProg < kennethSpeechArr.length - 1) {
+				kennethSpeechProg++;
+				kennethSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					kennethSpeechText.innerHTML = kennethSpeechArr[kennethSpeechProg];
+					kennethSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				kennethSpeechContainerClose();
+				setTimeout(function () {
+					houseExteriorSceneComplete = true;
+					pieRecipeInc();
+				}, 300);
+			}
+		}
+	} else {
+
+		if (kennethSpeechOpen == false) {
+			kennethSpeechProg = 27;
+			kennethSpeechContainerOpen();
+		} else if (kennethSpeechProg < kennethSpeechArr.length - 1) {
+			kennethSpeechProg++;
+			kennethSpeechText.style.opacity = "0";
+			setTimeout(function () {
+				kennethSpeechText.innerHTML = kennethSpeechArr[kennethSpeechProg];
+				kennethSpeechText.style.opacity = "1";
+			}, 300);
+		} else {
+			kennethSpeechContainerClose();
+		}
+	}
+	kennethDialogueFreeze();
+});
+
+// 3.06 - Brobot Interactions
 
 var brobot = document.getElementById("brobot-container"),
 	brobotInit = false,
+	brobotChargeLevel = 0,
 	brobotSpeech = document.getElementById("brobot-speech-container"),
 	brobotSpeechOpen = false,
 	brobotSpeechCircles = document.getElementById("brobot-speech-circle-container"),
@@ -1540,12 +1829,33 @@ function brobotDialogueFreeze() {
 	}
 }
 
+function brobot25() {
+	if (brobotSpeechOpen == false) {
+		brobotSpeechContainerOpen();
+	} else if (brobotSpeechProg < brobotSpeechArr.length - 18) {
+		brobotSpeechProg++;
+		brobotSpeechText.style.opacity = "0";
+		setTimeout(function () {
+			brobotSpeechText.innerHTML = brobotSpeechArr[brobotSpeechProg];
+			brobotSpeechText.style.opacity = "1";
+		}, 300);
+	} else {
+		brobotSpeechProg = 0;
+		brobotSpeechContainerClose();
+		brobotInit = true;
+	}
+}
+
+function brobot50() {}
+
+function brobot75() {}
+
 brobot.addEventListener("click", function () {
-	if (houseExteriorSceneComplete == false) {
-		if (brobotInit == false || (woatInit == false && tabethaInit == false)) {
+	if (forestSceneComplete == false) {
+		if (brobotInit == false) {
 			if (brobotSpeechOpen == false) {
 				brobotSpeechContainerOpen();
-			} else if (brobotSpeechProg < brobotSpeechArr.length - 18) {
+			} else if (brobotSpeechProg < brobotSpeechArr.length - 17) {
 				brobotSpeechProg++;
 				brobotSpeechText.style.opacity = "0";
 				setTimeout(function () {
@@ -1557,7 +1867,36 @@ brobot.addEventListener("click", function () {
 				brobotSpeechContainerClose();
 				brobotInit = true;
 			}
-		} else if (woatInit == true && tabethaInit == false) {
+		} else if (brobotChargeLevel == 0) {
+			if (chargerIsFull == true) {
+				chargerEmpty();
+				setTimeout(function () {
+					brobot25();
+				}, 2000);
+				chargerIsFull = false;
+				brobotChargeLevel = 1;
+			} else {
+				if (brobotSpeechOpen == false) {
+					brobotSpeechContainerOpen();
+				} else if (brobotSpeechProg < brobotSpeechArr.length - 17) {
+					brobotSpeechProg++;
+					brobotSpeechText.style.opacity = "0";
+					setTimeout(function () {
+						brobotSpeechText.innerHTML = brobotSpeechArr[brobotSpeechProg];
+						brobotSpeechText.style.opacity = "1";
+					}, 300);
+				} else {
+					brobotSpeechProg = 0;
+					brobotSpeechContainerClose();
+					brobotInit = true;
+				}
+			}
+		}
+
+		/*
+		
+		
+		else if (woatInit == true && tabethaInit == false) {
 			if (brobotSpeechOpen == false) {
 				brobotSpeechProg = 17;
 				brobotSpeechContainerOpen();
@@ -1621,159 +1960,11 @@ brobot.addEventListener("click", function () {
 		} else {
 			brobotSpeechContainerClose();
 		}
+	
+	*/
 	}
+
 	brobotDialogueFreeze();
-});
-
-// 3.06 - Deero Interactions
-
-var deero = document.getElementById("deero-container"),
-	deeroInit = false,
-	deeroSpeech = document.getElementById("deero-speech-container"),
-	deeroSpeechOpen = false,
-	deeroSpeechCircles = document.getElementById("deero-speech-circle-container"),
-	deeroSpeechLabel = document.getElementById("deero-speech-label"),
-	deeroSpeechButton = document.getElementById("deero-speech-button"),
-	deeroSpeechText = document.getElementById("deero-speech-text"),
-	deeroSpeechProg = 0;
-
-function deeroSpeechContainerOpen() {
-	deeroSpeech.style.width = "25%";
-	deeroSpeech.style.height = "20%";
-	deeroSpeechCircles.style.opacity = "0";
-	deeroSpeechLabel.classList.remove("hidden");
-	setTimeout(function () {
-		deeroSpeechCircles.classList.remove("flex");
-		deeroSpeechCircles.classList.add("hidden");
-		deeroSpeechLabel.style.opacity = "1";
-		deeroSpeechText.classList.remove("hidden");
-		deeroSpeechText.innerHTML = deeroSpeechArr[deeroSpeechProg];
-	}, 300);
-	setTimeout(function () {
-		deeroSpeechText.style.opacity = "1";
-	}, 500);
-	deeroSpeechOpen = true;
-}
-
-function deeroSpeechContainerClose() {
-	deeroSpeechText.style.opacity = "0";
-	deeroSpeechLabel.style.opacity = "0";
-	deeroSpeechButton.classList.add("hidden");
-	setTimeout(function () {
-		deeroSpeech.style.width = "8%";
-		deeroSpeech.style.height = "6%";
-		deeroSpeechText.classList.add("hidden");
-		deeroSpeechCircles.classList.remove("hidden");
-		deeroSpeechCircles.classList.add("flex");
-		deeroSpeechLabel.classList.add("hidden");
-	}, 300);
-	setTimeout(function () {
-		deeroSpeechCircles.style.opacity = "1";
-	}, 500);
-	deeroSpeechOpen = false;
-}
-
-function deeroDialogueFreeze() {
-	deero.style.pointerEvents = "none";
-	setTimeout(function () {
-		deero.style.pointerEvents = "auto";
-	}, 700);
-
-	if (deeroSpeechOpen == true) {
-		deeroSpeechButton.classList.add("hidden");
-		deeroSpeechButton.style.opacity = "0";
-		setTimeout(function () {
-			deeroSpeechButton.classList.remove("hidden");
-		}, 400);
-		setTimeout(function () {
-			deeroSpeechButton.style.opacity = "1";
-		}, 700);
-	}
-}
-
-deero.addEventListener("click", function () {
-	if (houseExteriorSceneComplete == false) {
-		if (deeroInit == false || (woatInit == false && tabethaInit == false)) {
-			if (deeroSpeechOpen == false) {
-				deeroSpeechContainerOpen();
-			} else if (deeroSpeechProg < deeroSpeechArr.length - 18) {
-				deeroSpeechProg++;
-				deeroSpeechText.style.opacity = "0";
-				setTimeout(function () {
-					deeroSpeechText.innerHTML = deeroSpeechArr[deeroSpeechProg];
-					deeroSpeechText.style.opacity = "1";
-				}, 300);
-			} else {
-				deeroSpeechProg = 0;
-				deeroSpeechContainerClose();
-				deeroInit = true;
-			}
-		} else if (woatInit == true && tabethaInit == false) {
-			if (deeroSpeechOpen == false) {
-				deeroSpeechProg = 17;
-				deeroSpeechContainerOpen();
-			} else if (deeroSpeechProg < deeroSpeechArr.length - 13) {
-				deeroSpeechProg++;
-				deeroSpeechText.style.opacity = "0";
-				setTimeout(function () {
-					deeroSpeechText.innerHTML = deeroSpeechArr[deeroSpeechProg];
-					deeroSpeechText.style.opacity = "1";
-				}, 300);
-			} else {
-				deeroSpeechProg = 0;
-				deeroSpeechContainerClose();
-			}
-		} else if (woatInit == false && tabethaInit == true) {
-			if (deeroSpeechOpen == false) {
-				deeroSpeechProg = 22;
-				deeroSpeechContainerOpen();
-			} else if (deeroSpeechProg < deeroSpeechArr.length - 8) {
-				deeroSpeechProg++;
-				deeroSpeechText.style.opacity = "0";
-				setTimeout(function () {
-					deeroSpeechText.innerHTML = deeroSpeechArr[deeroSpeechProg];
-					deeroSpeechText.style.opacity = "1";
-				}, 300);
-			} else {
-				deeroSpeechProg = 0;
-				deeroSpeechContainerClose();
-			}
-		} else {
-			if (deeroSpeechOpen == false) {
-				deeroSpeechProg = 27;
-				deeroSpeechContainerOpen();
-			} else if (deeroSpeechProg < deeroSpeechArr.length - 1) {
-				deeroSpeechProg++;
-				deeroSpeechText.style.opacity = "0";
-				setTimeout(function () {
-					deeroSpeechText.innerHTML = deeroSpeechArr[deeroSpeechProg];
-					deeroSpeechText.style.opacity = "1";
-				}, 300);
-			} else {
-				deeroSpeechContainerClose();
-				setTimeout(function () {
-					houseExteriorSceneComplete = true;
-					pieRecipeInc();
-				}, 300);
-			}
-		}
-	} else {
-
-		if (deeroSpeechOpen == false) {
-			deeroSpeechProg = 27;
-			deeroSpeechContainerOpen();
-		} else if (deeroSpeechProg < deeroSpeechArr.length - 1) {
-			deeroSpeechProg++;
-			deeroSpeechText.style.opacity = "0";
-			setTimeout(function () {
-				deeroSpeechText.innerHTML = deeroSpeechArr[deeroSpeechProg];
-				deeroSpeechText.style.opacity = "1";
-			}, 300);
-		} else {
-			deeroSpeechContainerClose();
-		}
-	}
-	deeroDialogueFreeze();
 });
 
 // 4.01 - Path Scene Berries
@@ -2064,3 +2255,11 @@ caveExtBerry3.addEventListener("click", function () {
 		caveExtBerry3.classList.add("hidden");
 	}, 300);
 });
+
+
+// SHORTCUTS
+//
+//jamesInit = true;
+//woatInit = true;
+//tabethaInit = true;
+//user.berryCount = 100;

@@ -682,25 +682,30 @@ p {
     text-align: center;
     width: 100%; }
   .hud-container .hud-goodies-container {
-    opacity: 0;
     position: absolute;
-    top: 70%;
-    width: 40%;
-    margin-left: 30%;
-    padding-top: 40%;
-    padding-bottom: 10%;
+    right: 50%;
     background-color: #F0F0F0;
     box-shadow: 0 0 0 5px #F7C69B;
-    border-radius: 0 0 60px 60px; }
-    .hud-container .hud-goodies-container .hud-goodies.flex {
-      flex-direction: column;
-      flex-wrap: wrap; }
-    .hud-container .hud-goodies-container .hud-goodies img {
-      width: 0; }
+    height: 40%;
+    top: 35%;
+    padding: 0 60% 0 20%;
+    border-radius: 60px 0 0 60px; }
+    .hud-container .hud-goodies-container .hud-goodies {
+      height: 100%; }
+      .hud-container .hud-goodies-container .hud-goodies.flex {
+        flex-direction: row;
+        justify-content: space-between; }
+      .hud-container .hud-goodies-container .hud-goodies img {
+        height: 0;
+        padding: 0 2%; }
     .hud-container .hud-goodies-container i {
-      width: 100%;
-      text-align: center;
-      font-size: 1.5em; }
+      font-size: 2em;
+      padding-right: 8%;
+      padding-left: 0;
+      color: #1E1E1E;
+      transition: 0.2s; }
+      .hud-container .hud-goodies-container i:hover {
+        color: #D46D64; }
 
 @media only screen and (max-width: 800px) {
   .hud-container .hud-berry-count {
@@ -1402,10 +1407,10 @@ p {
 
 .houseexteriorscene-arrow {
   position: absolute;
-  width: 5%;
+  width: 6%;
   filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24));
-  top: 13%;
-  left: 56%; }
+  top: 28%;
+  left: 57%; }
   .houseexteriorscene-arrow:hover {
     animation: arrow-pulse 1s infinite; }
 
@@ -1433,6 +1438,7 @@ p {
     transform: rotate(6deg); }
 
 .quiz-container {
+  opacity: 0;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -1440,13 +1446,14 @@ p {
   left: 0;
   background-color: rgba(240, 240, 240, 0.8); }
   .quiz-container .quiz-content {
+    opacity: 0;
     width: 70%;
     height: 80%;
     position: absolute;
     top: 10%;
     left: 15%;
-    background-color: rgba(30, 30, 30, 0.3);
-    animation: quiz-appear 1s forwards; }
+    background-color: #F7C69B;
+    animation: quiz-appear 2s forwards; }
     .quiz-container .quiz-content.flex {
       flex-wrap: wrap; }
   .quiz-container h3 {
@@ -2277,10 +2284,10 @@ p {
       bottom: -12%;
       right: 6%;
       transform: scaleY(-1); }
-  .caveinteriorscene .deero-speech-container {
+  .caveinteriorscene .kenneth-speech-container {
     bottom: 53%;
     left: 29%; }
-  .caveinteriorscene .deero {
+  .caveinteriorscene .kenneth {
     position: absolute;
     top: 37%;
     left: 18%;
