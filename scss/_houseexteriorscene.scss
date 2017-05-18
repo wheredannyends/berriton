@@ -211,3 +211,62 @@
 		}
 	}
 }
+
+.quiz-container {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(240, 240, 240, 0.8);
+	.quiz-content {
+		width: 70%;
+		height: 80%;
+		position: absolute;
+		top: 10%;
+		left: 15%;
+		background-color: rgba(30, 30, 30, 0.3);
+		animation: quiz-appear 1s forwards;
+		&.flex {
+			flex-wrap: wrap;
+		}
+	}
+	h3 {
+		width: 100%;
+		text-align: center;
+	}
+	p {
+		width: 40%;
+		text-align: center;
+		box-sizing: border-box;
+		padding: 20px;
+		background-color: $white;
+		border-radius: 100px;
+		filter: $filter-shadow-2;
+		box-shadow: 0 0 0 3px $main-red;
+		margin-top: 5%;
+//		&:nth-child(2) {
+//			box-shadow: 0 0 0 2px $main-red;
+//		}
+//		&:nth-child(3) {
+//			box-shadow: 0 0 0 2px $main-blue;
+//		}
+//		&:nth-child(4) {
+//			box-shadow: 0 0 0 2px $main-yellow;
+//		}
+//		&:nth-child(5) {
+//			box-shadow: 0 0 0 2px $main-green;
+//		}
+		&:hover {
+			filter: $filter-shadow-1;
+			transform: translateY(2px);
+						box-shadow: 0 0 0 3px $main-blue;
+		}
+	}
+	
+	@keyframes quiz-appear {
+		from {
+			transform: translateY(10%);
+		}
+	}
+}

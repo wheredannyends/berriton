@@ -578,10 +578,8 @@ p {
 /* Character Selection */
 .char-sel-container {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  top: 10%;
+  left: 15%;
   margin: auto;
   width: 70%;
   height: 80%;
@@ -650,6 +648,22 @@ p {
     top: 61%;
     left: 55%;
     height: 32%; }
+  .player-character.crossroadsscene-player-character {
+    top: 62%;
+    left: 72%;
+    height: 28%; }
+  .player-character.caveexteriorscene-player-character {
+    top: 63%;
+    left: 65%;
+    height: 32%; }
+  .player-character.caveinteriorscene-player-character {
+    top: 37%;
+    left: 73%;
+    height: 28%; }
+  .player-character.forestscene-player-character {
+    top: 54%;
+    left: 76%;
+    height: 21%; }
 
 /* HUD */
 .hud-container {
@@ -1418,24 +1432,61 @@ p {
     right: 3%;
     transform: rotate(6deg); }
 
-.houseinteriorscene-container {
+.quiz-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(240, 240, 240, 0.8); }
+  .quiz-container .quiz-content {
+    width: 70%;
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    background-color: rgba(30, 30, 30, 0.3);
+    animation: quiz-appear 1s forwards; }
+    .quiz-container .quiz-content.flex {
+      flex-wrap: wrap; }
+  .quiz-container h3 {
+    width: 100%;
+    text-align: center; }
+  .quiz-container p {
+    width: 40%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #F0F0F0;
+    border-radius: 100px;
+    filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.28));
+    box-shadow: 0 0 0 3px #D46D64;
+    margin-top: 5%; }
+    .quiz-container p:hover {
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24));
+      transform: translateY(2px);
+      box-shadow: 0 0 0 3px #7AB1F1; }
+@keyframes quiz-appear {
+  from {
+    transform: translateY(10%); } }
+.houseinteriorscene {
   background-color: #F7C69B; }
-  .houseinteriorscene-container .houseinteriorscene-wallpaper {
+  .houseinteriorscene .houseinteriorscene-wallpaper {
     position: absolute;
     width: 80%;
     right: -2%;
     top: -2%; }
-  .houseinteriorscene-container .houseinteriorscene-counter-window {
+  .houseinteriorscene .houseinteriorscene-counter-window {
     position: absolute;
     width: 60%;
     right: -3%;
     bottom: 18%; }
-  .houseinteriorscene-container .houseinteriorscene-oven {
+  .houseinteriorscene .houseinteriorscene-oven {
     position: absolute;
     width: 40%;
     left: 2%;
     top: -1%; }
-  .houseinteriorscene-container .houseinteriorscene-ground {
+  .houseinteriorscene .houseinteriorscene-ground {
     position: absolute;
     bottom: -3%;
     left: -1%;
@@ -1621,7 +1672,8 @@ p {
 
 .crossroadsscene {
   background: linear-gradient(#7AB1F1, #F0F0F0) no-repeat center center;
-  background-size: cover; }
+  background-size: cover;
+  opacity: 0; }
 
 .crossroadsscene-cloud-container img {
   position: absolute;
@@ -1750,6 +1802,15 @@ p {
   left: -5%;
   width: 108%; }
 
+.crossroadsscene-arrow {
+  position: absolute;
+  width: 6%;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24));
+  top: 52%;
+  left: 26%; }
+  .crossroadsscene-arrow:hover {
+    animation: arrow-pulse 1s infinite; }
+
 .crossroadsscene-tree-front-container img {
   position: absolute; }
   .crossroadsscene-tree-front-container img:nth-child(1) {
@@ -1768,29 +1829,30 @@ p {
 .crossroadsscene-berry-container img {
   position: absolute; }
   .crossroadsscene-berry-container img:nth-child(1) {
-    width: 3%;
-    top: 38%;
-    left: 31%;
-    transform: rotate(8deg); }
+    width: 4%;
+    top: 42%;
+    left: 10%;
+    transform: rotate(-8deg); }
   .crossroadsscene-berry-container img:nth-child(2) {
     width: 4%;
-    top: 33%;
-    right: 24%;
-    transform: rotate(-13deg); }
+    top: 40%;
+    right: 30%;
+    transform: rotate(11deg); }
   .crossroadsscene-berry-container img:nth-child(3) {
     width: 4%;
-    top: 32%;
-    right: 5%;
-    transform: rotate(6deg); }
+    top: 50%;
+    right: 12%;
+    transform: rotate(-5deg); }
   .crossroadsscene-berry-container img:nth-child(4) {
     width: 5%;
-    bottom: 17%;
-    right: 3%;
-    transform: rotate(6deg); }
+    bottom: 8%;
+    left: 21%;
+    transform: rotate(9deg); }
 
 .forestscene {
   background: linear-gradient(#7AB1F1, #366877) no-repeat center center;
-  background-size: cover; }
+  background-size: cover;
+  opacity: 0; }
   .forestscene .forestscene-bg-treeline-container img {
     position: absolute;
     width: 60%; }
@@ -1950,49 +2012,60 @@ p {
 .forestscene-berry-container img {
   position: absolute; }
   .forestscene-berry-container img:nth-child(1) {
-    width: 4%;
-    bottom: 40%;
-    left: 2%;
-    transform: rotate(18deg); }
+    width: 5%;
+    bottom: 6%;
+    left: 7%;
+    transform: rotate(-13deg); }
   .forestscene-berry-container img:nth-child(2) {
     width: 4%;
-    bottom: 34%;
-    left: 17%;
-    transform: rotate(-22deg); }
+    top: 36%;
+    left: 7%;
+    transform: rotate(-5deg); }
   .forestscene-berry-container img:nth-child(3) {
-    width: 3%;
-    top: 34%;
-    left: 10%;
-    transform: rotate(-22deg); }
+    width: 5%;
+    top: 36%;
+    left: 24%;
+    transform: rotate(8deg); }
   .forestscene-berry-container img:nth-child(4) {
-    width: 2%;
+    width: 4%;
     top: 37%;
-    left: 27%;
+    left: 50%;
     transform: rotate(-20deg); }
   .forestscene-berry-container img:nth-child(5) {
-    width: 2%;
+    width: 4%;
     top: 40%;
-    right: 31%;
+    right: 28%;
     transform: rotate(18deg); }
   .forestscene-berry-container img:nth-child(6) {
-    width: 3%;
-    bottom: 39%;
-    right: 20%;
-    transform: rotate(-8deg); }
+    width: 5%;
+    bottom: 5%;
+    right: 18%;
+    transform: rotate(9deg); }
   .forestscene-berry-container img:nth-child(7) {
-    width: 3%;
-    bottom: 48%;
-    right: 10%;
+    width: 4%;
+    top: 39%;
+    right: 13%;
     transform: rotate(15deg); }
   .forestscene-berry-container img:nth-child(8) {
-    width: 4%;
-    bottom: 36%;
+    width: 5%;
+    bottom: 16%;
     right: 3%;
     transform: rotate(18deg); }
 
+.brobot-speech-container {
+  bottom: 41%;
+  left: 43%; }
+
+.brobot {
+  position: absolute;
+  top: 49%;
+  left: 29%;
+  width: 14%; }
+
 .caveexteriorscene {
   background: linear-gradient(#7AB1F1, #F0F0F0) no-repeat center center;
-  background-size: cover; }
+  background-size: cover;
+  opacity: 0; }
   .caveexteriorscene .caveexteriorscene-cloud-container img {
     position: absolute;
     opacity: 0.5; }
@@ -2086,127 +2159,131 @@ p {
 .caveexteriorscene-berry-container img {
   position: absolute; }
   .caveexteriorscene-berry-container img:nth-child(1) {
-    width: 3%;
-    top: 38%;
-    left: 31%;
-    transform: rotate(8deg); }
+    width: 5%;
+    bottom: 18%;
+    left: 10%;
+    transform: rotate(-12deg); }
   .caveexteriorscene-berry-container img:nth-child(2) {
     width: 4%;
     top: 33%;
-    right: 24%;
-    transform: rotate(-13deg); }
+    right: 33%;
+    transform: rotate(19deg); }
   .caveexteriorscene-berry-container img:nth-child(3) {
     width: 4%;
-    top: 32%;
-    right: 5%;
-    transform: rotate(6deg); }
-  .caveexteriorscene-berry-container img:nth-child(4) {
-    width: 5%;
-    bottom: 17%;
-    right: 3%;
+    top: 40%;
+    right: 15%;
     transform: rotate(6deg); }
 
-.caveinteriorscene-container {
+.caveinteriorscene {
   background: linear-gradient(to left, #9AA5A5, #605A4C) no-repeat center center;
-  background-size: cover; }
-  .caveinteriorscene-container .caveinteriorscene-ground {
+  background-size: cover;
+  opacity: 0; }
+  .caveinteriorscene .caveinteriorscene-ground {
     position: absolute;
     bottom: -3%;
     left: -1%;
     width: 102%; }
-  .caveinteriorscene-container .caveinteriorscene-machine {
+  .caveinteriorscene .caveinteriorscene-machine {
     position: absolute;
     width: 57%;
     left: 3%;
     top: -2%; }
-  .caveinteriorscene-container .caveinteriorscene-rock-container img {
+  .caveinteriorscene .caveinteriorscene-rock-container img {
     position: absolute;
     /* GREY ROCKS */
     /* BROWN ROCKS */ }
-    .caveinteriorscene-container .caveinteriorscene-rock-container img:nth-child(1) {
+    .caveinteriorscene .caveinteriorscene-rock-container img:nth-child(1) {
       width: 3%;
       bottom: 41%;
       right: 34%;
       transform: scaleX(-1); }
-    .caveinteriorscene-container .caveinteriorscene-rock-container img:nth-child(2) {
+    .caveinteriorscene .caveinteriorscene-rock-container img:nth-child(2) {
       width: 3%;
       bottom: 40%;
       right: 36%;
       transform: scaleX(-1); }
-    .caveinteriorscene-container .caveinteriorscene-rock-container img:nth-child(3) {
+    .caveinteriorscene .caveinteriorscene-rock-container img:nth-child(3) {
       width: 5%;
       bottom: 38%;
       right: 32%;
       transform: scaleX(-1); }
-    .caveinteriorscene-container .caveinteriorscene-rock-container img:nth-child(4) {
+    .caveinteriorscene .caveinteriorscene-rock-container img:nth-child(4) {
       width: 3%;
       bottom: 35%;
       right: 36%;
       transform: scaleX(-1); }
-    .caveinteriorscene-container .caveinteriorscene-rock-container img:nth-child(5) {
+    .caveinteriorscene .caveinteriorscene-rock-container img:nth-child(5) {
       width: 6%;
       bottom: 26%;
       right: -2%;
       transform: scaleX(-1); }
-    .caveinteriorscene-container .caveinteriorscene-rock-container img:nth-child(6) {
+    .caveinteriorscene .caveinteriorscene-rock-container img:nth-child(6) {
       width: 8%;
       bottom: 2%;
       left: -1%; }
-    .caveinteriorscene-container .caveinteriorscene-rock-container img:nth-child(7) {
+    .caveinteriorscene .caveinteriorscene-rock-container img:nth-child(7) {
       width: 4%;
       bottom: 1%;
       left: 3%; }
-    .caveinteriorscene-container .caveinteriorscene-rock-container img:nth-child(8) {
+    .caveinteriorscene .caveinteriorscene-rock-container img:nth-child(8) {
       width: 8%;
       bottom: -4%;
       left: -4%; }
-    .caveinteriorscene-container .caveinteriorscene-rock-container img:nth-child(9) {
+    .caveinteriorscene .caveinteriorscene-rock-container img:nth-child(9) {
       width: 4%;
       bottom: 14%;
       left: 15%; }
-    .caveinteriorscene-container .caveinteriorscene-rock-container img:nth-child(10) {
+    .caveinteriorscene .caveinteriorscene-rock-container img:nth-child(10) {
       width: 4%;
       bottom: 2%;
       right: 35%; }
-    .caveinteriorscene-container .caveinteriorscene-rock-container img:nth-child(11) {
+    .caveinteriorscene .caveinteriorscene-rock-container img:nth-child(11) {
       width: 4%;
       bottom: 0;
       right: 38%; }
-    .caveinteriorscene-container .caveinteriorscene-rock-container img:nth-child(12) {
+    .caveinteriorscene .caveinteriorscene-rock-container img:nth-child(12) {
       width: 7%;
       bottom: -4%;
       right: 32%; }
-  .caveinteriorscene-container .caveinteriorscene-pillar-container img {
+  .caveinteriorscene .caveinteriorscene-pillar-container img {
     position: absolute; }
-    .caveinteriorscene-container .caveinteriorscene-pillar-container img:nth-child(1) {
+    .caveinteriorscene .caveinteriorscene-pillar-container img:nth-child(1) {
       width: 10%;
       top: -5%;
       left: -2%; }
-    .caveinteriorscene-container .caveinteriorscene-pillar-container img:nth-child(2) {
+    .caveinteriorscene .caveinteriorscene-pillar-container img:nth-child(2) {
       width: 6%;
       top: -6%;
       left: 14%; }
-    .caveinteriorscene-container .caveinteriorscene-pillar-container img:nth-child(3) {
+    .caveinteriorscene .caveinteriorscene-pillar-container img:nth-child(3) {
       width: 11%;
       top: -9%;
       right: 30%; }
-    .caveinteriorscene-container .caveinteriorscene-pillar-container img:nth-child(4) {
+    .caveinteriorscene .caveinteriorscene-pillar-container img:nth-child(4) {
       width: 5%;
       top: -15%;
       right: 6%; }
-    .caveinteriorscene-container .caveinteriorscene-pillar-container img:nth-child(5) {
+    .caveinteriorscene .caveinteriorscene-pillar-container img:nth-child(5) {
       width: 5%;
       top: -2%;
       right: -1%; }
-    .caveinteriorscene-container .caveinteriorscene-pillar-container img:nth-child(6) {
+    .caveinteriorscene .caveinteriorscene-pillar-container img:nth-child(6) {
       width: 10%;
       bottom: -2%;
       right: -1%;
       transform: scaleY(-1); }
-    .caveinteriorscene-container .caveinteriorscene-pillar-container img:nth-child(7) {
+    .caveinteriorscene .caveinteriorscene-pillar-container img:nth-child(7) {
       width: 10%;
       bottom: -12%;
       right: 6%;
       transform: scaleY(-1); }
+  .caveinteriorscene .deero-speech-container {
+    bottom: 53%;
+    left: 29%; }
+  .caveinteriorscene .deero {
+    position: absolute;
+    top: 37%;
+    left: 18%;
+    width: 15%; }
 
 /*# sourceMappingURL=style.css.map */

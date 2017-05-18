@@ -93,10 +93,8 @@
 
 .char-sel-container {
 	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+	top: 10%;
+	left: 15%;
 	margin: auto;
 	width: 70%;
 	height: 80%;
@@ -183,6 +181,26 @@
 		top: 61%;
 		left: 55%;
 		height: 32%;
+	}
+	&.crossroadsscene-player-character {
+		top: 62%;
+		left: 72%;
+		height: 28%;
+	}
+	&.caveexteriorscene-player-character {
+		top: 63%;
+		left: 65%;
+		height: 32%;
+	}
+	&.caveinteriorscene-player-character {
+		top: 37%;
+		left: 73%;
+		height: 28%;
+	}
+	&.forestscene-player-character {
+		top: 54%;
+		left: 76%;
+		height: 21%;
 	}
 }
 

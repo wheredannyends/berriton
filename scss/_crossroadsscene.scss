@@ -1,7 +1,7 @@
 .crossroadsscene {
 	background: linear-gradient($main-blue, $white) no-repeat center center;
 	background-size: cover;
-	//	opacity: 0;
+	opacity: 0;
 }
 
 .crossroadsscene-cloud-container {
@@ -171,6 +171,17 @@
 	width: 108%;
 }
 
+.crossroadsscene-arrow {
+	position: absolute;
+	width: 6%;
+	filter: $filter-shadow-1;
+	top: 52%;
+	left: 26%;
+	&:hover {
+		animation: arrow-pulse 1s infinite;
+	}
+}
+
 .crossroadsscene-tree-front-container {
 	img {
 		position: absolute;
@@ -196,28 +207,28 @@
 	img {
 		position: absolute;
 		&:nth-child(1) {
-			width: 3%;
-			top: 38%;
-			left: 31%;
-			transform: rotate(8deg);
+			width: 4%;
+			top: 42%;
+			left: 10%;
+			transform: rotate(-8deg);
 		}
 		&:nth-child(2) {
 			width: 4%;
-			top: 33%;
-			right: 24%;
-			transform: rotate(-13deg);
+			top: 40%;
+			right: 30%;
+			transform: rotate(11deg);
 		}
 		&:nth-child(3) {
 			width: 4%;
-			top: 32%;
-			right: 5%;
-			transform: rotate(6deg);
+			top: 50%;
+			right: 12%;
+			transform: rotate(-5deg);
 		}
 		&:nth-child(4) {
 			width: 5%;
-			bottom: 17%;
-			right: 3%;
-			transform: rotate(6deg);
+			bottom: 8%;
+			left: 21%;
+			transform: rotate(9deg);
 		}
 	}
 }

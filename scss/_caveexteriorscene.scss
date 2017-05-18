@@ -1,7 +1,7 @@
 .caveexteriorscene {
 	background: linear-gradient($main-blue, $white) no-repeat center center;
 	background-size: cover;
-	//	opacity: 0;
+	opacity: 0;
 	.caveexteriorscene-cloud-container {
 		img {
 			position: absolute;
@@ -132,27 +132,21 @@
 	img {
 		position: absolute;
 		&:nth-child(1) {
-			width: 3%;
-			top: 38%;
-			left: 31%;
-			transform: rotate(8deg);
+			width: 5%;
+			bottom: 18%;
+			left: 10%;
+			transform: rotate(-12deg);
 		}
 		&:nth-child(2) {
 			width: 4%;
 			top: 33%;
-			right: 24%;
-			transform: rotate(-13deg);
+			right: 33%;
+			transform: rotate(19deg);
 		}
 		&:nth-child(3) {
 			width: 4%;
-			top: 32%;
-			right: 5%;
-			transform: rotate(6deg);
-		}
-		&:nth-child(4) {
-			width: 5%;
-			bottom: 17%;
-			right: 3%;
+			top: 40%;
+			right: 15%;
 			transform: rotate(6deg);
 		}
 	}

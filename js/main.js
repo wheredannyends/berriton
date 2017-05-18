@@ -21,6 +21,8 @@ TABLE OF CONTENTS
 3.02 - James Interactions
 3.03 - Tabetha Interactions
 3.04 - Woat Interactions
+3.05 - Brobot Interactions
+3.06 - Deero Interactions
 
 4.01 - Path Scene Berries
 4.02 - Bridge Scene Berries
@@ -50,7 +52,12 @@ var pathScenePlayer = document.getElementById("pathscene-player-character"),
 	houseexteriorScenePlayer = document.getElementById("houseexteriorscene-player-character"),
 	houseinteriorScenePlayer = document.getElementById("houseinteriorscene-player-character"),
 	highwayScenePlayer = document.getElementById("highwayscene-player-character"),
-	summitScenePlayer = document.getElementById("summitscene-player-character");
+	summitScenePlayer = document.getElementById("summitscene-player-character"),
+	crossroadsScenePlayer = document.getElementById("crossroadsscene-player-character"),
+	caveExteriorScenePlayer = document.getElementById("caveexteriorscene-player-character"),
+	caveInteriorScenePlayer = document.getElementById("caveinteriorscene-player-character"),
+	forestScenePlayer = document.getElementById("forestscene-player-character");
+
 
 // 0.02 - Scene Variables
 
@@ -59,14 +66,20 @@ var pathScene = document.getElementById("pathscene"),
 	houseExteriorScene = document.getElementById("houseexteriorscene"),
 	houseInteriorScene = document.getElementById("houseinteriorscene"),
 	highwayScene = document.getElementById("highwayscene"),
-	summitScene = document.getElementById("summitscene");
+	summitScene = document.getElementById("summitscene"),
+	crossroadsScene = document.getElementById("crossroadsscene"),
+	forestScene = document.getElementById("forestscene"),
+	caveExteriorScene = document.getElementById("caveexteriorscene"),
+	caveInteriorScene = document.getElementById("caveinteriorscene");
 
 // 0.03 - Dialogue Array Declarations
 
 var brentSpeechArr = [],
 	jamesSpeechArr = [],
 	tabethaSpeechArr = [],
-	woatSpeechArr = [];
+	woatSpeechArr = [],
+	brobotSpeechArr = [],
+	deeroSpeechArr = [];
 
 // 0.04 - HUD
 
@@ -288,6 +301,10 @@ function charSelSubFunc() {
 
 		woatSpeechArr = ["Hello <span class=\"red-text\">" + user.name + "</span> How goes it?", "The name’s Woat the Goat.", "I’m somewhat of the elder here in Berriton", "So check it out...", "Tabetha, the lovely lady in <span class=\"blue-text\">that house down there</span>,", "Told me she would have a pie ready for me this afternoon.", "It's now getting close to the afternoon...", "Do you think you could go see where my pie is?", "Haaaay yes!", "That’s what I was looking for!", "Thank you for the pie <span class=\"red-text\">" + user.name + "</span>", "See ya around!"];
 
+		brobotSpeechArr = ["Psssst… over here <span class=\"red-text\">" + user.name + ".", "I hear that old koot in that there house...", "Serves up some pretty mean berry pie!", "Check it out...", "I ganked her recipe for berry pie,", "So I can have it all to myself!", "...", "What’s that?", "You think I should give it back?", "No. its mine!", "Tell you what...", "I'll come up with a quiz and you can earn it.", "If you can guess all the questions right...", "I’ll give you the recipe!", "But it will take some time...", "Maybe take a hike up the mountain over there.", "I'll whip it up in no time!", "Jeepers...", "You're back so soon!", "I'm still working on the quiz.", "Maybe Tabetha has a copy?", "Go check in with her at her place!", "Tabetha can't remember her own recipies!?", "I can't believe it!", "I'm still coming up with some questions", "If you wanna take a hike up the mountain...", "I'm sure it will be ready by the time you're back!", "I've been working on this quiz for hours!", "I just can't seem to crack the code...", "I'm sure I'll get later on!", "But there's no time right now...", "Anyway! I'll let you borrow the recipe for now...", "But I'll get it back once usability testing is over!", "I can guarantee it!"];
+
+		deeroSpeechArr = ["Psssst… over here <span class=\"red-text\">" + user.name + ".", "I hear that old koot in that there house...", "Serves up some pretty mean berry pie!", "Check it out...", "I ganked her recipe for berry pie,", "So I can have it all to myself!", "...", "What’s that?", "You think I should give it back?", "No. its mine!", "Tell you what...", "I'll come up with a quiz and you can earn it.", "If you can guess all the questions right...", "I’ll give you the recipe!", "But it will take some time...", "Maybe take a hike up the mountain over there.", "I'll whip it up in no time!", "Jeepers...", "You're back so soon!", "I'm still working on the quiz.", "Maybe Tabetha has a copy?", "Go check in with her at her place!", "Tabetha can't remember her own recipies!?", "I can't believe it!", "I'm still coming up with some questions", "If you wanna take a hike up the mountain...", "I'm sure it will be ready by the time you're back!", "I've been working on this quiz for hours!", "I just can't seem to crack the code...", "I'm sure I'll get later on!", "But there's no time right now...", "Anyway! I'll let you borrow the recipe for now...", "But I'll get it back once usability testing is over!", "I can guarantee it!"];
+
 		// SET CHARACTER MODEL
 
 		if (charSelCurrent == 0) {
@@ -362,6 +379,10 @@ function setPlayerCharacter() {
 	houseinteriorScenePlayer.src = user.charModelSide;
 	highwayScenePlayer.src = user.charModelSide;
 	summitScenePlayer.src = user.charModelSide;
+	crossroadsScenePlayer.src = user.charModelSide;
+	caveExteriorScenePlayer.src = user.charModelSide;
+	caveInteriorScenePlayer.src = user.charModelFront;
+	forestScenePlayer.src = user.charModelSide;
 }
 
 charSelSub.addEventListener("click", function () {
@@ -390,14 +411,18 @@ var bridgeSceneComplete = false,
 
 function moveForwardButs() {
 	forwardBut1.classList.remove("hidden");
+	forwardBut1.style.width = "6%";
 	forwardBut2.classList.remove("hidden");
+	forwardBut2.style.width = "6%";
 
 	if (curScene == "pathScene") {
 		forwardBut1.src = "images/ui-elements/forward-button-up.svg"
 		forwardBut1.style.top = "44%";
 		forwardBut1.style.left = "47%";
 
-		forwardBut2.classList.add("hidden");
+		forwardBut2.src = "images/ui-elements/forward-button-left.svg"
+		forwardBut2.style.top = "70%";
+		forwardBut2.style.left = "22%";
 	}
 
 	if (curScene == "bridgeScene") {
@@ -452,12 +477,39 @@ function moveForwardButs() {
 		forwardBut2.style.left = "89%";
 	}
 
-	// Hide Buttons
+	if (curScene == "crossroadsScene") {
+		forwardBut1.src = "images/ui-elements/forward-button-left.svg"
+		forwardBut1.style.top = "68%";
+		forwardBut1.style.left = "2%";
 
-	if (curScene == "summitScene") {
-		forwardBut1.style.opacity = "0";
-	} else {
-		forwardBut1.style.opacity = "1";
+		forwardBut2.src = "images/ui-elements/forward-button-right.svg"
+		forwardBut2.style.top = "70%";
+		forwardBut2.style.left = "91%";
+	}
+
+	if (curScene == "caveExteriorScene") {
+		forwardBut1.src = "images/ui-elements/forward-button-left.svg"
+		forwardBut1.style.top = "42%";
+		forwardBut1.style.left = "25%";
+
+		forwardBut2.src = "images/ui-elements/forward-button-right.svg"
+		forwardBut2.style.top = "62%";
+		forwardBut2.style.left = "91%";
+	}
+	if (curScene == "caveInteriorScene") {
+		forwardBut1.classList.add("hidden");
+
+		forwardBut2.src = "images/ui-elements/forward-button-up.svg"
+		forwardBut2.style.top = "50%";
+		forwardBut2.style.left = "89%";
+		forwardBut2.style.width = "5%";
+	}
+	if (curScene == "forestScene") {
+		forwardBut1.classList.add("hidden");
+
+		forwardBut2.src = "images/ui-elements/forward-button-right.svg"
+		forwardBut2.style.top = "55%";
+		forwardBut2.style.left = "91%";
 	}
 }
 
@@ -537,6 +589,39 @@ forwardBut1.addEventListener("click", function () {
 			forwardButContainer.style.opacity = "1";
 		}, 500);
 	}
+
+	// CROSSROADS to FOREST
+	else if (curScene == "crossroadsScene") {
+		curScene = "forestScene";
+		crossroadsScene.style.opacity = "0";
+		forwardButContainer.style.opacity = "0";
+		setTimeout(function () {
+			crossroadsScene.classList.add("hidden");
+			forestScene.classList.remove("hidden");
+			moveForwardButs();
+		}, 300);
+		setTimeout(function () {
+			forestScene.style.opacity = "1";
+			forwardButContainer.style.opacity = "1";
+		}, 500);
+	}
+
+	// CAVE EXTERIOR to CAVE INTERIOR
+	else if (curScene == "caveExteriorScene") {
+		curScene = "caveInteriorScene";
+		caveExteriorScene.style.opacity = "0";
+		forwardButContainer.style.opacity = "0";
+		setTimeout(function () {
+			caveExteriorScene.classList.add("hidden");
+			caveInteriorScene.classList.remove("hidden");
+			moveForwardButs();
+		}, 300);
+		setTimeout(function () {
+			caveInteriorScene.style.opacity = "1";
+			forwardButContainer.style.opacity = "1";
+		}, 500);
+	}
+
 });
 
 forwardBut2.addEventListener("click", function () {
@@ -639,6 +724,86 @@ forwardBut2.addEventListener("click", function () {
 		}
 	}
 
+	// PATH to CROSSROADS
+	else if (curScene == "pathScene") {
+		curScene = "crossroadsScene";
+		pathScene.style.opacity = "0";
+		forwardButContainer.style.opacity = "0";
+		setTimeout(function () {
+			pathScene.classList.add("hidden");
+			crossroadsScene.classList.remove("hidden");
+			moveForwardButs();
+		}, 300);
+		setTimeout(function () {
+			crossroadsScene.style.opacity = "1";
+			forwardButContainer.style.opacity = "1";
+		}, 500);
+	}
+
+	// CAVE EXTERIOR to CROSSROADS
+	else if (curScene == "caveExteriorScene") {
+		curScene = "crossroadsScene";
+		caveExteriorScene.style.opacity = "0";
+		forwardButContainer.style.opacity = "0";
+		setTimeout(function () {
+			caveExteriorScene.classList.add("hidden");
+			crossroadsScene.classList.remove("hidden");
+			moveForwardButs();
+		}, 300);
+		setTimeout(function () {
+			crossroadsScene.style.opacity = "1";
+			forwardButContainer.style.opacity = "1";
+		}, 500);
+	}
+
+	// CAVE INTERIOR to CAVE EXTERIOR
+	else if (curScene == "caveInteriorScene") {
+		curScene = "caveExteriorScene";
+		caveInteriorScene.style.opacity = "0";
+		forwardButContainer.style.opacity = "0";
+		setTimeout(function () {
+			caveInteriorScene.classList.add("hidden");
+			caveExteriorScene.classList.remove("hidden");
+			moveForwardButs();
+		}, 300);
+		setTimeout(function () {
+			caveExteriorScene.style.opacity = "1";
+			forwardButContainer.style.opacity = "1";
+		}, 500);
+	}
+
+	// CROSSROADS to PATH
+	else if (curScene == "crossroadsScene") {
+		curScene = "pathScene";
+		crossroadsScene.style.opacity = "0";
+		forwardButContainer.style.opacity = "0";
+		setTimeout(function () {
+			crossroadsScene.classList.add("hidden");
+			pathScene.classList.remove("hidden");
+			moveForwardButs();
+		}, 300);
+		setTimeout(function () {
+			pathScene.style.opacity = "1";
+			forwardButContainer.style.opacity = "1";
+		}, 500);
+	}
+
+	// FOREST to CROSSROADS
+	else if (curScene == "forestScene") {
+		curScene = "crossroadsScene";
+		forestScene.style.opacity = "0";
+		forwardButContainer.style.opacity = "0";
+		setTimeout(function () {
+			forestScene.classList.add("hidden");
+			crossroadsScene.classList.remove("hidden");
+			moveForwardButs();
+		}, 300);
+		setTimeout(function () {
+			crossroadsScene.style.opacity = "1";
+			forwardButContainer.style.opacity = "1";
+		}, 500);
+	}
+
 });
 
 // HOUSE EXTERIOR to HOUSE INTERIOR
@@ -656,6 +821,25 @@ houseExteriorArrow.addEventListener("click", function () {
 	}, 300);
 	setTimeout(function () {
 		houseInteriorScene.style.opacity = "1";
+		forwardButContainer.style.opacity = "1";
+	}, 500);
+});
+
+// CROSSROADS to CAVE EXTERIOR
+
+var crossroadsArrow = document.getElementById("crossroadsscene-arrow");
+
+crossroadsArrow.addEventListener("click", function () {
+	curScene = "caveExteriorScene";
+	crossroadsScene.style.opacity = "0";
+	forwardButContainer.style.opacity = "0";
+	setTimeout(function () {
+		crossroadsScene.classList.add("hidden");
+		caveExteriorScene.classList.remove("hidden");
+		moveForwardButs();
+	}, 300);
+	setTimeout(function () {
+		caveExteriorScene.style.opacity = "1";
 		forwardButContainer.style.opacity = "1";
 	}, 500);
 });
@@ -800,6 +984,16 @@ var james = document.getElementById("james-container"),
 	jamesSpeechText = document.getElementById("james-speech-text"),
 	jamesSpeechProg = 0;
 
+var quiz = document.getElementById("quiz-container"),
+	quizContent = document.getElementById("quiz-content"),
+	quizQuestion = document.getElementById("quiz-question"),
+	quizAnswer1 = document.getElementById("quiz-answer-1"),
+	quizAnswer2 = document.getElementById("quiz-answer-2"),
+	quizAnswer3 = document.getElementById("quiz-answer-3"),
+	quizAnswer4 = document.getElementById("quiz-answer-4"),
+	quizCurrent = 1,
+	quizScore = 0;
+
 function jamesSpeechContainerOpen() {
 	jamesSpeech.style.width = "25%";
 	jamesSpeech.style.height = "20%";
@@ -851,6 +1045,42 @@ function jamesDialogueFreeze() {
 		setTimeout(function () {
 			jamesSpeechButton.style.opacity = "1";
 		}, 700);
+	}
+}
+
+function quizClick() {
+	if (quizCurrent == 4) {
+		if (quizScore == 4) {
+			console.log("Pass");
+		} else {
+			console.log("Fail");
+		}
+	} else {
+		quizContent.style.opacity = "0";
+		setTimeout(function () {
+			if (quizCurrent == 1) {
+				quizQuestion.innerHTML = "Who owns the <span class=\"blue-text\">Berriton Bridge</span>?";
+				quizAnswer1.innerText = "Woat the Goat";
+				quizAnswer2.innerText = "Tabetha the Goose";
+				quizAnswer3.innerText = "Brobot the Robot";
+				quizAnswer4.innerText = "Brent the Troll";
+			} else if (quizCurrent == 2) {
+				quizQuestion.innerHTML = "What is the <span class=\"blue-text\">most important ingredient</span> in pie?";
+				quizAnswer1.innerText = "Love";
+				quizAnswer2.innerText = "Berries";
+				quizAnswer3.innerText = "Pie Crust";
+				quizAnswer4.innerText = "Gluten-Free Gluten";
+			} else if (quizCurrent == 3) {
+				quizQuestion.innerHTML = "Who is <span class=\"blue-text\">the elder</span> here in Berriton?";
+				quizAnswer1.innerText = "James the Dolphin";
+				quizAnswer2.innerText = user.name + " the Human";
+				quizAnswer3.innerText = "Woat the Goat";
+				quizAnswer4.innerText = "Deero the Deer";
+			}
+			quizContent.style.opacity = "1";
+			quizCurrent++;
+			console.log(quizCurrent);
+		}, 500);
 	}
 }
 
@@ -939,8 +1169,33 @@ james.addEventListener("click", function () {
 	jamesDialogueFreeze();
 });
 
+quizAnswer1.addEventListener("click", function () {
+	if (quizCurrent == 3) {
+		quizScore++;
+	}
+	quizClick();
+});
 
+quizAnswer2.addEventListener("click", function () {
+	if (quizCurrent == 1) {
+		quizScore++;
+	}
+	quizClick();
+});
 
+quizAnswer3.addEventListener("click", function () {
+	if (quizCurrent == 4) {
+		quizScore++;
+	}
+	quizClick();
+});
+
+quizAnswer4.addEventListener("click", function () {
+	if (quizCurrent == 2) {
+		quizScore++;
+	}
+	quizClick();
+});
 
 // 3.03 - Tabetha Interactions
 
@@ -1097,7 +1352,7 @@ houseInteriorOven.addEventListener("click", function () {
 	}
 });
 
-// 3.02 - Woat Interactions
+// 3.04 - Woat Interactions
 
 var woat = document.getElementById("woat-container"),
 	woatInit = false,
@@ -1217,6 +1472,308 @@ woat.addEventListener("click", function () {
 		}
 	}
 	woatDialogueFreeze();
+});
+
+// 3.05 - Brobot Interactions
+
+var brobot = document.getElementById("brobot-container"),
+	brobotInit = false,
+	brobotSpeech = document.getElementById("brobot-speech-container"),
+	brobotSpeechOpen = false,
+	brobotSpeechCircles = document.getElementById("brobot-speech-circle-container"),
+	brobotSpeechLabel = document.getElementById("brobot-speech-label"),
+	brobotSpeechButton = document.getElementById("brobot-speech-button"),
+	brobotSpeechText = document.getElementById("brobot-speech-text"),
+	brobotSpeechProg = 0;
+
+function brobotSpeechContainerOpen() {
+	brobotSpeech.style.width = "25%";
+	brobotSpeech.style.height = "20%";
+	brobotSpeechCircles.style.opacity = "0";
+	brobotSpeechLabel.classList.remove("hidden");
+	setTimeout(function () {
+		brobotSpeechCircles.classList.remove("flex");
+		brobotSpeechCircles.classList.add("hidden");
+		brobotSpeechLabel.style.opacity = "1";
+		brobotSpeechText.classList.remove("hidden");
+		brobotSpeechText.innerHTML = brobotSpeechArr[brobotSpeechProg];
+	}, 300);
+	setTimeout(function () {
+		brobotSpeechText.style.opacity = "1";
+	}, 500);
+	brobotSpeechOpen = true;
+}
+
+function brobotSpeechContainerClose() {
+	brobotSpeechText.style.opacity = "0";
+	brobotSpeechLabel.style.opacity = "0";
+	brobotSpeechButton.classList.add("hidden");
+	setTimeout(function () {
+		brobotSpeech.style.width = "8%";
+		brobotSpeech.style.height = "6%";
+		brobotSpeechText.classList.add("hidden");
+		brobotSpeechCircles.classList.remove("hidden");
+		brobotSpeechCircles.classList.add("flex");
+		brobotSpeechLabel.classList.add("hidden");
+	}, 300);
+	setTimeout(function () {
+		brobotSpeechCircles.style.opacity = "1";
+	}, 500);
+	brobotSpeechOpen = false;
+}
+
+function brobotDialogueFreeze() {
+	brobot.style.pointerEvents = "none";
+	setTimeout(function () {
+		brobot.style.pointerEvents = "auto";
+	}, 700);
+
+	if (brobotSpeechOpen == true) {
+		brobotSpeechButton.classList.add("hidden");
+		brobotSpeechButton.style.opacity = "0";
+		setTimeout(function () {
+			brobotSpeechButton.classList.remove("hidden");
+		}, 400);
+		setTimeout(function () {
+			brobotSpeechButton.style.opacity = "1";
+		}, 700);
+	}
+}
+
+brobot.addEventListener("click", function () {
+	if (houseExteriorSceneComplete == false) {
+		if (brobotInit == false || (woatInit == false && tabethaInit == false)) {
+			if (brobotSpeechOpen == false) {
+				brobotSpeechContainerOpen();
+			} else if (brobotSpeechProg < brobotSpeechArr.length - 18) {
+				brobotSpeechProg++;
+				brobotSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					brobotSpeechText.innerHTML = brobotSpeechArr[brobotSpeechProg];
+					brobotSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				brobotSpeechProg = 0;
+				brobotSpeechContainerClose();
+				brobotInit = true;
+			}
+		} else if (woatInit == true && tabethaInit == false) {
+			if (brobotSpeechOpen == false) {
+				brobotSpeechProg = 17;
+				brobotSpeechContainerOpen();
+			} else if (brobotSpeechProg < brobotSpeechArr.length - 13) {
+				brobotSpeechProg++;
+				brobotSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					brobotSpeechText.innerHTML = brobotSpeechArr[brobotSpeechProg];
+					brobotSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				brobotSpeechProg = 0;
+				brobotSpeechContainerClose();
+			}
+		} else if (woatInit == false && tabethaInit == true) {
+			if (brobotSpeechOpen == false) {
+				brobotSpeechProg = 22;
+				brobotSpeechContainerOpen();
+			} else if (brobotSpeechProg < brobotSpeechArr.length - 8) {
+				brobotSpeechProg++;
+				brobotSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					brobotSpeechText.innerHTML = brobotSpeechArr[brobotSpeechProg];
+					brobotSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				brobotSpeechProg = 0;
+				brobotSpeechContainerClose();
+			}
+		} else {
+			if (brobotSpeechOpen == false) {
+				brobotSpeechProg = 27;
+				brobotSpeechContainerOpen();
+			} else if (brobotSpeechProg < brobotSpeechArr.length - 1) {
+				brobotSpeechProg++;
+				brobotSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					brobotSpeechText.innerHTML = brobotSpeechArr[brobotSpeechProg];
+					brobotSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				brobotSpeechContainerClose();
+				setTimeout(function () {
+					houseExteriorSceneComplete = true;
+					pieRecipeInc();
+				}, 300);
+			}
+		}
+	} else {
+
+		if (brobotSpeechOpen == false) {
+			brobotSpeechProg = 27;
+			brobotSpeechContainerOpen();
+		} else if (brobotSpeechProg < brobotSpeechArr.length - 1) {
+			brobotSpeechProg++;
+			brobotSpeechText.style.opacity = "0";
+			setTimeout(function () {
+				brobotSpeechText.innerHTML = brobotSpeechArr[brobotSpeechProg];
+				brobotSpeechText.style.opacity = "1";
+			}, 300);
+		} else {
+			brobotSpeechContainerClose();
+		}
+	}
+	brobotDialogueFreeze();
+});
+
+// 3.06 - Deero Interactions
+
+var deero = document.getElementById("deero-container"),
+	deeroInit = false,
+	deeroSpeech = document.getElementById("deero-speech-container"),
+	deeroSpeechOpen = false,
+	deeroSpeechCircles = document.getElementById("deero-speech-circle-container"),
+	deeroSpeechLabel = document.getElementById("deero-speech-label"),
+	deeroSpeechButton = document.getElementById("deero-speech-button"),
+	deeroSpeechText = document.getElementById("deero-speech-text"),
+	deeroSpeechProg = 0;
+
+function deeroSpeechContainerOpen() {
+	deeroSpeech.style.width = "25%";
+	deeroSpeech.style.height = "20%";
+	deeroSpeechCircles.style.opacity = "0";
+	deeroSpeechLabel.classList.remove("hidden");
+	setTimeout(function () {
+		deeroSpeechCircles.classList.remove("flex");
+		deeroSpeechCircles.classList.add("hidden");
+		deeroSpeechLabel.style.opacity = "1";
+		deeroSpeechText.classList.remove("hidden");
+		deeroSpeechText.innerHTML = deeroSpeechArr[deeroSpeechProg];
+	}, 300);
+	setTimeout(function () {
+		deeroSpeechText.style.opacity = "1";
+	}, 500);
+	deeroSpeechOpen = true;
+}
+
+function deeroSpeechContainerClose() {
+	deeroSpeechText.style.opacity = "0";
+	deeroSpeechLabel.style.opacity = "0";
+	deeroSpeechButton.classList.add("hidden");
+	setTimeout(function () {
+		deeroSpeech.style.width = "8%";
+		deeroSpeech.style.height = "6%";
+		deeroSpeechText.classList.add("hidden");
+		deeroSpeechCircles.classList.remove("hidden");
+		deeroSpeechCircles.classList.add("flex");
+		deeroSpeechLabel.classList.add("hidden");
+	}, 300);
+	setTimeout(function () {
+		deeroSpeechCircles.style.opacity = "1";
+	}, 500);
+	deeroSpeechOpen = false;
+}
+
+function deeroDialogueFreeze() {
+	deero.style.pointerEvents = "none";
+	setTimeout(function () {
+		deero.style.pointerEvents = "auto";
+	}, 700);
+
+	if (deeroSpeechOpen == true) {
+		deeroSpeechButton.classList.add("hidden");
+		deeroSpeechButton.style.opacity = "0";
+		setTimeout(function () {
+			deeroSpeechButton.classList.remove("hidden");
+		}, 400);
+		setTimeout(function () {
+			deeroSpeechButton.style.opacity = "1";
+		}, 700);
+	}
+}
+
+deero.addEventListener("click", function () {
+	if (houseExteriorSceneComplete == false) {
+		if (deeroInit == false || (woatInit == false && tabethaInit == false)) {
+			if (deeroSpeechOpen == false) {
+				deeroSpeechContainerOpen();
+			} else if (deeroSpeechProg < deeroSpeechArr.length - 18) {
+				deeroSpeechProg++;
+				deeroSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					deeroSpeechText.innerHTML = deeroSpeechArr[deeroSpeechProg];
+					deeroSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				deeroSpeechProg = 0;
+				deeroSpeechContainerClose();
+				deeroInit = true;
+			}
+		} else if (woatInit == true && tabethaInit == false) {
+			if (deeroSpeechOpen == false) {
+				deeroSpeechProg = 17;
+				deeroSpeechContainerOpen();
+			} else if (deeroSpeechProg < deeroSpeechArr.length - 13) {
+				deeroSpeechProg++;
+				deeroSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					deeroSpeechText.innerHTML = deeroSpeechArr[deeroSpeechProg];
+					deeroSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				deeroSpeechProg = 0;
+				deeroSpeechContainerClose();
+			}
+		} else if (woatInit == false && tabethaInit == true) {
+			if (deeroSpeechOpen == false) {
+				deeroSpeechProg = 22;
+				deeroSpeechContainerOpen();
+			} else if (deeroSpeechProg < deeroSpeechArr.length - 8) {
+				deeroSpeechProg++;
+				deeroSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					deeroSpeechText.innerHTML = deeroSpeechArr[deeroSpeechProg];
+					deeroSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				deeroSpeechProg = 0;
+				deeroSpeechContainerClose();
+			}
+		} else {
+			if (deeroSpeechOpen == false) {
+				deeroSpeechProg = 27;
+				deeroSpeechContainerOpen();
+			} else if (deeroSpeechProg < deeroSpeechArr.length - 1) {
+				deeroSpeechProg++;
+				deeroSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					deeroSpeechText.innerHTML = deeroSpeechArr[deeroSpeechProg];
+					deeroSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				deeroSpeechContainerClose();
+				setTimeout(function () {
+					houseExteriorSceneComplete = true;
+					pieRecipeInc();
+				}, 300);
+			}
+		}
+	} else {
+
+		if (deeroSpeechOpen == false) {
+			deeroSpeechProg = 27;
+			deeroSpeechContainerOpen();
+		} else if (deeroSpeechProg < deeroSpeechArr.length - 1) {
+			deeroSpeechProg++;
+			deeroSpeechText.style.opacity = "0";
+			setTimeout(function () {
+				deeroSpeechText.innerHTML = deeroSpeechArr[deeroSpeechProg];
+				deeroSpeechText.style.opacity = "1";
+			}, 300);
+		} else {
+			deeroSpeechContainerClose();
+		}
+	}
+	deeroDialogueFreeze();
 });
 
 // 4.01 - Path Scene Berries
@@ -1360,5 +1917,150 @@ houseExtBerry4.addEventListener("click", function () {
 	houseExtBerry4.style.opacity = "0";
 	setTimeout(function () {
 		houseExtBerry4.classList.add("hidden");
+	}, 300);
+});
+
+// 4.04 - Crossroads Scene Berries
+
+var crossroadsBerry1 = document.getElementById("crossroadsscene-berry-1"),
+	crossroadsBerry2 = document.getElementById("crossroadsscene-berry-2"),
+	crossroadsBerry3 = document.getElementById("crossroadsscene-berry-3"),
+	crossroadsBerry4 = document.getElementById("crossroadsscene-berry-4");
+
+crossroadsBerry1.addEventListener("click", function () {
+	berryInc();
+	crossroadsBerry1.style.opacity = "0";
+	setTimeout(function () {
+		crossroadsBerry1.classList.add("hidden");
+	}, 300);
+});
+
+crossroadsBerry2.addEventListener("click", function () {
+	berryInc();
+	crossroadsBerry2.style.opacity = "0";
+	setTimeout(function () {
+		crossroadsBerry2.classList.add("hidden");
+	}, 300);
+});
+
+crossroadsBerry3.addEventListener("click", function () {
+	berryInc();
+	crossroadsBerry3.style.opacity = "0";
+	setTimeout(function () {
+		crossroadsBerry3.classList.add("hidden");
+	}, 300);
+});
+
+crossroadsBerry4.addEventListener("click", function () {
+	berryInc();
+	crossroadsBerry4.style.opacity = "0";
+	setTimeout(function () {
+		crossroadsBerry4.classList.add("hidden");
+	}, 300);
+});
+
+// 4.05 - Forest Scene Berries
+
+var forestBerry1 = document.getElementById("forestscene-berry-1"),
+	forestBerry2 = document.getElementById("forestscene-berry-2"),
+	forestBerry3 = document.getElementById("forestscene-berry-3"),
+	forestBerry4 = document.getElementById("forestscene-berry-4"),
+	forestBerry5 = document.getElementById("forestscene-berry-5"),
+	forestBerry6 = document.getElementById("forestscene-berry-6"),
+	forestBerry7 = document.getElementById("forestscene-berry-7"),
+	forestBerry8 = document.getElementById("forestscene-berry-8");
+
+forestBerry1.addEventListener("click", function () {
+	berryInc();
+	forestBerry1.style.opacity = "0";
+	setTimeout(function () {
+		forestBerry1.classList.add("hidden");
+	}, 300);
+});
+
+forestBerry2.addEventListener("click", function () {
+	berryInc();
+	forestBerry2.style.opacity = "0";
+	setTimeout(function () {
+		forestBerry2.classList.add("hidden");
+	}, 300);
+});
+
+forestBerry3.addEventListener("click", function () {
+	berryInc();
+	forestBerry3.style.opacity = "0";
+	setTimeout(function () {
+		forestBerry3.classList.add("hidden");
+	}, 300);
+});
+
+forestBerry4.addEventListener("click", function () {
+	berryInc();
+	forestBerry4.style.opacity = "0";
+	setTimeout(function () {
+		forestBerry4.classList.add("hidden");
+	}, 300);
+});
+
+forestBerry5.addEventListener("click", function () {
+	berryInc();
+	forestBerry5.style.opacity = "0";
+	setTimeout(function () {
+		forestBerry5.classList.add("hidden");
+	}, 300);
+});
+
+forestBerry6.addEventListener("click", function () {
+	berryInc();
+	forestBerry6.style.opacity = "0";
+	setTimeout(function () {
+		forestBerry6.classList.add("hidden");
+	}, 300);
+});
+
+forestBerry7.addEventListener("click", function () {
+	berryInc();
+	forestBerry7.style.opacity = "0";
+	setTimeout(function () {
+		forestBerry7.classList.add("hidden");
+	}, 300);
+});
+
+forestBerry8.addEventListener("click", function () {
+	berryInc();
+	forestBerry8.style.opacity = "0";
+	setTimeout(function () {
+		forestBerry8.classList.add("hidden");
+	}, 300);
+});
+
+// 4.06 - Cave Exterior Scene Berries
+
+var caveExtBerry1 = document.getElementById("caveexteriorscene-berry-1"),
+	caveExtBerry2 = document.getElementById("caveexteriorscene-berry-2"),
+	caveExtBerry3 = document.getElementById("caveexteriorscene-berry-3"),
+	caveExtBerry4 = document.getElementById("caveexteriorscene-berry-4");
+
+caveExtBerry1.addEventListener("click", function () {
+	berryInc();
+	caveExtBerry1.style.opacity = "0";
+	setTimeout(function () {
+		caveExtBerry1.classList.add("hidden");
+	}, 300);
+});
+
+caveExtBerry2.addEventListener("click", function () {
+	berryInc();
+	caveExtBerry2.style.opacity = "0";
+	setTimeout(function () {
+		caveExtBerry2.classList.add("hidden");
+	}, 300);
+});
+
+caveExtBerry3.addEventListener("click", function () {
+	berryInc();
+	caveExtBerry3.style.opacity = "0";
+	setTimeout(function () {
+		caveExtBerry3.classList.add("hidden");
 	}, 300);
 });
