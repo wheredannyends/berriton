@@ -534,9 +534,9 @@ function moveForwardButs() {
 		forwardBut1.style.top = "23%";
 		forwardBut1.style.left = "5%";
 
-//		if (bridgeSceneComplete == false) {
-//			forwardBut1.classList.add("hidden");
-//		}
+		if (bridgeSceneComplete == false) {
+			forwardBut1.classList.add("hidden");
+		}
 
 		forwardBut2.src = "images/ui-elements/forward-button-right.svg"
 		forwardBut2.style.top = "60%";
@@ -728,7 +728,7 @@ forwardBut1.addEventListener("click", function () {
 			caveInteriorScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
 		}, 500);
-		
+
 		if (haveCharger == true && generatorProg < 3) {
 			generator.style.animation = "oven-pulse 2s 2";
 			setTimeout(function () {
@@ -1101,6 +1101,7 @@ var james = document.getElementById("james-container"),
 
 var quiz = document.getElementById("quiz-container"),
 	quizContent = document.getElementById("quiz-content"),
+	quizQuestion = document.getElementById("quiz-question"),
 	quizAnswer1 = document.getElementById("quiz-answer-1"),
 	quizAnswer2 = document.getElementById("quiz-answer-2"),
 	quizAnswer3 = document.getElementById("quiz-answer-3"),
@@ -1173,9 +1174,9 @@ function quizClick() {
 			quizScore = 0;
 		}
 		quiz.style.opacity = "0";
-		jamesSpeechContainerOpen();
-		jamesDialogueFreeze();
 		setTimeout(function () {
+			jamesSpeechContainerOpen();
+			jamesDialogueFreeze();
 			quiz.classList.add("hidden");
 			quizQuestion.innerHTML = "What can you find <span class=\"blue-text\">in the trees</span> in Berriton?";
 			quizAnswer1.innerText = "Bananas";
