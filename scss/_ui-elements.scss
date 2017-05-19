@@ -306,8 +306,8 @@
 		position: absolute;
 		width: 50%;
 		text-align: center;
-		top: -42%;
-		left: 25%;
+		top: -40%;
+		left: 23%;
 		color: $black;
 		font-size: 1.25em;
 		padding: 2%;
@@ -323,9 +323,10 @@
 	border-radius: 15px 60px 60px 60px;
 	position: absolute;
 	bottom: -40%;
-	left: 10%;
+	left: 23%;
 	background-color: $main-blue;
 	filter: $filter-shadow-1;
+	box-shadow: 0 0 0 3px $white;
 	img {
 		position: absolute;
 		width: 60%;
