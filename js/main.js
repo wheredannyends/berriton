@@ -35,6 +35,9 @@ $(document).ready(function () {
 	$("#loading-screen").delay(500).fadeOut("slow");
 });
 
+if(window.innerHeight > window.innerWidth){
+    alert("Please use Landscape!");
+}
 
 /* 
 
