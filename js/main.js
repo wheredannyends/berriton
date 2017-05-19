@@ -2186,6 +2186,7 @@ brobot.addEventListener("click", function () {
 	if (forestSceneComplete == false) {
 		if (brobotInit == false) {
 			if (brobotSpeechOpen == false) {
+				brobotSpeechProg = 0;
 				brobotSpeechContainerOpen();
 			} else if (brobotSpeechProg < brobotSpeechArr.length - 17) {
 				brobotSpeechProg++;
@@ -2268,6 +2269,7 @@ brobot.addEventListener("click", function () {
 			}, 2000);
 		} else {
 			if (brobotSpeechOpen == false) {
+				brobotSpeechProg = 0;
 				brobotSpeechContainerOpen();
 			} else if (brobotSpeechProg < brobotSpeechArr.length - 17) {
 				brobotSpeechProg++;
