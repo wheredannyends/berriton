@@ -13,6 +13,7 @@ TABLE OF CONTENTS
 1.01 - Splash Screen
 1.02 - Character Selection Screen
 1.03 - Submit User Information
+1.04 - Intro/Outro Screens
 
 2.01 - Scene Change Buttons
 2.02 - Scene Change Functions
@@ -500,6 +501,11 @@ charSelName.addEventListener("keyup", function (ev) {
 	}
 
 });
+
+// 1.04 - Intro/Outro Screens
+
+var introBut = document.getElementById("intro-screen-button"),
+	outroBut = document.getElementById("outro-screen-button");
 
 // 2.01 - Scene Change Buttons
 
@@ -1986,7 +1992,7 @@ brobot.addEventListener("click", function () {
 			} else {
 				brobotSpeechContainerClose();
 			}
-		} else if (brobotChargeLevel == 3) {
+		} else if (brobotChargeLevel == 2 && chargerIsFull == true) {
 			chargerEmpty();
 			setTimeout(function () {
 				brobot.style.opacity = "0";
