@@ -1499,47 +1499,48 @@ p {
       bottom: 17%;
       right: 3%;
       transform: rotate(6deg); }
-  .houseexteriorscene .quiz-container {
-    opacity: 0;
-    width: 100%;
-    height: 100%;
+
+.quiz-container {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(240, 240, 240, 0.8); }
+  .quiz-container img {
+    height: 90%;
     position: absolute;
     top: 0;
+    right: 0;
+    bottom: 0;
     left: 0;
-    background-color: rgba(240, 240, 240, 0.8); }
-    .houseexteriorscene .quiz-container img {
-      height: 90%;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto; }
-    .houseexteriorscene .quiz-container .quiz-content {
-      width: 70%;
-      height: 80%;
-      position: absolute;
-      top: 10%;
-      left: 15%; }
-      .houseexteriorscene .quiz-container .quiz-content.flex {
-        flex-wrap: wrap; }
-    .houseexteriorscene .quiz-container h3 {
-      width: 100%;
-      text-align: center; }
-    .houseexteriorscene .quiz-container p {
-      width: 40%;
-      text-align: center;
-      box-sizing: border-box;
-      padding: 20px;
-      background-color: #F0F0F0;
-      border-radius: 100px;
-      filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.28));
-      box-shadow: 0 0 0 3px #D46D64;
-      margin-top: 5%; }
-      .houseexteriorscene .quiz-container p:hover {
-        filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24));
-        transform: translateY(2px);
-        box-shadow: 0 0 0 3px #7AB1F1; }
+    margin: auto; }
+  .quiz-container .quiz-content {
+    width: 70%;
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    left: 15%; }
+    .quiz-container .quiz-content.flex {
+      flex-wrap: wrap; }
+  .quiz-container h3 {
+    width: 100%;
+    text-align: center; }
+  .quiz-container p {
+    width: 40%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #F0F0F0;
+    border-radius: 100px;
+    filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.28));
+    box-shadow: 0 0 0 3px #D46D64;
+    margin-top: 5%; }
+    .quiz-container p:hover {
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24));
+      transform: translateY(2px);
+      box-shadow: 0 0 0 3px #7AB1F1; }
 
 .houseinteriorscene {
   background-color: #F7C69B;
