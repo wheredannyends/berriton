@@ -39,7 +39,6 @@ var portScreen = document.getElementById("portrait-orientation");
 
 if(window.innerHeight > window.innerWidth){
     portScreen.classList.remove("hidden");
-	portScreen.classList.add("flex");
 }
 
 $( window ).on( "orientationchange", function( event ) {  
