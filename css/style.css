@@ -594,8 +594,7 @@ p {
   height: 80%;
   background-color: rgba(30, 30, 30, 0.3);
   color: #F0F0F0;
-  opacity: 0;
-  animation: slide-frombottom 0.5s forwards; }
+  opacity: 0; }
   .char-sel-container .char-sel-preview-container {
     height: 30%;
     width: 50%; }
@@ -611,7 +610,8 @@ p {
     width: 70%;
     margin-bottom: 20px;
     box-sizing: border-box;
-    padding: 10px;
+    border-radius: 60px;
+    padding: 5%;
     text-align: center;
     font-family: "Quicksand", "Helvetica", sans-serif;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
@@ -676,6 +676,7 @@ p {
 
 /* HUD */
 .hud-container {
+  opacity: 0;
   position: absolute;
   top: 4%;
   right: 2%;
@@ -804,28 +805,55 @@ p {
       .speech-container div article:nth-child(3) {
         animation-delay: 0.8s; }
 
-@keyframes speech-container-anim {
-  50% {
-    transform: translateY(-10%); } }
-@keyframes speech-circle-anim {
-  50% {
-    filter: brightness(1); } }
 /* Berries */
 .berry-container img {
   filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24)); }
 
-@keyframes slide-frombottom {
-  0% {
-    transform: translateY(50px); }
-  100% {
+/* Splash Screen */
+@keyframes splashcloud1 {
+  to {
+    top: 40%;
+    left: -30%;
+    width: 30%; } }
+@keyframes splashcloud2 {
+  to {
+    top: 5%;
+    left: -10%;
+    width: 40%; } }
+@keyframes splashcloud3 {
+  to {
+    top: 15%;
+    left: 80%;
+    width: 70%; } }
+@keyframes splashmountains {
+  to {
+    top: 63%;
+    left: -135%;
+    width: 200%; } }
+@keyframes splashstone {
+  to {
+    top: 63%;
+    left: -20%;
+    width: 200%; } }
+@keyframes splashforest {
+  to {
+    top: 63%;
+    left: -20%;
+    width: 140%; } }
+@keyframes splashlogo {
+  to {
+    top: 10%;
+    left: 38%;
+    width: 24%; } }
+@keyframes splashbutton {
+  to {
+    top: 65%;
     opacity: 1; } }
-@keyframes slide-totop {
-  100% {
-    transform: translateY(-50px);
-    opacity: 0; } }
+/* Clouds */
 @keyframes cloud-movement {
   50% {
     transform: translateY(7%); } }
+/* Character Selection Screen */
 @keyframes char-sel-right-anim {
   25% {
     transform: translateX(50px);
@@ -840,6 +868,14 @@ p {
   75% {
     transform: translateX(50px);
     opacity: 0; } }
+/* Speech Container */
+@keyframes speech-container-anim {
+  50% {
+    transform: translateY(-10%); } }
+@keyframes speech-circle-anim {
+  50% {
+    filter: brightness(1); } }
+/* Flashing Objects */
 @keyframes oven-pulse {
   25% {
     filter: brightness(1.5); }
@@ -847,6 +883,7 @@ p {
     filter: brightness(1); }
   75% {
     filter: brightness(1.5); } }
+/* Scene Change Arrow Hover */
 @keyframes arrow-pulse {
   50% {
     width: 7%;
@@ -914,598 +951,560 @@ p {
       left: -10%;
       width: 100%;
       animation: splashmountains 2s forwards; }
+  .splash-container .splash-logo {
+    position: absolute; }
+  .splash-container .splash-start {
+    opacity: 0;
+    position: absolute;
+    width: 16%;
+    left: 42%;
+    top: 75%;
+    animation: splashbutton 2s forwards;
+    animation-delay: 2s; }
 
-.splash-logo {
-  position: absolute; }
-
-.splash-start {
-  opacity: 0;
-  position: absolute;
-  width: 16%;
-  left: 42%;
-  top: 75%;
-  animation: splashbutton 2s forwards;
-  animation-delay: 2s; }
-
-@keyframes splashcloud1 {
-  to {
-    top: 40%;
-    left: -30%;
-    width: 30%; } }
-@keyframes splashcloud2 {
-  to {
-    top: 5%;
-    left: -10%;
-    width: 40%; } }
-@keyframes splashcloud3 {
-  to {
-    top: 15%;
-    left: 80%;
-    width: 70%; } }
-@keyframes splashmountains {
-  to {
-    top: 63%;
-    left: -135%;
-    width: 200%; } }
-@keyframes splashstone {
-  to {
-    top: 63%;
-    left: -20%;
-    width: 200%; } }
-@keyframes splashforest {
-  to {
-    top: 63%;
-    left: -20%;
-    width: 140%; } }
-@keyframes splashlogo {
-  to {
-    top: 10%;
-    left: 38%;
-    width: 24%; } }
-@keyframes splashbutton {
-  to {
-    top: 65%;
-    opacity: 1; } }
 .pathscene {
   background: linear-gradient(to bottom left, #7AB1F1, #F0F0F0) no-repeat center center;
-  background-size: cover; }
-
-.pathscene-mountain-container .pathscene-mountain {
-  position: absolute; }
-  .pathscene-mountain-container .pathscene-mountain:nth-child(1) {
-    left: -2%;
-    top: 7%;
-    animation-delay: 10s; }
-  .pathscene-mountain-container .pathscene-mountain:nth-child(2) {
-    left: 12%;
-    top: 12%;
-    animation-delay: 8s; }
-  .pathscene-mountain-container .pathscene-mountain:nth-child(3) {
-    left: 26%;
-    top: 19%;
-    animation-delay: 6s; }
-  .pathscene-mountain-container .pathscene-mountain:nth-child(4) {
-    left: 40%;
-    top: 30%;
-    animation-delay: 3s; }
-  .pathscene-mountain-container .pathscene-mountain:nth-child(5) {
-    left: 54%;
-    top: 23%;
-    animation-delay: 12s; }
-  .pathscene-mountain-container .pathscene-mountain:nth-child(6) {
-    left: 68%;
-    top: 15%;
-    animation-delay: 5s; }
-  .pathscene-mountain-container .pathscene-mountain:nth-child(7) {
-    left: 84%;
-    top: 5%;
-    animation-delay: 14s; }
-
-.pathscene-peak-container img {
-  position: absolute;
-  width: 50%; }
-  .pathscene-peak-container img:nth-child(1) {
-    top: 6%;
-    right: -5%; }
-  .pathscene-peak-container img:nth-child(2) {
-    width: 70%;
-    top: 8%;
-    left: -15%;
-    transform: scaleX(-1); }
-  .pathscene-peak-container img:nth-child(3) {
-    top: 5%;
-    left: -12%;
-    transform: scaleX(-1); }
-  .pathscene-peak-container img:nth-child(4) {
-    width: 39%;
-    top: 6%;
-    right: 8%; }
-
-.pathscene-bg-treeline-container img {
-  position: absolute;
-  width: 45%; }
-  .pathscene-bg-treeline-container img:nth-child(1) {
-    top: 35%;
-    left: -3%; }
-  .pathscene-bg-treeline-container img:nth-child(2) {
-    top: 40%;
-    right: -6%;
-    transform: scale(-1); }
-  .pathscene-bg-treeline-container img:nth-child(7) {
-    top: 20%;
-    left: -6%; }
-  .pathscene-bg-treeline-container img:nth-child(8) {
-    top: 23%;
-    right: -3%;
-    transform: scale(-1); }
-.pathscene-bg-treeline-container .pathscene-bg-treeline-trunk {
-  position: absolute; }
-  .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(3) {
-    top: 40%;
-    left: 30%; }
-  .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(4) {
-    top: 40%;
-    left: 20%; }
-  .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(5) {
-    top: 45%;
-    right: 33%; }
-  .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(6) {
-    top: 45%;
-    right: 25%; }
-
-.pathscene-ground {
-  position: absolute;
-  bottom: -3%;
-  left: -3%;
-  width: 106%; }
-
-.pathscene-tree-container .pathscene-tree {
-  position: absolute;
-  /* Trees Left Side */
-  /* Trees Right Side */ }
-  .pathscene-tree-container .pathscene-tree:nth-child(1) {
-    width: 12%;
-    top: 32%;
-    left: 20%; }
-  .pathscene-tree-container .pathscene-tree:nth-child(2) {
-    width: 15%;
-    top: 28%;
-    left: 8%; }
-  .pathscene-tree-container .pathscene-tree:nth-child(3) {
-    width: 20%;
-    top: 26%;
-    left: -6%; }
-  .pathscene-tree-container .pathscene-tree:nth-child(4) {
-    width: 30%;
-    bottom: -13%;
-    left: -5%; }
-  .pathscene-tree-container .pathscene-tree:nth-child(5) {
-    width: 12%;
-    top: 32%;
-    right: -2%;
-    transform: scaleX(-1); }
-  .pathscene-tree-container .pathscene-tree:nth-child(6) {
-    width: 13%;
-    top: 35%;
-    right: 24%;
-    transform: scaleX(-1); }
-  .pathscene-tree-container .pathscene-tree:nth-child(7) {
-    width: 14%;
-    top: 42%;
-    right: 11%;
-    transform: scaleX(-1); }
-  .pathscene-tree-container .pathscene-tree:nth-child(8) {
-    width: 20%;
-    top: 38%;
-    right: -3%; }
-  .pathscene-tree-container .pathscene-tree:nth-child(9) {
-    width: 16%;
-    top: 49%;
-    right: 11%;
-    transform: scaleX(-1); }
-  .pathscene-tree-container .pathscene-tree:nth-child(10) {
-    width: 28%;
-    bottom: -11%;
-    right: -13%; }
-
-.pathscene-berry-container img {
-  position: absolute; }
-  .pathscene-berry-container img:nth-child(1) {
-    width: 4%;
-    bottom: 40%;
-    left: 2%;
-    transform: rotate(18deg); }
-  .pathscene-berry-container img:nth-child(2) {
-    width: 4%;
-    bottom: 34%;
-    left: 17%;
-    transform: rotate(-22deg); }
-  .pathscene-berry-container img:nth-child(3) {
-    width: 4%;
-    top: 33%;
-    left: 10%;
-    transform: rotate(-22deg); }
-  .pathscene-berry-container img:nth-child(4) {
-    width: 4%;
-    top: 37%;
-    left: 25%;
-    transform: rotate(-20deg); }
-  .pathscene-berry-container img:nth-child(5) {
-    width: 4%;
-    top: 40%;
-    right: 30%;
-    transform: rotate(18deg); }
-  .pathscene-berry-container img:nth-child(6) {
-    width: 4%;
-    bottom: 39%;
-    right: 18%;
-    transform: rotate(-8deg); }
-  .pathscene-berry-container img:nth-child(7) {
-    width: 4%;
-    bottom: 48%;
-    right: 10%;
-    transform: rotate(15deg); }
-  .pathscene-berry-container img:nth-child(8) {
-    width: 4%;
-    bottom: 36%;
-    right: 3%;
-    transform: rotate(18deg); }
+  background-size: cover;
+  opacity: 0; }
+  .pathscene .pathscene-mountain-container .pathscene-mountain {
+    position: absolute; }
+    .pathscene .pathscene-mountain-container .pathscene-mountain:nth-child(1) {
+      left: -2%;
+      top: 7%;
+      animation-delay: 10s; }
+    .pathscene .pathscene-mountain-container .pathscene-mountain:nth-child(2) {
+      left: 12%;
+      top: 12%;
+      animation-delay: 8s; }
+    .pathscene .pathscene-mountain-container .pathscene-mountain:nth-child(3) {
+      left: 26%;
+      top: 19%;
+      animation-delay: 6s; }
+    .pathscene .pathscene-mountain-container .pathscene-mountain:nth-child(4) {
+      left: 40%;
+      top: 30%;
+      animation-delay: 3s; }
+    .pathscene .pathscene-mountain-container .pathscene-mountain:nth-child(5) {
+      left: 54%;
+      top: 23%;
+      animation-delay: 12s; }
+    .pathscene .pathscene-mountain-container .pathscene-mountain:nth-child(6) {
+      left: 68%;
+      top: 15%;
+      animation-delay: 5s; }
+    .pathscene .pathscene-mountain-container .pathscene-mountain:nth-child(7) {
+      left: 84%;
+      top: 5%;
+      animation-delay: 14s; }
+  .pathscene .pathscene-peak-container img {
+    position: absolute;
+    width: 50%; }
+    .pathscene .pathscene-peak-container img:nth-child(1) {
+      top: 6%;
+      right: -5%; }
+    .pathscene .pathscene-peak-container img:nth-child(2) {
+      width: 70%;
+      top: 8%;
+      left: -15%;
+      transform: scaleX(-1); }
+    .pathscene .pathscene-peak-container img:nth-child(3) {
+      top: 5%;
+      left: -12%;
+      transform: scaleX(-1); }
+    .pathscene .pathscene-peak-container img:nth-child(4) {
+      width: 39%;
+      top: 6%;
+      right: 8%; }
+  .pathscene .pathscene-bg-treeline-container img {
+    position: absolute;
+    width: 45%; }
+    .pathscene .pathscene-bg-treeline-container img:nth-child(1) {
+      top: 35%;
+      left: -3%; }
+    .pathscene .pathscene-bg-treeline-container img:nth-child(2) {
+      top: 40%;
+      right: -6%;
+      transform: scale(-1); }
+    .pathscene .pathscene-bg-treeline-container img:nth-child(7) {
+      top: 20%;
+      left: -6%; }
+    .pathscene .pathscene-bg-treeline-container img:nth-child(8) {
+      top: 23%;
+      right: -3%;
+      transform: scale(-1); }
+  .pathscene .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk {
+    position: absolute; }
+    .pathscene .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(3) {
+      top: 40%;
+      left: 30%; }
+    .pathscene .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(4) {
+      top: 40%;
+      left: 20%; }
+    .pathscene .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(5) {
+      top: 45%;
+      right: 33%; }
+    .pathscene .pathscene-bg-treeline-container .pathscene-bg-treeline-trunk:nth-child(6) {
+      top: 45%;
+      right: 25%; }
+  .pathscene .pathscene-ground {
+    position: absolute;
+    bottom: -3%;
+    left: -3%;
+    width: 106%; }
+  .pathscene .pathscene-tree-container .pathscene-tree {
+    position: absolute;
+    /* Trees Left Side */
+    /* Trees Right Side */ }
+    .pathscene .pathscene-tree-container .pathscene-tree:nth-child(1) {
+      width: 12%;
+      top: 32%;
+      left: 20%; }
+    .pathscene .pathscene-tree-container .pathscene-tree:nth-child(2) {
+      width: 15%;
+      top: 28%;
+      left: 8%; }
+    .pathscene .pathscene-tree-container .pathscene-tree:nth-child(3) {
+      width: 20%;
+      top: 26%;
+      left: -6%; }
+    .pathscene .pathscene-tree-container .pathscene-tree:nth-child(4) {
+      width: 30%;
+      bottom: -13%;
+      left: -5%; }
+    .pathscene .pathscene-tree-container .pathscene-tree:nth-child(5) {
+      width: 12%;
+      top: 32%;
+      right: -2%;
+      transform: scaleX(-1); }
+    .pathscene .pathscene-tree-container .pathscene-tree:nth-child(6) {
+      width: 13%;
+      top: 35%;
+      right: 24%;
+      transform: scaleX(-1); }
+    .pathscene .pathscene-tree-container .pathscene-tree:nth-child(7) {
+      width: 14%;
+      top: 42%;
+      right: 11%;
+      transform: scaleX(-1); }
+    .pathscene .pathscene-tree-container .pathscene-tree:nth-child(8) {
+      width: 20%;
+      top: 38%;
+      right: -3%; }
+    .pathscene .pathscene-tree-container .pathscene-tree:nth-child(9) {
+      width: 16%;
+      top: 49%;
+      right: 11%;
+      transform: scaleX(-1); }
+    .pathscene .pathscene-tree-container .pathscene-tree:nth-child(10) {
+      width: 28%;
+      bottom: -11%;
+      right: -13%; }
+  .pathscene .pathscene-berry-container img {
+    position: absolute; }
+    .pathscene .pathscene-berry-container img:nth-child(1) {
+      width: 4%;
+      bottom: 40%;
+      left: 2%;
+      transform: rotate(18deg); }
+    .pathscene .pathscene-berry-container img:nth-child(2) {
+      width: 4%;
+      bottom: 34%;
+      left: 17%;
+      transform: rotate(-22deg); }
+    .pathscene .pathscene-berry-container img:nth-child(3) {
+      width: 4%;
+      top: 33%;
+      left: 10%;
+      transform: rotate(-22deg); }
+    .pathscene .pathscene-berry-container img:nth-child(4) {
+      width: 4%;
+      top: 37%;
+      left: 25%;
+      transform: rotate(-20deg); }
+    .pathscene .pathscene-berry-container img:nth-child(5) {
+      width: 4%;
+      top: 40%;
+      right: 30%;
+      transform: rotate(18deg); }
+    .pathscene .pathscene-berry-container img:nth-child(6) {
+      width: 4%;
+      bottom: 39%;
+      right: 18%;
+      transform: rotate(-8deg); }
+    .pathscene .pathscene-berry-container img:nth-child(7) {
+      width: 4%;
+      bottom: 48%;
+      right: 10%;
+      transform: rotate(15deg); }
+    .pathscene .pathscene-berry-container img:nth-child(8) {
+      width: 4%;
+      bottom: 36%;
+      right: 3%;
+      transform: rotate(18deg); }
 
 .intro-outro-screen {
+  opacity: 0;
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(240, 240, 240, 0.8);
   text-align: center; }
   .intro-outro-screen h2 {
-    margin-bottom: 5%; }
+    margin-bottom: 2%; }
+  .intro-outro-screen p {
+    margin-bottom: 2%;
+    width: 60%; }
   .intro-outro-screen.flex {
     flex-direction: column;
     justify-content: center; }
   .intro-outro-screen button {
-    width: 20%; }
+    width: 20%;
+    opacity: 0;
+    pointer-events: none; }
+  .intro-outro-screen.intro-screen {
+    background-color: rgba(240, 240, 240, 0.9); }
+  .intro-outro-screen.outro-screen {
+    background-color: rgba(30, 30, 30, 0.8);
+    color: #F0F0F0; }
+    .intro-outro-screen.outro-screen .credits {
+      width: 60%;
+      margin-bottom: 2%; }
+      .intro-outro-screen.outro-screen .credits.flex {
+        justify-content: space-between; }
+      .intro-outro-screen.outro-screen .credits .credits-item h3 {
+        width: 100%;
+        margin-bottom: 5%; }
+        .intro-outro-screen.outro-screen .credits .credits-item h3 a {
+          color: #7AB1F1; }
+          .intro-outro-screen.outro-screen .credits .credits-item h3 a:hover {
+            color: #D46D64; }
+      .intro-outro-screen.outro-screen .credits .credits-item p {
+        width: 100%;
+        text-align: center; }
 
+@media only screen and (max-width: 900px) {
+  .intro-outro-screen p {
+    width: 80%; }
+  .intro-outro-screen.outro-screen .credits {
+    width: 80%; } }
 .bridgescene {
   background: linear-gradient(to bottom left, #7AB1F1, #F0F0F0) no-repeat center center;
   background-size: cover;
   opacity: 0; }
-
-.bridgescene-cloud-container img {
-  position: absolute;
-  opacity: 0.5; }
-  .bridgescene-cloud-container img:nth-child(1) {
-    width: 40%;
-    top: -10%;
-    left: 7%;
-    animation: cloud-movement 12s infinite; }
-  .bridgescene-cloud-container img:nth-child(2) {
-    width: 27%;
-    top: 6%;
-    right: 13%;
-    animation: cloud-movement 7s infinite; }
-
-.bridgescene-mountain-container .bridge-mountain {
-  position: absolute; }
-  .bridgescene-mountain-container .bridge-mountain:nth-child(1) {
-    right: 38%;
-    top: 37%;
-    animation-delay: 8s; }
-  .bridgescene-mountain-container .bridge-mountain:nth-child(2) {
-    right: 12%;
-    top: 22%;
-    animation-delay: 8s; }
-  .bridgescene-mountain-container .bridge-mountain:nth-child(3) {
-    right: -2%;
-    top: 7%;
-    animation-delay: 10s; }
-  .bridgescene-mountain-container .bridge-mountain:nth-child(4) {
-    right: 26%;
-    top: 15%;
-    animation-delay: 6s; }
-
-.bridgescene-peak-container img {
-  position: absolute;
-  width: 50%; }
-  .bridgescene-peak-container img:nth-child(1) {
-    top: -3%;
-    right: -20%;
-    transform: scaleX(-1); }
-  .bridgescene-peak-container img:nth-child(2) {
-    width: 50%;
-    top: 25%;
-    right: 10%; }
-  .bridgescene-peak-container img:nth-child(3) {
+  .bridgescene .bridgescene-cloud-container img {
+    position: absolute;
+    opacity: 0.5; }
+    .bridgescene .bridgescene-cloud-container img:nth-child(1) {
+      width: 40%;
+      top: -10%;
+      left: 7%;
+      animation: cloud-movement 12s infinite; }
+    .bridgescene .bridgescene-cloud-container img:nth-child(2) {
+      width: 27%;
+      top: 6%;
+      right: 13%;
+      animation: cloud-movement 7s infinite; }
+  .bridgescene .bridgescene-mountain-container .bridge-mountain {
+    position: absolute; }
+    .bridgescene .bridgescene-mountain-container .bridge-mountain:nth-child(1) {
+      right: 38%;
+      top: 37%;
+      animation-delay: 8s; }
+    .bridgescene .bridgescene-mountain-container .bridge-mountain:nth-child(2) {
+      right: 12%;
+      top: 22%;
+      animation-delay: 8s; }
+    .bridgescene .bridgescene-mountain-container .bridge-mountain:nth-child(3) {
+      right: -2%;
+      top: 7%;
+      animation-delay: 10s; }
+    .bridgescene .bridgescene-mountain-container .bridge-mountain:nth-child(4) {
+      right: 26%;
+      top: 15%;
+      animation-delay: 6s; }
+  .bridgescene .bridgescene-peak-container img {
+    position: absolute;
+    width: 50%; }
+    .bridgescene .bridgescene-peak-container img:nth-child(1) {
+      top: -3%;
+      right: -20%;
+      transform: scaleX(-1); }
+    .bridgescene .bridgescene-peak-container img:nth-child(2) {
+      width: 50%;
+      top: 25%;
+      right: 10%; }
+    .bridgescene .bridgescene-peak-container img:nth-child(3) {
+      width: 30%;
+      top: 10%;
+      right: 8%; }
+  .bridgescene .bridgescene-bg-treeline-container img {
+    position: absolute;
+    width: 45%; }
+    .bridgescene .bridgescene-bg-treeline-container img:nth-child(1) {
+      top: 29%;
+      left: -21%;
+      transform: scale(-1); }
+    .bridgescene .bridgescene-bg-treeline-container img:nth-child(2) {
+      top: 40%;
+      right: -9%;
+      transform: scale(-1); }
+    .bridgescene .bridgescene-bg-treeline-container img:nth-child(8) {
+      top: 10%;
+      left: -24%;
+      transform: scale(-1); }
+    .bridgescene .bridgescene-bg-treeline-container img:nth-child(9) {
+      top: 23%;
+      right: -6%;
+      transform: scale(-1); }
+  .bridgescene .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk {
+    position: absolute; }
+    .bridgescene .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(3) {
+      top: 30%;
+      left: 4%; }
+    .bridgescene .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(4) {
+      top: 28%;
+      left: 15%; }
+    .bridgescene .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(5) {
+      top: 45%;
+      right: 29%; }
+    .bridgescene .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(6) {
+      top: 45%;
+      right: 20%; }
+    .bridgescene .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(7) {
+      top: 45%;
+      right: 9%; }
+  .bridgescene .bridgescene-ground {
+    position: absolute;
+    bottom: -7%;
+    left: -12%;
+    width: 115%; }
+  .bridgescene .bridgescene-tree {
+    position: absolute;
     width: 30%;
-    top: 10%;
-    right: 8%; }
-
-.bridgescene-bg-treeline-container img {
-  position: absolute;
-  width: 45%; }
-  .bridgescene-bg-treeline-container img:nth-child(1) {
-    top: 29%;
-    left: -21%;
-    transform: scale(-1); }
-  .bridgescene-bg-treeline-container img:nth-child(2) {
+    top: -1%;
+    right: -15%; }
+  .bridgescene .bridgescene-bigbush {
+    position: absolute;
+    width: 30%;
+    bottom: -12%;
+    right: -5%; }
+  .bridgescene .bridgescene-berry-container img {
+    position: absolute; }
+    .bridgescene .bridgescene-berry-container img:nth-child(1) {
+      width: 4%;
+      top: 34%;
+      right: 18%;
+      transform: rotate(-21deg); }
+    .bridgescene .bridgescene-berry-container img:nth-child(2) {
+      width: 4%;
+      top: 30%;
+      right: 8%;
+      transform: rotate(8deg); }
+    .bridgescene .bridgescene-berry-container img:nth-child(3) {
+      width: 6%;
+      bottom: 5%;
+      right: 11%;
+      transform: rotate(6deg); }
+  .bridgescene .brent-speech-container {
+    bottom: 56%;
+    left: 57%; }
+  .bridgescene .brent {
+    position: absolute;
     top: 40%;
-    right: -9%;
-    transform: scale(-1); }
-  .bridgescene-bg-treeline-container img:nth-child(8) {
-    top: 10%;
-    left: -24%;
-    transform: scale(-1); }
-  .bridgescene-bg-treeline-container img:nth-child(9) {
-    top: 23%;
-    right: -6%;
-    transform: scale(-1); }
-.bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk {
-  position: absolute; }
-  .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(3) {
-    top: 30%;
-    left: 4%; }
-  .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(4) {
-    top: 28%;
-    left: 15%; }
-  .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(5) {
-    top: 45%;
-    right: 29%; }
-  .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(6) {
-    top: 45%;
-    right: 20%; }
-  .bridgescene-bg-treeline-container .bridgescene-bg-treeline-trunk:nth-child(7) {
-    top: 45%;
-    right: 9%; }
-
-.bridgescene-ground {
-  position: absolute;
-  bottom: -7%;
-  left: -12%;
-  width: 115%; }
-
-.bridgescene-tree {
-  position: absolute;
-  width: 30%;
-  top: -1%;
-  right: -15%; }
-
-.bridgescene-bigbush {
-  position: absolute;
-  width: 30%;
-  bottom: -12%;
-  right: -5%; }
-
-.bridgescene-berry-container img {
-  position: absolute; }
-  .bridgescene-berry-container img:nth-child(1) {
-    width: 4%;
-    top: 34%;
-    right: 18%;
-    transform: rotate(-21deg); }
-  .bridgescene-berry-container img:nth-child(2) {
-    width: 4%;
-    top: 30%;
-    right: 8%;
-    transform: rotate(8deg); }
-  .bridgescene-berry-container img:nth-child(3) {
-    width: 6%;
-    bottom: 5%;
-    right: 11%;
-    transform: rotate(6deg); }
-
-.brent-speech-container {
-  bottom: 56%;
-  left: 57%; }
-
-.brent {
-  position: absolute;
-  top: 40%;
-  left: 38%;
-  width: 18%; }
+    left: 38%;
+    width: 18%; }
 
 .houseexteriorscene {
   background: linear-gradient(to right, #366877, #7AB1F1) no-repeat center center;
   background-size: cover;
   opacity: 0; }
-
-.houseexteriorscene-peak-container img {
-  position: absolute;
-  width: 50%; }
-  .houseexteriorscene-peak-container img:nth-child(1) {
-    top: 5%;
-    left: 0; }
-  .houseexteriorscene-peak-container img:nth-child(2) {
-    top: 15%;
-    left: -20%; }
-
-.houseexteriorscene-bg-treeline-container img {
-  position: absolute;
-  width: 45%; }
-  .houseexteriorscene-bg-treeline-container img:nth-child(1) {
-    top: 35%;
-    right: 20%; }
-  .houseexteriorscene-bg-treeline-container img:nth-child(2) {
-    top: 40%;
-    right: -6%;
-    transform: scale(-1); }
-.houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk {
-  position: absolute; }
-  .houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk:nth-child(3) {
-    top: 40%;
-    left: 30%; }
-  .houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk:nth-child(4) {
-    top: 40%;
-    left: 20%; }
-  .houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk:nth-child(5) {
-    top: 45%;
-    right: 33%; }
-  .houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk:nth-child(6) {
-    top: 45%;
-    right: 25%; }
-
-.houseexteriorscene-tree-back-container .houseexteriorscene-tree-back {
-  position: absolute; }
-  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(1) {
+  .houseexteriorscene .houseexteriorscene-peak-container img {
+    position: absolute;
+    width: 50%; }
+    .houseexteriorscene .houseexteriorscene-peak-container img:nth-child(1) {
+      top: 5%;
+      left: 0; }
+    .houseexteriorscene .houseexteriorscene-peak-container img:nth-child(2) {
+      top: 15%;
+      left: -20%; }
+  .houseexteriorscene .houseexteriorscene-bg-treeline-container img {
+    position: absolute;
+    width: 45%; }
+    .houseexteriorscene .houseexteriorscene-bg-treeline-container img:nth-child(1) {
+      top: 35%;
+      right: 20%; }
+    .houseexteriorscene .houseexteriorscene-bg-treeline-container img:nth-child(2) {
+      top: 40%;
+      right: -6%;
+      transform: scale(-1); }
+  .houseexteriorscene .houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk {
+    position: absolute; }
+    .houseexteriorscene .houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk:nth-child(3) {
+      top: 40%;
+      left: 30%; }
+    .houseexteriorscene .houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk:nth-child(4) {
+      top: 40%;
+      left: 20%; }
+    .houseexteriorscene .houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk:nth-child(5) {
+      top: 45%;
+      right: 33%; }
+    .houseexteriorscene .houseexteriorscene-bg-treeline-container .houseexteriorscene-bg-treeline-trunk:nth-child(6) {
+      top: 45%;
+      right: 25%; }
+  .houseexteriorscene .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back {
+    position: absolute; }
+    .houseexteriorscene .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(1) {
+      width: 10%;
+      top: 34%;
+      left: 28%; }
+    .houseexteriorscene .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(2) {
+      width: 10%;
+      top: 35%;
+      left: 37%;
+      transform: scaleX(-1); }
+    .houseexteriorscene .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(3) {
+      width: 10%;
+      top: 33%;
+      left: 43%; }
+    .houseexteriorscene .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(4) {
+      width: 10%;
+      top: 38%;
+      right: 18%; }
+    .houseexteriorscene .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(5) {
+      width: 12%;
+      top: 37%;
+      right: 4%;
+      transform: scaleX(-1); }
+    .houseexteriorscene .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(6) {
+      width: 12%;
+      top: 35%;
+      right: -6%; }
+    .houseexteriorscene .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(7) {
+      width: 14%;
+      top: 33%;
+      right: 10%; }
+  .houseexteriorscene .houseexteriorscene-house {
+    position: absolute;
+    width: 30%;
+    top: 17%;
+    right: 26%; }
+  .houseexteriorscene .houseexteriorscene-ground {
+    position: absolute;
+    bottom: -3%;
+    left: -3%;
+    width: 106%; }
+  .houseexteriorscene .houseexteriorscene-pond-container img {
+    position: absolute; }
+    .houseexteriorscene .houseexteriorscene-pond-container img.houseexteriorscene-pond {
+      width: 37%;
+      bottom: 6%;
+      left: 30%; }
+  .houseexteriorscene .houseexteriorscene-pond-container .james-container .james {
     width: 10%;
-    top: 34%;
-    left: 28%; }
-  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(2) {
-    width: 10%;
-    top: 35%;
-    left: 37%;
-    transform: scaleX(-1); }
-  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(3) {
-    width: 10%;
-    top: 33%;
-    left: 43%; }
-  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(4) {
-    width: 10%;
-    top: 38%;
-    right: 18%; }
-  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(5) {
-    width: 12%;
-    top: 37%;
-    right: 4%;
-    transform: scaleX(-1); }
-  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(6) {
-    width: 12%;
-    top: 35%;
-    right: -6%; }
-  .houseexteriorscene-tree-back-container .houseexteriorscene-tree-back:nth-child(7) {
-    width: 14%;
-    top: 33%;
-    right: 10%; }
-
-.houseexteriorscene-house {
-  position: absolute;
-  width: 30%;
-  top: 17%;
-  right: 26%; }
-
-.houseexteriorscene-ground {
-  position: absolute;
-  bottom: -3%;
-  left: -3%;
-  width: 106%; }
-
-.houseexteriorscene-pond-container img {
-  position: absolute; }
-  .houseexteriorscene-pond-container img.houseexteriorscene-pond {
-    width: 37%;
-    bottom: 6%;
-    left: 30%; }
-.houseexteriorscene-pond-container .james-container .james {
-  width: 10%;
-  bottom: 7%;
-  right: 29%; }
-.houseexteriorscene-pond-container .james-container .james-speech-container {
-  right: 39%;
-  bottom: 26%;
-  border-radius: 60px 60px 10px 60px; }
-
-.houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid {
-  position: absolute; }
-  .houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid:nth-child(1) {
-    width: 14%;
-    top: 25%;
-    left: 34%; }
-  .houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid:nth-child(2) {
-    width: 14%;
-    top: 27%;
-    right: 19%; }
-  .houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid:nth-child(3) {
-    width: 18%;
-    top: 23%;
-    right: -3%; }
-
-.houseexteriorscene-tree-front-container .houseexteriorscene-tree-front {
-  position: absolute; }
-  .houseexteriorscene-tree-front-container .houseexteriorscene-tree-front:nth-child(1) {
-    width: 20%;
-    bottom: -11%;
-    right: -10%; }
-  .houseexteriorscene-tree-front-container .houseexteriorscene-tree-front:nth-child(2) {
-    width: 22%;
-    bottom: -37%;
-    right: 5%; }
-
-.houseexteriorscene-arrow {
-  position: absolute;
-  width: 6%;
-  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24));
-  top: 28%;
-  left: 57%; }
-  .houseexteriorscene-arrow:hover {
-    animation: arrow-pulse 1s infinite; }
-
-.houseexteriorscene-berry-container img {
-  position: absolute; }
-  .houseexteriorscene-berry-container img:nth-child(1) {
-    width: 4%;
-    top: 38%;
-    left: 31%;
-    transform: rotate(8deg); }
-  .houseexteriorscene-berry-container img:nth-child(2) {
-    width: 4%;
-    top: 33%;
-    right: 24%;
-    transform: rotate(-13deg); }
-  .houseexteriorscene-berry-container img:nth-child(3) {
-    width: 4%;
-    top: 32%;
-    right: 5%;
-    transform: rotate(6deg); }
-  .houseexteriorscene-berry-container img:nth-child(4) {
-    width: 5%;
-    bottom: 17%;
-    right: 3%;
-    transform: rotate(6deg); }
-
-.quiz-container {
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(240, 240, 240, 0.8); }
-  .quiz-container img {
-    height: 90%;
+    bottom: 7%;
+    right: 29%; }
+  .houseexteriorscene .houseexteriorscene-pond-container .james-container .james-speech-container {
+    right: 39%;
+    bottom: 26%;
+    border-radius: 60px 60px 10px 60px; }
+  .houseexteriorscene .houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid {
+    position: absolute; }
+    .houseexteriorscene .houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid:nth-child(1) {
+      width: 14%;
+      top: 25%;
+      left: 34%; }
+    .houseexteriorscene .houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid:nth-child(2) {
+      width: 14%;
+      top: 27%;
+      right: 19%; }
+    .houseexteriorscene .houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid:nth-child(3) {
+      width: 18%;
+      top: 23%;
+      right: -3%; }
+  .houseexteriorscene .houseexteriorscene-tree-front-container .houseexteriorscene-tree-front {
+    position: absolute; }
+    .houseexteriorscene .houseexteriorscene-tree-front-container .houseexteriorscene-tree-front:nth-child(1) {
+      width: 20%;
+      bottom: -11%;
+      right: -10%; }
+    .houseexteriorscene .houseexteriorscene-tree-front-container .houseexteriorscene-tree-front:nth-child(2) {
+      width: 22%;
+      bottom: -37%;
+      right: 5%; }
+  .houseexteriorscene .houseexteriorscene-arrow {
+    position: absolute;
+    width: 6%;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24));
+    top: 28%;
+    left: 57%; }
+    .houseexteriorscene .houseexteriorscene-arrow:hover {
+      animation: arrow-pulse 1s infinite; }
+  .houseexteriorscene .houseexteriorscene-berry-container img {
+    position: absolute; }
+    .houseexteriorscene .houseexteriorscene-berry-container img:nth-child(1) {
+      width: 4%;
+      top: 38%;
+      left: 31%;
+      transform: rotate(8deg); }
+    .houseexteriorscene .houseexteriorscene-berry-container img:nth-child(2) {
+      width: 4%;
+      top: 33%;
+      right: 24%;
+      transform: rotate(-13deg); }
+    .houseexteriorscene .houseexteriorscene-berry-container img:nth-child(3) {
+      width: 4%;
+      top: 32%;
+      right: 5%;
+      transform: rotate(6deg); }
+    .houseexteriorscene .houseexteriorscene-berry-container img:nth-child(4) {
+      width: 5%;
+      bottom: 17%;
+      right: 3%;
+      transform: rotate(6deg); }
+  .houseexteriorscene .quiz-container {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
-    margin: auto; }
-  .quiz-container .quiz-content {
-    width: 70%;
-    height: 80%;
-    position: absolute;
-    top: 10%;
-    left: 15%; }
-    .quiz-container .quiz-content.flex {
-      flex-wrap: wrap; }
-  .quiz-container h3 {
-    width: 100%;
-    text-align: center; }
-  .quiz-container p {
-    width: 40%;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 20px;
-    background-color: #F0F0F0;
-    border-radius: 100px;
-    filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.28));
-    box-shadow: 0 0 0 3px #D46D64;
-    margin-top: 5%; }
-    .quiz-container p:hover {
-      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24));
-      transform: translateY(2px);
-      box-shadow: 0 0 0 3px #7AB1F1; }
-@keyframes quiz-appear {
-  from {
-    transform: translateY(10%); } }
+    background-color: rgba(240, 240, 240, 0.8); }
+    .houseexteriorscene .quiz-container img {
+      height: 90%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto; }
+    .houseexteriorscene .quiz-container .quiz-content {
+      width: 70%;
+      height: 80%;
+      position: absolute;
+      top: 10%;
+      left: 15%; }
+      .houseexteriorscene .quiz-container .quiz-content.flex {
+        flex-wrap: wrap; }
+    .houseexteriorscene .quiz-container h3 {
+      width: 100%;
+      text-align: center; }
+    .houseexteriorscene .quiz-container p {
+      width: 40%;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 20px;
+      background-color: #F0F0F0;
+      border-radius: 100px;
+      filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.28));
+      box-shadow: 0 0 0 3px #D46D64;
+      margin-top: 5%; }
+      .houseexteriorscene .quiz-container p:hover {
+        filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24));
+        transform: translateY(2px);
+        box-shadow: 0 0 0 3px #7AB1F1; }
+
 .houseinteriorscene {
-  background-color: #F7C69B; }
+  background-color: #F7C69B;
+  opacity: 0; }
   .houseinteriorscene .houseinteriorscene-wallpaper {
     position: absolute;
     width: 80%;
@@ -1526,17 +1525,15 @@ p {
     bottom: -3%;
     left: -1%;
     width: 102%; }
-
-.tabetha {
-  position: absolute;
-  top: 28%;
-  right: 15%;
-  width: 18%; }
-
-.tabetha-speech-container {
-  bottom: 65%;
-  right: 35%;
-  border-radius: 60px 60px 10px 60px; }
+  .houseinteriorscene .tabetha {
+    position: absolute;
+    top: 28%;
+    right: 15%;
+    width: 18%; }
+  .houseinteriorscene .tabetha-speech-container {
+    bottom: 65%;
+    right: 35%;
+    border-radius: 60px 60px 10px 60px; }
 
 .highwayscene {
   background: linear-gradient(to bottom left, #5F5F9E, #366877) no-repeat center center;
@@ -1557,63 +1554,60 @@ p {
     bottom: -15%;
     left: -5%;
     width: 110%; }
-
-.highwayscene-peak-container img {
-  position: absolute;
-  width: 40%; }
-  .highwayscene-peak-container img:nth-child(1) {
-    top: 24%;
-    right: 25%;
-    transform: scaleX(-1); }
-  .highwayscene-peak-container img:nth-child(2) {
-    top: 17%;
-    right: 8%; }
-  .highwayscene-peak-container img:nth-child(3) {
-    top: 36%;
-    right: 38%;
-    width: 35%; }
-  .highwayscene-peak-container img:nth-child(4) {
-    top: 29%;
-    right: -3%;
-    width: 20%; }
-
-.highwayscene-fore-treeline-container img {
-  position: absolute;
-  width: 10%; }
-  .highwayscene-fore-treeline-container img:nth-child(1) {
-    bottom: -1%;
-    left: 10%; }
-  .highwayscene-fore-treeline-container img:nth-child(2) {
-    bottom: -3%;
-    left: -2%; }
-  .highwayscene-fore-treeline-container img:nth-child(3) {
-    bottom: -4%;
-    left: 5%; }
-  .highwayscene-fore-treeline-container img:nth-child(4) {
-    bottom: -6%;
-    left: 13%; }
-  .highwayscene-fore-treeline-container img:nth-child(5) {
-    bottom: -8%;
-    left: 2%; }
-  .highwayscene-fore-treeline-container img:nth-child(6) {
-    bottom: -11%;
-    left: 17%; }
-  .highwayscene-fore-treeline-container img:nth-child(7) {
-    width: 25%;
-    bottom: -25%;
-    right: -10%; }
-
-.highwayscene-bg-treeline-container img {
-  position: absolute; }
-  .highwayscene-bg-treeline-container img:nth-child(1) {
-    width: 10%;
-    top: 40%;
-    right: -5%; }
-  .highwayscene-bg-treeline-container img:nth-child(2) {
-    width: 12%;
-    top: 37%;
-    right: -1%;
-    transform: scaleX(-1); }
+  .highwayscene .highwayscene-peak-container img {
+    position: absolute;
+    width: 40%; }
+    .highwayscene .highwayscene-peak-container img:nth-child(1) {
+      top: 24%;
+      right: 25%;
+      transform: scaleX(-1); }
+    .highwayscene .highwayscene-peak-container img:nth-child(2) {
+      top: 17%;
+      right: 8%; }
+    .highwayscene .highwayscene-peak-container img:nth-child(3) {
+      top: 36%;
+      right: 38%;
+      width: 35%; }
+    .highwayscene .highwayscene-peak-container img:nth-child(4) {
+      top: 29%;
+      right: -3%;
+      width: 20%; }
+  .highwayscene .highwayscene-fore-treeline-container img {
+    position: absolute;
+    width: 10%; }
+    .highwayscene .highwayscene-fore-treeline-container img:nth-child(1) {
+      bottom: -1%;
+      left: 10%; }
+    .highwayscene .highwayscene-fore-treeline-container img:nth-child(2) {
+      bottom: -3%;
+      left: -2%; }
+    .highwayscene .highwayscene-fore-treeline-container img:nth-child(3) {
+      bottom: -4%;
+      left: 5%; }
+    .highwayscene .highwayscene-fore-treeline-container img:nth-child(4) {
+      bottom: -6%;
+      left: 13%; }
+    .highwayscene .highwayscene-fore-treeline-container img:nth-child(5) {
+      bottom: -8%;
+      left: 2%; }
+    .highwayscene .highwayscene-fore-treeline-container img:nth-child(6) {
+      bottom: -11%;
+      left: 17%; }
+    .highwayscene .highwayscene-fore-treeline-container img:nth-child(7) {
+      width: 25%;
+      bottom: -25%;
+      right: -10%; }
+  .highwayscene .highwayscene-bg-treeline-container img {
+    position: absolute; }
+    .highwayscene .highwayscene-bg-treeline-container img:nth-child(1) {
+      width: 10%;
+      top: 40%;
+      right: -5%; }
+    .highwayscene .highwayscene-bg-treeline-container img:nth-child(2) {
+      width: 12%;
+      top: 37%;
+      right: -1%;
+      transform: scaleX(-1); }
 
 .summitscene {
   background: linear-gradient(to bottom left, #5F5F9E, #366877) no-repeat center center;
@@ -1709,180 +1703,171 @@ p {
   background: linear-gradient(#7AB1F1, #F0F0F0) no-repeat center center;
   background-size: cover;
   opacity: 0; }
-
-.crossroadsscene-cloud-container img {
-  position: absolute;
-  opacity: 0.5; }
-  .crossroadsscene-cloud-container img:nth-child(1) {
-    width: 25%;
-    top: 3%;
-    left: 27%;
-    animation: cloud-movement 12s infinite; }
-  .crossroadsscene-cloud-container img:nth-child(2) {
-    width: 13%;
-    top: 45%;
-    left: 29%;
-    animation: cloud-movement 7s infinite; }
-  .crossroadsscene-cloud-container img:nth-child(3) {
-    width: 20%;
-    top: 40%;
-    left: 37%;
-    animation: cloud-movement 7s infinite; }
-  .crossroadsscene-cloud-container img:nth-child(4) {
-    width: 27%;
-    top: 15%;
-    right: -2%;
-    animation: cloud-movement 7s infinite; }
-
-.crossroadsscene-cave {
-  position: absolute;
-  width: 45%;
-  top: -8%;
-  left: -7%; }
-
-.crossroadsscene-bg-treeline-container img {
-  position: absolute;
-  width: 45%; }
-  .crossroadsscene-bg-treeline-container img:nth-child(1) {
-    top: 42%;
-    left: -27%;
-    transform: scale(-1); }
-  .crossroadsscene-bg-treeline-container img:nth-child(2) {
-    width: 50%;
-    top: 44%;
-    right: -5%;
-    transform: scale(-1); }
-  .crossroadsscene-bg-treeline-container img:nth-child(8) {
-    top: 29%;
-    left: -26%;
-    transform: scale(-1); }
-  .crossroadsscene-bg-treeline-container img:nth-child(9) {
-    top: 32%;
-    right: 0;
-    transform: scale(-1); }
-.crossroadsscene-bg-treeline-container .crossroadsscene-bg-treeline-trunk {
-  position: absolute; }
-  .crossroadsscene-bg-treeline-container .crossroadsscene-bg-treeline-trunk:nth-child(3) {
-    top: 48%;
-    left: 2%; }
-  .crossroadsscene-bg-treeline-container .crossroadsscene-bg-treeline-trunk:nth-child(4) {
-    top: 46%;
-    left: 12%; }
-  .crossroadsscene-bg-treeline-container .crossroadsscene-bg-treeline-trunk:nth-child(5) {
-    top: 45%;
-    right: 29%; }
-  .crossroadsscene-bg-treeline-container .crossroadsscene-bg-treeline-trunk:nth-child(6) {
-    top: 45%;
-    right: 20%; }
-  .crossroadsscene-bg-treeline-container .crossroadsscene-bg-treeline-trunk:nth-child(7) {
-    top: 45%;
-    right: 9%; }
-
-.crossroadsscene-tree-back-container img {
-  position: absolute; }
-  .crossroadsscene-tree-back-container img:nth-child(1) {
-    width: 13%;
-    top: 40%;
-    left: 0; }
-  .crossroadsscene-tree-back-container img:nth-child(2) {
-    width: 15%;
-    top: 36%;
-    left: 5%;
-    transform: scaleX(-1); }
-  .crossroadsscene-tree-back-container img:nth-child(3) {
-    width: 16%;
-    top: 32%;
-    left: -8%;
-    transform: scaleX(-1); }
-  .crossroadsscene-tree-back-container img:nth-child(4) {
-    width: 12%;
-    top: 42%;
-    right: 18%; }
-  .crossroadsscene-tree-back-container img:nth-child(5) {
-    width: 13%;
-    top: 42%;
-    right: 36%; }
-  .crossroadsscene-tree-back-container img:nth-child(6) {
-    width: 12%;
-    top: 45%;
-    right: 8%; }
-  .crossroadsscene-tree-back-container img:nth-child(7) {
-    width: 16%;
-    top: 33%;
-    right: 25%; }
-  .crossroadsscene-tree-back-container img:nth-child(8) {
-    width: 16%;
-    top: 34%;
-    right: -4%; }
-
-.crossroadsscene-back-bush-container img {
-  width: 7%;
-  position: absolute; }
-  .crossroadsscene-back-bush-container img:nth-child(1) {
-    top: 62%;
-    left: 2%; }
-  .crossroadsscene-back-bush-container img:nth-child(2) {
-    top: 61%;
-    left: 15%; }
-  .crossroadsscene-back-bush-container img:nth-child(3) {
-    top: 63%;
-    right: 36%; }
-  .crossroadsscene-back-bush-container img:nth-child(4) {
-    top: 65%;
-    right: 16%; }
-
-.crossroadsscene-ground {
-  position: absolute;
-  bottom: -8%;
-  left: -5%;
-  width: 108%; }
-
-.crossroadsscene-arrow {
-  position: absolute;
-  width: 6%;
-  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24));
-  top: 52%;
-  left: 26%; }
-  .crossroadsscene-arrow:hover {
-    animation: arrow-pulse 1s infinite; }
-
-.crossroadsscene-tree-front-container img {
-  position: absolute; }
-  .crossroadsscene-tree-front-container img:nth-child(1) {
-    width: 30%;
-    bottom: -50%;
-    left: -13%; }
-  .crossroadsscene-tree-front-container img:nth-child(2) {
-    width: 20%;
-    bottom: -20%;
-    left: 15%; }
-  .crossroadsscene-tree-front-container img:nth-child(3) {
-    width: 28%;
-    bottom: -49%;
-    right: -13%; }
-
-.crossroadsscene-berry-container img {
-  position: absolute; }
-  .crossroadsscene-berry-container img:nth-child(1) {
-    width: 4%;
-    top: 42%;
-    left: 10%;
-    transform: rotate(-8deg); }
-  .crossroadsscene-berry-container img:nth-child(2) {
-    width: 4%;
-    top: 40%;
-    right: 30%;
-    transform: rotate(11deg); }
-  .crossroadsscene-berry-container img:nth-child(3) {
-    width: 4%;
-    top: 50%;
-    right: 12%;
-    transform: rotate(-5deg); }
-  .crossroadsscene-berry-container img:nth-child(4) {
-    width: 5%;
-    bottom: 8%;
-    left: 21%;
-    transform: rotate(9deg); }
+  .crossroadsscene .crossroadsscene-cloud-container img {
+    position: absolute;
+    opacity: 0.5; }
+    .crossroadsscene .crossroadsscene-cloud-container img:nth-child(1) {
+      width: 25%;
+      top: 3%;
+      left: 27%;
+      animation: cloud-movement 12s infinite; }
+    .crossroadsscene .crossroadsscene-cloud-container img:nth-child(2) {
+      width: 13%;
+      top: 45%;
+      left: 29%;
+      animation: cloud-movement 7s infinite; }
+    .crossroadsscene .crossroadsscene-cloud-container img:nth-child(3) {
+      width: 20%;
+      top: 40%;
+      left: 37%;
+      animation: cloud-movement 7s infinite; }
+    .crossroadsscene .crossroadsscene-cloud-container img:nth-child(4) {
+      width: 27%;
+      top: 15%;
+      right: -2%;
+      animation: cloud-movement 7s infinite; }
+  .crossroadsscene .crossroadsscene-cave {
+    position: absolute;
+    width: 45%;
+    top: -8%;
+    left: -7%; }
+  .crossroadsscene .crossroadsscene-bg-treeline-container img {
+    position: absolute;
+    width: 45%; }
+    .crossroadsscene .crossroadsscene-bg-treeline-container img:nth-child(1) {
+      top: 42%;
+      left: -27%;
+      transform: scale(-1); }
+    .crossroadsscene .crossroadsscene-bg-treeline-container img:nth-child(2) {
+      width: 50%;
+      top: 44%;
+      right: -5%;
+      transform: scale(-1); }
+    .crossroadsscene .crossroadsscene-bg-treeline-container img:nth-child(8) {
+      top: 29%;
+      left: -26%;
+      transform: scale(-1); }
+    .crossroadsscene .crossroadsscene-bg-treeline-container img:nth-child(9) {
+      top: 32%;
+      right: 0;
+      transform: scale(-1); }
+  .crossroadsscene .crossroadsscene-bg-treeline-container .crossroadsscene-bg-treeline-trunk {
+    position: absolute; }
+    .crossroadsscene .crossroadsscene-bg-treeline-container .crossroadsscene-bg-treeline-trunk:nth-child(3) {
+      top: 48%;
+      left: 2%; }
+    .crossroadsscene .crossroadsscene-bg-treeline-container .crossroadsscene-bg-treeline-trunk:nth-child(4) {
+      top: 46%;
+      left: 12%; }
+    .crossroadsscene .crossroadsscene-bg-treeline-container .crossroadsscene-bg-treeline-trunk:nth-child(5) {
+      top: 45%;
+      right: 29%; }
+    .crossroadsscene .crossroadsscene-bg-treeline-container .crossroadsscene-bg-treeline-trunk:nth-child(6) {
+      top: 45%;
+      right: 20%; }
+    .crossroadsscene .crossroadsscene-bg-treeline-container .crossroadsscene-bg-treeline-trunk:nth-child(7) {
+      top: 45%;
+      right: 9%; }
+  .crossroadsscene .crossroadsscene-tree-back-container img {
+    position: absolute; }
+    .crossroadsscene .crossroadsscene-tree-back-container img:nth-child(1) {
+      width: 13%;
+      top: 40%;
+      left: 0; }
+    .crossroadsscene .crossroadsscene-tree-back-container img:nth-child(2) {
+      width: 15%;
+      top: 36%;
+      left: 5%;
+      transform: scaleX(-1); }
+    .crossroadsscene .crossroadsscene-tree-back-container img:nth-child(3) {
+      width: 16%;
+      top: 32%;
+      left: -8%;
+      transform: scaleX(-1); }
+    .crossroadsscene .crossroadsscene-tree-back-container img:nth-child(4) {
+      width: 12%;
+      top: 42%;
+      right: 18%; }
+    .crossroadsscene .crossroadsscene-tree-back-container img:nth-child(5) {
+      width: 13%;
+      top: 42%;
+      right: 36%; }
+    .crossroadsscene .crossroadsscene-tree-back-container img:nth-child(6) {
+      width: 12%;
+      top: 45%;
+      right: 8%; }
+    .crossroadsscene .crossroadsscene-tree-back-container img:nth-child(7) {
+      width: 16%;
+      top: 33%;
+      right: 25%; }
+    .crossroadsscene .crossroadsscene-tree-back-container img:nth-child(8) {
+      width: 16%;
+      top: 34%;
+      right: -4%; }
+  .crossroadsscene .crossroadsscene-back-bush-container img {
+    width: 7%;
+    position: absolute; }
+    .crossroadsscene .crossroadsscene-back-bush-container img:nth-child(1) {
+      top: 62%;
+      left: 2%; }
+    .crossroadsscene .crossroadsscene-back-bush-container img:nth-child(2) {
+      top: 61%;
+      left: 15%; }
+    .crossroadsscene .crossroadsscene-back-bush-container img:nth-child(3) {
+      top: 63%;
+      right: 36%; }
+    .crossroadsscene .crossroadsscene-back-bush-container img:nth-child(4) {
+      top: 65%;
+      right: 16%; }
+  .crossroadsscene .crossroadsscene-ground {
+    position: absolute;
+    bottom: -8%;
+    left: -5%;
+    width: 108%; }
+  .crossroadsscene .crossroadsscene-arrow {
+    position: absolute;
+    width: 6%;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24));
+    top: 52%;
+    left: 26%; }
+    .crossroadsscene .crossroadsscene-arrow:hover {
+      animation: arrow-pulse 1s infinite; }
+  .crossroadsscene .crossroadsscene-tree-front-container img {
+    position: absolute; }
+    .crossroadsscene .crossroadsscene-tree-front-container img:nth-child(1) {
+      width: 30%;
+      bottom: -50%;
+      left: -13%; }
+    .crossroadsscene .crossroadsscene-tree-front-container img:nth-child(2) {
+      width: 20%;
+      bottom: -20%;
+      left: 15%; }
+    .crossroadsscene .crossroadsscene-tree-front-container img:nth-child(3) {
+      width: 28%;
+      bottom: -49%;
+      right: -13%; }
+  .crossroadsscene .crossroadsscene-berry-container img {
+    position: absolute; }
+    .crossroadsscene .crossroadsscene-berry-container img:nth-child(1) {
+      width: 4%;
+      top: 42%;
+      left: 10%;
+      transform: rotate(-8deg); }
+    .crossroadsscene .crossroadsscene-berry-container img:nth-child(2) {
+      width: 4%;
+      top: 40%;
+      right: 30%;
+      transform: rotate(11deg); }
+    .crossroadsscene .crossroadsscene-berry-container img:nth-child(3) {
+      width: 4%;
+      top: 50%;
+      right: 12%;
+      transform: rotate(-5deg); }
+    .crossroadsscene .crossroadsscene-berry-container img:nth-child(4) {
+      width: 5%;
+      bottom: 8%;
+      left: 21%;
+      transform: rotate(9deg); }
 
 .forestscene {
   background: linear-gradient(#7AB1F1, #366877) no-repeat center center;
@@ -2043,59 +2028,56 @@ p {
       width: 24%;
       bottom: -33%;
       right: 5%; }
-
-.forestscene-berry-container img {
-  position: absolute; }
-  .forestscene-berry-container img:nth-child(1) {
-    width: 5%;
-    bottom: 6%;
-    left: 7%;
-    transform: rotate(-13deg); }
-  .forestscene-berry-container img:nth-child(2) {
-    width: 4%;
-    top: 36%;
-    left: 7%;
-    transform: rotate(-5deg); }
-  .forestscene-berry-container img:nth-child(3) {
-    width: 5%;
-    top: 36%;
-    left: 24%;
-    transform: rotate(8deg); }
-  .forestscene-berry-container img:nth-child(4) {
-    width: 4%;
-    top: 37%;
-    left: 50%;
-    transform: rotate(-20deg); }
-  .forestscene-berry-container img:nth-child(5) {
-    width: 4%;
-    top: 40%;
-    right: 28%;
-    transform: rotate(18deg); }
-  .forestscene-berry-container img:nth-child(6) {
-    width: 5%;
-    bottom: 5%;
-    right: 18%;
-    transform: rotate(9deg); }
-  .forestscene-berry-container img:nth-child(7) {
-    width: 4%;
-    top: 39%;
-    right: 13%;
-    transform: rotate(15deg); }
-  .forestscene-berry-container img:nth-child(8) {
-    width: 5%;
-    bottom: 16%;
-    right: 3%;
-    transform: rotate(18deg); }
-
-.brobot-speech-container {
-  bottom: 41%;
-  left: 43%; }
-
-.brobot {
-  position: absolute;
-  top: 45%;
-  left: 28%;
-  width: 17%; }
+  .forestscene .forestscene-berry-container img {
+    position: absolute; }
+    .forestscene .forestscene-berry-container img:nth-child(1) {
+      width: 5%;
+      bottom: 6%;
+      left: 7%;
+      transform: rotate(-13deg); }
+    .forestscene .forestscene-berry-container img:nth-child(2) {
+      width: 4%;
+      top: 36%;
+      left: 7%;
+      transform: rotate(-5deg); }
+    .forestscene .forestscene-berry-container img:nth-child(3) {
+      width: 5%;
+      top: 36%;
+      left: 24%;
+      transform: rotate(8deg); }
+    .forestscene .forestscene-berry-container img:nth-child(4) {
+      width: 4%;
+      top: 37%;
+      left: 50%;
+      transform: rotate(-20deg); }
+    .forestscene .forestscene-berry-container img:nth-child(5) {
+      width: 4%;
+      top: 40%;
+      right: 28%;
+      transform: rotate(18deg); }
+    .forestscene .forestscene-berry-container img:nth-child(6) {
+      width: 5%;
+      bottom: 5%;
+      right: 18%;
+      transform: rotate(9deg); }
+    .forestscene .forestscene-berry-container img:nth-child(7) {
+      width: 4%;
+      top: 39%;
+      right: 13%;
+      transform: rotate(15deg); }
+    .forestscene .forestscene-berry-container img:nth-child(8) {
+      width: 5%;
+      bottom: 16%;
+      right: 3%;
+      transform: rotate(18deg); }
+  .forestscene .brobot-speech-container {
+    bottom: 41%;
+    left: 43%; }
+  .forestscene .brobot {
+    position: absolute;
+    top: 45%;
+    left: 28%;
+    width: 17%; }
 
 .caveexteriorscene {
   background: linear-gradient(#7AB1F1, #F0F0F0) no-repeat center center;
@@ -2190,24 +2172,23 @@ p {
       width: 28%;
       bottom: -16%;
       right: -13%; }
-
-.caveexteriorscene-berry-container img {
-  position: absolute; }
-  .caveexteriorscene-berry-container img:nth-child(1) {
-    width: 5%;
-    bottom: 18%;
-    left: 10%;
-    transform: rotate(-12deg); }
-  .caveexteriorscene-berry-container img:nth-child(2) {
-    width: 4%;
-    top: 33%;
-    right: 33%;
-    transform: rotate(19deg); }
-  .caveexteriorscene-berry-container img:nth-child(3) {
-    width: 4%;
-    top: 40%;
-    right: 15%;
-    transform: rotate(6deg); }
+  .caveexteriorscene .caveexteriorscene-berry-container img {
+    position: absolute; }
+    .caveexteriorscene .caveexteriorscene-berry-container img:nth-child(1) {
+      width: 5%;
+      bottom: 18%;
+      left: 10%;
+      transform: rotate(-12deg); }
+    .caveexteriorscene .caveexteriorscene-berry-container img:nth-child(2) {
+      width: 4%;
+      top: 33%;
+      right: 33%;
+      transform: rotate(19deg); }
+    .caveexteriorscene .caveexteriorscene-berry-container img:nth-child(3) {
+      width: 4%;
+      top: 40%;
+      right: 15%;
+      transform: rotate(6deg); }
 
 .caveinteriorscene {
   background: linear-gradient(to left, #9AA5A5, #605A4C) no-repeat center center;

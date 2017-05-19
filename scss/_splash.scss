@@ -47,81 +47,16 @@
 			animation: splashmountains 2s forwards;
 		}
 	}
-}
-
-.splash-logo {
-	position: absolute;
-}
-
-.splash-start {
-	opacity: 0;
-	position: absolute;
-	width: 16%;
-	left: 42%;
-	top: 75%;
-	animation: splashbutton 2s forwards;
-	animation-delay: 2s;
-}
-
-@keyframes splashcloud1 {
-	to {
-		top: 40%;
-		left: -30%;
-		width: 30%;
+	.splash-logo {
+		position: absolute;
 	}
-}
-
-@keyframes splashcloud2 {
-	to {
-		top: 5%;
-		left: -10%;
-		width: 40%;
-	}
-}
-
-@keyframes splashcloud3 {
-	to {
-		top: 15%;
-		left: 80%;
-		width: 70%;
-	}
-}
-
-@keyframes splashmountains {
-	to {
-		top: 63%;
-		left: -135%;
-		width: 200%;
-	}
-}
-
-@keyframes splashstone {
-	to {
-		top: 63%;
-		left: -20%;
-		width: 200%;
-	}
-}
-
-@keyframes splashforest {
-	to {
-		top: 63%;
-		left: -20%;
-		width: 140%;
-	}
-}
-
-@keyframes splashlogo {
-	to {
-		top: 10%;
-		left: 38%;
-		width: 24%;
-	}
-}
-
-@keyframes splashbutton {
-	to {
-		top: 65%;
-		opacity: 1;
+	.splash-start {
+		opacity: 0;
+		position: absolute;
+		width: 16%;
+		left: 42%;
+		top: 75%;
+		animation: splashbutton 2s forwards;
+		animation-delay: 2s;
 	}
 }

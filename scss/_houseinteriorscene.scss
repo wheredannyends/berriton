@@ -1,6 +1,6 @@
 .houseinteriorscene {
 	background-color: $main-yellow;
-//	opacity: 0;
+	opacity: 0;
 	.houseinteriorscene-wallpaper {
 		position: absolute;
 		width: 80%;
@@ -25,17 +25,15 @@
 		left: -1%;
 		width: 102%;
 	}
-}
-
-.tabetha {
-	position: absolute;
-	top: 28%;
-	right: 15%;
-	width: 18%;
-}
-
-.tabetha-speech-container {
-	bottom: 65%;
-	right: 35%;
-	border-radius: 60px 60px 10px 60px;
+	.tabetha {
+		position: absolute;
+		top: 28%;
+		right: 15%;
+		width: 18%;
+	}
+	.tabetha-speech-container {
+		bottom: 65%;
+		right: 35%;
+		border-radius: 60px 60px 10px 60px;
+	}
 }

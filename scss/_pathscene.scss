@@ -1,240 +1,234 @@
 .pathscene {
 	background: linear-gradient(to bottom left, $main-blue, $white) no-repeat center center;
 	background-size: cover;
-//	opacity: 0;
-}
-
-.pathscene-mountain-container {
-	.pathscene-mountain {
-		position: absolute;
-		&:nth-child(1) {
-			left: -2%;
-			top: 7%;
-			animation-delay: 10s;
-		}
-		&:nth-child(2) {
-			left: 12%;
-			top: 12%;
-			animation-delay: 8s;
-		}
-		&:nth-child(3) {
-			left: 26%;
-			top: 19%;
-			animation-delay: 6s;
-		}
-		&:nth-child(4) {
-			left: 40%;
-			top: 30%;
-			animation-delay: 3s;
-		}
-		&:nth-child(5) {
-			left: 54%;
-			top: 23%;
-			animation-delay: 12s;
-		}
-		&:nth-child(6) {
-			left: 68%;
-			top: 15%;
-			animation-delay: 5s;
-		}
-		&:nth-child(7) {
-			left: 84%;
-			top: 5%;
-			animation-delay: 14s;
-		}
-	}
-}
-
-.pathscene-peak-container {
-	img {
-		position: absolute;
-		width: 50%;
-		&:nth-child(1) {
-			top: 6%;
-			right: -5%;
-		}
-		&:nth-child(2) {
-			width: 70%;
-			top: 8%;
-			left: -15%;
-			transform: scaleX(-1);
-		}
-		&:nth-child(3) {
-			top: 5%;
-			left: -12%;
-			transform: scaleX(-1);
-		}
-		&:nth-child(4) {
-			width: 39%;
-			top: 6%;
-			right: 8%;
+	opacity: 0;
+	.pathscene-mountain-container {
+		.pathscene-mountain {
+			position: absolute;
+			&:nth-child(1) {
+				left: -2%;
+				top: 7%;
+				animation-delay: 10s;
+			}
+			&:nth-child(2) {
+				left: 12%;
+				top: 12%;
+				animation-delay: 8s;
+			}
+			&:nth-child(3) {
+				left: 26%;
+				top: 19%;
+				animation-delay: 6s;
+			}
+			&:nth-child(4) {
+				left: 40%;
+				top: 30%;
+				animation-delay: 3s;
+			}
+			&:nth-child(5) {
+				left: 54%;
+				top: 23%;
+				animation-delay: 12s;
+			}
+			&:nth-child(6) {
+				left: 68%;
+				top: 15%;
+				animation-delay: 5s;
+			}
+			&:nth-child(7) {
+				left: 84%;
+				top: 5%;
+				animation-delay: 14s;
+			}
 		}
 	}
-}
-
-.pathscene-bg-treeline-container {
-	img {
-		position: absolute;
-		width: 45%;
-		&:nth-child(1) {
-			top: 35%;
-			left: -3%;
-		}
-		&:nth-child(2) {
-			top: 40%;
-			right: -6%;
-			transform: scale(-1)
-		}
-		&:nth-child(7) {
-			top: 20%;
-			left: -6%;
-		}
-		&:nth-child(8) {
-			top: 23%;
-			right: -3%;
-			transform: scale(-1)
-		}
-	}
-	.pathscene-bg-treeline-trunk {
-		position: absolute;
-		&:nth-child(3) {
-			top: 40%;
-			left: 30%;
-		}
-		&:nth-child(4) {
-			top: 40%;
-			left: 20%;
-		}
-		&:nth-child(5) {
-			top: 45%;
-			right: 33%;
-		}
-		&:nth-child(6) {
-			top: 45%;
-			right: 25%;
+	.pathscene-peak-container {
+		img {
+			position: absolute;
+			width: 50%;
+			&:nth-child(1) {
+				top: 6%;
+				right: -5%;
+			}
+			&:nth-child(2) {
+				width: 70%;
+				top: 8%;
+				left: -15%;
+				transform: scaleX(-1);
+			}
+			&:nth-child(3) {
+				top: 5%;
+				left: -12%;
+				transform: scaleX(-1);
+			}
+			&:nth-child(4) {
+				width: 39%;
+				top: 6%;
+				right: 8%;
+			}
 		}
 	}
-}
-
-.pathscene-ground {
-	position: absolute;
-	bottom: -3%;
-	left: -3%;
-	width: 106%;
-}
-
-.pathscene-tree-container {
-	.pathscene-tree {
-		position: absolute;
-		/* Trees Left Side */
-		&:nth-child(1) {
-			width: 12%;
-			top: 32%;
-			left: 20%;
+	.pathscene-bg-treeline-container {
+		img {
+			position: absolute;
+			width: 45%;
+			&:nth-child(1) {
+				top: 35%;
+				left: -3%;
+			}
+			&:nth-child(2) {
+				top: 40%;
+				right: -6%;
+				transform: scale(-1)
+			}
+			&:nth-child(7) {
+				top: 20%;
+				left: -6%;
+			}
+			&:nth-child(8) {
+				top: 23%;
+				right: -3%;
+				transform: scale(-1)
+			}
 		}
-		&:nth-child(2) {
-			width: 15%;
-			top: 28%;
-			left: 8%;
-		}
-		&:nth-child(3) {
-			width: 20%;
-			top: 26%;
-			left: -6%;
-		}
-		&:nth-child(4) {
-			width: 30%;
-			bottom: -13%;
-			left: -5%;
-		}
-		/* Trees Right Side */
-		&:nth-child(5) {
-			width: 12%;
-			top: 32%;
-			right: -2%;
-			transform: scaleX(-1);
-		}
-		&:nth-child(6) {
-			width: 13%;
-			top: 35%;
-			right: 24%;
-			transform: scaleX(-1);
-		}
-		&:nth-child(7) {
-			width: 14%;
-			top: 42%;
-			right: 11%;
-			transform: scaleX(-1);
-		}
-		&:nth-child(8) {
-			width: 20%;
-			top: 38%;
-			right: -3%;
-		}
-		&:nth-child(9) {
-			width: 16%;
-			top: 49%;
-			right: 11%;
-			transform: scaleX(-1);
-		}
-		&:nth-child(10) {
-			width: 28%;
-			bottom: -11%;
-			right: -13%;
+		.pathscene-bg-treeline-trunk {
+			position: absolute;
+			&:nth-child(3) {
+				top: 40%;
+				left: 30%;
+			}
+			&:nth-child(4) {
+				top: 40%;
+				left: 20%;
+			}
+			&:nth-child(5) {
+				top: 45%;
+				right: 33%;
+			}
+			&:nth-child(6) {
+				top: 45%;
+				right: 25%;
+			}
 		}
 	}
-}
-
-.pathscene-berry-container {
-	img {
+	.pathscene-ground {
 		position: absolute;
-		&:nth-child(1) {
-			width: 4%;
-			bottom: 40%;
-			left: 2%;
-			transform: rotate(18deg);
+		bottom: -3%;
+		left: -3%;
+		width: 106%;
+	}
+	.pathscene-tree-container {
+		.pathscene-tree {
+			position: absolute;
+			/* Trees Left Side */
+			&:nth-child(1) {
+				width: 12%;
+				top: 32%;
+				left: 20%;
+			}
+			&:nth-child(2) {
+				width: 15%;
+				top: 28%;
+				left: 8%;
+			}
+			&:nth-child(3) {
+				width: 20%;
+				top: 26%;
+				left: -6%;
+			}
+			&:nth-child(4) {
+				width: 30%;
+				bottom: -13%;
+				left: -5%;
+			}
+			/* Trees Right Side */
+			&:nth-child(5) {
+				width: 12%;
+				top: 32%;
+				right: -2%;
+				transform: scaleX(-1);
+			}
+			&:nth-child(6) {
+				width: 13%;
+				top: 35%;
+				right: 24%;
+				transform: scaleX(-1);
+			}
+			&:nth-child(7) {
+				width: 14%;
+				top: 42%;
+				right: 11%;
+				transform: scaleX(-1);
+			}
+			&:nth-child(8) {
+				width: 20%;
+				top: 38%;
+				right: -3%;
+			}
+			&:nth-child(9) {
+				width: 16%;
+				top: 49%;
+				right: 11%;
+				transform: scaleX(-1);
+			}
+			&:nth-child(10) {
+				width: 28%;
+				bottom: -11%;
+				right: -13%;
+			}
 		}
-		&:nth-child(2) {
-			width: 4%;
-			bottom: 34%;
-			left: 17%;
-			transform: rotate(-22deg);
-		}
-		&:nth-child(3) {
-			width: 4%;
-			top: 33%;
-			left: 10%;
-			transform: rotate(-22deg);
-		}
-		&:nth-child(4) {
-			width: 4%;
-			top: 37%;
-			left: 25%;
-			transform: rotate(-20deg);
-		}
-		&:nth-child(5) {
-			width: 4%;
-			top: 40%;
-			right: 30%;
-			transform: rotate(18deg);
-		}
-		&:nth-child(6) {
-			width: 4%;
-			bottom: 39%;
-			right: 18%;
-			transform: rotate(-8deg);
-		}
-		&:nth-child(7) {
-			width: 4%;
-			bottom: 48%;
-			right: 10%;
-			transform: rotate(15deg);
-		}
-		&:nth-child(8) {
-			width: 4%;
-			bottom: 36%;
-			right: 3%;
-			transform: rotate(18deg);
+	}
+	.pathscene-berry-container {
+		img {
+			position: absolute;
+			&:nth-child(1) {
+				width: 4%;
+				bottom: 40%;
+				left: 2%;
+				transform: rotate(18deg);
+			}
+			&:nth-child(2) {
+				width: 4%;
+				bottom: 34%;
+				left: 17%;
+				transform: rotate(-22deg);
+			}
+			&:nth-child(3) {
+				width: 4%;
+				top: 33%;
+				left: 10%;
+				transform: rotate(-22deg);
+			}
+			&:nth-child(4) {
+				width: 4%;
+				top: 37%;
+				left: 25%;
+				transform: rotate(-20deg);
+			}
+			&:nth-child(5) {
+				width: 4%;
+				top: 40%;
+				right: 30%;
+				transform: rotate(18deg);
+			}
+			&:nth-child(6) {
+				width: 4%;
+				bottom: 39%;
+				right: 18%;
+				transform: rotate(-8deg);
+			}
+			&:nth-child(7) {
+				width: 4%;
+				bottom: 48%;
+				right: 10%;
+				transform: rotate(15deg);
+			}
+			&:nth-child(8) {
+				width: 4%;
+				bottom: 36%;
+				right: 3%;
+				transform: rotate(18deg);
+			}
 		}
 	}
 }

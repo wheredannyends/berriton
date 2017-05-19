@@ -59,7 +59,8 @@
 	2.03 - HUD
 	2.04 - Quiz
 	
-	3.01 - Loading Screen
+	3.01 - Intro/Outro Screens
+	3.02 - Loading Screen
 	 
 	-->
 
@@ -729,19 +730,46 @@
 
 		<!-- 3.01 - Intro/Outro Screens -->
 
-		<section class="intro-outro-screen hidden" id="intro-screen">
+		<section class="intro-outro-screen intro-screen hidden" id="intro-screen">
 			<h2>
 				Welcome to <span class="red-text">Berriton</span>!
 			</h2>
 			<p>
-				From the mountain tops to the heart of the forest, there is plenty to be discovered. There have been reports of mischief and trouble recently, and it's up to you to explore the land and find a way to help! Don't be shy if you lose your way, as the Berritonians are sure to have plenty <span class="blue-text">of hints</span> that could aid you on your journey!
+				From the mountain tops to the heart of the forest, there is plenty in this magical land to be discovered.</p>
+			<p>
+				There have been reports of mischief and trouble recently, and it's up to you to explore the land and find a way to help!
+			</p>
+			<p>
+				If you lose your way, the Berritonians are sure to have plenty <span class="blue-text">of hints</span> that could aid you on your journey!
 			</p>
 			<button id="intro-screen-button">Begin</button>
 		</section>
 
-		<section class="intro-outro-screen hidden" id="outro-screen">
-			<h2></h2>
-			<div id="outro-screen-button"></div>
+		<section class="intro-outro-screen outro-screen hidden" id="outro-screen">
+			<h2>
+				The Sun Is Setting In <span class="red-text">Berriton</span>!
+			</h2>
+			<p>
+				The Berritonians are all tuckered out and heading to bed. It has been a long day of adventuring and exploration. Who knows what tomorrow might hold?
+			</p>
+			<p>
+				This game has been brought to you by:
+			</p>
+			<div class="credits flex">
+				<article class="credits-item">
+					<h3><span class="red-text"><a href="" target="_blank">Danny Burton</a></span></h3>
+					<p>Development, UI Design</p>
+				</article>
+				<article class="credits-item">
+					<h3><span class="red-text"><a href="#" target="_blank">Richard Percival</a></span></h3>
+					<p>Art Direction, Story</p>
+				</article>
+				<article class="credits-item">
+					<h3><span class="red-text"><a href="#" target="_blank">Hong Yu</a></span></h3>
+					<p>Character Design, UX</p>
+				</article>
+			</div>
+			<button id="outro-screen-button">Restart</button>
 		</section>
 
 		<!-- 3.02 - Loading Screen -->

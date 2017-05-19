@@ -126,28 +126,27 @@
 			}
 		}
 	}
-}
-
-.caveexteriorscene-berry-container {
-	img {
-		position: absolute;
-		&:nth-child(1) {
-			width: 5%;
-			bottom: 18%;
-			left: 10%;
-			transform: rotate(-12deg);
-		}
-		&:nth-child(2) {
-			width: 4%;
-			top: 33%;
-			right: 33%;
-			transform: rotate(19deg);
-		}
-		&:nth-child(3) {
-			width: 4%;
-			top: 40%;
-			right: 15%;
-			transform: rotate(6deg);
+	.caveexteriorscene-berry-container {
+		img {
+			position: absolute;
+			&:nth-child(1) {
+				width: 5%;
+				bottom: 18%;
+				left: 10%;
+				transform: rotate(-12deg);
+			}
+			&:nth-child(2) {
+				width: 4%;
+				top: 33%;
+				right: 33%;
+				transform: rotate(19deg);
+			}
+			&:nth-child(3) {
+				width: 4%;
+				top: 40%;
+				right: 15%;
+				transform: rotate(6deg);
+			}
 		}
 	}
 }

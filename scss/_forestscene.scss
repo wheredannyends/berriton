@@ -205,69 +205,67 @@
 			}
 		}
 	}
-}
-
-.forestscene-berry-container {
-	img {
-		position: absolute;
-		&:nth-child(1) {
-			width: 5%;
-			bottom: 6%;
-			left: 7%;
-			transform: rotate(-13deg);
-		}
-		&:nth-child(2) {
-			width: 4%;
-			top: 36%;
-			left: 7%;
-			transform: rotate(-5deg);
-		}
-		&:nth-child(3) {
-			width: 5%;
-			top: 36%;
-			left: 24%;
-			transform: rotate(8deg);
-		}
-		&:nth-child(4) {
-			width: 4%;
-			top: 37%;
-			left: 50%;
-			transform: rotate(-20deg);
-		}
-		&:nth-child(5) {
-			width: 4%;
-			top: 40%;
-			right: 28%;
-			transform: rotate(18deg);
-		}
-		&:nth-child(6) {
-			width: 5%;
-			bottom: 5%;
-			right: 18%;
-			transform: rotate(9deg);
-		}
-		&:nth-child(7) {
-			width: 4%;
-			top: 39%;
-			right: 13%;
-			transform: rotate(15deg);
-		}
-		&:nth-child(8) {
-			width: 5%;
-			bottom: 16%;
-			right: 3%;
-			transform: rotate(18deg);
+	.forestscene-berry-container {
+		img {
+			position: absolute;
+			&:nth-child(1) {
+				width: 5%;
+				bottom: 6%;
+				left: 7%;
+				transform: rotate(-13deg);
+			}
+			&:nth-child(2) {
+				width: 4%;
+				top: 36%;
+				left: 7%;
+				transform: rotate(-5deg);
+			}
+			&:nth-child(3) {
+				width: 5%;
+				top: 36%;
+				left: 24%;
+				transform: rotate(8deg);
+			}
+			&:nth-child(4) {
+				width: 4%;
+				top: 37%;
+				left: 50%;
+				transform: rotate(-20deg);
+			}
+			&:nth-child(5) {
+				width: 4%;
+				top: 40%;
+				right: 28%;
+				transform: rotate(18deg);
+			}
+			&:nth-child(6) {
+				width: 5%;
+				bottom: 5%;
+				right: 18%;
+				transform: rotate(9deg);
+			}
+			&:nth-child(7) {
+				width: 4%;
+				top: 39%;
+				right: 13%;
+				transform: rotate(15deg);
+			}
+			&:nth-child(8) {
+				width: 5%;
+				bottom: 16%;
+				right: 3%;
+				transform: rotate(18deg);
+			}
 		}
 	}
-}
-
-.brobot-speech-container {
-	bottom: 41%;
-	left: 43%;
-}
-.brobot {
-	position: absolute;
-	top: 45%;
-	left: 28%;
-	width: 17%;
+	.brobot-speech-container {
+		bottom: 41%;
+		left: 43%;
+	}
+	.brobot {
+		position: absolute;
+		top: 45%;
+		left: 28%;
+		width: 17%;
+	}
 }

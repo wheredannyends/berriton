@@ -101,7 +101,6 @@
 	background-color: rgba(30, 30, 30, 0.3);
 	color: $white;
 	opacity: 0;
-	animation: slide-frombottom 0.5s forwards;
 	.char-sel-preview-container {
 		height: 30%;
 		width: 50%;
@@ -122,7 +121,8 @@
 			width: 70%;
 			margin-bottom: 20px;
 			box-sizing: border-box;
-			padding: 10px;
+			border-radius: 60px;
+			padding: 5%;
 			text-align: center;
 			font-family: $quicksand;
 			box-shadow: $material-1;
@@ -207,6 +207,7 @@
 /* HUD */
 
 .hud-container {
+	opacity: 0;
 	position: absolute;
 	top: 4%;
 	right: 2%;
@@ -367,18 +368,6 @@
 				animation-delay: 0.8s;
 			}
 		}
-	}
-}
-
-@keyframes speech-container-anim {
-	50% {
-		transform: translateY(-10%);
-	}
-}
-
-@keyframes speech-circle-anim {
-	50% {
-		filter: brightness(1);
 	}
 }
 

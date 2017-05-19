@@ -13,10 +13,10 @@ TABLE OF CONTENTS
 1.01 - Splash Screen
 1.02 - Character Selection Screen
 1.03 - Submit User Information
-1.04 - Intro/Outro Screens
 
 2.01 - Scene Change Buttons
 2.02 - Scene Change Functions
+2.03 - Intro/Outro Screens
 
 3.01 - Brent Interactions
 3.02 - James Interactions
@@ -36,7 +36,13 @@ $(document).ready(function () {
 });
 
 
-// 0.01 - User Settings
+/* 
+
+0.01 - User Settings
+
+*/
+
+// USER OBJECT
 
 var user = {
 	name: "Barry",
@@ -45,6 +51,8 @@ var user = {
 	berryCount: 0,
 	goodieCount: 0
 }
+
+// VARIABLES FOR THE PLAYER CHARACTER MODELS
 
 var pathScenePlayer = document.getElementById("pathscene-player-character"),
 	bridgeScenePlayer = document.getElementById("bridgescene-player-character"),
@@ -58,7 +66,11 @@ var pathScenePlayer = document.getElementById("pathscene-player-character"),
 	forestScenePlayer = document.getElementById("forestscene-player-character");
 
 
-// 0.02 - Scene Variables
+/*
+
+0.02 - Scene Variables
+
+*/
 
 var pathScene = document.getElementById("pathscene"),
 	bridgeScene = document.getElementById("bridgescene"),
@@ -71,7 +83,11 @@ var pathScene = document.getElementById("pathscene"),
 	caveExteriorScene = document.getElementById("caveexteriorscene"),
 	caveInteriorScene = document.getElementById("caveinteriorscene");
 
-// 0.03 - Dialogue Array Declarations
+/* 
+
+0.03 - Dialogue Array Declarations
+
+*/
 
 var brentSpeechArr = [],
 	jamesSpeechArr = [],
@@ -80,7 +96,11 @@ var brentSpeechArr = [],
 	brobotSpeechArr = [],
 	kennethSpeechArr = [];
 
-// 0.04 - HUD
+/*
+
+0.04 - HUD
+
+*/
 
 var hud = document.getElementById("hud-container"),
 	berryCountDisp = document.getElementById("hud-berry-count"),
@@ -89,6 +109,8 @@ var hud = document.getElementById("hud-container"),
 	goodieDisp = document.getElementById("hud-goodies"),
 	goodieArrow = document.getElementById("hud-goodies-arrow"),
 	goodieDispIsOpen = false;
+
+// OPEN GOODIE DISPLAY DRAWER FUNCTION
 
 function goodieDispOpen() {
 	for (var i = 1; i < goodieDisp.children.length; i++) {
@@ -100,6 +122,8 @@ function goodieDispOpen() {
 	goodieDispIsOpen = true;
 }
 
+// CLOSE GOODIE DISPLAY DRAWER FUNCTION
+
 function goodieDispClose() {
 	for (var i = 1; i < goodieDisp.children.length; i++) {
 		goodieDisp.children[i].style.height = "0";
@@ -110,6 +134,8 @@ function goodieDispClose() {
 	goodieDispIsOpen = false;
 }
 
+// GOODIE DISPLAY DRAWER ARROW TOGGLE
+
 goodieArrow.addEventListener("click", function () {
 	if (goodieDispIsOpen == false) {
 		goodieDispOpen();
@@ -118,7 +144,13 @@ goodieArrow.addEventListener("click", function () {
 	}
 });
 
-// 0.05 - Berry Math Functions
+/*
+
+0.05 - Berry Math Functions
+
+*/
+
+// INCREASE BERRY COUNT BY 1
 
 function berryInc() {
 	user.berryCount++;
@@ -129,6 +161,8 @@ function berryInc() {
 	}, 300);
 }
 
+// DECREASE BERRY COUNT BY 5
+
 function berryDec5() {
 	user.berryCount -= 5;
 	berryCountDisp.style.opacity = "0";
@@ -137,6 +171,8 @@ function berryDec5() {
 		berryCountDisp.style.opacity = "1";
 	}, 300);
 }
+
+// DECREASE BERRY COUNT BY 10
 
 function berryDec10() {
 	user.berryCount -= 10;
@@ -147,7 +183,13 @@ function berryDec10() {
 	}, 300);
 }
 
-// 0.06 - Goodie Functions
+/*
+
+0.06 - Goodie Functions
+
+*/
+
+// GOODIE VARIABLE DECLARATIONS
 
 var recipeIcon = document.getElementById("goodie-1"),
 	pieIcon = document.getElementById("goodie-2"),
@@ -160,6 +202,8 @@ var haveRecipe = false,
 	haveCharger = false,
 	haveWoatMedal = false,
 	haveBrobotMedal = false;
+
+// GET RECIPE FUNCTION
 
 function recipeGet() {
 	if (goodieDispIsOpen == false) {
@@ -181,6 +225,8 @@ function recipeGet() {
 	}, 400);
 }
 
+// GET PIE FUNCTION
+
 function pieGet() {
 	if (goodieDispIsOpen == false) {
 		goodieDispOpen();
@@ -200,6 +246,8 @@ function pieGet() {
 		}, 300);
 	}, 400);
 }
+
+// GET CHARGER FUNCTION
 
 function chargerGet() {
 	if (goodieDispIsOpen == false) {
@@ -221,6 +269,8 @@ function chargerGet() {
 	}, 400);
 }
 
+// EMPTY THE CHARGER AND CHANGE ICON FUNCTION
+
 function chargerEmpty() {
 	if (goodieDispIsOpen == false) {
 		goodieDispOpen();
@@ -239,6 +289,8 @@ function chargerEmpty() {
 		}, 300);
 	}, 400);
 }
+
+// FILL THE CHARGER AND CHANGE ICON FUNCTION
 
 function chargerFull() {
 	if (goodieDispIsOpen == false) {
@@ -259,6 +311,8 @@ function chargerFull() {
 	}, 400);
 }
 
+// GET WOAT MEDAL FUNCTION AND END GAME IF LAST GOODIE
+
 function woatMedalGet() {
 	if (goodieDispIsOpen == false) {
 		goodieDispOpen();
@@ -273,11 +327,18 @@ function woatMedalGet() {
 					haveWoatMedal = true;
 					user.goodieCount++;
 					goodieDispClose();
+					if (user.goodieCount == 5) {
+						setTimeout(function () {
+							endGame();
+						}, 1000)
+					}
 				}, 1000);
 			}, 300);
 		}, 300);
 	}, 400);
 }
+
+// GET BROBOT MEDAL FUNCTION AND END GAME IF LAST GOODIE
 
 function brobotMedalGet() {
 	if (goodieDispIsOpen == false) {
@@ -293,13 +354,22 @@ function brobotMedalGet() {
 					haveBrobotMedal = true;
 					user.goodieCount++;
 					goodieDispClose();
+					if (user.goodieCount == 5) {
+						setTimeout(function () {
+							endGame();
+						}, 1000)
+					}
 				}, 1000);
 			}, 300);
 		}, 300);
 	}, 400);
 }
 
-// 1.01 - Splash Screen
+/*
+
+1.01 - Splash Screen
+
+*/
 
 var splashContainer = document.getElementById("splash-container"),
 	splashLogo = document.getElementById("splash-logo"),
@@ -308,6 +378,8 @@ var splashContainer = document.getElementById("splash-container"),
 	splashCloud2 = document.getElementById("splash-cloud-2");
 
 var curScene = null;
+
+// MOVE FROM SPLASH SCREEN TO CHARACTER SELECTION SCREEN
 
 splashStart.addEventListener("click", function () {
 	splashLogo.style.transform = "translateY(-10%)";
@@ -319,10 +391,17 @@ splashStart.addEventListener("click", function () {
 		splashStart.classList.add("hidden");
 		charSelContainer.classList.remove("hidden");
 		charSelContainer.classList.add("flex");
+		setTimeout(function () {
+			charSelContainer.style.opacity = "1";
+		}, 300);
 	}, 300);
 });
 
-// 1.02 - Character Selection Screen
+/*
+
+1.02 - Character Selection Screen
+
+*/
 
 var charSelPreview = document.getElementById("char-sel-preview"),
 	charSelLeft = document.getElementById("char-sel-left"),
@@ -330,6 +409,8 @@ var charSelPreview = document.getElementById("char-sel-preview"),
 	charSelContainer = document.getElementById("char-sel-container"),
 	charSelArr = ["images/characters/bear-front.svg", "images/characters/raccoon-front.svg", "images/characters/lion-front.svg", "images/characters/penguin-front.svg", "images/characters/pig-front.svg", "images/characters/panda-front.svg"],
 	charSelCurrent = 0;
+
+// MOVE TO NEXT CHARACTER MODEL
 
 charSelRight.addEventListener("click", function () {
 	charSelPreview.style.animation = "char-sel-right-anim 0.5s";
@@ -344,6 +425,8 @@ charSelRight.addEventListener("click", function () {
 		charSelPreview.style.animation = "none";
 	}, 500);
 });
+
+// MOVE TO PREVIOUS CHARACTER MODEL
 
 charSelLeft.addEventListener("click", function () {
 	charSelPreview.style.animation = "char-sel-left-anim 0.5s";
@@ -362,6 +445,8 @@ charSelLeft.addEventListener("click", function () {
 var charSelSub = document.getElementById("char-sel-submit"),
 	charSelName = document.getElementById("char-sel-name"),
 	forwardButContainer = document.getElementById("forward-but-container");
+
+// LOAD LOCALSTORAGE DATA
 
 var userData = localStorage.getItem("userData");
 if (userData) {
@@ -383,7 +468,11 @@ if (userData) {
 	console.log(user);
 }
 
-// 1.03 - Submit User Information
+/*
+
+1.03 - Submit User Information
+
+*/
 
 function charSelSubFunc() {
 	if (charSelName.value == "") {
@@ -398,7 +487,7 @@ function charSelSubFunc() {
 
 		brentSpeechArr = ["Hey <span class=\"red-text\">" + user.name + "</span>, this is MY bridge.", "Look here...", "If you want to use my things,", "You have to give me something in return.", "I’m pretty hungry right now...", "About <span class=\"blue-text\">5 berries</span> hungry I'd say...", "There are usually a bunch <span class=\"blue-text\">in the trees</span>", "Anyone could just reach up and <span class=\"blue-text\">grab some</span>", "I'd get them myself,", "But if I go anywhere...", " someone might touch my bridge!", "Get me some food. *hmph*", "Wow!", "I had you pegged as some kind of dork...", "but you’re actually pretty cool!", "You can use my bridge, I guess..."];
 
-		jamesSpeechArr = ["Psssst… over here <span class=\"red-text\">" + user.name + ".", "I hear that old koot in that there house...", "Serves up some pretty mean berry pie!", "Check it out...", "I ganked her recipe for berry pie,", "So I can have it all to myself!", "...", "What’s that?", "You think I should give it back?", "No. its mine!", "Tell you what...", "I'll come up with a quiz and you can earn it.", "If you can guess all the questions right...", "I’ll give you the recipe!", "But it will take some time...", "Maybe take a hike up the mountain over there.", "I'll whip it up in no time!", "Jeepers...", "You're back so soon!", "I'm still working on the quiz.", "Maybe Tabetha has a copy?", "Go check in with her at her place!", "Tabetha can't remember her own recipies!?", "I can't believe it!", "I'm still coming up with some questions", "If you wanna take a hike up the mountain...", "I'm sure it will be ready by the time you're back!", "Alright!", "Are you ready for the quiz!?", "Sure is a tough one...", "But I'm sure you know Berriton well enough by now!", "Hah! I guess its MY recipe after all!", "...", "I guess I could give you another shot", "Maybe some of the folk around here could help you...", "But there's no way I'm gonna give it to you...", "Unless you pass the quiz!", "Darn!", "You sure know a lot about Berriton...", "Here's the recipe...", "You've earned it..."];
+		jamesSpeechArr = ["Psssst… over here <span class=\"red-text\">" + user.name + ".", "I hear that old koot in that there house...", "Serves up some pretty mean berry pie!", "Check it out...", "I ganked her recipe for berry pie,", "So I can have it all to myself!", "...", "What’s that?", "You think I should give it back?", "No. its mine!", "Tell you what...", "I'll come up with a quiz and you can earn it.", "If you can guess all the questions right...", "I’ll give you the recipe!", "But it will take some time...", "Maybe take a hike up the mountain over there.", "I'll whip it up in no time!", "Jeepers...", "You're back so soon!", "I'm still working on the quiz.", "Maybe Tabetha has a copy?", "Go check in with her at her place!", "Tabetha can't remember her own recipies!?", "I can't believe it!", "I'm still coming up with some questions", "If you wanna take a hike up the mountain...", "I'm sure it will be ready by the time you're back!", "Alright!", "Are you ready for the quiz!?", "Sure is a tough one...", "But I'm sure you know Berriton well enough by now!", "Hah! I guess its MY recipe after all!", "...", "I guess I could give you another shot", "I think the Berritonians could help you...", "But there's no way I'm gonna give it to you...", "Unless you pass the quiz!", "Darn!", "You sure know a lot about Berriton...", "Here's the recipe...", "You've earned it..."];
 
 		tabethaSpeechArr = ["Oh hello <span class=\"red-text\">" + user.name + "</span>!", "My name is Tabetha.", "I’m the chef around here!", "I love to bake", "And like I've always said...", "The most important ingredient to any pie...", "...is <span class=\"blue-text\">love!</span>", "Sadly, my berry pie recipe has gone missing...", "I have searched everywhere!", "I’ve searched under the table...", "Behind the cabinet...", "In the chimney...", "I've even poked my head into the garburator and taken a peek!", "But, no luck...", "It's such a shame...", "I was about to bake a pie for my friend <span class=\"blue-text\">on the mountain.</span>", "Oooh ho ho!", "Thank you <span class=\"red-text\">" + user.name + "!", "Now, let me see what I need...", "Oh! I need some berries!", "Could you please grab me some berries?", "<span class=\"blue-text\">10</span> oughta do it!", "Alright! We're all set!", "Head on over and <span class=\"blue-text\">take it out of the over</span>!"];
 
@@ -444,36 +533,38 @@ function charSelSubFunc() {
 
 		}
 
-		// SAVE TO LOCAL STORAGE
+		// SAVE TO LOCALSTORAGE
 
 		var localUserInfo = JSON.stringify(user);
 		localStorage.setItem("userData", localUserInfo);
 
-		// BEGIN GAME
+		// SWITCH TO PATH SCENE AND INTRO SCREEN
 
 		splashContainer.style.opacity = "0";
-		charSelContainer.style.animation = "none";
-		setTimeout(function () {
-			charSelContainer.style.animation = "slide-totop 0.5s";
-		}, 1);
+		charSelContainer.style.opacity = "0";
 		setTimeout(function () {
 			splashContainer.classList.add("hidden");
+			introScreen.classList.remove("hidden");
+			introScreen.classList.add("flex");
 			pathScene.classList.remove("hidden");
 			forwardButContainer.classList.remove("hidden");
 			hud.classList.remove("hidden");
+			setTimeout(function () {
+				curScene = "pathScene";
+				introScreen.style.opacity = "1";
+				pathScene.style.opacity = "1";
+				forwardButContainer.style.opacity = "1";
+				hud.style.opacity = "1";
+				setTimeout(function () {
+					introBut.style.opacity = "1";
+					introBut.style.pointerEvents = "auto";
+				}, 3700);
+			}, 300);
 		}, 300);
-		setTimeout(function () {
-			//		$(pathScene).fadeIn("slow");
-			pathScene.style.opacity = "1";
-			forwardButContainer.style.opacity = "1";
-			hud.style.opacity = "1";
-		}, 600);
-
-		curScene = "pathScene";
-
-
 	}
 }
+
+// CHANGE PLAYER CHARACTER IMAGE SOURCES IN ALL SCENES
 
 function setPlayerCharacter() {
 	pathScenePlayer.src = user.charModelFront;
@@ -488,26 +579,65 @@ function setPlayerCharacter() {
 	forestScenePlayer.src = user.charModelSide;
 }
 
+// SUBMIT FUNCTION FOR CLICKING CHARACTER SELECTION SUBMIT BUTTON
+
 charSelSub.addEventListener("click", function () {
-
 	charSelSubFunc();
-
 });
 
-charSelName.addEventListener("keyup", function (ev) {
+// SUBMIT FUNCTION FOR PRESSING ENTER IN NAME FIELD
 
+charSelName.addEventListener("keyup", function (ev) {
 	if (ev.keyCode == 13) {
 		charSelSubFunc();
 	}
-
 });
 
-// 1.04 - Intro/Outro Screens
 
-var introBut = document.getElementById("intro-screen-button"),
+/*
+
+2.03 - Intro/Outro Screens
+
+*/
+
+var introScreen = document.getElementById("intro-screen"),
+	outroScreen = document.getElementById("outro-screen"),
+	introBut = document.getElementById("intro-screen-button"),
 	outroBut = document.getElementById("outro-screen-button");
 
-// 2.01 - Scene Change Buttons
+// HIDE INTRO SCREEN ON BUTTON CLICK
+
+introBut.addEventListener("click", function () {
+	introScreen.style.opacity = "0";
+	setTimeout(function () {
+		introScreen.classList.remove("flex");
+		introScreen.classList.add("hidden");
+	}, 300);
+});
+
+// RELOAD PAGE ON OUTRO SCREEN BUTTON CLICK
+
+outroBut.addEventListener("click", function () {
+	location.reload(true);
+});
+
+function endGame() {
+	outroScreen.classList.remove("hidden");
+	outroScreen.classList.add("flex");
+	setTimeout(function () {
+		outroScreen.style.opacity = "1";
+		setTimeout(function () {
+			outroBut.style.opacity = "1";
+			outroBut.style.pointerEvents = "auto";
+		}, 3700);
+	}, 300);
+}
+
+/*
+
+2.01 - Scene Change Buttons
+
+*/
 
 var forwardBut1 = document.getElementById("forward-but-1"),
 	forwardBut2 = document.getElementById("forward-but-2");
@@ -518,6 +648,8 @@ var bridgeSceneComplete = false,
 	summitSceneComplete = false,
 	forestSceneComplete = false,
 	kennethComplete = false;
+
+// FUNCTION TO MOVE SCENE CHANGE BUTTONS - CALLED LATER ON WHEN BUTTONS CLICKED
 
 function moveForwardButs() {
 	forwardBut1.classList.remove("hidden");
@@ -539,7 +671,8 @@ function moveForwardButs() {
 		forwardBut1.src = "images/ui-elements/forward-button-left.svg"
 		forwardBut1.style.top = "23%";
 		forwardBut1.style.left = "5%";
-
+		
+		// HIDE BUTTON 1 IF BRIDGE NOT COMPLETE
 		if (bridgeSceneComplete == false) {
 			forwardBut1.classList.add("hidden");
 		}
@@ -620,16 +753,27 @@ function moveForwardButs() {
 		forwardBut2.style.left = "91%";
 	}
 
-	// Close Goodie Display
+	// CLOSE GOODIE DISPLAY ON SCENE CHANGE
 
 	if (goodieDispIsOpen == true) {
 		goodieDispClose();
 	}
 }
 
-// 2.02 - Scene Change Functions
+/*
+
+2.02 - Scene Change Functions
+
+*/
+
+// FORWARD BUTTON 1 FUNCTIONS
 
 forwardBut1.addEventListener("click", function () {
+
+	forwardBut1.style.pointerEvents = "none";
+	setTimeout(function () {
+		forwardBut1.style.pointerEvents = "auto";
+	}, 300);
 
 	// PATH to BRIDGE
 
@@ -745,7 +889,14 @@ forwardBut1.addEventListener("click", function () {
 
 });
 
+// FORWARD BUTTON 2 FUNCTIONS
+
 forwardBut2.addEventListener("click", function () {
+
+	forwardBut2.style.pointerEvents = "none";
+	setTimeout(function () {
+		forwardBut2.style.pointerEvents = "auto";
+	}, 300);
 
 	// SUMMIT to HIGHWAY
 
@@ -891,6 +1042,10 @@ forwardBut2.addEventListener("click", function () {
 			caveExteriorScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
 		}, 500);
+		if (kennethSpeechOpen == true) {
+			kennethSpeechContainerClose();
+			kennethSpeechOpen = false;
+		}
 	}
 
 	// CROSSROADS to PATH
@@ -923,6 +1078,10 @@ forwardBut2.addEventListener("click", function () {
 			crossroadsScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
 		}, 500);
+		if (brobotSpeechOpen == true) {
+			brobotSpeechContainerClose();
+			brobotSpeechOpen = false;
+		}
 	}
 
 });
@@ -965,7 +1124,11 @@ crossroadsArrow.addEventListener("click", function () {
 	}, 500);
 });
 
-// 3.01 - Brent Interactions
+/*
+
+3.01 - Brent Interactions
+
+*/
 
 var brent = document.getElementById("brent-container"),
 	brentInit = false,
@@ -976,6 +1139,8 @@ var brent = document.getElementById("brent-container"),
 	brentSpeechText = document.getElementById("brent-speech-text"),
 	brentSpeechProg = 0,
 	brentSpeechButton = document.getElementById("brent-speech-button");
+
+// FUNCTION TO OPEN BRENT'S DIALOGUE BUBBLE
 
 function brentSpeechContainerOpen() {
 	brentSpeech.style.width = "25%";
@@ -995,6 +1160,8 @@ function brentSpeechContainerOpen() {
 	brentSpeechOpen = true;
 }
 
+// FUNCTION TO CLOSE BRENT'S DIALOGUE BUBBLE
+
 function brentSpeechContainerClose() {
 	brentSpeechText.style.opacity = "0";
 	brentSpeechLabel.style.opacity = "0";
@@ -1013,6 +1180,8 @@ function brentSpeechContainerClose() {
 	brentSpeechOpen = false;
 }
 
+// FUNCTION TO PREVENT RAPID FIRE CLICKING IN BETWEEN LINES OF DIALOGUE - FOR PEOPLE WITH NO CHILL
+
 function brentDialogueFreeze() {
 	brent.style.pointerEvents = "none";
 	setTimeout(function () {
@@ -1030,6 +1199,8 @@ function brentDialogueFreeze() {
 		}, 700);
 	}
 }
+
+// BRENT'S DIALOGUE ROUTING FUNCTIONS
 
 brent.addEventListener("click", function () {
 	if (bridgeSceneComplete == false) {
@@ -1093,7 +1264,11 @@ brent.addEventListener("click", function () {
 	brentDialogueFreeze();
 });
 
-// 3.02 - James Interactions
+/*
+
+3.02 - James Interactions
+
+*/
 
 var james = document.getElementById("james-container"),
 	jamesInit = false,
@@ -1116,6 +1291,8 @@ var quiz = document.getElementById("quiz-container"),
 	quizScore = 0,
 	quizAttempted = false;
 
+// FUNCTION TO OPEN JAMES'S DIALOGUE BUBBLE
+
 function jamesSpeechContainerOpen() {
 	jamesSpeech.style.width = "25%";
 	jamesSpeech.style.height = "20%";
@@ -1133,6 +1310,8 @@ function jamesSpeechContainerOpen() {
 	}, 500);
 	jamesSpeechOpen = true;
 }
+
+// FUNCTION TO CLOSE JAMES'S DIALOGUE BUBBLE
 
 function jamesSpeechContainerClose() {
 	jamesSpeechText.style.opacity = "0";
@@ -1152,6 +1331,8 @@ function jamesSpeechContainerClose() {
 	jamesSpeechOpen = false;
 }
 
+// FUNCTION TO PREVENT RAPID FIRE CLICKING IN BETWEEN LINES OF DIALOGUE - FOR PEOPLE WITH NO CHILL
+
 function jamesDialogueFreeze() {
 	james.style.pointerEvents = "none";
 	setTimeout(function () {
@@ -1169,6 +1350,8 @@ function jamesDialogueFreeze() {
 		}, 700);
 	}
 }
+
+// QUIZ PROGRESSION FUNCTION
 
 function quizClick() {
 	if (quizCurrent == 4) {
@@ -1220,6 +1403,8 @@ function quizClick() {
 		}, 500);
 	}
 }
+
+// JAMES'S DIALOGUE ROUTING FUNCTIONS
 
 james.addEventListener("click", function () {
 	if (houseExteriorSceneComplete == false) {
@@ -1338,6 +1523,8 @@ james.addEventListener("click", function () {
 	jamesDialogueFreeze();
 });
 
+// QUIZ BUTTON CLICK EVENTS - CALLS QUIZ PROGRESSION FUNCTION FROM EARLIER
+
 quizAnswer1.addEventListener("click", function () {
 	if (quizCurrent == 3) {
 		quizScore++;
@@ -1366,7 +1553,11 @@ quizAnswer4.addEventListener("click", function () {
 	quizClick();
 });
 
-// 3.03 - Tabetha Interactions
+/*
+
+3.03 - Tabetha Interactions
+
+*/
 
 var tabetha = document.getElementById("tabetha-container"),
 	tabethaInit = false,
@@ -1381,6 +1572,8 @@ var tabetha = document.getElementById("tabetha-container"),
 	tabethaSpeechProg = 0,
 	houseInteriorOven = document.getElementById("houseinteriorscene-oven"),
 	ovenAnimPlayed = false;
+
+// FUNCTION TO OPEN TABETHA'S DIALOGUE BUBBLE
 
 function tabethaSpeechContainerOpen() {
 	tabethaSpeech.style.width = "25%";
@@ -1400,6 +1593,8 @@ function tabethaSpeechContainerOpen() {
 	tabethaSpeechOpen = true;
 }
 
+// FUNCTION TO CLOSE TABETHA'S DIALOGUE BUBBLE
+
 function tabethaSpeechContainerClose() {
 	tabethaSpeechText.style.opacity = "0";
 	tabethaSpeechLabel.style.opacity = "0";
@@ -1418,6 +1613,8 @@ function tabethaSpeechContainerClose() {
 	tabethaSpeechOpen = false;
 }
 
+// FUNCTION TO PREVENT RAPID FIRE CLICKING IN BETWEEN LINES OF DIALOGUE - FOR PEOPLE WITH NO CHILL
+
 function tabethaDialogueFreeze() {
 	tabetha.style.pointerEvents = "none";
 	setTimeout(function () {
@@ -1435,6 +1632,8 @@ function tabethaDialogueFreeze() {
 		}, 700);
 	}
 }
+
+// TABETHA'S DIALOGUE ROUTING FUNCTIONS
 
 tabetha.addEventListener("click", function () {
 	if (houseInteriorSceneComplete == false) {
@@ -1513,6 +1712,8 @@ tabetha.addEventListener("click", function () {
 	tabethaDialogueFreeze();
 });
 
+// OVEN CLICK LISTENER TO CALL PIE GETTING FUNCTION FROM EARLIER
+
 houseInteriorOven.addEventListener("click", function () {
 	if (houseInteriorSceneComplete == true && pieCooked == false) {
 		pieGet();
@@ -1520,7 +1721,11 @@ houseInteriorOven.addEventListener("click", function () {
 	}
 });
 
-// 3.04 - Woat Interactions
+/*
+
+3.04 - Woat Interactions
+
+*/
 
 var woat = document.getElementById("woat-container"),
 	woatInit = false,
@@ -1531,6 +1736,8 @@ var woat = document.getElementById("woat-container"),
 	woatSpeechButton = document.getElementById("woat-speech-button"),
 	woatSpeechText = document.getElementById("woat-speech-text"),
 	woatSpeechProg = 0;
+
+// FUNCTION TO OPEN WOAT'S DIALOGUE BUBBLE
 
 function woatSpeechContainerOpen() {
 	woatSpeech.style.width = "25%";
@@ -1550,6 +1757,8 @@ function woatSpeechContainerOpen() {
 	woatSpeechOpen = true;
 }
 
+// FUNCTION TO CLOSE WOAT'S DIALOGUE BUBBLE
+
 function woatSpeechContainerClose() {
 	woatSpeechText.style.opacity = "0";
 	woatSpeechLabel.style.opacity = "0";
@@ -1568,6 +1777,8 @@ function woatSpeechContainerClose() {
 	woatSpeechOpen = false;
 }
 
+// FUNCTION TO PREVENT RAPID FIRE CLICKING IN BETWEEN LINES OF DIALOGUE - FOR PEOPLE WITH NO CHILL
+
 function woatDialogueFreeze() {
 	woat.style.pointerEvents = "none";
 	setTimeout(function () {
@@ -1585,6 +1796,8 @@ function woatDialogueFreeze() {
 		}, 700);
 	}
 }
+
+// WOAT'S DIALOGUE ROUTING FUNCTIONS
 
 woat.addEventListener("click", function () {
 	if (summitSceneComplete == false) {
@@ -1642,7 +1855,11 @@ woat.addEventListener("click", function () {
 	woatDialogueFreeze();
 });
 
-// 3.05 - Kenneth Interactions
+/*
+
+3.05 - Kenneth Interactions
+
+*/
 
 var kenneth = document.getElementById("kenneth-container"),
 	kennethInit = false,
@@ -1658,6 +1875,8 @@ var kenneth = document.getElementById("kenneth-container"),
 
 var generator = document.getElementById("caveinteriorscene-generator"),
 	generatorProg = 0;
+
+// FUNCTION TO OPEN KENNETH'S DIALOGUE BUBBLE
 
 function kennethSpeechContainerOpen() {
 	kennethSpeech.style.width = "25%";
@@ -1677,6 +1896,8 @@ function kennethSpeechContainerOpen() {
 	kennethSpeechOpen = true;
 }
 
+// FUNCTION TO CLOSE KENNETH'S DIALOGUE BUBBLE
+
 function kennethSpeechContainerClose() {
 	kennethSpeechText.style.opacity = "0";
 	kennethSpeechLabel.style.opacity = "0";
@@ -1695,6 +1916,8 @@ function kennethSpeechContainerClose() {
 	kennethSpeechOpen = false;
 }
 
+// FUNCTION TO PREVENT RAPID FIRE CLICKING IN BETWEEN LINES OF DIALOGUE - FOR PEOPLE WITH NO CHILL
+
 function kennethDialogueFreeze() {
 	kenneth.style.pointerEvents = "none";
 	setTimeout(function () {
@@ -1712,6 +1935,8 @@ function kennethDialogueFreeze() {
 		}, 700);
 	}
 }
+
+// KENNETH'S DIALOGUE ROUTING FUNCTIONS
 
 kenneth.addEventListener("click", function () {
 	if (haveCharger == false) {
@@ -1804,6 +2029,8 @@ kenneth.addEventListener("click", function () {
 	kennethDialogueFreeze();
 });
 
+// GENERATOR FUNCTIONS TO TURN BERRIES INTO ENERGY - ALSO INCLUDES REACTIONS AND GUIDANCE FROM KENNETH WHERE APPLICABLE
+
 generator.addEventListener("click", function () {
 	if (haveCharger == true && generatorProg < 3) {
 		if (chargerIsFull == false && user.berryCount >= 5) {
@@ -1877,6 +2104,8 @@ var brobot = document.getElementById("brobot-container"),
 	brobotSpeechText = document.getElementById("brobot-speech-text"),
 	brobotSpeechProg = 0;
 
+// FUNCTION TO OPEN BROBOT'S DIALOGUE BUBBLE
+
 function brobotSpeechContainerOpen() {
 	brobotSpeech.style.width = "25%";
 	brobotSpeech.style.height = "20%";
@@ -1894,6 +2123,8 @@ function brobotSpeechContainerOpen() {
 	}, 500);
 	brobotSpeechOpen = true;
 }
+
+// FUNCTION TO CLOSE BROBOT'S DIALOGUE BUBBLE
 
 function brobotSpeechContainerClose() {
 	brobotSpeechText.style.opacity = "0";
@@ -1913,6 +2144,8 @@ function brobotSpeechContainerClose() {
 	brobotSpeechOpen = false;
 }
 
+// FUNCTION TO PREVENT RAPID FIRE CLICKING IN BETWEEN LINES OF DIALOGUE - FOR PEOPLE WITH NO CHILL
+
 function brobotDialogueFreeze() {
 	brobot.style.pointerEvents = "none";
 	setTimeout(function () {
@@ -1930,6 +2163,8 @@ function brobotDialogueFreeze() {
 		}, 700);
 	}
 }
+
+// BROBOT'S DIALOGUE ROUTING FUNCTIONS
 
 brobot.addEventListener("click", function () {
 	if (forestSceneComplete == false) {
@@ -2069,7 +2304,11 @@ brobot.addEventListener("click", function () {
 	brobotDialogueFreeze();
 });
 
-// 4.01 - Path Scene Berries
+/*
+
+4.01 - Path Scene Berries
+
+*/
 
 var pathBerry1 = document.getElementById("pathscene-berry-1"),
 	pathBerry2 = document.getElementById("pathscene-berry-2"),
@@ -2079,6 +2318,8 @@ var pathBerry1 = document.getElementById("pathscene-berry-1"),
 	pathBerry6 = document.getElementById("pathscene-berry-6"),
 	pathBerry7 = document.getElementById("pathscene-berry-7"),
 	pathBerry8 = document.getElementById("pathscene-berry-8");
+
+// FUNCTIONS TO COLLECT BERRIES AND HIDE THEM
 
 pathBerry1.addEventListener("click", function () {
 	berryInc();
@@ -2150,6 +2391,8 @@ var bridgeBerry1 = document.getElementById("bridgescene-berry-1"),
 	bridgeBerry2 = document.getElementById("bridgescene-berry-2"),
 	bridgeBerry3 = document.getElementById("bridgescene-berry-3");
 
+// FUNCTIONS TO COLLECT BERRIES AND HIDE THEM
+
 bridgeBerry1.addEventListener("click", function () {
 	berryInc();
 	bridgeBerry1.style.opacity = "0";
@@ -2180,6 +2423,8 @@ var houseExtBerry1 = document.getElementById("houseexteriorscene-berry-1"),
 	houseExtBerry2 = document.getElementById("houseexteriorscene-berry-2"),
 	houseExtBerry3 = document.getElementById("houseexteriorscene-berry-3"),
 	houseExtBerry4 = document.getElementById("houseexteriorscene-berry-4");
+
+// FUNCTIONS TO COLLECT BERRIES AND HIDE THEM
 
 houseExtBerry1.addEventListener("click", function () {
 	berryInc();
@@ -2219,6 +2464,8 @@ var crossroadsBerry1 = document.getElementById("crossroadsscene-berry-1"),
 	crossroadsBerry2 = document.getElementById("crossroadsscene-berry-2"),
 	crossroadsBerry3 = document.getElementById("crossroadsscene-berry-3"),
 	crossroadsBerry4 = document.getElementById("crossroadsscene-berry-4");
+
+// FUNCTIONS TO COLLECT BERRIES AND HIDE THEM
 
 crossroadsBerry1.addEventListener("click", function () {
 	berryInc();
@@ -2262,6 +2509,8 @@ var forestBerry1 = document.getElementById("forestscene-berry-1"),
 	forestBerry6 = document.getElementById("forestscene-berry-6"),
 	forestBerry7 = document.getElementById("forestscene-berry-7"),
 	forestBerry8 = document.getElementById("forestscene-berry-8");
+
+// FUNCTIONS TO COLLECT BERRIES AND HIDE THEM
 
 forestBerry1.addEventListener("click", function () {
 	berryInc();
@@ -2334,6 +2583,8 @@ var caveExtBerry1 = document.getElementById("caveexteriorscene-berry-1"),
 	caveExtBerry3 = document.getElementById("caveexteriorscene-berry-3"),
 	caveExtBerry4 = document.getElementById("caveexteriorscene-berry-4");
 
+// FUNCTIONS TO COLLECT BERRIES AND HIDE THEM
+
 caveExtBerry1.addEventListener("click", function () {
 	berryInc();
 	caveExtBerry1.style.opacity = "0";
@@ -2357,12 +2608,3 @@ caveExtBerry3.addEventListener("click", function () {
 		caveExtBerry3.classList.add("hidden");
 	}, 300);
 });
-
-
-// SHORTCUTS
-
-//jamesInit = true;
-//woatInit = true;
-//tabethaInit = true;
-//user.berryCount = 100;
-//chargerIsFull = true;

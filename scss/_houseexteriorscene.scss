@@ -2,267 +2,250 @@
 	background: linear-gradient(to right, $mountain-teal, $main-blue) no-repeat center center;
 	background-size: cover;
 	opacity: 0;
-}
-
-.houseexteriorscene-peak-container {
-	img {
+	.houseexteriorscene-peak-container {
+		img {
+			position: absolute;
+			width: 50%;
+			&:nth-child(1) {
+				top: 5%;
+				left: 0;
+			}
+			&:nth-child(2) {
+				top: 15%;
+				left: -20%;
+			}
+		}
+	}
+	.houseexteriorscene-bg-treeline-container {
+		img {
+			position: absolute;
+			width: 45%;
+			&:nth-child(1) {
+				top: 35%;
+				right: 20%;
+			}
+			&:nth-child(2) {
+				top: 40%;
+				right: -6%;
+				transform: scale(-1)
+			}
+		}
+		.houseexteriorscene-bg-treeline-trunk {
+			position: absolute;
+			&:nth-child(3) {
+				top: 40%;
+				left: 30%;
+			}
+			&:nth-child(4) {
+				top: 40%;
+				left: 20%;
+			}
+			&:nth-child(5) {
+				top: 45%;
+				right: 33%;
+			}
+			&:nth-child(6) {
+				top: 45%;
+				right: 25%;
+			}
+		}
+	}
+	.houseexteriorscene-tree-back-container {
+		.houseexteriorscene-tree-back {
+			position: absolute;
+			&:nth-child(1) {
+				width: 10%;
+				top: 34%;
+				left: 28%;
+			}
+			&:nth-child(2) {
+				width: 10%;
+				top: 35%;
+				left: 37%;
+				transform: scaleX(-1);
+			}
+			&:nth-child(3) {
+				width: 10%;
+				top: 33%;
+				left: 43%;
+			}
+			&:nth-child(4) {
+				width: 10%;
+				top: 38%;
+				right: 18%;
+			}
+			&:nth-child(5) {
+				width: 12%;
+				top: 37%;
+				right: 4%;
+				transform: scaleX(-1);
+			}
+			&:nth-child(6) {
+				width: 12%;
+				top: 35%;
+				right: -6%;
+			}
+			&:nth-child(7) {
+				width: 14%;
+				top: 33%;
+				right: 10%;
+			}
+		}
+	}
+	.houseexteriorscene-house {
 		position: absolute;
-		width: 50%;
-		&:nth-child(1) {
-			top: 5%;
-			left: 0;
-		}
-		&:nth-child(2) {
-			top: 15%;
-			left: -20%;
-		}
+		width: 30%;
+		top: 17%;
+		right: 26%;
 	}
-}
-
-.houseexteriorscene-bg-treeline-container {
-	img {
+	.houseexteriorscene-ground {
 		position: absolute;
-		width: 45%;
-		&:nth-child(1) {
-			top: 35%;
-			right: 20%;
+		bottom: -3%;
+		left: -3%;
+		width: 106%;
+	}
+	.houseexteriorscene-pond-container {
+		img {
+			position: absolute;
+			&.houseexteriorscene-pond {
+				width: 37%;
+				bottom: 6%;
+				left: 30%;
+			}
 		}
-		&:nth-child(2) {
-			top: 40%;
-			right: -6%;
-			transform: scale(-1)
+		.james-container {
+			.james {
+				width: 10%;
+				bottom: 7%;
+				right: 29%;
+			}
+			.james-speech-container {
+				right: 39%;
+				bottom: 26%;
+				border-radius: 60px 60px 10px 60px;
+			}
 		}
 	}
-	.houseexteriorscene-bg-treeline-trunk {
+	.houseexteriorscene-tree-mid-container {
+		.houseexteriorscene-tree-mid {
+			position: absolute;
+			&:nth-child(1) {
+				width: 14%;
+				top: 25%;
+				left: 34%;
+			}
+			&:nth-child(2) {
+				width: 14%;
+				top: 27%;
+				right: 19%;
+			}
+			&:nth-child(3) {
+				width: 18%;
+				top: 23%;
+				right: -3%;
+			}
+		}
+	}
+	.houseexteriorscene-tree-front-container {
+		.houseexteriorscene-tree-front {
+			position: absolute;
+			&:nth-child(1) {
+				width: 20%;
+				bottom: -11%;
+				right: -10%;
+			}
+			&:nth-child(2) {
+				width: 22%;
+				bottom: -37%;
+				right: 5%;
+			}
+		}
+	}
+	.houseexteriorscene-arrow {
 		position: absolute;
-		&:nth-child(3) {
-			top: 40%;
-			left: 30%;
-		}
-		&:nth-child(4) {
-			top: 40%;
-			left: 20%;
-		}
-		&:nth-child(5) {
-			top: 45%;
-			right: 33%;
-		}
-		&:nth-child(6) {
-			top: 45%;
-			right: 25%;
+		width: 6%;
+		filter: $filter-shadow-1;
+		top: 28%;
+		left: 57%;
+		&:hover {
+			animation: arrow-pulse 1s infinite;
 		}
 	}
-}
-
-.houseexteriorscene-tree-back-container {
-	.houseexteriorscene-tree-back {
-		position: absolute;
-		&:nth-child(1) {
-			width: 10%;
-			top: 34%;
-			left: 28%;
-		}
-		&:nth-child(2) {
-			width: 10%;
-			top: 35%;
-			left: 37%;
-			transform: scaleX(-1);
-		}
-		&:nth-child(3) {
-			width: 10%;
-			top: 33%;
-			left: 43%;
-		}
-		&:nth-child(4) {
-			width: 10%;
-			top: 38%;
-			right: 18%;
-		}
-		&:nth-child(5) {
-			width: 12%;
-			top: 37%;
-			right: 4%;
-			transform: scaleX(-1);
-		}
-		&:nth-child(6) {
-			width: 12%;
-			top: 35%;
-			right: -6%;
-		}
-		&:nth-child(7) {
-			width: 14%;
-			top: 33%;
-			right: 10%;
+	.houseexteriorscene-berry-container {
+		img {
+			position: absolute;
+			&:nth-child(1) {
+				width: 4%;
+				top: 38%;
+				left: 31%;
+				transform: rotate(8deg);
+			}
+			&:nth-child(2) {
+				width: 4%;
+				top: 33%;
+				right: 24%;
+				transform: rotate(-13deg);
+			}
+			&:nth-child(3) {
+				width: 4%;
+				top: 32%;
+				right: 5%;
+				transform: rotate(6deg);
+			}
+			&:nth-child(4) {
+				width: 5%;
+				bottom: 17%;
+				right: 3%;
+				transform: rotate(6deg);
+			}
 		}
 	}
-}
-
-.houseexteriorscene-house {
-	position: absolute;
-	width: 30%;
-	top: 17%;
-	right: 26%;
-}
-
-.houseexteriorscene-ground {
-	position: absolute;
-	bottom: -3%;
-	left: -3%;
-	width: 106%;
-}
-
-.houseexteriorscene-pond-container {
-	img {
-		position: absolute;
-		&.houseexteriorscene-pond {
-			width: 37%;
-			bottom: 6%;
-			left: 30%;
-		}
-	}
-	.james-container {
-		.james {
-			width: 10%;
-			bottom: 7%;
-			right: 29%;
-		}
-		.james-speech-container {
-			right: 39%;
-			bottom: 26%;
-			border-radius: 60px 60px 10px 60px;
-		}
-	}
-}
-
-.houseexteriorscene-tree-mid-container {
-	.houseexteriorscene-tree-mid {
-		position: absolute;
-		&:nth-child(1) {
-			width: 14%;
-			top: 25%;
-			left: 34%;
-		}
-		&:nth-child(2) {
-			width: 14%;
-			top: 27%;
-			right: 19%;
-		}
-		&:nth-child(3) {
-			width: 18%;
-			top: 23%;
-			right: -3%;
-		}
-	}
-}
-
-.houseexteriorscene-tree-front-container {
-	.houseexteriorscene-tree-front {
-		position: absolute;
-		&:nth-child(1) {
-			width: 20%;
-			bottom: -11%;
-			right: -10%;
-		}
-		&:nth-child(2) {
-			width: 22%;
-			bottom: -37%;
-			right: 5%;
-		}
-	}
-}
-
-.houseexteriorscene-arrow {
-	position: absolute;
-	width: 6%;
-	filter: $filter-shadow-1;
-	top: 28%;
-	left: 57%;
-	&:hover {
-		animation: arrow-pulse 1s infinite;
-	}
-}
-
-.houseexteriorscene-berry-container {
-	img {
-		position: absolute;
-		&:nth-child(1) {
-			width: 4%;
-			top: 38%;
-			left: 31%;
-			transform: rotate(8deg);
-		}
-		&:nth-child(2) {
-			width: 4%;
-			top: 33%;
-			right: 24%;
-			transform: rotate(-13deg);
-		}
-		&:nth-child(3) {
-			width: 4%;
-			top: 32%;
-			right: 5%;
-			transform: rotate(6deg);
-		}
-		&:nth-child(4) {
-			width: 5%;
-			bottom: 17%;
-			right: 3%;
-			transform: rotate(6deg);
-		}
-	}
-}
-
-.quiz-container {
-	opacity: 0;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: rgba(240, 240, 240, 0.8);
-	img {
-		height: 90%;
+	.quiz-container {
+		opacity: 0;
+		width: 100%;
+		height: 100%;
 		position: absolute;
 		top: 0;
-		right: 0;
-		bottom: 0;
 		left: 0;
-		margin: auto;
-	}
-	.quiz-content {
-		width: 70%;
-		height: 80%;
-		position: absolute;
-		top: 10%;
-		left: 15%;
-		&.flex {
-			flex-wrap: wrap;
+		background-color: rgba(240, 240, 240, 0.8);
+		img {
+			height: 90%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
 		}
-	}
-	h3 {
-		width: 100%;
-		text-align: center;
-	}
-	p {
-		width: 40%;
-		text-align: center;
-		box-sizing: border-box;
-		padding: 20px;
-		background-color: $white;
-		border-radius: 100px;
-		filter: $filter-shadow-2;
-		box-shadow: 0 0 0 3px $main-red;
-		margin-top: 5%;
-		&:hover {
-			filter: $filter-shadow-1;
-			transform: translateY(2px);
-						box-shadow: 0 0 0 3px $main-blue;
+		.quiz-content {
+			width: 70%;
+			height: 80%;
+			position: absolute;
+			top: 10%;
+			left: 15%;
+			&.flex {
+				flex-wrap: wrap;
+			}
 		}
-	}
-	
-	@keyframes quiz-appear {
-		from {
-			transform: translateY(10%);
+		h3 {
+			width: 100%;
+			text-align: center;
+		}
+		p {
+			width: 40%;
+			text-align: center;
+			box-sizing: border-box;
+			padding: 20px;
+			background-color: $white;
+			border-radius: 100px;
+			filter: $filter-shadow-2;
+			box-shadow: 0 0 0 3px $main-red;
+			margin-top: 5%;
+			&:hover {
+				filter: $filter-shadow-1;
+				transform: translateY(2px);
+				box-shadow: 0 0 0 3px $main-blue;
+			}
 		}
 	}
 }

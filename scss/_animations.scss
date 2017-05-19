@@ -1,24 +1,79 @@
-@keyframes slide-frombottom {
-	0% {
-		transform: translateY(50px);
+/* Splash Screen */
+
+@keyframes splashcloud1 {
+	to {
+		top: 40%;
+		left: -30%;
+		width: 30%;
 	}
-	100% {
+}
+
+@keyframes splashcloud2 {
+	to {
+		top: 5%;
+		left: -10%;
+		width: 40%;
+	}
+}
+
+@keyframes splashcloud3 {
+	to {
+		top: 15%;
+		left: 80%;
+		width: 70%;
+	}
+}
+
+@keyframes splashmountains {
+	to {
+		top: 63%;
+		left: -135%;
+		width: 200%;
+	}
+}
+
+@keyframes splashstone {
+	to {
+		top: 63%;
+		left: -20%;
+		width: 200%;
+	}
+}
+
+@keyframes splashforest {
+	to {
+		top: 63%;
+		left: -20%;
+		width: 140%;
+	}
+}
+
+@keyframes splashlogo {
+	to {
+		top: 10%;
+		left: 38%;
+		width: 24%;
+	}
+}
+
+@keyframes splashbutton {
+	to {
+		top: 65%;
 		opacity: 1;
 	}
 }
 
-@keyframes slide-totop {
-	100% {
-		transform: translateY(-50px);
-		opacity: 0;
-	}
-}
+
+/* Clouds */
 
 @keyframes cloud-movement {
 	50% {
 		transform: translateY(7%);
 	}
 }
+
+
+/* Character Selection Screen */
 
 @keyframes char-sel-right-anim {
 	25% {
@@ -42,6 +97,24 @@
 	}
 }
 
+
+/* Speech Container */
+
+@keyframes speech-container-anim {
+	50% {
+		transform: translateY(-10%);
+	}
+}
+
+@keyframes speech-circle-anim {
+	50% {
+		filter: brightness(1);
+	}
+}
+
+
+/* Flashing Objects */
+
 @keyframes oven-pulse {
 	25% {
 		filter: brightness(1.5);
@@ -53,6 +126,9 @@
 		filter: brightness(1.5);
 	}
 }
+
+
+/* Scene Change Arrow Hover */
 
 @keyframes arrow-pulse {
 	50% {

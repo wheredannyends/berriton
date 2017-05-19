@@ -20,84 +20,80 @@
 		left: -5%;
 		width: 110%;
 	}
-}
-
-.highwayscene-peak-container {
-	img {
-		position: absolute;
-		width: 40%;
-		&:nth-child(1) {
-			top: 24%;
-			right: 25%;
-			transform: scaleX(-1);
-		}
-		&:nth-child(2) {
-			top: 17%;
-			right: 8%;
-		}
-		&:nth-child(3) {
-			top: 36%;
-			right: 38%;
-			width: 35%;
-		}
-		&:nth-child(4) {
-			top: 29%;
-			right: -3%;
-			width: 20%;
-		}
-	}
-}
-
-.highwayscene-fore-treeline-container {
-	img {
-		position: absolute;
-		width: 10%;
-		&:nth-child(1) {
-			bottom: -1%;
-			left: 10%;
-		}
-		&:nth-child(2) {
-			bottom: -3%;
-			left: -2%;
-		}
-		&:nth-child(3) {
-			bottom: -4%;
-			left: 5%;
-		}
-		&:nth-child(4) {
-			bottom: -6%;
-			left: 13%;
-		}
-		&:nth-child(5) {
-			bottom: -8%;
-			left: 2%;
-		}
-		&:nth-child(6) {
-			bottom: -11%;
-			left: 17%;
-		}
-		&:nth-child(7) {
-			width: 25%;
-			bottom: -25%;
-			right: -10%;
+	.highwayscene-peak-container {
+		img {
+			position: absolute;
+			width: 40%;
+			&:nth-child(1) {
+				top: 24%;
+				right: 25%;
+				transform: scaleX(-1);
+			}
+			&:nth-child(2) {
+				top: 17%;
+				right: 8%;
+			}
+			&:nth-child(3) {
+				top: 36%;
+				right: 38%;
+				width: 35%;
+			}
+			&:nth-child(4) {
+				top: 29%;
+				right: -3%;
+				width: 20%;
+			}
 		}
 	}
-}
-
-.highwayscene-bg-treeline-container {
-	img {
-		position: absolute;
-		&:nth-child(1) {
+	.highwayscene-fore-treeline-container {
+		img {
+			position: absolute;
 			width: 10%;
-			top: 40%;
-			right: -5%;
+			&:nth-child(1) {
+				bottom: -1%;
+				left: 10%;
+			}
+			&:nth-child(2) {
+				bottom: -3%;
+				left: -2%;
+			}
+			&:nth-child(3) {
+				bottom: -4%;
+				left: 5%;
+			}
+			&:nth-child(4) {
+				bottom: -6%;
+				left: 13%;
+			}
+			&:nth-child(5) {
+				bottom: -8%;
+				left: 2%;
+			}
+			&:nth-child(6) {
+				bottom: -11%;
+				left: 17%;
+			}
+			&:nth-child(7) {
+				width: 25%;
+				bottom: -25%;
+				right: -10%;
+			}
 		}
-		&:nth-child(2) {
-			width: 12%;
-			top: 37%;
-			right: -1%;
-			transform: scaleX(-1);
+	}
+	.highwayscene-bg-treeline-container {
+		img {
+			position: absolute;
+			&:nth-child(1) {
+				width: 10%;
+				top: 40%;
+				right: -5%;
+			}
+			&:nth-child(2) {
+				width: 12%;
+				top: 37%;
+				right: -1%;
+				transform: scaleX(-1);
+			}
 		}
 	}
 }
-

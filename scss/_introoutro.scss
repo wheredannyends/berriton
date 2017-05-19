@@ -1,12 +1,15 @@
 .intro-outro-screen {
+	opacity: 0;
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(240, 240, 240, 0.8);
-	
 	text-align: center;
 	h2 {
-		margin-bottom: 5%;
+		margin-bottom: 2%;
+	}
+	p {
+		margin-bottom: 2%;
+		width: 60%;
 	}
 	&.flex {
 		flex-direction: column;
@@ -14,5 +17,50 @@
 	}
 	button {
 		width: 20%;
+		opacity: 0;
+		pointer-events: none;
+	}
+	&.intro-screen {
+		background-color: rgba(240, 240, 240, 0.9);
+	}
+	&.outro-screen {
+		background-color: rgba(30, 30, 30, 0.8);
+		color: $white;
+		.credits {
+			width: 60%;
+			margin-bottom: 2%;
+			&.flex {
+				justify-content: space-between;
+			}
+			.credits-item {
+				h3 {
+					width: 100%;
+					margin-bottom: 5%;
+					a {
+						color: $main-blue;
+						&:hover {
+							color: $main-red;
+						}
+					}
+				}
+				p {
+					width: 100%;
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	.intro-outro-screen {
+		p {
+			width: 80%;
+		}
+		&.outro-screen {
+			.credits {
+				width: 80%;
+			}
+		}
 	}
 }
