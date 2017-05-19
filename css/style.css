@@ -1445,6 +1445,10 @@ p {
     right: 39%;
     bottom: 26%;
     border-radius: 60px 60px 10px 60px; }
+    .houseexteriorscene .houseexteriorscene-pond-container .james-container .james-speech-container .james-speech-label {
+      border-radius: 60px 60px 10px 60px; }
+    .houseexteriorscene .houseexteriorscene-pond-container .james-container .james-speech-container .james-speech-button {
+      border-radius: 60px 10px 60px 60px; }
   .houseexteriorscene .houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid {
     position: absolute; }
     .houseexteriorscene .houseexteriorscene-tree-mid-container .houseexteriorscene-tree-mid:nth-child(1) {
@@ -1574,6 +1578,10 @@ p {
     bottom: 65%;
     right: 35%;
     border-radius: 60px 60px 10px 60px; }
+    .houseinteriorscene .tabetha-speech-container .tabetha-speech-label {
+      border-radius: 60px 60px 10px 60px; }
+    .houseinteriorscene .tabetha-speech-container .tabetha-speech-button {
+      border-radius: 60px 10px 60px 60px; }
 
 .highwayscene {
   background: linear-gradient(to bottom left, #5F5F9E, #366877) no-repeat center center;
