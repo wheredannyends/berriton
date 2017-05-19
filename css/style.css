@@ -819,20 +819,21 @@ p {
   background-color: #F0F0F0; }
   .portrait-orientation * {
     margin: 1% 0; }
-  .portrait-orientation.flex {
+  .portrait-orientation .flex {
+    height: 100%;
     flex-direction: column;
     justify-content: center; }
-  .portrait-orientation img {
-    height: 9em;
-    margin: 2% 0; }
-  .portrait-orientation p {
-    width: 80%;
-    text-align: center; }
-  .portrait-orientation i {
-    margin: 2% 0;
-    font-size: 6em;
-    color: #D46D64;
-    animation: change-orientation 5s infinite; }
+    .portrait-orientation .flex img {
+      height: 9em;
+      margin: 2% 0; }
+    .portrait-orientation .flex p {
+      width: 80%;
+      text-align: center; }
+    .portrait-orientation .flex i {
+      margin: 2% 0;
+      font-size: 6em;
+      color: #D46D64;
+      animation: change-orientation 5s infinite; }
 
 @keyframes change-orientation {
   20% {

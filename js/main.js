@@ -42,14 +42,8 @@ if(window.innerHeight > window.innerWidth){
 	portScreen.classList.add("flex");
 }
 
-$( window ).on( "orientationchange", function( event ) {
-  if (event.orientation == 0) {
-	  $("#portrait-orientation").removeClass("hidden");
-	  $("#portrait-orientation").addClass("flex");
-  } else {
-	  $("#portrait-orientation").removeClass("flex");
-	  $("#portrait-orientation").addClass("hidden");
-  }
+$( window ).on( "orientationchange", function( event ) {  
+	  $("#portrait-orientation").toggleClass("hidden");
 });
 
 /* 
