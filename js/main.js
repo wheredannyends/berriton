@@ -31,9 +31,22 @@ TABLE OF CONTENTS
 
 */
 
+
+
+
+/* 
+
+0.01 - User Settings
+
+*/
+
+// LOADING SCREEN
+
 $(document).ready(function () {
 	$("#loading-screen").delay(500).fadeOut("slow");
 });
+
+// ORIENTATION DETECTION
 
 var portScreen = document.getElementById("portrait-orientation");
 
@@ -44,12 +57,6 @@ if(window.innerHeight > window.innerWidth){
 $( window ).on( "orientationchange", function( event ) {  
 	  $("#portrait-orientation").toggleClass("hidden");
 });
-
-/* 
-
-0.01 - User Settings
-
-*/
 
 // USER OBJECT
 
