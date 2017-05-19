@@ -2065,9 +2065,9 @@ p {
 
 .brobot {
   position: absolute;
-  top: 49%;
-  left: 29%;
-  width: 14%; }
+  top: 45%;
+  left: 28%;
+  width: 17%; }
 
 .caveexteriorscene {
   background: linear-gradient(#7AB1F1, #F0F0F0) no-repeat center center;
@@ -2190,7 +2190,7 @@ p {
     bottom: -3%;
     left: -1%;
     width: 102%; }
-  .caveinteriorscene .caveinteriorscene-machine {
+  .caveinteriorscene .caveinteriorscene-generator {
     position: absolute;
     width: 57%;
     left: 3%;

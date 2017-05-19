@@ -200,7 +200,7 @@ function pieGet() {
 	}, 400);
 }
 
-function chargerEmpty() {
+function chargerGet() {
 	if (goodieDispIsOpen == false) {
 		goodieDispOpen();
 	}
@@ -220,6 +220,25 @@ function chargerEmpty() {
 	}, 400);
 }
 
+function chargerEmpty() {
+	if (goodieDispIsOpen == false) {
+		goodieDispOpen();
+	}
+	setTimeout(function () {
+		chargerIcon.style.opacity = "0";
+		setTimeout(function () {
+			chargerIcon.src = "images/goodies/charger-empty.svg"
+			setTimeout(function () {
+				chargerIcon.style.opacity = "1";
+				setTimeout(function () {
+					chargerIsFull = false;
+					goodieDispClose();
+				}, 1000);
+			}, 300);
+		}, 300);
+	}, 400);
+}
+
 function chargerFull() {
 	if (goodieDispIsOpen == false) {
 		goodieDispOpen();
@@ -231,8 +250,7 @@ function chargerFull() {
 			setTimeout(function () {
 				chargerIcon.style.opacity = "1";
 				setTimeout(function () {
-					haveCharger = true;
-					user.goodieCount++;
+					chargerIsFull = true;
 					goodieDispClose();
 				}, 1000);
 			}, 300);
@@ -357,6 +375,11 @@ if (userData) {
 
 	charSelName.value = user.name;
 	charSelPreview.src = user.charModelFront;
+
+	user.berryCount = 0;
+	user.goodieCount = 0;
+
+	console.log(user);
 }
 
 // 1.03 - Submit User Information
@@ -382,7 +405,7 @@ function charSelSubFunc() {
 
 		brobotSpeechArr = ["Bzzzzzzt...", "Need...", "<span class=\"blue-text\">Energy</span>...", "Bzzt...", "Low...", "Charge...", "Bzzzzt...", "<span class=\"blue-text\">More</span>...", "Energy...", "Please...", "Bzzt...", "Oh wow...", "I am starting to feel better...", "Bzzzzzzt...", "Just <span class=\"blue-text\">a little more</span>...", "Bzzzt...", "Bzzzzzzt!", "Thanks <span class=\"red-text\">" + user.name + "</span>!", "That energy hit the spot.", "I feel great!", "Here...", "Take this for all your trouble...", "Bzzzzt!"];
 
-		kennethSpeechArr = ["Just a little bit of this...", "And voila!", "...", "Oh hey <span class=\"red-text\">" + user.name + "</span>!", "Sorry, I was busy with this machine...", "It's a generator!", "It takes the acidic properties of berries...", "And transforms it into pure <span class=\"blue-text\">energy</span>!", "I've been working on a prototype battery charger", "So that people can <span class=\"blue-text\">take this energy anywhere</span>!", "Here...", "I have an extra", "Try using it with the generator", "As long as you have <span class=\"blue-text\">5 berries</span>...", "You will be able to take energy all over Berriton!", "Hmm...", "Looks like the charger's full...", "Come back if you use up all that energy!", "Use the generator!", "It should take <span class=\"blue-text\">5 berries</span> to fill it up!"];
+		kennethSpeechArr = ["Just a little bit of this...", "And voila!", "...", "Oh hey <span class=\"red-text\">" + user.name + "</span>!", "Sorry, I was busy with this machine...", "It's a generator!", "It takes the acidic properties of berries...", "And transforms it into pure <span class=\"blue-text\">energy</span>!", "I've been working on a prototype battery charger", "So that people can <span class=\"blue-text\">take this energy anywhere</span>!", "Here...", "I have an extra", "Try using it with the generator", "As long as you have <span class=\"blue-text\">5 berries</span>...", "You will be able to take energy all over Berriton!", "Hmm...", "Looks like the charger's full...", "Come back if you use up all that energy!", "Use the generator!", "It should take <span class=\"blue-text\">5 berries</span> to fill it up!", "Yikes!", "I think there's something wrong with the machine...", "It won't make any more energy!", "I guess I'll have to fix it, huh?", "..."];
 
 		// SET CHARACTER MODEL
 
@@ -488,7 +511,7 @@ var bridgeSceneComplete = false,
 	houseInteriorSceneComplete = false,
 	summitSceneComplete = false,
 	forestSceneComplete = false,
-	caveInteriorSceneComplete = false;
+	kennethComplete = false;
 
 function moveForwardButs() {
 	forwardBut1.classList.remove("hidden");
@@ -705,6 +728,13 @@ forwardBut1.addEventListener("click", function () {
 			caveInteriorScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
 		}, 500);
+		
+		if (haveCharger == true && generatorProg < 3) {
+			generator.style.animation = "oven-pulse 2s 2";
+			setTimeout(function () {
+				generator.style.animation = "none";
+			}, 3000);
+		}
 	}
 
 });
@@ -1041,9 +1071,9 @@ brent.addEventListener("click", function () {
 	} else {
 
 		if (brentSpeechOpen == false) {
-			brentSpeechProg = 9;
+			brentSpeechProg = 13;
 			brentSpeechContainerOpen();
-		} else if (brentSpeechProg < brentSpeechArr.length - 1) {
+		} else if (brentSpeechProg < brentSpeechArr.length - 2) {
 			brentSpeechProg++;
 			brentSpeechText.style.opacity = "0";
 			setTimeout(function () {
@@ -1462,9 +1492,9 @@ tabetha.addEventListener("click", function () {
 	} else {
 
 		if (tabethaSpeechOpen == false) {
-			tabethaSpeechProg = 15;
+			tabethaSpeechProg = 17;
 			tabethaSpeechContainerOpen();
-		} else if (tabethaSpeechProg < tabethaSpeechArr.length - 1) {
+		} else if (tabethaSpeechProg < tabethaSpeechArr.length - 7) {
 			tabethaSpeechProg++;
 			tabethaSpeechText.style.opacity = "0";
 			setTimeout(function () {
@@ -1591,9 +1621,9 @@ woat.addEventListener("click", function () {
 	} else {
 
 		if (woatSpeechOpen == false) {
-			woatSpeechProg = 8;
+			woatSpeechProg = 10;
 			woatSpeechContainerOpen();
-		} else if (woatSpeechProg < woatSpeechArr.length - 1) {
+		} else if (woatSpeechProg < woatSpeechArr.length - 2) {
 			woatSpeechProg++;
 			woatSpeechText.style.opacity = "0";
 			setTimeout(function () {
@@ -1620,6 +1650,9 @@ var kenneth = document.getElementById("kenneth-container"),
 	kennethSpeechButton = document.getElementById("kenneth-speech-button"),
 	kennethSpeechText = document.getElementById("kenneth-speech-text"),
 	kennethSpeechProg = 0;
+
+var generator = document.getElementById("caveinteriorscene-generator"),
+	generatorProg = 0;
 
 function kennethSpeechContainerOpen() {
 	kennethSpeech.style.width = "25%";
@@ -1676,11 +1709,81 @@ function kennethDialogueFreeze() {
 }
 
 kenneth.addEventListener("click", function () {
-	if (houseExteriorSceneComplete == false) {
-		if (kennethInit == false || (woatInit == false && tabethaInit == false)) {
+	if (haveCharger == false) {
+		if (kennethSpeechOpen == false) {
+			kennethSpeechProg = 0;
+			kennethSpeechContainerOpen();
+		} else if (kennethSpeechProg < kennethSpeechArr.length - 11) {
+			kennethSpeechProg++;
+			kennethSpeechText.style.opacity = "0";
+			setTimeout(function () {
+				kennethSpeechText.innerHTML = kennethSpeechArr[kennethSpeechProg];
+				kennethSpeechText.style.opacity = "1";
+			}, 300);
+		} else {
+			kennethSpeechProg = 0;
+			chargerGet();
+			kennethSpeechContainerClose();
+			generator.style.animation = "oven-pulse 2s 2";
+			setTimeout(function () {
+				generator.style.animation = "none";
+			}, 3000);
+		}
+
+	} else {
+		if (generatorProg < 3) {
+
+			if (chargerIsFull == false && user.berryCount >= 5) {
+				if (kennethSpeechOpen == false) {
+					kennethSpeechProg = 13;
+					kennethSpeechContainerOpen();
+				} else if (kennethSpeechProg < kennethSpeechArr.length - 11) {
+					kennethSpeechProg++;
+					kennethSpeechText.style.opacity = "0";
+					setTimeout(function () {
+						kennethSpeechText.innerHTML = kennethSpeechArr[kennethSpeechProg];
+						kennethSpeechText.style.opacity = "1";
+					}, 300);
+				} else {
+					kennethSpeechProg = 0;
+					kennethSpeechContainerClose();
+				}
+			} else if (chargerIsFull == true) {
+				if (kennethSpeechOpen == false) {
+					kennethSpeechProg = 16;
+					kennethSpeechContainerOpen();
+				} else if (kennethSpeechProg < kennethSpeechArr.length - 8) {
+					kennethSpeechProg++;
+					kennethSpeechText.style.opacity = "0";
+					setTimeout(function () {
+						kennethSpeechText.innerHTML = kennethSpeechArr[kennethSpeechProg];
+						kennethSpeechText.style.opacity = "1";
+					}, 300);
+				} else {
+					kennethSpeechProg = 0;
+					kennethSpeechContainerClose();
+				}
+			} else {
+				if (kennethSpeechOpen == false) {
+					kennethSpeechProg = 13;
+					kennethSpeechContainerOpen();
+				} else if (kennethSpeechProg < kennethSpeechArr.length - 11) {
+					kennethSpeechProg++;
+					kennethSpeechText.style.opacity = "0";
+					setTimeout(function () {
+						kennethSpeechText.innerHTML = kennethSpeechArr[kennethSpeechProg];
+						kennethSpeechText.style.opacity = "1";
+					}, 300);
+				} else {
+					kennethSpeechProg = 0;
+					kennethSpeechContainerClose();
+				}
+			}
+		} else {
 			if (kennethSpeechOpen == false) {
+				kennethSpeechProg = 20;
 				kennethSpeechContainerOpen();
-			} else if (kennethSpeechProg < kennethSpeechArr.length - 18) {
+			} else if (kennethSpeechProg < kennethSpeechArr.length - 1) {
 				kennethSpeechProg++;
 				kennethSpeechText.style.opacity = "0";
 				setTimeout(function () {
@@ -1690,26 +1793,21 @@ kenneth.addEventListener("click", function () {
 			} else {
 				kennethSpeechProg = 0;
 				kennethSpeechContainerClose();
-				kennethInit = true;
 			}
-		} else if (woatInit == true && tabethaInit == false) {
+		}
+	}
+	kennethDialogueFreeze();
+});
+
+generator.addEventListener("click", function () {
+	if (haveCharger == true && generatorProg < 3) {
+		if (chargerIsFull == false && user.berryCount >= 5) {
+			chargerFull();
+			generatorProg++;
+			berryDec5();
+		} else if (chargerIsFull == true) {
 			if (kennethSpeechOpen == false) {
-				kennethSpeechProg = 17;
-				kennethSpeechContainerOpen();
-			} else if (kennethSpeechProg < kennethSpeechArr.length - 13) {
-				kennethSpeechProg++;
-				kennethSpeechText.style.opacity = "0";
-				setTimeout(function () {
-					kennethSpeechText.innerHTML = kennethSpeechArr[kennethSpeechProg];
-					kennethSpeechText.style.opacity = "1";
-				}, 300);
-			} else {
-				kennethSpeechProg = 0;
-				kennethSpeechContainerClose();
-			}
-		} else if (woatInit == false && tabethaInit == true) {
-			if (kennethSpeechOpen == false) {
-				kennethSpeechProg = 22;
+				kennethSpeechProg = 16;
 				kennethSpeechContainerOpen();
 			} else if (kennethSpeechProg < kennethSpeechArr.length - 8) {
 				kennethSpeechProg++;
@@ -1722,11 +1820,12 @@ kenneth.addEventListener("click", function () {
 				kennethSpeechProg = 0;
 				kennethSpeechContainerClose();
 			}
+			kennethDialogueFreeze();
 		} else {
 			if (kennethSpeechOpen == false) {
-				kennethSpeechProg = 27;
+				kennethSpeechProg = 13;
 				kennethSpeechContainerOpen();
-			} else if (kennethSpeechProg < kennethSpeechArr.length - 1) {
+			} else if (kennethSpeechProg < kennethSpeechArr.length - 11) {
 				kennethSpeechProg++;
 				kennethSpeechText.style.opacity = "0";
 				setTimeout(function () {
@@ -1734,17 +1833,14 @@ kenneth.addEventListener("click", function () {
 					kennethSpeechText.style.opacity = "1";
 				}, 300);
 			} else {
+				kennethSpeechProg = 0;
 				kennethSpeechContainerClose();
-				setTimeout(function () {
-					houseExteriorSceneComplete = true;
-					pieRecipeInc();
-				}, 300);
 			}
+			kennethDialogueFreeze();
 		}
-	} else {
-
+	} else if (haveCharger == true && generatorProg == 3) {
 		if (kennethSpeechOpen == false) {
-			kennethSpeechProg = 27;
+			kennethSpeechProg = 20;
 			kennethSpeechContainerOpen();
 		} else if (kennethSpeechProg < kennethSpeechArr.length - 1) {
 			kennethSpeechProg++;
@@ -1754,17 +1850,20 @@ kenneth.addEventListener("click", function () {
 				kennethSpeechText.style.opacity = "1";
 			}, 300);
 		} else {
+			kennethSpeechProg = 0;
 			kennethSpeechContainerClose();
 		}
+		kennethDialogueFreeze();
 	}
-	kennethDialogueFreeze();
 });
 
 // 3.06 - Brobot Interactions
 
 var brobot = document.getElementById("brobot-container"),
+	brobotCharModel = document.getElementById("brobot"),
 	brobotInit = false,
 	brobotChargeLevel = 0,
+	brobotComplete = false,
 	brobotSpeech = document.getElementById("brobot-speech-container"),
 	brobotSpeechOpen = false,
 	brobotSpeechCircles = document.getElementById("brobot-speech-circle-container"),
@@ -1827,27 +1926,6 @@ function brobotDialogueFreeze() {
 	}
 }
 
-function brobot25() {
-	if (brobotSpeechOpen == false) {
-		brobotSpeechContainerOpen();
-	} else if (brobotSpeechProg < brobotSpeechArr.length - 18) {
-		brobotSpeechProg++;
-		brobotSpeechText.style.opacity = "0";
-		setTimeout(function () {
-			brobotSpeechText.innerHTML = brobotSpeechArr[brobotSpeechProg];
-			brobotSpeechText.style.opacity = "1";
-		}, 300);
-	} else {
-		brobotSpeechProg = 0;
-		brobotSpeechContainerClose();
-		brobotInit = true;
-	}
-}
-
-function brobot50() {}
-
-function brobot75() {}
-
 brobot.addEventListener("click", function () {
 	if (forestSceneComplete == false) {
 		if (brobotInit == false) {
@@ -1865,40 +1943,19 @@ brobot.addEventListener("click", function () {
 				brobotSpeechContainerClose();
 				brobotInit = true;
 			}
-		} else if (brobotChargeLevel == 0) {
-			if (chargerIsFull == true) {
-				chargerEmpty();
-				setTimeout(function () {
-					brobot25();
-				}, 2000);
-				chargerIsFull = false;
-				brobotChargeLevel = 1;
-			} else {
-				if (brobotSpeechOpen == false) {
-					brobotSpeechContainerOpen();
-				} else if (brobotSpeechProg < brobotSpeechArr.length - 17) {
-					brobotSpeechProg++;
-					brobotSpeechText.style.opacity = "0";
-					setTimeout(function () {
-						brobotSpeechText.innerHTML = brobotSpeechArr[brobotSpeechProg];
-						brobotSpeechText.style.opacity = "1";
-					}, 300);
-				} else {
-					brobotSpeechProg = 0;
-					brobotSpeechContainerClose();
-					brobotInit = true;
-				}
-			}
-		}
-
-		/*
-		
-		
-		else if (woatInit == true && tabethaInit == false) {
-			if (brobotSpeechOpen == false) {
-				brobotSpeechProg = 17;
+		} else if (brobotChargeLevel == 0 && chargerIsFull == true) {
+			chargerEmpty();
+			setTimeout(function () {
+				brobotSpeechProg = 6;
 				brobotSpeechContainerOpen();
-			} else if (brobotSpeechProg < brobotSpeechArr.length - 13) {
+				brobotDialogueFreeze();
+				brobotChargeLevel = 1;
+			}, 2000);
+		} else if (brobotChargeLevel == 1 && chargerIsFull == false) {
+			if (brobotSpeechOpen == false) {
+				brobotSpeechProg = 6;
+				brobotSpeechContainerOpen();
+			} else if (brobotSpeechProg < brobotSpeechArr.length - 14) {
 				brobotSpeechProg++;
 				brobotSpeechText.style.opacity = "0";
 				setTimeout(function () {
@@ -1906,14 +1963,21 @@ brobot.addEventListener("click", function () {
 					brobotSpeechText.style.opacity = "1";
 				}, 300);
 			} else {
-				brobotSpeechProg = 0;
 				brobotSpeechContainerClose();
 			}
-		} else if (woatInit == false && tabethaInit == true) {
-			if (brobotSpeechOpen == false) {
-				brobotSpeechProg = 22;
+		} else if (brobotChargeLevel == 1 && chargerIsFull == true) {
+			chargerEmpty();
+			setTimeout(function () {
+				brobotSpeechProg = 10;
 				brobotSpeechContainerOpen();
-			} else if (brobotSpeechProg < brobotSpeechArr.length - 8) {
+				brobotDialogueFreeze();
+				brobotChargeLevel = 2;
+			}, 2000);
+		} else if (brobotChargeLevel == 2 && chargerIsFull == false) {
+			if (brobotSpeechOpen == false) {
+				brobotSpeechProg = 10;
+				brobotSpeechContainerOpen();
+			} else if (brobotSpeechProg < brobotSpeechArr.length - 10) {
 				brobotSpeechProg++;
 				brobotSpeechText.style.opacity = "0";
 				setTimeout(function () {
@@ -1921,32 +1985,32 @@ brobot.addEventListener("click", function () {
 					brobotSpeechText.style.opacity = "1";
 				}, 300);
 			} else {
-				brobotSpeechProg = 0;
 				brobotSpeechContainerClose();
 			}
 		} else {
-			if (brobotSpeechOpen == false) {
-				brobotSpeechProg = 27;
-				brobotSpeechContainerOpen();
-			} else if (brobotSpeechProg < brobotSpeechArr.length - 1) {
-				brobotSpeechProg++;
-				brobotSpeechText.style.opacity = "0";
+			chargerEmpty();
+			setTimeout(function () {
+				brobot.style.opacity = "0";
 				setTimeout(function () {
-					brobotSpeechText.innerHTML = brobotSpeechArr[brobotSpeechProg];
-					brobotSpeechText.style.opacity = "1";
+					brobotCharModel.src = "images/npc/brobot-charged.svg";
+					setTimeout(function () {
+						brobot.style.opacity = "1";
+						setTimeout(function () {
+							brobotSpeechProg = 17;
+							brobotSpeechContainerOpen();
+							brobotDialogueFreeze();
+							brobotChargeLevel = 3;
+							forestSceneComplete = true;
+						}, 300);
+					}, 150)
 				}, 300);
-			} else {
-				brobotSpeechContainerClose();
-				setTimeout(function () {
-					houseExteriorSceneComplete = true;
-					pieRecipeInc();
-				}, 300);
-			}
+			}, 2000);
 		}
-	} else {
+	} else if (brobotComplete == false) {
+
 
 		if (brobotSpeechOpen == false) {
-			brobotSpeechProg = 27;
+			brobotSpeechProg = 17;
 			brobotSpeechContainerOpen();
 		} else if (brobotSpeechProg < brobotSpeechArr.length - 1) {
 			brobotSpeechProg++;
@@ -1956,12 +2020,27 @@ brobot.addEventListener("click", function () {
 				brobotSpeechText.style.opacity = "1";
 			}, 300);
 		} else {
+			brobotComplete = true;
+			brobotSpeechContainerClose();
+			brobotMedalGet();
+		}
+
+	} else {
+		if (brobotSpeechOpen == false) {
+			brobotSpeechProg = 17;
+			brobotSpeechContainerOpen();
+		} else if (brobotSpeechProg < brobotSpeechArr.length - 5) {
+			brobotSpeechProg++;
+			brobotSpeechText.style.opacity = "0";
+			setTimeout(function () {
+				brobotSpeechText.innerHTML = brobotSpeechArr[brobotSpeechProg];
+				brobotSpeechText.style.opacity = "1";
+			}, 300);
+		} else {
+			brobotComplete = true;
 			brobotSpeechContainerClose();
 		}
-	
-	*/
 	}
-
 	brobotDialogueFreeze();
 });
 
@@ -2256,8 +2335,9 @@ caveExtBerry3.addEventListener("click", function () {
 
 
 // SHORTCUTS
-//
+
 //jamesInit = true;
 //woatInit = true;
 //tabethaInit = true;
 //user.berryCount = 100;
+//chargerIsFull = true;
