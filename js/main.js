@@ -43,7 +43,7 @@ if(window.innerHeight > window.innerWidth){
 }
 
 $( window ).on( "orientationchange", function( event ) {
-  if (event.orientation == "portrait") {
+  if (event.orientation == 0) {
 	  $("#portrait-orientation").removeClass("hidden");
 	  $("#portrait-orientation").addClass("flex");
   } else {
