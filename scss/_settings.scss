@@ -9,6 +9,7 @@ body {
 	background-size: cover;
 	height: 100vh;
 	transition: 0.3s;
+	color: $black;
 }
 
 main {
@@ -70,11 +71,12 @@ main {
 
 button {
 	box-sizing: border-box;
-	padding: 10px;
+	padding: 15px;
 	background-color: $main-red;
 	color: $white;
 	font-family: $quicksand;
 	border: none;
+	border-radius: 100px;
 	box-shadow: $material-1;
 	&:hover {
 		transform: translateY(-2px);
@@ -98,8 +100,6 @@ h5 {
 }
 
 h2 {
-	width: 100%;
-	color: $white;
 	font-size: 1.5em;
 }
 

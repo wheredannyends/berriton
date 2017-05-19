@@ -419,7 +419,8 @@ body {
   background: linear-gradient(to bottom right, #e4effc, #afd0f7) no-repeat center center;
   background-size: cover;
   height: 100vh;
-  transition: 0.3s; }
+  transition: 0.3s;
+  color: #1E1E1E; }
 
 main {
   position: absolute;
@@ -471,11 +472,12 @@ main {
 
 button {
   box-sizing: border-box;
-  padding: 10px;
+  padding: 15px;
   background-color: #D46D64;
   color: #F0F0F0;
   font-family: "Quicksand", "Helvetica", sans-serif;
   border: none;
+  border-radius: 100px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
   button:hover {
     transform: translateY(-2px);
@@ -493,8 +495,6 @@ h5 {
   font-weight: 700; }
 
 h2 {
-  width: 100%;
-  color: #F0F0F0;
   font-size: 1.5em; }
 
 p {
@@ -1157,6 +1157,13 @@ p {
   height: 100%;
   background-color: #D46D64;
   text-align: center; }
+  .intro-outro-screen h2 {
+    margin-bottom: 5%; }
+  .intro-outro-screen.flex {
+    flex-direction: column;
+    justify-content: center; }
+  .intro-outro-screen button {
+    width: 20%; }
 
 .bridgescene {
   background: linear-gradient(to bottom left, #7AB1F1, #F0F0F0) no-repeat center center;

@@ -2335,8 +2335,8 @@ caveExtBerry3.addEventListener("click", function () {
 
 // SHORTCUTS
 
-jamesInit = true;
-woatInit = true;
-tabethaInit = true;
+//jamesInit = true;
+//woatInit = true;
+//tabethaInit = true;
 //user.berryCount = 100;
 //chargerIsFull = true;

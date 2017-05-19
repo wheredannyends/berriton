@@ -4,5 +4,14 @@
 	height: 100%;
 	background-color: $main-red;
 	text-align: center;
-
+	h2 {
+		margin-bottom: 5%;
+	}
+	&.flex {
+		flex-direction: column;
+		justify-content: center;
+	}
+	button {
+		width: 20%;
+	}
 }
