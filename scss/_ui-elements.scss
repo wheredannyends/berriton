@@ -378,3 +378,61 @@
 		filter: $filter-shadow-1;
 	}
 }
+
+/* Portrait Orientation Screen */
+
+.portrait-orientation {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: $white;
+	* {
+		margin: 1% 0;
+	}
+	&.flex {
+		flex-direction: column;
+		justify-content: center;
+	}
+	img {
+		height: 9em;
+		margin: 2% 0;
+	}
+	p {
+		width: 80%;
+		text-align: center;
+	}
+	i {
+		margin: 2% 0;
+		font-size: 6em;
+		color: $main-red;
+		animation: change-orientation 5s infinite;
+	}
+}
+
+@keyframes change-orientation {
+	20% {
+		
+		color: $main-red;
+	}
+	30% {
+		transform: rotate(-90deg);
+		color: $main-green;
+	}
+	40% {
+		
+	}
+	60% {
+		
+		color: $main-green;
+	}
+	70% {
+		transform: rotate(-90deg);
+		color: $main-green;
+	}
+	80% {
+//		transform: none;
+		color: $main-red;
+	}
+}

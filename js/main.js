@@ -35,9 +35,22 @@ $(document).ready(function () {
 	$("#loading-screen").delay(500).fadeOut("slow");
 });
 
+var portScreen = document.getElementById("portrait-orientation");
+
 if(window.innerHeight > window.innerWidth){
-    alert("Please use Landscape!");
+    portScreen.classList.remove("hidden");
+	portScreen.classList.add("flex");
 }
+
+$( window ).on( "orientationchange", function( event ) {
+  if (event.orientation == "portrait") {
+	  $("#portrait-orientation").removeClass("hidden");
+	  $("#portrait-orientation").addClass("flex");
+  } else {
+	  $("#portrait-orientation").removeClass("flex");
+	  $("#portrait-orientation").addClass("hidden");
+  }
+});
 
 /* 
 

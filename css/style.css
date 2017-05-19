@@ -809,6 +809,44 @@ p {
 .berry-container img {
   filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.24)); }
 
+/* Portrait Orientation Screen */
+.portrait-orientation {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #F0F0F0; }
+  .portrait-orientation * {
+    margin: 1% 0; }
+  .portrait-orientation.flex {
+    flex-direction: column;
+    justify-content: center; }
+  .portrait-orientation img {
+    height: 9em;
+    margin: 2% 0; }
+  .portrait-orientation p {
+    width: 80%;
+    text-align: center; }
+  .portrait-orientation i {
+    margin: 2% 0;
+    font-size: 6em;
+    color: #D46D64;
+    animation: change-orientation 5s infinite; }
+
+@keyframes change-orientation {
+  20% {
+    color: #D46D64; }
+  30% {
+    transform: rotate(-90deg);
+    color: #649081; }
+  60% {
+    color: #649081; }
+  70% {
+    transform: rotate(-90deg);
+    color: #649081; }
+  80% {
+    color: #D46D64; } }
 /* Splash Screen */
 @keyframes splashcloud1 {
   to {
