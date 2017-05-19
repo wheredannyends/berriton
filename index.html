@@ -90,7 +90,7 @@
 				<img src="images/ui-elements/forward-button-right.svg" class="char-sel-arrows" alt="CHaracter Select Right Button" id="char-sel-right">
 			</article>
 			<article class="char-sel-inputs flex" id="char-sel-inputs">
-				<input type="text" id="char-sel-name" placeholder="Character Name" autofocus/>
+				<input type="text" id="char-sel-name" placeholder="Character Name" maxlength="10" autofocus/>
 				<button id="char-sel-submit">Begin</button>
 			</article>
 		</div>
@@ -730,7 +730,9 @@
 		<!-- 3.01 - Intro/Outro Screens -->
 		
 		<section class="intro-outro-screen hidden" id="intro-screen">
-			<h2>Hello</h2>
+			<h2>
+				<p>Welcome to <span class="red-text">Berriton</span>.</p>
+			</h2>
 			<button id="intro-screen-button">Begin</button>
 		</section>
 		

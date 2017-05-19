@@ -1986,12 +1986,17 @@ brobot.addEventListener("click", function () {
 			} else {
 				brobotSpeechContainerClose();
 			}
-		} else {
+		} else if (brobotChargeLevel == 3) {
 			chargerEmpty();
 			setTimeout(function () {
 				brobot.style.opacity = "0";
 				setTimeout(function () {
 					brobotCharModel.src = "images/npc/brobot-charged.svg";
+					brobotCharModel.style.top = "37%";
+					brobotCharModel.style.left = "29%";
+					brobotCharModel.style.width = "13%";
+					brobotSpeech.style.bottom = "56%";
+					brobotSpeech.style.left = "40%";
 					setTimeout(function () {
 						brobot.style.opacity = "1";
 						setTimeout(function () {
@@ -2004,6 +2009,21 @@ brobot.addEventListener("click", function () {
 					}, 150)
 				}, 300);
 			}, 2000);
+		} else {
+			if (brobotSpeechOpen == false) {
+				brobotSpeechContainerOpen();
+			} else if (brobotSpeechProg < brobotSpeechArr.length - 17) {
+				brobotSpeechProg++;
+				brobotSpeechText.style.opacity = "0";
+				setTimeout(function () {
+					brobotSpeechText.innerHTML = brobotSpeechArr[brobotSpeechProg];
+					brobotSpeechText.style.opacity = "1";
+				}, 300);
+			} else {
+				brobotSpeechProg = 0;
+				brobotSpeechContainerClose();
+				brobotInit = true;
+			}
 		}
 	} else if (brobotComplete == false) {
 
