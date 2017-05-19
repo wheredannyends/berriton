@@ -395,7 +395,7 @@ function charSelSubFunc() {
 
 		// SET DIALOGUE BASED ON NAME VALUE
 
-		brentSpeechArr = ["Hey <span class=\"red-text\">" + user.name + "</span> this is MY bridge.", "Look here...", "If you want to use my things,", "You have to give me something in return.", "I’m pretty hungry right now...", "About <span class=\"blue-text\">5 berries</span> hungry I'd say...", "There are usually a bunch <span class=\"blue-text\">in the trees</span>", "Anyone could just reach up and <span class=\"blue-text\">grab some</span>", "I'd get them myself,", "But if I go anywhere...", " someone might touch my bridge!", "Get me some food. *hmph*", "Wow!", "I had you pegged as some kind of dork...", "but you’re actually pretty cool!", "You can use my bridge, I guess..."];
+		brentSpeechArr = ["Hey <span class=\"red-text\">" + user.name + "</span>, this is MY bridge.", "Look here...", "If you want to use my things,", "You have to give me something in return.", "I’m pretty hungry right now...", "About <span class=\"blue-text\">5 berries</span> hungry I'd say...", "There are usually a bunch <span class=\"blue-text\">in the trees</span>", "Anyone could just reach up and <span class=\"blue-text\">grab some</span>", "I'd get them myself,", "But if I go anywhere...", " someone might touch my bridge!", "Get me some food. *hmph*", "Wow!", "I had you pegged as some kind of dork...", "but you’re actually pretty cool!", "You can use my bridge, I guess..."];
 
 		jamesSpeechArr = ["Psssst… over here <span class=\"red-text\">" + user.name + ".", "I hear that old koot in that there house...", "Serves up some pretty mean berry pie!", "Check it out...", "I ganked her recipe for berry pie,", "So I can have it all to myself!", "...", "What’s that?", "You think I should give it back?", "No. its mine!", "Tell you what...", "I'll come up with a quiz and you can earn it.", "If you can guess all the questions right...", "I’ll give you the recipe!", "But it will take some time...", "Maybe take a hike up the mountain over there.", "I'll whip it up in no time!", "Jeepers...", "You're back so soon!", "I'm still working on the quiz.", "Maybe Tabetha has a copy?", "Go check in with her at her place!", "Tabetha can't remember her own recipies!?", "I can't believe it!", "I'm still coming up with some questions", "If you wanna take a hike up the mountain...", "I'm sure it will be ready by the time you're back!", "Alright!", "Are you ready for the quiz!?", "Sure is a tough one...", "But I'm sure you know Berriton well enough by now!", "Hah! I guess its MY recipe after all!", "...", "I guess I could give you another shot", "Maybe some of the folk around here could help you...", "But there's no way I'm gonna give it to you...", "Unless you pass the quiz!", "Darn!", "You sure know a lot about Berriton...", "Here's the recipe...", "You've earned it..."];
 
@@ -403,7 +403,7 @@ function charSelSubFunc() {
 
 		woatSpeechArr = ["Hello <span class=\"red-text\">" + user.name + "</span> How goes it?", "The name’s Woat the Goat.", "I’m somewhat of the elder here in Berriton", "So check it out...", "Tabetha, the lovely lady in <span class=\"blue-text\">that house down there</span>,", "Told me she would have a pie ready for me this afternoon.", "It's now getting close to the afternoon...", "Do you think you could go see where my pie is?", "Haaaay yes!", "That’s what I was looking for!", "Thank you for the pie <span class=\"red-text\">" + user.name + "</span>", "See ya around!"];
 
-		brobotSpeechArr = ["Bzzzzzzt...", "Need...", "<span class=\"blue-text\">Energy</span>...", "Bzzt...", "Low...", "Charge...", "Bzzzzt...", "<span class=\"blue-text\">More</span>...", "Energy...", "Please...", "Bzzt...", "Oh wow...", "I am starting to feel better...", "Bzzzzzzt...", "Just <span class=\"blue-text\">a little more</span>...", "Bzzzt...", "Bzzzzzzt!", "Thanks <span class=\"red-text\">" + user.name + "</span>!", "That energy hit the spot.", "I feel great!", "Here...", "Take this for all your trouble...", "Bzzzzt!"];
+		brobotSpeechArr = ["Bzzzzzzt...", "Need...", "<span class=\"blue-text\">Energy</span>...", "Bzzt...", "Low...", "Charge...", "Bzzzzt...", "<span class=\"blue-text\">More</span>...", "Energy...", "Please...", "Bzzt...", "I am starting to feel better...", "Just a little more...", "Bzzzzzzt...", "Just <span class=\"blue-text\">a little more</span>...", "Bzzzt...", "Bzzzzzzt!", "Thanks <span class=\"red-text\">" + user.name + "</span>!", "That energy hit the spot.", "I feel great!", "Here...", "Take this for all your trouble...", "Bzzzzt!"];
 
 		kennethSpeechArr = ["Just a little bit of this...", "And voila!", "...", "Oh hey <span class=\"red-text\">" + user.name + "</span>!", "Sorry, I was busy with this machine...", "It's a generator!", "It takes the acidic properties of berries...", "And transforms it into pure <span class=\"blue-text\">energy</span>!", "I've been working on a prototype battery charger", "So that people can <span class=\"blue-text\">take this energy anywhere</span>!", "Here...", "I have an extra", "Try using it with the generator", "As long as you have <span class=\"blue-text\">5 berries</span>...", "You will be able to take energy all over Berriton!", "Hmm...", "Looks like the charger's full...", "Come back if you use up all that energy!", "Use the generator!", "It should take <span class=\"blue-text\">5 berries</span> to fill it up!", "Yikes!", "I think there's something wrong with the machine...", "It won't make any more energy!", "I guess I'll have to fix it, huh?", "..."];
 
@@ -534,9 +534,9 @@ function moveForwardButs() {
 		forwardBut1.style.top = "23%";
 		forwardBut1.style.left = "5%";
 
-		if (bridgeSceneComplete == false) {
-			forwardBut1.classList.add("hidden");
-		}
+//		if (bridgeSceneComplete == false) {
+//			forwardBut1.classList.add("hidden");
+//		}
 
 		forwardBut2.src = "images/ui-elements/forward-button-right.svg"
 		forwardBut2.style.top = "60%";
@@ -1101,7 +1101,6 @@ var james = document.getElementById("james-container"),
 
 var quiz = document.getElementById("quiz-container"),
 	quizContent = document.getElementById("quiz-content"),
-	quizQuestion = document.getElementById("quiz-question"),
 	quizAnswer1 = document.getElementById("quiz-answer-1"),
 	quizAnswer2 = document.getElementById("quiz-answer-2"),
 	quizAnswer3 = document.getElementById("quiz-answer-3"),
@@ -1189,21 +1188,21 @@ function quizClick() {
 		quizContent.style.opacity = "0";
 		setTimeout(function () {
 			if (quizCurrent == 1) {
-				quizQuestion.innerHTML = "Who owns the <span class=\"blue-text\">Berriton Bridge</span>?";
+				quizQuestion.innerText = "Who owns the Berriton Bridge?";
 				quizAnswer1.innerText = "Woat the Goat";
 				quizAnswer2.innerText = "Tabetha the Goose";
 				quizAnswer3.innerText = "Brobot the Robot";
 				quizAnswer4.innerText = "Brent the Troll";
 				quizCurrent++;
 			} else if (quizCurrent == 2) {
-				quizQuestion.innerHTML = "What is the <span class=\"blue-text\">most important ingredient</span> in pie?";
+				quizQuestion.innerText = "What is the most important ingredient in pie?";
 				quizAnswer1.innerText = "Love";
 				quizAnswer2.innerText = "Berries";
 				quizAnswer3.innerText = "Pie Crust";
 				quizAnswer4.innerText = "Gluten-Free Gluten";
 				quizCurrent++;
 			} else if (quizCurrent == 3) {
-				quizQuestion.innerHTML = "Who is <span class=\"blue-text\">the elder</span> here in Berriton?";
+				quizQuestion.innerText = "Who is the elder here in Berriton?";
 				quizAnswer1.innerText = "James the Dolphin";
 				quizAnswer2.innerText = user.name + " the Human";
 				quizAnswer3.innerText = "Woat the Goat";
@@ -1280,9 +1279,8 @@ james.addEventListener("click", function () {
 					quiz.classList.remove("hidden");
 					setTimeout(function () {
 						quiz.style.opacity = "1";
-						quizContent.style.opacity = "1";
-					}, 150);
-				}, 150);
+					}, 300);
+				}, 300);
 			}
 		} else if (quizAttempted == true) {
 			if (quizScore == 4) {
@@ -2336,8 +2334,8 @@ caveExtBerry3.addEventListener("click", function () {
 
 // SHORTCUTS
 
-//jamesInit = true;
-//woatInit = true;
-//tabethaInit = true;
+jamesInit = true;
+woatInit = true;
+tabethaInit = true;
 //user.berryCount = 100;
 //chargerIsFull = true;

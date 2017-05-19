@@ -24,9 +24,9 @@ main {
 	max-height: 563px;
 	background-color: $white;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-//	filter: brightness(0.8) saturate(0);
+	//	filter: brightness(0.8) saturate(0);
 	overflow: hidden;
-} 
+}
 
 .scene-container {
 	width: 100%;
@@ -94,16 +94,26 @@ h3,
 h4,
 h5 {
 	margin: 0;
+	font-weight: 700;
+}
+
+h2 {
+	width: 100%;
+	color: $white;
+	font-size: 1.5em;
 }
 
 p {
 	margin: 0;
+	font-weight: 400;
 }
 
 .red-text {
 	color: $main-red;
+	font-weight: 500;
 }
 
 .blue-text {
 	color: $main-blue;
+	font-weight: 500;
 }
