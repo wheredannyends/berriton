@@ -50,12 +50,12 @@ $(document).ready(function () {
 
 var portScreen = document.getElementById("portrait-orientation");
 
-if(window.innerHeight > window.innerWidth){
-    portScreen.classList.remove("hidden");
+if (window.innerHeight > window.innerWidth) {
+	portScreen.classList.remove("hidden");
 }
 
-$( window ).on( "orientationchange", function( event ) {  
-	  $("#portrait-orientation").toggleClass("hidden");
+$(window).on("orientationchange", function (event) {
+	$("#portrait-orientation").toggleClass("hidden");
 });
 
 // USER OBJECT
@@ -503,11 +503,11 @@ function charSelSubFunc() {
 
 		brentSpeechArr = ["Hey <span class=\"red-text\">" + user.name + "</span>, this is MY bridge.", "Look here...", "If you want to use my things,", "You have to give me something in return.", "I’m pretty hungry right now...", "About <span class=\"blue-text\">5 berries</span> hungry I'd say...", "There are usually a bunch <span class=\"blue-text\">in the trees</span>", "Anyone could just reach up and <span class=\"blue-text\">grab some</span>", "I'd get them myself,", "But if I go anywhere...", " someone might touch my bridge!", "Get me some food. *hmph*", "Wow!", "I had you pegged as some kind of dork...", "but you’re actually pretty cool!", "You can use my bridge, I guess..."];
 
-		jamesSpeechArr = ["Psssst… over here <span class=\"red-text\">" + user.name + ".", "I hear that old koot in that there house...", "Serves up some pretty mean berry pie!", "Check it out...", "I ganked her recipe for berry pie,", "So I can have it all to myself!", "...", "What’s that?", "You think I should give it back?", "No. its mine!", "Tell you what...", "I'll come up with a quiz and you can earn it.", "If you can guess all the questions right...", "I’ll give you the recipe!", "But it will take some time...", "Maybe take a hike up the mountain over there.", "I'll whip it up in no time!", "Jeepers...", "You're back so soon!", "I'm still working on the quiz.", "Maybe Tabetha has a copy?", "Go check in with her at her place!", "Tabetha can't remember her own recipies!?", "I can't believe it!", "I'm still coming up with some questions", "If you wanna take a hike up the mountain...", "I'm sure it will be ready by the time you're back!", "Alright!", "Are you ready for the quiz!?", "Sure is a tough one...", "But I'm sure you know Berriton well enough by now!", "Hah! I guess its MY recipe after all!", "...", "I guess I could give you another shot", "I think the Berritonians could help you...", "But there's no way I'm gonna give it to you...", "Unless you pass the quiz!", "Darn!", "You sure know a lot about Berriton...", "Here's the recipe...", "You've earned it..."];
+		jamesSpeechArr = ["Psssst… over here <span class=\"red-text\">" + user.name + ".", "I hear that old koot in that there house...", "Serves up some pretty mean berry pie!", "Check it out...", "I ganked her recipe for berry pie,", "So I can have it all to myself!", "...", "What’s that?", "You think I should give it back?", "No. its mine!", "Tell you what...", "I'll come up with a quiz and you can earn it.", "If you can guess all the questions right...", "I’ll give you the recipe!", "But it will take some time...", "Maybe take a hike up <span class=\"blue-text\">Mount Rascal</span>.", "I'll whip it up in no time!", "Jeepers...", "You're back so soon!", "I'm still working on the quiz.", "Maybe Tabetha has a copy?", "Go check in with her at her place!", "Tabetha can't remember her own recipies!?", "I can't believe it!", "I'm still coming up with some questions", "If you wanna take a hike up <span class=\"blue-text\">Mount Rascal</span>...", "I'm sure it will be ready by the time you're back!", "Alright!", "Are you ready for the quiz!?", "Sure is a tough one...", "But I'm sure you know Berriton well enough by now!", "Hah! I guess its MY recipe after all!", "...", "I guess I could give you another shot", "I think the Berritonians could help you...", "But there's no way I'm gonna give it to you...", "Unless you pass the quiz!", "Darn!", "You sure know a lot about Berriton...", "Here's the recipe...", "You've earned it..."];
 
-		tabethaSpeechArr = ["Oh hello <span class=\"red-text\">" + user.name + "</span>!", "My name is Tabetha.", "I’m the chef around here!", "I love to bake", "And like I've always said...", "The most important ingredient to any pie...", "...is <span class=\"blue-text\">love!</span>", "Sadly, my berry pie recipe has gone missing...", "I have searched everywhere!", "I’ve searched under the table...", "Behind the cabinet...", "In the chimney...", "I've even poked my head into the garburator and taken a peek!", "But, no luck...", "It's such a shame...", "I was about to bake a pie for my friend <span class=\"blue-text\">on the mountain.</span>", "Oooh ho ho!", "Thank you <span class=\"red-text\">" + user.name + "!", "Now, let me see what I need...", "Oh! I need some berries!", "Could you please grab me some berries?", "<span class=\"blue-text\">10</span> oughta do it!", "Alright! We're all set!", "Head on over and <span class=\"blue-text\">take it out of the over</span>!"];
+		tabethaSpeechArr = ["Oh hello <span class=\"red-text\">" + user.name + "</span>!", "My name is Tabetha.", "I’m the chef around here!", "I love to bake", "And like I've always said...", "The most important ingredient to any pie...", "...is <span class=\"blue-text\">love!</span>", "Sadly, my berry pie recipe has gone missing...", "I have searched everywhere!", "I’ve searched under the table...", "Behind the cabinet...", "In the chimney...", "I've even poked my head into the garburator and taken a peek!", "But, no luck...", "It's such a shame...", "I was about to bake a pie for my friend on <span class=\"blue-text\">Mount Rascal.</span>", "Oooh ho ho!", "Thank you <span class=\"red-text\">" + user.name + "!", "Now, let me see what I need...", "Oh! I need some berries!", "Could you please grab me some berries?", "<span class=\"blue-text\">10</span> oughta do it!", "Alright! We're all set!", "Head on over and <span class=\"blue-text\">take it out of the over</span>!"];
 
-		woatSpeechArr = ["Hello <span class=\"red-text\">" + user.name + "</span> How goes it?", "The name’s Woat the Goat.", "I’m somewhat of the elder here in Berriton", "So check it out...", "Tabetha, the lovely lady in <span class=\"blue-text\">that house down there</span>,", "Told me she would have a pie ready for me this afternoon.", "It's now getting close to the afternoon...", "Do you think you could go see where my pie is?", "Haaaay yes!", "That’s what I was looking for!", "Thank you for the pie <span class=\"red-text\">" + user.name + "</span>", "Here's a little something from me to you!"];
+		woatSpeechArr = ["Hello <span class=\"red-text\">" + user.name + "</span> How goes it?", "The name’s Woat the Goat.", "I’m somewhat of the elder here in Berriton", "So check it out...", "Tabetha, the lovely lady in <span class=\"blue-text\">that cottage down there</span>,", "Told me she would have a pie ready for me this afternoon.", "It's now getting close to the afternoon...", "Do you think you could go see where my pie is?", "Haaaay yes!", "That’s what I was looking for!", "Thank you for the pie <span class=\"red-text\">" + user.name + "</span>", "Here's a little something from me to you!"];
 
 		brobotSpeechArr = ["Bzzzzzzt...", "Need...", "<span class=\"blue-text\">Energy</span>...", "Bzzt...", "Low...", "Charge...", "Bzzzzt...", "<span class=\"blue-text\">More</span>...", "Energy...", "Please...", "Bzzt...", "I am starting to feel better...", "Just a little more...", "Bzzzzzzt...", "Just <span class=\"blue-text\">a little more</span>...", "Bzzzt...", "Bzzzzzzt!", "Thanks <span class=\"red-text\">" + user.name + "</span>!", "That energy hit the spot.", "I feel great!", "Here...", "Take this for all your trouble...", "Bzzzzt!"];
 
@@ -628,6 +628,7 @@ introBut.addEventListener("click", function () {
 	setTimeout(function () {
 		introScreen.classList.remove("flex");
 		introScreen.classList.add("hidden");
+		locationNameDisp();
 	}, 300);
 });
 
@@ -687,7 +688,7 @@ function moveForwardButs() {
 		forwardBut1.src = "images/ui-elements/forward-button-left.svg"
 		forwardBut1.style.top = "23%";
 		forwardBut1.style.left = "5%";
-		
+
 		// HIDE BUTTON 1 IF BRIDGE NOT COMPLETE
 		if (bridgeSceneComplete == false) {
 			forwardBut1.classList.add("hidden");
@@ -774,7 +775,62 @@ function moveForwardButs() {
 	if (goodieDispIsOpen == true) {
 		goodieDispClose();
 	}
+	
+	// HIDE LOCATION NAME
+	
+	if (locationNameVisible == true) {
+		locationName.style.opacity = "0";
+		locationNameVisible = false;
+	}
 }
+
+
+// DISPLAY LOCATION NAME ON SCENE CHANGE
+
+var locationName = document.getElementById("location-name"),
+	locationNameVisible = false;
+
+function locationNameDisp() {
+	locationNameVisible = true;
+	if (curScene == "pathScene") {
+		locationName.innerText = "Pine Meadow";
+	}
+	if (curScene == "bridgeScene") {
+		locationName.innerText = "Berriton Bridge";
+	}
+	if (curScene == "houseExteriorScene") {
+		locationName.innerText = "Boggy Marsh";
+	}
+	if (curScene == "houseInteriorScene") {
+		locationName.innerText = "Tabetha's Cottage";
+	}
+	if (curScene == "highwayScene") {
+		locationName.innerText = "High Rock Pass";
+	}
+	if (curScene == "summitScene") {
+		locationName.innerText = "Mount Rascal";
+	}
+	if (curScene == "crossroadsScene") {
+		locationName.innerText = "Hooper Trail";
+	}
+	if (curScene == "caveExteriorScene") {
+		locationName.innerText = "Aspen Grove";
+	}
+	if (curScene == "caveInteriorScene") {
+		locationName.innerText = "Kenneth's Cave";
+	}
+	if (curScene == "forestScene") {
+		locationName.innerText = "Shady Crest Orchard";
+	}
+		locationName.style.opacity = "1";
+		setTimeout(function () {
+			locationName.style.opacity = "0";
+			setTimeout(function () {
+				locationNameVisible = false;
+			}, 300);
+		}, 1200);
+}
+
 
 /*
 
@@ -805,6 +861,7 @@ forwardBut1.addEventListener("click", function () {
 		setTimeout(function () {
 			bridgeScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 	}
 
@@ -821,6 +878,7 @@ forwardBut1.addEventListener("click", function () {
 		setTimeout(function () {
 			houseExteriorScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 		if (brentSpeechOpen == true) {
 			brentSpeechContainerClose();
@@ -841,6 +899,7 @@ forwardBut1.addEventListener("click", function () {
 		setTimeout(function () {
 			highwayScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 		if (jamesSpeechOpen == true) {
 			jamesSpeechContainerClose();
@@ -861,6 +920,7 @@ forwardBut1.addEventListener("click", function () {
 		setTimeout(function () {
 			summitScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 	}
 
@@ -877,6 +937,7 @@ forwardBut1.addEventListener("click", function () {
 		setTimeout(function () {
 			forestScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 	}
 
@@ -893,6 +954,7 @@ forwardBut1.addEventListener("click", function () {
 		setTimeout(function () {
 			caveInteriorScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 
 		if (haveCharger == true && generatorProg < 3) {
@@ -928,6 +990,7 @@ forwardBut2.addEventListener("click", function () {
 		setTimeout(function () {
 			highwayScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 		if (woatSpeechOpen == true) {
 			woatSpeechContainerClose();
@@ -948,6 +1011,7 @@ forwardBut2.addEventListener("click", function () {
 		setTimeout(function () {
 			houseExteriorScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 
 	}
@@ -965,6 +1029,7 @@ forwardBut2.addEventListener("click", function () {
 		setTimeout(function () {
 			houseExteriorScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 		if (tabethaSpeechOpen == true) {
 			tabethaSpeechContainerClose();
@@ -985,6 +1050,7 @@ forwardBut2.addEventListener("click", function () {
 		setTimeout(function () {
 			bridgeScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 		if (jamesSpeechOpen == true) {
 			jamesSpeechContainerClose();
@@ -1005,6 +1071,7 @@ forwardBut2.addEventListener("click", function () {
 		setTimeout(function () {
 			pathScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 		if (brentSpeechOpen == true) {
 			brentSpeechContainerClose();
@@ -1025,6 +1092,7 @@ forwardBut2.addEventListener("click", function () {
 		setTimeout(function () {
 			crossroadsScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 	}
 
@@ -1041,6 +1109,7 @@ forwardBut2.addEventListener("click", function () {
 		setTimeout(function () {
 			crossroadsScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 	}
 
@@ -1057,6 +1126,7 @@ forwardBut2.addEventListener("click", function () {
 		setTimeout(function () {
 			caveExteriorScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 		if (kennethSpeechOpen == true) {
 			kennethSpeechContainerClose();
@@ -1077,6 +1147,7 @@ forwardBut2.addEventListener("click", function () {
 		setTimeout(function () {
 			pathScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 	}
 
@@ -1093,6 +1164,7 @@ forwardBut2.addEventListener("click", function () {
 		setTimeout(function () {
 			crossroadsScene.style.opacity = "1";
 			forwardButContainer.style.opacity = "1";
+			locationNameDisp();
 		}, 500);
 		if (brobotSpeechOpen == true) {
 			brobotSpeechContainerClose();
@@ -1118,7 +1190,12 @@ houseExteriorArrow.addEventListener("click", function () {
 	setTimeout(function () {
 		houseInteriorScene.style.opacity = "1";
 		forwardButContainer.style.opacity = "1";
+		locationNameDisp();
 	}, 500);
+	if (jamesSpeechOpen == true) {
+		jamesSpeechContainerClose();
+		jamesSpeechOpen = false;
+	}
 });
 
 // CROSSROADS to CAVE EXTERIOR
@@ -1137,6 +1214,7 @@ crossroadsArrow.addEventListener("click", function () {
 	setTimeout(function () {
 		caveExteriorScene.style.opacity = "1";
 		forwardButContainer.style.opacity = "1";
+		locationNameDisp();
 	}, 500);
 });
 

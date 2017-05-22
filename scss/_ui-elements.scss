@@ -88,6 +88,19 @@
 	}
 }
 
+/* Location Name */
+
+.location-name {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	margin: 1% 0;
+	pointer-events: none;
+	color: white;
+	text-shadow: $material-2;
+	font-size: 2.5em;
+	opacity: 0;
+}
 
 /* Character Selection */
 
